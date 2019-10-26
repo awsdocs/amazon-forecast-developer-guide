@@ -1,0 +1,5 @@
+# Amazon Forecast API Permissions: Actions, Permissions, and Resources Reference<a name="api-permissions-reference"></a>
+
+When you are setting up [Access Control](authentication-and-access-control.md#access-control) and writing a permissions policy that you can attach to an IAM identity \(an identity\-based policy\), use the following as a reference\. The each Amazon Forecast API operation, the corresponding actions for which you can grant permissions to perform the action, and the AWS resource for which you can grant the permissions\. You specify the actions in the policy's `Action` field, and you specify the resource value in the policy's `Resource` field\. 
+
+To express conditions in your Amazon Forecast policies, you can use AWS\-wide condition keys\. For a complete list of AWS\-wide keys, see [Available Keys](https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_policies_elements.html#AvailableKeys) in the *IAM User Guide*\. 

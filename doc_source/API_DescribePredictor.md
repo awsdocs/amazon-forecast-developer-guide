@@ -103,6 +103,21 @@ Required: Yes
    "[PerformAutoML](#forecast-DescribePredictor-response-PerformAutoML)": boolean,
    "[PerformHPO](#forecast-DescribePredictor-response-PerformHPO)": boolean,
    "[PredictorArn](#forecast-DescribePredictor-response-PredictorArn)": "string",
+   "[PredictorExecutionDetails](#forecast-DescribePredictor-response-PredictorExecutionDetails)": { 
+      "[PredictorExecutions](API_PredictorExecutionDetails.md#forecast-Type-PredictorExecutionDetails-PredictorExecutions)": [ 
+         { 
+            "[AlgorithmArn](API_PredictorExecution.md#forecast-Type-PredictorExecution-AlgorithmArn)": "string",
+            "[TestWindows](API_PredictorExecution.md#forecast-Type-PredictorExecution-TestWindows)": [ 
+               { 
+                  "[Message](API_TestWindowSummary.md#forecast-Type-TestWindowSummary-Message)": "string",
+                  "[Status](API_TestWindowSummary.md#forecast-Type-TestWindowSummary-Status)": "string",
+                  "[TestWindowEnd](API_TestWindowSummary.md#forecast-Type-TestWindowSummary-TestWindowEnd)": number,
+                  "[TestWindowStart](API_TestWindowSummary.md#forecast-Type-TestWindowSummary-TestWindowStart)": number
+               }
+            ]
+         }
+      ]
+   },
    "[PredictorName](#forecast-DescribePredictor-response-PredictorName)": "string",
    "[Status](#forecast-DescribePredictor-response-Status)": "string",
    "[TrainingParameters](#forecast-DescribePredictor-response-TrainingParameters)": { 
@@ -184,6 +199,10 @@ The ARN of the predictor\.
 Type: String  
 Length Constraints: Minimum length of 1\. Maximum length of 63\.  
 Pattern: `^[a-zA-Z][a-zA-Z0-9_]*` 
+
+ ** [PredictorExecutionDetails](#API_DescribePredictor_ResponseSyntax) **   <a name="forecast-DescribePredictor-response-PredictorExecutionDetails"></a>
+Details on the the status and results of the backtests performed to evaluate the accuracy of the predictor\. You specify the number of backtests to perform when you call the [CreatePredictor](API_CreatePredictor.md) operation\.  
+Type: [PredictorExecutionDetails](API_PredictorExecutionDetails.md) object
 
  ** [PredictorName](#API_DescribePredictor_ResponseSyntax) **   <a name="forecast-DescribePredictor-response-PredictorName"></a>
 The name of the predictor\.  

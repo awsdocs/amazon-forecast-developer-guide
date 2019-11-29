@@ -36,6 +36,7 @@ Required: Yes
    "[DatasetGroupArn](#forecast-DescribeForecast-response-DatasetGroupArn)": "string",
    "[ForecastArn](#forecast-DescribeForecast-response-ForecastArn)": "string",
    "[ForecastName](#forecast-DescribeForecast-response-ForecastName)": "string",
+   "[ForecastTypes](#forecast-DescribeForecast-response-ForecastTypes)": [ "string" ],
    "[LastModificationTime](#forecast-DescribeForecast-response-LastModificationTime)": number,
    "[Message](#forecast-DescribeForecast-response-Message)": "string",
    "[PredictorArn](#forecast-DescribeForecast-response-PredictorArn)": "string",
@@ -70,6 +71,12 @@ The name of the forecast\.
 Type: String  
 Length Constraints: Minimum length of 1\. Maximum length of 63\.  
 Pattern: `^[a-zA-Z][a-zA-Z0-9_]*` 
+
+ ** [ForecastTypes](#API_DescribeForecast_ResponseSyntax) **   <a name="forecast-DescribeForecast-response-ForecastTypes"></a>
+The quantiles at which probabilistic forecasts were generated\.  
+Type: Array of strings  
+Array Members: Minimum number of 1 item\. Maximum number of 20 items\.  
+Pattern: `(^0?\.\d\d?$|^mean$)` 
 
  ** [LastModificationTime](#API_DescribeForecast_ResponseSyntax) **   <a name="forecast-DescribeForecast-response-LastModificationTime"></a>
 Initially, the same as `CreationTime` \(status is `CREATE_PENDING`\)\. Updated when inference \(creating the forecast\) starts \(status changed to `CREATE_IN_PROGRESS`\), and when inference is complete \(status changed to `ACTIVE`\) or fails \(status changed to `CREATE_FAILED`\)\.  

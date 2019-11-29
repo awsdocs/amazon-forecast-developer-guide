@@ -2,7 +2,7 @@
 
 Creates a forecast for each item in the `TARGET_TIME_SERIES` dataset that was used to train the predictor\. This is known as inference\. To retrieve the forecast for a single item at low latency, use the [QueryForecast](API_forecastquery_QueryForecast.md) operation\. To export the complete forecast into your Amazon Simple Storage Service \(Amazon S3\) bucket, use the [CreateForecastExportJob](API_CreateForecastExportJob.md) operation\.
 
-The range of the forecast is determined by the `ForecastHorizon` value, which you specify in the [CreatePredictor](API_CreatePredictor.md) request, multiplied by the `DataFrequency` value, which you specify in the [CreateDataset](API_CreateDataset.md) request\. When you query a forecast, you can request a specific date range within the forecast\.
+The range of the forecast is determined by the `ForecastHorizon` value, which you specify in the [CreatePredictor](API_CreatePredictor.md) request\. When you query a forecast, you can request a specific date range within the forecast\.
 
 To get a list of all your forecasts, use the [ListForecasts](API_ListForecasts.md) operation\.
 
@@ -19,6 +19,7 @@ The `Status` of the forecast must be `ACTIVE` before you can query or export the
 ```
 {
    "[ForecastName](#forecast-CreateForecast-request-ForecastName)": "string",
+   "[ForecastTypes](#forecast-CreateForecast-request-ForecastTypes)": [ "string" ],
    "[PredictorArn](#forecast-CreateForecast-request-PredictorArn)": "string"
 }
 ```
@@ -33,6 +34,13 @@ Type: String
 Length Constraints: Minimum length of 1\. Maximum length of 63\.  
 Pattern: `^[a-zA-Z][a-zA-Z0-9_]*`   
 Required: Yes
+
+ ** [ForecastTypes](#API_CreateForecast_RequestSyntax) **   <a name="forecast-CreateForecast-request-ForecastTypes"></a>
+The quantiles at which probabilistic forecasts are generated\. **You can currently specify up to 5 quantiles per forecast**\. Accepted values include `0.01 to 0.99` \(increments of \.01 only\) and `mean`\. The mean forecast is different from the median \(0\.50\) when the distribution is not symmetric \(for example, Beta and Negative Binomial\)\. The default value is `["0.1", "0.5", "0.9"]`\.  
+Type: Array of strings  
+Array Members: Minimum number of 1 item\. Maximum number of 20 items\.  
+Pattern: `(^0?\.\d\d?$|^mean$)`   
+Required: No
 
  ** [PredictorArn](#API_CreateForecast_RequestSyntax) **   <a name="forecast-CreateForecast-request-PredictorArn"></a>
 The Amazon Resource Name \(ARN\) of the predictor to use to generate the forecast\.  

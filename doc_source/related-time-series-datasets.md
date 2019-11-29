@@ -12,7 +12,7 @@ You can use a RELATED\_TIME\_SERIES dataset only when training a predictor with 
 
 A RELATED\_TIME\_SERIES dataset has the following restrictions:
 + It can't include the target value from the TARGET\_TIME\_SERIES\.
-+ It must include `item_id` and `timestamp` dimensions, and at least one other dimension from the TARGET\_TIME\_SERIES \(such as `store` or `location`\)\.
++ It must include `item_id` and `timestamp` dimensions, and at least one related feature \(such as `store` or `location`\)\.
 + RELATED\_TIME\_SERIES feature data must be of the `int` or `float` datatypes\.
 + Data frequency for a RELATED\_TIME\_SERIES dataset must match the TARGET\_TIME\_SERIES data frequency\.
 

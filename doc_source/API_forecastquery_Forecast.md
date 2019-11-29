@@ -7,7 +7,6 @@ Provides information about a forecast\. Returned as part of the [QueryForecast](
  **Predictions**   <a name="forecast-Type-forecastquery_Forecast-Predictions"></a>
 The forecast\.  
 The *string* of the string\-to\-array map is one of the following values:  
-+ mean
 + p10
 + p50
 + p90

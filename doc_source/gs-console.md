@@ -112,7 +112,7 @@ The `Status` of **Predictor training** must be `Active` before you can generate 
    + **Forecast name** – Enter a name for your forecast\.
    + **Predictor** – From the drop\-down menu, choose the predictor that you created in `Step 2: Train a Predictor`\.
 
-   Your screen should look similar to the following:  
+   The remaining setting is optional, so leave the default value\. Your screen should look similar to the following:  
 ![\[Image NOT FOUND\]](http://docs.aws.amazon.com/forecast/latest/dg/images/gs-step3-forecast-details.png)
 
 1. Choose **Create a forecast**\. The dataset group's **Dashboard** page is displayed\. Your screen should look similar to the following:  

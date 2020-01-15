@@ -28,13 +28,13 @@ Begin by creating a dataset and importing the electricity usage data into it\.
 
    For this data, choose the following predefined dataset domain and dataset type:
    + Custom domain – None of the dataset domains, such as METRICS, RETAIL, or WEB\_TRAFFIC, applies to this data, so choose the Custom domain\.
-   + TARGET\_TIME\_SERIES type – The data is a time series because it tracks electricity usage over time\. It also includes the *target* that we want to forecast \(Column 2, electricity usage\)\. Therefore, choose the TARGET\_TIME\_SERIES dataset type\.
+   + Target time series type – The data is a time series because it tracks electricity usage over time\. It also includes the *target* that we want to forecast \(Column 2, electricity usage\)\. Therefore, choose the target time series dataset type\.
 
      To understand why you choose this type, see [Predefined Dataset Domains and Dataset Types](howitworks-domains-ds-types.md)\.
 
 1. Decide on a dataset schema\.
 
-   The TARGET\_TIME\_SERIES type for the [CUSTOM Domain](custom-domain.md) requires these fields; `timestamp`, `target_value`, and `item_id`\. The `target_value` field is the target\. Amazon Forecast generates the forecast for this field\.
+   The target time series type for the [CUSTOM Domain](custom-domain.md) requires these fields; `timestamp`, `target_value`, and `item_id`\. The `target_value` field is the target\. Amazon Forecast generates the forecast for this field\.
 
    To map the required fields to columns in your data, you create a schema\. Each *attribute* in the schema maps to a field in the data\.
 **Important**  

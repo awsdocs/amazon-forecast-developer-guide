@@ -3,11 +3,11 @@
 Use the INVENTORY\_PLANNING domain for forecasting demand for raw materials and determining how much inventory of a particular item to stock\. It supports the following dataset types\. For each dataset type, we list required and optional fields\. For information on how to map the fields to columns in your training data, see [Dataset Domains and Dataset Types](howitworks-datasets-groups.md#howitworks-dataset-domainstypes)\.
 
 **Topics**
-+ [TARGET\_TIME\_SERIES Dataset Type](#target-time-series-type-inv-planning-domain)
-+ [RELATED\_TIME\_SERIES Dataset Type](#related-time-series-type-related_time_series-domain)
-+ [ITEM\_METADATA Dataset Type](#item-metadata-type-related_time_series-domain)
++ [Target Time Series Dataset Type](#target-time-series-type-inv-planning-domain)
++ [Related Time Series Dataset Type](#related-time-series-type-related time series-domain)
++ [Item Metadata Dataset Type](#item-metadata-type-related time series-domain)
 
-## TARGET\_TIME\_SERIES Dataset Type<a name="target-time-series-type-inv-planning-domain"></a>
+## Target Time Series Dataset Type<a name="target-time-series-type-inv-planning-domain"></a>
 
 The following fields are required: 
 + `item_id` \(string\)
@@ -17,9 +17,9 @@ The following fields are required:
 Although the following field is optional, Amazon Forecast suggests that you include it:
 + `location` \(string\) – The location of the distribution center where the item is stocked\.
 
-Ideally, only these required and suggested optional fields should be included\. Other additional time series information should be included in a RELATED\_TIME\_SERIES dataset\.
+Ideally, only these required and suggested optional fields should be included\. Other additional time series information should be included in a related time series dataset\.
 
-## RELATED\_TIME\_SERIES Dataset Type<a name="related-time-series-type-related_time_series-domain"></a>
+## Related Time Series Dataset Type<a name="related-time-series-type-related time series-domain"></a>
 
 The following fields are required: 
 + `item_id` \(string\)
@@ -34,7 +34,7 @@ Although the following fields are optional, Amazon Forecast suggests that you in
 
 In addition to the required and suggested optional fields, your training data can include other fields\. To include other fields in the dataset, provide the fields in a schema when you create the dataset\.
 
-## ITEM\_METADATA Dataset Type<a name="item-metadata-type-related_time_series-domain"></a>
+## Item Metadata Dataset Type<a name="item-metadata-type-related time series-domain"></a>
 
 The following fields are required: 
 + `item_id` \(string\)

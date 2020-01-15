@@ -32,9 +32,9 @@ Amazon Forecast provides a set of operations to work with Amazon Forecast resour
 ## Understanding Resource Ownership<a name="access-control-resource-ownership"></a>
 
 The AWS account owns the resources that are created in the account, regardless of who created the resources\. Specifically, the resource owner is the AWS account of the [principal entity](https://docs.aws.amazon.com/IAM/latest/UserGuide/id_roles_terms-and-concepts.html) \(that is, the root account, an IAM user, or an IAM role\) that authenticates the resource creation request\. The following examples illustrate how this works:
-+ If you use the root account credentials of your AWS account to create a workspace, your AWS account is the owner of the resource \(in Amazon Forecast, the resource is a workspace\)\.
-+ If you create an IAM user in your AWS account and grant permissions to create a workspace to that user, the user can create a workspace\. However, your AWS account, to which the user belongs, owns the workspace resource\.
-+ If you create an IAM role in your AWS account with permissions to create a workspace, anyone who can assume the role can create a workspace\. Your AWS account, to which the user belongs, owns the workspace resource\. 
++ If you use the root account credentials of your AWS account to create a dataset group, your AWS account is the owner of the resource\.
++ If you create an IAM user in your AWS account and grant permissions to create a dataset group to that user, the user can create a dataset group\. However, your AWS account, to which the user belongs, owns the dataset group resource\.
++ If you create an IAM role in your AWS account with permissions to create a dataset group, anyone who can assume the role can create a dataset group\. Your AWS account, to which the user belongs, owns the dataset group resource\. 
 
 ## Managing Access to Resources<a name="manage-access-overview"></a>
 
@@ -52,7 +52,7 @@ Permissions policies attached to an IAM identity are referred to as *identity\-b
 ### Identity\-Based Policies \(IAM Policies\)<a name="manage-access-iam-policies"></a>
 
 You can attach permissions policies to IAM identities\. For example, you can do the following:
-+ **Attach a permissions policy to a user or a group in your account** – To grant a user permissions to create an Amazon Forecast resource, such as a workspace, you can attach a permissions policy to a user or to a group that the user belongs to\.
++ **Attach a permissions policy to a user or a group in your account** – To grant a user permissions to create an Amazon Forecast resource, such as a dataset group, you can attach a permissions policy to a user or to a group that the user belongs to\.
 + **Attach a permissions policy to a role \(grant cross\-account permissions\)** – You can attach an identity\-based permissions policy to an IAM role to grant cross\-account permissions\. For example, the administrator in account A can create a role to grant cross\-account permissions to another AWS account \(for example, account B\) or an AWS service as follows:
 
   1. Account A administrator creates an IAM role and attaches a permissions policy to the role that grants permissions on resources in account A\.

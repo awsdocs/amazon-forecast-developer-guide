@@ -1,7 +1,7 @@
 # Amazon Forecast Developer Guide
 
 -----
-*****Copyright &copy; 2019 Amazon Web Services, Inc. and/or its affiliates. All rights reserved.*****
+*****Copyright &copy; 2020 Amazon Web Services, Inc. and/or its affiliates. All rights reserved.*****
 
 -----
 Amazon's trademarks and trade dress may not be used in 
@@ -17,7 +17,7 @@ Amazon's trademarks and trade dress may not be used in
 + [What Is Amazon Forecast?](what-is-forecast.md)
 + [How Amazon Forecast Works](how-it-works.md)
    + [Datasets and Dataset Groups](howitworks-datasets-groups.md)
-      + [Using RELATED_TIME_SERIES Datasets](related-time-series-datasets.md)
+      + [Using Related Time Series Datasets](related-time-series-datasets.md)
       + [Dataset Import Guidelines for Forecast](dataset-import-guidelines-troubleshooting.md)
    + [Predictors](howitworks-predictor.md)
    + [Forecasts](howitworks-forecast.md)

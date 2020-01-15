@@ -3,11 +3,11 @@
 Use the WORK\_FORCE domain to forecast workforce demand\. It supports the following dataset types\. For each dataset type, we list required and optional fields\. For information on how to map the fields to columns in your training data, see [Dataset Domains and Dataset Types](howitworks-datasets-groups.md#howitworks-dataset-domainstypes)\.
 
 **Topics**
-+ [TARGET\_TIME\_SERIES Dataset Type](#target-time-series-type-workforce-domain)
-+ [RELATED\_TIME\_SERIES Dataset Type](#related-time-series-type-workforce-domain)
-+ [ITEM\_METADATA Dataset Type](#item-metadata-type-workforce-domain)
++ [Target Time Series Dataset Type](#target-time-series-type-workforce-domain)
++ [Related Time Series Dataset Type](#related-time-series-type-workforce-domain)
++ [Item Metadata Dataset Type](#item-metadata-type-workforce-domain)
 
-## TARGET\_TIME\_SERIES Dataset Type<a name="target-time-series-type-workforce-domain"></a>
+## Target Time Series Dataset Type<a name="target-time-series-type-workforce-domain"></a>
 
 The following fields are required: 
 + `workforce_type` \(string\) – The type of work force labor being forecast\. For example, call center demand or fulfillment center labor demand\.
@@ -17,9 +17,9 @@ The following fields are required:
 Although the following field is optional, Amazon Forecast suggests that you include it:
 + `location` \(string\) – The location where the work force resources are sought\.
 
-Ideally, only these required and suggested optional fields should be included\. Other additional time series information should be included in a RELATED\_TIME\_SERIES dataset\.
+Ideally, only these required and suggested optional fields should be included\. Other additional time series information should be included in a related time series dataset\.
 
-## RELATED\_TIME\_SERIES Dataset Type<a name="related-time-series-type-workforce-domain"></a>
+## Related Time Series Dataset Type<a name="related-time-series-type-workforce-domain"></a>
 
 The following fields are required: 
 + `workforce_type` \(string\)
@@ -27,7 +27,7 @@ The following fields are required:
 
 In addition to the required fields, your training data can include other fields\. To include other fields in the dataset, provide the fields in a schema when you create the dataset\.
 
-## ITEM\_METADATA Dataset Type<a name="item-metadata-type-workforce-domain"></a>
+## Item Metadata Dataset Type<a name="item-metadata-type-workforce-domain"></a>
 
 The following field is required: 
 + `workforce_type` \(string\)

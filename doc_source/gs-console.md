@@ -11,7 +11,7 @@ For this exercise, we use the individual household electric power consumption da
 
 ## Step 1: Import Training Data<a name="gs-console-create-dataset"></a>
 
-To import time\-series data into Amazon Forecast, create a dataset group, choose a domain for your dataset group, specify the details of your data, and point Amazon Forecast to the S3 location of your data\. You use a time series of [historical electricity usage](getting-started.md#gs-upload-data-to-s3) as an example for the target time\-series data\.
+To import time\-series data into Amazon Forecast, create a dataset group, choose a domain for your dataset group, specify the details of your data, and point Amazon Forecast to the S3 location of your data\. You use a time series of [historical electricity usage](getting-started.md#gs-upload-data-to-s3) as an example for the target time series data\.
 
 **Note**  
 This exercise assumes that you haven't created any dataset groups\. If you previously created a dataset group, what you see will vary slightly from the following screenshots and instructions\.
@@ -63,7 +63,7 @@ This exercise assumes that you haven't created any dataset groups\. If you previ
    Under **Target time series data**, you will see the status of the import job\. Wait for Amazon Forecast to finish importing your time\-series data\. The process can take several minutes or longer\. When your dataset has been imported, the status transitions to **Active**\. Additionally, the banner at the top of the dashboard, changes to display the following message:  
 ![\[Image NOT FOUND\]](http://docs.aws.amazon.com/forecast/latest/dg/images/gs-step1-imported-banner.png)
 
-   Now that your target time\-series dataset has been imported, you can train a predictor\.
+   Now that your target time series dataset has been imported, you can train a predictor\.
 
 ## Step 2: Train a Predictor<a name="gs-console-create-predictor"></a>
 
@@ -71,7 +71,7 @@ To create a predictor, which is a trained model, choose an algorithm and the num
 
 **To train a predictor**
 
-1. After your target time\-series dataset has finished importing, your dataset group's **Dashboard** should look similar to the following:  
+1. After your target time series dataset has finished importing, your dataset group's **Dashboard** should look similar to the following:  
 ![\[Image NOT FOUND\]](http://docs.aws.amazon.com/forecast/latest/dg/images/gs-step2-start.png)
 
    Under **Train a predictor**, choose **Start**\. The **Train predictor** page is displayed\.
@@ -97,7 +97,7 @@ The `Status` of the **Target time series data** must be `Active`, which signifie
 
 ## Step 3: Create a Forecast<a name="gs-console-retrieve-forecast"></a>
 
-To make predictions \(inferences\), you use a predictor to create a forecast\. A forecast is a group of predictions, one for every item in the `TARGET_TIME_SERIES` dataset\. To retrieve the prediction for a single item, you query the forecast\. To retrieve the complete forecast, you create an export job\.
+To make predictions \(inferences\), you use a predictor to create a forecast\. A forecast is a group of predictions, one for every item in the target dataset\. To retrieve the prediction for a single item, you query the forecast\. To retrieve the complete forecast, you create an export job\.
 
 **To get and view your forecast**
 

@@ -34,7 +34,7 @@ The evaluation parameters consist of the `NumberOfBacktestWindows` and the `Back
 
 `NumberOfBacktestWindows` specifies the number of times to split the input data\. The range is 1 through 5\.
 
-`BackTestWindowOffset` defines the point from the end of the dataset where the data is split for model training and testing \(evaluation\)\. The value is specified as the number of data points\. `BackTestWindowOffset` must be greater than or equal to the forecast horizon and less than half of the TARGET\_TIME\_SERIES dataset length\. This parameter can be used to mimic a past virtual forecast start date\.
+`BackTestWindowOffset` defines the point from the end of the dataset where the data is split for model training and testing \(evaluation\)\. The value is specified as the number of data points\. `BackTestWindowOffset` must be greater than or equal to the forecast horizon and less than half of the target time series dataset length\. This parameter can be used to mimic a past virtual forecast start date\.
 
 For more information, see [Evaluating Predictor Accuracy](metrics.md)\.
 

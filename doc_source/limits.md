@@ -28,9 +28,9 @@ Forecast has the following service limits\.
 | Maximum cumulative size of all files in your Amazon S3 bucket | 5 GB | 
 | Maximum number of datasets in a dataset group | 3 \(1 for each type\) | 
 | Maximum number of rows in a dataset | 100 million | 
-| Maximum number of columns in a TARGET\_TIME\_SERIES dataset \(required columns \+ additional forecast dimensions\) | 13 \(3 \+ 10\) | 
-| Maximum number of columns in a RELATED\_TIME\_SERIES dataset \(required columns \+ additional forecast dimensions \+ related features\) | 25 \(2 \+ 10 \+ 13\) | 
-| Maximum number of columns in an ITEM\_METADATA dataset | 10 | 
+| Maximum number of columns in a target time series dataset \(required columns \+ additional forecast dimensions\) | 13 \(3 \+ 10\) | 
+| Maximum number of columns in a related time series dataset \(required columns \+ additional forecast dimensions \+ related features\) | 25 \(2 \+ 10 \+ 13\) | 
+| Maximum number of columns in an item metadata dataset | 10 | 
 
 
 **Limits Imposed by the [CreatePredictor](API_CreatePredictor.md) API**  
@@ -38,8 +38,8 @@ Forecast has the following service limits\.
 | Resource | Default Limit | 
 | --- | --- | 
 | Maximum NumberOfBacktestWindows \([EvaluationParameters](API_EvaluationParameters.md)\) | 5 | 
-| Maximum number of forecasts per predictor \(number of items X number of forecast dimensions in the TARGET\_TIME\_SERIES dataset\) | 100,000 across all dimensions | 
-| Forecast horizon | The lesser of 500 data points or 1/3 of the TARGET\_TIME\_SERIES dataset length | 
+| Maximum number of forecasts per predictor \(number of items X number of unique values across forecast dimensions in the target tiome series dataset\) | 100,000 across all target tiome series dimensions \(For instance, you can have 100,000 items, or 10 items in 10,00 locations, or 10 items in 100 warehouses in 100 cities\.\) | 
+| Forecast horizon | The lesser of 500 data points or 1/3 of the target tiome series dataset length | 
 
 
 **General Resource Limits**  

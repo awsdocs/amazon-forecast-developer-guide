@@ -1,37 +1,37 @@
-# Using RELATED\_TIME\_SERIES Datasets<a name="related-time-series-datasets"></a>
+# Using Related Time Series Datasets<a name="related-time-series-datasets"></a>
 
-A RELATED\_TIME\_SERIES dataset includes time\-series data that isn't included in a TARGET\_TIME\_SERIES dataset and might improve the accuracy of your predictor\.
+A related time series dataset includes time\-series data that isn't included in a target time series dataset and might improve the accuracy of your predictor\.
 
-For example, in the demand forecasting domain, a TARGET\_TIME\_SERIES dataset would contain `timestamp` and`item_id` dimensions, while a complimentary RELATED\_TIME\_SERIES dataset also includes the following supplementary features: `item price`, `promotion`, and `weather`\.
+For example, in the demand forecasting domain, a target time series dataset would contain `timestamp` and`item_id` dimensions, while a complimentary related time series dataset also includes the following supplementary features: `item price`, `promotion`, and `weather`\.
 
-A RELATED\_TIME\_SERIES dataset can contain up to 10 forecast dimensions \(the same ones in your TARGET\_TIME\_SERIES dataset\) and up to 13 related time\-series features\.
+A related time series dataset can contain up to 10 forecast dimensions \(the same ones in your target time series dataset\) and up to 13 related time\-series features\.
 
-You can use a RELATED\_TIME\_SERIES dataset only when training a predictor with the [DeepAR\+](aws-forecast-recipe-deeparplus.md), [NPTS](aws-forecast-recipe-npts.md), and [Prophet](aws-forecast-recipe-prophet.md) algorithms\. The R open\-source algorithms \([ARIMA](aws-forecast-recipe-arima.md) and [ETS](aws-forecast-recipe-ets.md)\) don't take data in a RELATED\_TIME\_SERIES dataset into consideration\.
+You can use a related time series dataset only when training a predictor with the [DeepAR\+](aws-forecast-recipe-deeparplus.md) and [Prophet](aws-forecast-recipe-prophet.md) algorithms\. The [NPTS](aws-forecast-recipe-npts.md) algorithm and the R open\-source algorithms \([ARIMA](aws-forecast-recipe-arima.md) and [ETS](aws-forecast-recipe-ets.md)\) don't take data in a related time series dataset into consideration\.
 
-## RELATED\_TIME\_SERIES Dataset Validation<a name="related-time-series-dataset-validation"></a>
+## Related Time Series Dataset Validation<a name="related-time-series-dataset-validation"></a>
 
-A RELATED\_TIME\_SERIES dataset has the following restrictions:
-+ It can't include the target value from the TARGET\_TIME\_SERIES\.
+A related time series dataset has the following restrictions:
++ It can't include the target value from the target time series\.
 + It must include `item_id` and `timestamp` dimensions, and at least one related feature \(such as `store` or `location`\)\.
-+ RELATED\_TIME\_SERIES feature data must be of the `int` or `float` datatypes\.
-+ Data frequency for a RELATED\_TIME\_SERIES dataset must match the TARGET\_TIME\_SERIES data frequency\.
++ related time series feature data must be of the `int` or `float` datatypes\.
++ Data frequency for a related time series dataset must match the target time series data frequency\.
 
-  For example, if the forecast frequency for the TARGET\_TIME\_SERIES dataset is weekly, the data frequency for the RELATED\_TIME\_SERIES must also be weekly even if the TARGET\_TIME\_SERIES data frequency is daily\.
-+ The data for each item in the RELATED\_TIME\_SERIES dataset must start on or before the beginning `timestamp` of the corresponding `item_id` in the TARGET\_TIME\_SERIES dataset\.
+  For example, if the forecast frequency for the target time series dataset is weekly, the data frequency for the related time series must also be weekly even if the target time series data frequency is daily\.
++ The data for each item in the related time series dataset must start on or before the beginning `timestamp` of the corresponding `item_id` in the target time series dataset\.
 
-  For example, if the TARGET\_TIME\_SERIES data for `socks` starts at 2019\-01\-01 and the TARGET\_TIME\_SERIES data for `shoes` starts at 2019\-02\-01, the RELATED\_TIME\_SERIES data for `socks` must begin on or before 2019\-01\-01 and the data for `shoes` must begin on or before 2019\-02\-01\.
-+ The last timestamp for every item in the RELATED\_TIME\_SERIES dataset must be on or after the last timestamp in the TARGET\_TIME\_SERIES *plus* the user\-designated forecast window \(called the *forecast horizon*\)\.
+  For example, if the target time series data for `socks` starts at 2019\-01\-01 and the target time series data for `shoes` starts at 2019\-02\-01, the related time series data for `socks` must begin on or before 2019\-01\-01 and the data for `shoes` must begin on or before 2019\-02\-01\.
++ The last timestamp for every item in the related time series dataset must be on or after the last timestamp in the target time series *plus* the user\-designated forecast window \(called the *forecast horizon*\)\.
 
-  In the example RELATED\_TIME\_SERIES file below, the `timestamp` data for both socks and shoes must end on or after 2019\-07\-01 \(the last recorded timestamp\) *plus* the forecast horizon\. If data frequency in the TARGET\_TIME\_SERIES is daily and the forecast horizon is 10 days, daily data points must be provided in the RELATED\_TIME\_SERIES file until 2019\-07\-11\.
-+ The Forecast dimensions provided in the RELATED\_TIME\_SERIES dataset must be either equal to or a subset of the dimensions designated in the TARGET\_TIME\_SERIES dataset\.
+  In the example related time series file below, the `timestamp` data for both socks and shoes must end on or after 2019\-07\-01 \(the last recorded timestamp\) *plus* the forecast horizon\. If data frequency in the target time series is daily and the forecast horizon is 10 days, daily data points must be provided in the related time series file until 2019\-07\-11\.
++ The Forecast dimensions provided in the related time series dataset must be either equal to or a subset of the dimensions designated in the target time series dataset\.
 
 **Important**  
-Forecast doesn't support aggregations or filling missing values for RELATED\_TIME\_SERIES datasets as it does for TARGET\_TIME\_SERIES datasets\.
+Forecast doesn't support aggregations or filling missing values for related time series datasets as it does for target time series datasets\.
 
-## Example: RELATED\_TIME\_SERIES File<a name="related-time-series-example"></a>
+## Example: Related Time Series File<a name="related-time-series-example"></a>
 
-The following table shows a correctly configured RELATED\_TIME\_SERIES dataset file\. For this example, assume the following:
-+ The last data point was recorded in the TARGET\_TIME\_SERIES dataset on 2019\-07\-01\.
+The following table shows a correctly configured related time series dataset file\. For this example, assume the following:
++ The last data point was recorded in the target time series dataset on 2019\-07\-01\.
 +  The forecast horizon is 10 days\. 
 + The forecast frequency is daily \(`D`\)\. 
 
@@ -66,7 +66,7 @@ A "`…`" row indicates all of the data points in between the previous and succe
 
 ## Example: Forecasting Granularity<a name="related-time-series-granularity"></a>
 
-The following table shows compatible TARGET\_TIME\_SERIES and RELATED\_TIME\_SERIES frequencies for forecasting over the period of a week \(the forecast *granularity*\)\. Because data in a RELATED\_TIME\_SERIES dataset can't be aggregated, Forecast accepts only a RELATED\_TIME\_SEQUENCE data frequency that is the same as the chosen forecasting granularity\.
+The following table shows compatible target time series and related time series frequencies for forecasting over the period of a week \(the forecast *granularity*\)\. Because data in a related time series dataset can't be aggregated, Forecast accepts only a related time series data frequency that is the same as the chosen forecasting granularity\.
 
 
 | Target Input Data Frequency | Related Time Series Frequency | Forecasting Granularity | Supported by Forecast? | 

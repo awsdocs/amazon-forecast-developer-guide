@@ -15,12 +15,12 @@ Amazon Forecast supports the following dataset domains:
 
 Each domain can have one to three *dataset types*\. The dataset types that you create for a domain are based on the type of data that you have and what you want to include in training\.
 
-Each domain requires a `TARGET_TIME_SERIES` dataset, and optionally supports the `RELATED_TIME_SERIES` and `ITEM_METADATA` dataset types\.
+Each domain requires a target time series dataset, and optionally supports the related time series and item metadata dataset types\.
 
 The dataset types are:
-+ TARGET\_TIME\_SERIES – The only required dataset type\. This type defines the *target* field that you want to generate forecasts for\. For example, if you want to forecast the sales for a set of products, then you must create a dataset of historical time\-series data for each of the products that you want to forecast\. Similarly, you can create a target\_time\_series dataset for metrics— such as revenue, cash flow, and sales—that you might want to forecast\.
-+ RELATED\_TIME\_SERIES – Time\-series data that is related to the target time\-series data\. For example, price is related to product sales data, so you might provide it as a related\_time\_series\.
-+ ITEM\_METADATA – Metadata that is applicable to the target time\-series data\. For example, if you are forecasting sales for a particular product, attributes of the product—such as brand, color, and genre—will be part of item\_metadata\. When predicting EC2 capacity for EC2 instances, metadata might include the CPU and memory of the instance types\.
++ Target time series – The only required dataset type\. This type defines the *target* field that you want to generate forecasts for\. For example, if you want to forecast the sales for a set of products, then you must create a dataset of historical time\-series data for each of the products that you want to forecast\. Similarly, you can create a target time series dataset for metrics— such as revenue, cash flow, and sales—that you might want to forecast\.
++ Related time series – Time\-series data that is related to the target time series data\. For example, price is related to product sales data, so you might provide it as a related time series\.
++ Item metadata – Metadata that is applicable to the target time\-series data\. For example, if you are forecasting sales for a particular product, attributes of the product—such as brand, color, and genre—will be part of item metadata\. When predicting EC2 capacity for EC2 instances, metadata might include the CPU and memory of the instance types\.
 
 For each dataset type, your input data must contain certain required fields\. You can also include optional fields that Amazon Forecast suggests that you include\.
 
@@ -28,16 +28,16 @@ The following examples show how to choose a dataset domain and corresponding dat
 
 **Example Example 1: Dataset Types in the RETAIL Domain**  
 If you are a retailer interested in forecasting demand for items, you might create the following datasets in the RETAIL domain:  
-+ TARGET\_TIME\_SERIES is the required dataset of historical time\-series demand \(sales\) data for each item \(each product a retailer sells\)\. In the RETAIL domain, this dataset type requires that the dataset includes the `item_id`, `timestamp`, and the `demand` fields\. The `demand` field is the forecast target, and is typically the number of items sold by the retailer in a particular week or day\.
-+ Optionally, a dataset of the RELATED\_TIME\_SERIES type\. In the RETAIL domain, this type can include optional, but suggested, time\-series information such as `price`, `inventory_onhand`, `in_stock`, and `webpage_hits`\.
-+ Optionally, a dataset of the ITEM\_METADATA type\. In the RETAIL domain, Amazon Forecast suggests providing metadata information related to the items that you provided in TARGET\_TIME\_SERIES, such as `brand`, `color`, `category`, and `genre`\.
++ tTrget time series is the required dataset of historical time\-series demand \(sales\) data for each item \(each product a retailer sells\)\. In the RETAIL domain, this dataset type requires that the dataset includes the `item_id`, `timestamp`, and the `demand` fields\. The `demand` field is the forecast target, and is typically the number of items sold by the retailer in a particular week or day\.
++ Optionally, a dataset of the related time series type\. In the RETAIL domain, this type can include optional, but suggested, time\-series information such as `price`, `inventory_onhand`, `in_stock`, and `webpage_hits`\.
++ Optionally, a dataset of the item metadata type\. In the RETAIL domain, Amazon Forecast suggests providing metadata information related to the items that you provided in target time series, such as `brand`, `color`, `category`, and `genre`\.
 
 **Example Example 2: Dataset Types in the METRICS Domain**  
 If you want to forecast key metrics for your organization—such as revenue, sales and cash flow—you can provide Amazon Forecast with the following datasets:  
-+ The TARGET\_TIME\_SERIES dataset that provides historical time\-series data for the metric that you want to forecast\. If your interest is to forecast the revenue of all of the business units in your organization, you can create a `target_time_series` dataset with the `metric`, `business unit`, and `metric_value` fields\.
-+ If you have any metadata for each metric that isn't required, such as `category` or `location`, you might provide datasets of the RELATED\_TIME\_SERIES and ITEM\_METADATA type\.
-You can provide only the TARGET\_TIME\_SERIES dataset to Amazon Forecast and generate forecasts for your target metrics\. 
++ The target time series dataset that provides historical time\-series data for the metric that you want to forecast\. If your interest is to forecast the revenue of all of the business units in your organization, you can create a `target time series` dataset with the `metric`, `business unit`, and `metric_value` fields\.
++ If you have any metadata for each metric that isn't required, such as `category` or `location`, you might provide datasets of the related time series and item metadata type\.
+You can provide only the target time series dataset to Amazon Forecast and generate forecasts for your target metrics\. 
 
 **Example Example 3: Dataset Types in the CUSTOM Domain**  
-The training data for your forecasting application might not fit into any of the Amazon Forecast domains\. If that's the case, choose the CUSTOM domain\. You must provide the TARGET\_TIME\_SERIES dataset, but you can add your own custom fields\.  
-The [Getting Started](getting-started.md) exercise forecasts electricity usage for a client\. The electricity usage training data doesn't fit into any of the dataset domains, so we used the CUSTOM domain\. In the exercise, we use only one dataset type, the TARGET\_TIME\_SERIES type\. We map the data fields to the minimum fields required by the dataset type\.
+The training data for your forecasting application might not fit into any of the Amazon Forecast domains\. If that's the case, choose the CUSTOM domain\. You must provide the target time series dataset, but you can add your own custom fields\.  
+The [Getting Started](getting-started.md) exercise forecasts electricity usage for a client\. The electricity usage training data doesn't fit into any of the dataset domains, so we used the CUSTOM domain\. In the exercise, we use only one dataset type, the target time series type\. We map the data fields to the minimum fields required by the dataset type\.

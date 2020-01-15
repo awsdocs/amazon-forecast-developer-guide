@@ -3,11 +3,11 @@
 The RETAIL domain supports the following dataset types\. For each dataset type, we list required and optional fields\. For information on how to map the fields to columns in your training data, see [Dataset Domains and Dataset Types](howitworks-datasets-groups.md#howitworks-dataset-domainstypes)\.
 
 **Topics**
-+ [TARGET\_TIME\_SERIES Dataset Type](#target-time-series-type-retail-domain)
-+ [RELATED\_TIME\_SERIES Dataset Type](#related-time-series-type-retail-domain)
-+ [ITEM\_METADATA Dataset Type](#item-metadata-type-retail-domain)
++ [Target Time Series Dataset Type](#target-time-series-type-retail-domain)
++ [Related Time Series Dataset Type](#related-time-series-type-retail-domain)
++ [Item Metadata Dataset Type](#item-metadata-type-retail-domain)
 
-## TARGET\_TIME\_SERIES Dataset Type<a name="target-time-series-type-retail-domain"></a>
+## Target Time Series Dataset Type<a name="target-time-series-type-retail-domain"></a>
 
 The target time series is the historical time series data for each item or product sold by the retail organization\. The following fields are required: 
 + `item_id ` \(string\) – A unique identifier for the item or product that you want to predict the demand for\.
@@ -17,11 +17,11 @@ The target time series is the historical time series data for each item or produ
 Although the following field is optional, Amazon Forecast suggests that you include it:
 + `location` \(string\) – The location of the store that the item got sold at\. This is optional and should be used only if you have multiple stores/locations\.
 
-Ideally, only these required and suggested optional fields should be included\. Other additional time series information should be included in a RELATED\_TIME\_SERIES dataset\.
+Ideally, only these required and suggested optional fields should be included\. Other additional time series information should be included in a related time series dataset\.
 
-## RELATED\_TIME\_SERIES Dataset Type<a name="related-time-series-type-retail-domain"></a>
+## Related Time Series Dataset Type<a name="related-time-series-type-retail-domain"></a>
 
-You can provide Amazon Forecast with related time\-series datasets, such as the price or the number of web hits the item received on a particular date\. The more information that you provide, the more accurate the forecast\. The following fields are required: 
+You can provide Amazon Forecast with related time series datasets, such as the price or the number of web hits the item received on a particular date\. The more information that you provide, the more accurate the forecast\. The following fields are required: 
 + `item_id ` \(string\)
 + `timestamp `\(timestamp\)
 
@@ -36,7 +36,7 @@ Although the following fields are optional, Amazon Forecast suggests that you in
 
 In addition to the required and suggested optional fields, your training data can include other fields\. 
 
-## ITEM\_METADATA Dataset Type<a name="item-metadata-type-retail-domain"></a>
+## Item Metadata Dataset Type<a name="item-metadata-type-retail-domain"></a>
 
 This dataset provides Amazon Forecast with information about metadata \(attributes\) of the items whose demand is being forecast\. The following fields are required: 
 + `item_id `\(string\)

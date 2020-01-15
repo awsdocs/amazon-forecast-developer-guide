@@ -28,7 +28,7 @@ You can access AWS as any of the following types of identities:
 
 ## Access Control<a name="access-control"></a>
 
-You can have valid credentials to authenticate your requests, but unless you have permissions you cannot create or access Amazon Forecast resources\. For example, you must have permissions to create an Amazon Forecast workspace\.
+You can have valid credentials to authenticate your requests, but unless you have permissions you cannot create or access Amazon Forecast resources\. For example, you must have permissions to create an Amazon Forecast dataset group\.
 
 The following sections describe how to manage permissions for Amazon Forecast\. We recommend that you read the overview first\.
 + [Overview of Managing Access Permissions to Your Amazon Forecast Resources](access-control-overview.md)

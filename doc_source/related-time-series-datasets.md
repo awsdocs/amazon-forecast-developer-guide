@@ -2,7 +2,7 @@
 
 A related time series dataset includes time\-series data that isn't included in a target time series dataset and might improve the accuracy of your predictor\.
 
-For example, in the demand forecasting domain, a target time series dataset would contain `timestamp` and`item_id` dimensions, while a complimentary related time series dataset also includes the following supplementary features: `item price`, `promotion`, and `weather`\.
+For example, in the demand forecasting domain, a target time series dataset would contain `timestamp` and `item_id` dimensions, while a complimentary related time series dataset also includes the following supplementary features: `item price`, `promotion`, and `weather`\.
 
 A related time series dataset can contain up to 10 forecast dimensions \(the same ones in your target time series dataset\) and up to 13 related time\-series features\.
 
@@ -12,11 +12,11 @@ You can use a related time series dataset only when training a predictor with th
 
 A related time series dataset has the following restrictions:
 + It can't include the target value from the target time series\.
-+ It must include `item_id` and `timestamp` dimensions, and at least one related feature \(such as `store` or `location`\)\.
-+ related time series feature data must be of the `int` or `float` datatypes\.
-+ Data frequency for a related time series dataset must match the target time series data frequency\.
++ It must include `item_id` and `timestamp` dimensions, and at least one related feature \(such as `price`\)\.
++ Related time series feature data must be of the `int` or `float` datatypes\.
++ The frequency at which data is recorded in the related time series dataset must match the interval at which you want to generate forecasts \(the forecasting *granularity*\)\.
 
-  For example, if the forecast frequency for the target time series dataset is weekly, the data frequency for the related time series must also be weekly even if the target time series data frequency is daily\.
+  For example, if you want to generate forecasts at a weekly granularity, the frequency at which data is recorded in the related time series must also be weekly, even if the frequency at which data is recorded in the target time series is daily\.
 + The data for each item in the related time series dataset must start on or before the beginning `timestamp` of the corresponding `item_id` in the target time series dataset\.
 
   For example, if the target time series data for `socks` starts at 2019\-01\-01 and the target time series data for `shoes` starts at 2019\-02\-01, the related time series data for `socks` must begin on or before 2019\-01\-01 and the data for `shoes` must begin on or before 2019\-02\-01\.
@@ -33,7 +33,7 @@ Forecast doesn't support aggregations or filling missing values for related time
 The following table shows a correctly configured related time series dataset file\. For this example, assume the following:
 + The last data point was recorded in the target time series dataset on 2019\-07\-01\.
 +  The forecast horizon is 10 days\. 
-+ The forecast frequency is daily \(`D`\)\. 
++ The forecast granularity is daily \(`D`\)\. 
 
 This means that the user had to include data points up until 2019\-07\-11\. 
 
@@ -66,7 +66,7 @@ A "`…`" row indicates all of the data points in between the previous and succe
 
 ## Example: Forecasting Granularity<a name="related-time-series-granularity"></a>
 
-The following table shows compatible target time series and related time series frequencies for forecasting over the period of a week \(the forecast *granularity*\)\. Because data in a related time series dataset can't be aggregated, Forecast accepts only a related time series data frequency that is the same as the chosen forecasting granularity\.
+The following table shows compatible data recording frequencies for target time series and related time series to forecast at a weekly granularity\. Because data in a related time series dataset can't be aggregated, Forecast accepts only a related time series data frequency that is the same as the chosen forecasting granularity\.
 
 
 | Target Input Data Frequency | Related Time Series Frequency | Forecasting Granularity | Supported by Forecast? | 

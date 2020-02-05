@@ -1,6 +1,6 @@
-# Dataset Import Guidelines for Forecast<a name="dataset-import-guidelines-troubleshooting"></a>
+# Dataset Guidelines for Forecast<a name="dataset-import-guidelines-troubleshooting"></a>
 
-Consult to the following guidelines if Amazon Forecast fails to import your dataset\.
+Consult to the following guidelines if Amazon Forecast fails to import your dataset, or if your dataset doesn't function as expected\.
 
 **Timestamp Format**  
 For Year \(`Y`\), Month \(`M`\), Week \(`W`\), and Day \(`D`\) collection frequencies, Forecast supports the `yyyy-MM-dd` timestamp format \(for example, `2019-08-21`\) and, optionally, the `HH:mm:ss` format \(for example, `2019-08-21 15:00:00`\)\.  
@@ -14,12 +14,16 @@ Guideline: Specify a CSV file or an S3 bucket using the following syntax:
 `s3://bucket-name/prefix/`  
 `s3://bucket-name`
 
+**Dataset Updates**  
+Because dataset import jobs are not aggregated, your most recent dataset import is the one that is used when training a predictor or generating a forecast\.  
+Guideline: Make sure that your most recent dataset import contains all of the data you want to model off of, and not just the new data collected since the previous import\.
+
 **Attribute Order**  
 The order of attributes specified in the schema definition must match the column order in the CSV file that you are importing\. For example, if you defined `timestamp` as the first attribute, then `timestamp` must also be the first column in the input CSV file\.   
 Guideline: Verify that the columns in the CSV file are in the same order as the schema attributes that you created\. 
 
 **Dataset Header**  
-The dataset header is optional\. We recommend omitting the header in your input CSV file\.  
+A dataset header in your input CSV file may cause a validation error\. We recommend omitting a header\.  
 Guideline: Delete the dataset header and try the import again\.
 
 **Dataset Status**  

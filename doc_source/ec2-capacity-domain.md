@@ -24,14 +24,3 @@ Although the following field is optional, Amazon Forecast suggests that you incl
 + `traffic_to_service` \(floating\-point integer\) – The amount of requests sent to that instance type at the timestamp\.
 
 In addition to the required and suggested optional fields, your training data can include other fields\. To include other fields in the dataset, provide the fields in a schema when you create the dataset\.
-
-## Item Metadata Dataset Type<a name="item-metadata-type-ec2-capacity-domain"></a>
-
-The following fields are required: 
-+ `instance_type` \(string\)
-
-Although the following fields are optional, Amazon Forecast suggests that you include them:
-+ `cpu_cores` \(string\) – The number of CPU cores for the instance\.
-+ `memory` \(string\)
-
-In addition to the required and suggested optional fields, your training data can include other fields\. To include other fields in the dataset, provide the fields in a schema when you create the dataset\.

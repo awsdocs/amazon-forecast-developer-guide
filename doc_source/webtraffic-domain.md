@@ -22,3 +22,13 @@ The following fields are required:
 + `timestamp` \(timestamp\)
 
 In addition to the required fields, your training data can include other fields\. To include other fields in the dataset, provide the fields in a schema when you create the dataset\.
+
+### Item Metadata Dataset Type<a name="idem-metadata-type-webtraffic-domain"></a>
+
+The following field is required: 
++ `item_id` \(string\)
+
+Although the following field is optional, Amazon Forecast suggests that you include it:
++ `category` \(string\)
+
+In addition to the required and suggested optional fields, your training data can include other fields\. 

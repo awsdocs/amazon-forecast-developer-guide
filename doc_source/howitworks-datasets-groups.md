@@ -11,10 +11,9 @@ For example Forecast datasets, see the [Amazon Forecast Sample GitHub repository
 **Topics**
 + [Datasets](#howitworks-dataset)
 + [Dataset Groups](#howitworks-datasetgroup)
-+ [Importing Data to a Dataset](#howitworks-uploadingdata)
 + [Resolving Conflicts in Data Collection Frequency](#howitworks-data-alignment)
 + [Using Related Time Series Datasets](related-time-series-datasets.md)
-+ [Dataset Import Guidelines for Forecast](dataset-import-guidelines-troubleshooting.md)
++ [Dataset Guidelines for Forecast](dataset-import-guidelines-troubleshooting.md)
 
 ## Datasets<a name="howitworks-dataset"></a>
 
@@ -44,12 +43,12 @@ For example, suppose that you want to generate a forecast for the demand of reta
   You can also add up to ten other dimensions to a target time series dataset\. If you include only a target time series dataset in your dataset group, you can create forecasts at either the item level or the forecast dimension level of granularity only\. For more information, see [CreatePredictor](API_CreatePredictor.md)\.
 + Related time series dataset – Includes historical time\-series data other than the target field, such as `price` or `revenue`\. Because related time series data must be mappable to target time series data, each related time series dataset must contain the same identifying fields\. In the RETAIL domain, these would be `item_id` and `timestamp`\.
 
-  A related time series dataset might contain hypothetical values that you can base your forecast off of\. For example, you might include `price` data in your related time series dataset on the future dates that you want to generate a forecast for\. For more information, see [Using Related Time Series Datasets](related-time-series-datasets.md)\.
-+ item metadata dataset – Includes metadata for the retail items\. Examples of metadata include `brand`, `category`,`color`, and `genre`\.
+  A related time series dataset might contain data that refines the forecasts made off of your target time series dataset\. For example, you might include `price` data in your related time series dataset on the future dates that you want to generate a forecast for\. This way, Forecast can make predictions with an additional dimension of context\. For more information, see [Using Related Time Series Datasets](related-time-series-datasets.md)\.
++ Item metadata dataset – Includes metadata for the retail items\. Examples of metadata include `brand`, `category`,`color`, and `genre`\.
 
 **Example Dataset with a Forecast Dimension**
 
-Following on the preceding example, imagine that you want to forecast the demand for shoes and socks based on a store's previous sales\. In the following target time series dataset, `store` is a time\-series forecast dimension, while `demand` is the target field\. Socks are sold in two store locations \(NYC and SFO\), and shoes are sold only in ORD\.
+Continuing with the preceding example, imagine that you want to forecast the demand for shoes and socks based on a store's previous sales\. In the following target time series dataset, `store` is a time\-series forecast dimension, while `demand` is the target field\. Socks are sold in two store locations \(NYC and SFO\), and shoes are sold only in ORD\.
 
 The first three rows of this table contain the first available sales data for the NYC, SFO, and ORD stores\. The last three rows contain the last recorded sales data for each store\. The `...` row represents all of the item sales data recorded between the first and last entries\.
 
@@ -70,37 +69,37 @@ Each dataset requires a schema, a user\-provided JSON mapping of the fields in y
 
 Some domains have optional dimensions that we recommend including\. Optional dimensions are listed in the descriptions of each domain later in this guide\. For an example, see [RETAIL Domain](retail-domain.md)\. All optional dimensions take the data type `string`\.
 
-A schema is required for every dataset\. The following is an example of a schema\.
+A schema is required for every dataset\. The following is the accompanying schema for the example target time series dataset above\.
 
 ```
 {
      "attributes": [
         {
-           "AttributeName": "item_id",
-           "AttributeType": "string"
-        },
-        {
            "AttributeName": "timestamp",
            "AttributeType": "timestamp"
         },
         {
-           "AttributeName": "demand",
-           "AttributeType": "float"
+           "AttributeName": "item_id",
+           "AttributeType": "string"
         },
         {
-           "AttributeName": "dimension1",
+           "AttributeName": "store",
            "AttributeType": "string"
+        },
+        {
+           "AttributeName": "demand",
+           "AttributeType": "float"
         }
     ]
 }
 ```
 
-When you upload your training data to the dataset that uses this schema, Forecast assumes that the `item_id` field is column 1 in your data, the `timestamp` field is column 2, the `demand` field is column 3, and the `dimension1` field is column 4\.
+When you upload your training data to the dataset that uses this schema, Forecast assumes that the `timestamp` field is column 1, the `item_id` field is column 2, the `store` field is column 3, and the `demand` field, the *target* field, is column 4\.
 
 For the related time series dataset type, all related features must have a float or integer attribute type\. For the item metadata dataset type, all features must have a string attribute type\. For more information, see [SchemaAttribute](API_SchemaAttribute.md)\.
 
 **Note**  
-The `attributeName` and `attributeType` attributes are required for every datat point in the dataset\. Forecast reserves a number of names that can't be used as the name of a schema attribute\. For the list of reserved names, see [Reserved Field Names](reserved-field-names.md)\.
+An `attributeName` and `attributeType` pair is required for every column in the dataset\. Forecast reserves a number of names that can't be used as the name of a schema attribute\. For the list of reserved names, see [Reserved Field Names](reserved-field-names.md)\.
 
 ## Dataset Groups<a name="howitworks-datasetgroup"></a>
 
@@ -109,22 +108,6 @@ A *dataset group* is a collection of one to three complimentary datasets, one of
 Forecast includes the following operations to create dataset groups and add datasets to them:
 + [CreateDatasetGroup](API_CreateDatasetGroup.md)
 + [UpdateDatasetGroup](API_UpdateDatasetGroup.md)
-
-## Importing Data to a Dataset<a name="howitworks-uploadingdata"></a>
-
-To import data to your dataset, use the [CreateDatasetImportJob](API_CreateDatasetImportJob.md) operation\. Forecast can read only CSV files, and the input data must be stored in an [Amazon Simple Storage Service \(Amazon S3\)](https://docs.aws.amazon.com/AmazonS3/latest/dev/Welcome.html) bucket\.
-
-For example, in [Getting Started](getting-started.md), you use electricity usage time\-series data to train a predictor\. To import this data to Forecast, you do the following:
-
-1. Create a dataset of the CUSTOM domain type and target time series dataset type\.
-
-1. Create a schema for the dataset that maps the electricity usage column in your data as the target field\.
-
-1. Add the data to your Amazon S3 bucket\.
-
-1. Call the `CreateDatasetImportJob` operation to import the data\.
-
-For dataset format requirements and troubleshooting information, see [Dataset Import Guidelines for Forecast](dataset-import-guidelines-troubleshooting.md)\.
 
 ## Resolving Conflicts in Data Collection Frequency<a name="howitworks-data-alignment"></a>
 

@@ -1,6 +1,6 @@
 # Identity and Access Management in Amazon Forecast<a name="authentication-and-access-control"></a>
 
-Access to Amazon Forecast requires credentials\. Those credentials must have permissions to access AWS resources, such as an Amazon Forecast dataset\. The following sections provide details on how you can use [AWS Identity and Access Management \(IAM\)](https://docs.aws.amazon.com/IAM/latest/UserGuide/introduction.html) and Amazon Personalize to help secure access to your resources\.
+Access to Amazon Forecast requires credentials\. Those credentials must have permissions to access AWS resources, such as an Amazon Forecast dataset\. The following sections provide details on how you can use [AWS Identity and Access Management \(IAM\)](https://docs.aws.amazon.com/IAM/latest/UserGuide/introduction.html) and Amazon Forecast to help secure access to your resources\.
 + [Authentication](#authentication)
 + [Access Control](#access-control)
 

@@ -8,6 +8,8 @@ The training data must be in CSV format\. The delimiter must be a comma \(,\)\.
 
 You can specify the path to a specific CSV file, the S3 bucket, or to a folder in the S3 bucket\. For the latter two cases, Amazon Forecast imports all files up to the limit of 10,000 files\.
 
+Because dataset imports are not aggregated, your most recent dataset import is the one that is used when training a predictor or generating a forecast\. Make sure that your most recent dataset import contains all of the data you want to model off of, and not just the new data collected since the previous import\.
+
 To get a list of all your dataset import jobs, filtered by specified criteria, use the [ListDatasetImportJobs](API_ListDatasetImportJobs.md) operation\.
 
 ## Request Syntax<a name="API_CreateDatasetImportJob_RequestSyntax"></a>

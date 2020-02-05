@@ -15,6 +15,8 @@ Amazon Forecast provides the following additional advantages:
 + Accuracy – Amazon Forecast uses deep neural net and traditional statistical methods for forecasting\. When you have many related time series, forecasts made using the Amazon Forecast deep learning algorithms, such as [DeepAR\+](aws-forecast-recipe-deeparplus.md), tend to be more accurate than forecasts made with traditional methods, such as exponential smoothing\.
 + Usability – You can use theAmazon Forecast console to look up and visualize forecasts for any time series at different granularities\. You can also see metrics for the accuracy of your forecasts\.
 
+For more information on Amazon Forecast, including use cases and underlying service principles, see [Time Series Forecasting Principles with Amazon Forecast](https://d1.awsstatic.com/whitepapers/time-series-forecasting-principles-amazon-forecast.pdf?did=wp_card&trk=wp_card)\.
+
 ## Are You a First\-Time User of Amazon Forecast?<a name="whatis-firsttimeuser"></a>
 
 If you are a first\-time user of Amazon Forecast, we recommend that you read the following:

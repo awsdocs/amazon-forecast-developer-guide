@@ -38,7 +38,7 @@ Forecast has the following service limits\.
 | Resource | Default Limit | 
 | --- | --- | 
 | Maximum NumberOfBacktestWindows \([EvaluationParameters](API_EvaluationParameters.md)\) | 5 | 
-| Maximum number of forecasts per predictor \(number of items X number of unique values across forecast dimensions in the target tiome series dataset\) | 100,000 across all target tiome series dimensions \(For instance, you can have 100,000 items, or 10 items in 10,00 locations, or 10 items in 100 warehouses in 100 cities\.\) | 
+| Maximum number of forecasts per predictor \(number of items X number of unique values across forecast dimensions in the target tiome series dataset\) | 100,000 across all target time series dimensions \(For instance, you can have 100,000 items, or 10 items in 10,00 locations, or 10 items in 100 warehouses in 100 cities\.\) | 
 | Forecast horizon | The lesser of 500 data points or 1/3 of the target tiome series dataset length | 
 
 

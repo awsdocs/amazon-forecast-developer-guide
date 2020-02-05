@@ -112,7 +112,7 @@ You can use the AWS CLI to do the following:
             "Action":"sts:AssumeRole"
          }
       ]
-   }'
+   }
    ```
 
    This command assumes that the default AWS configuration profile is targeted for an AWS Region supported by Amazon Forecast\. If you have configured another profile \(for example, `aws-forecast`\) to target an AWS Region that is not supported by Amazon Forecast, you must explicitly specify that configuration by including the `profile` parameter in the command, for example, `--profile aws-forecast`\. For more information about setting up an AWS CLI configuration profile, see the AWS CLI [configure](https://docs.aws.amazon.com/cli/latest/reference/configure/) command\.

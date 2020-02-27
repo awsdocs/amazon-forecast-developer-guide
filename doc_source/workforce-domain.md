@@ -14,10 +14,10 @@ The following fields are required:
 + `timestamp` \(timestamp\)
 + `workforce_demand` \(floating\-point integer\) – This is the `target` field for which Amazon Forecast generates a forecast\.
 
-Although the following field is optional, Amazon Forecast suggests that you include it:
-+ `location` \(string\) – The location where the work force resources are sought\.
+The following dimension is optional and can be used to change forecasting granularity:
++ `location` \(string\) – The location where the work force resources are sought\. This should be used if you have multiple stores/locations\.
 
-Ideally, only these required and suggested optional fields should be included\. Other additional time series information should be included in a related time series dataset\.
+Ideally, only these required fields and optional dimensions should be included\. Other additional time series information should be included in a related time series dataset\.
 
 ## Related Time Series Dataset Type<a name="related-time-series-type-workforce-domain"></a>
 
@@ -32,7 +32,7 @@ In addition to the required fields, your training data can include other fields\
 The following field is required: 
 + `workforce_type` \(string\)
 
-Although the following fields are optional, Amazon Forecast suggests that you include them:
+The following fields are optional and might be useful in improving forecast results:
 + `wages` \(float\) – The average wages for that particular workforce type\.
 + `shift_length` \(string\) – The length of the shift\.
 + `location` \(string\) – The location of the workforce\.

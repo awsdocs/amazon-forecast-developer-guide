@@ -2,6 +2,9 @@
 
 Deletes an Amazon Forecast dataset that was created using the [CreateDataset](API_CreateDataset.md) operation\. You can only delete datasets that have a status of `ACTIVE` or `CREATE_FAILED`\. To get the status use the [DescribeDataset](API_DescribeDataset.md) operation\.
 
+**Note**  
+Forecast does not automatically update any dataset groups that contain the deleted dataset\. In order to update the dataset group, use the [UpdateDatasetGroup](API_UpdateDatasetGroup.md) operation, omitting the deleted dataset's ARN\.
+
 ## Request Syntax<a name="API_DeleteDataset_RequestSyntax"></a>
 
 ```
@@ -50,4 +53,4 @@ For more information about using this API in one of the language\-specific AWS S
 +  [AWS SDK for JavaScript](https://docs.aws.amazon.com/goto/AWSJavaScriptSDK/forecast-2018-06-26/DeleteDataset) 
 +  [AWS SDK for PHP V3](https://docs.aws.amazon.com/goto/SdkForPHPV3/forecast-2018-06-26/DeleteDataset) 
 +  [AWS SDK for Python](https://docs.aws.amazon.com/goto/boto3/forecast-2018-06-26/DeleteDataset) 
-+  [AWS SDK for Ruby V2](https://docs.aws.amazon.com/goto/SdkForRubyV2/forecast-2018-06-26/DeleteDataset) 
++  [AWS SDK for Ruby V3](https://docs.aws.amazon.com/goto/SdkForRubyV3/forecast-2018-06-26/DeleteDataset) 

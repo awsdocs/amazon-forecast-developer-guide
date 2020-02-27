@@ -38,8 +38,8 @@ Forecast has the following service limits\.
 | Resource | Default Limit | 
 | --- | --- | 
 | Maximum NumberOfBacktestWindows \([EvaluationParameters](API_EvaluationParameters.md)\) | 5 | 
-| Maximum number of forecasts per predictor \(number of items X number of unique values across forecast dimensions in the target tiome series dataset\) | 100,000 across all target time series dimensions \(For instance, you can have 100,000 items, or 10 items in 10,00 locations, or 10 items in 100 warehouses in 100 cities\.\) | 
-| Forecast horizon | The lesser of 500 data points or 1/3 of the target tiome series dataset length | 
+| Maximum number of forecasts per predictor \(number of items X number of unique values across forecast dimensions in the target time series dataset\) | 100,000 across all target time series dimensions \(For instance, you can have 100,000 items, or 10 items in 10,00 locations, or 10 items in 100 warehouses in 100 cities\.\) | 
+| Forecast horizon | The lesser of 500 data points or 1/3 of the target time series dataset length | 
 
 
 **General Resource Limits**  
@@ -54,4 +54,4 @@ Forecast has the following service limits\.
 | Maximum number of forecasts | 10 | 
 | Maximum number of forecast export jobs | 1000 | 
 | Maximum number of parallel forecast export jobs | 3 | 
-| Maximum time for which a forecast can be queried on \(consele or API\) | 30 days | 
+| Maximum time for which a forecast can be queried on \(console or API\) | 30 days | 

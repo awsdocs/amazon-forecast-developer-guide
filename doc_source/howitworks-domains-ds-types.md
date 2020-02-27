@@ -29,7 +29,7 @@ The following examples show how to choose a dataset domain and corresponding dat
 **Example Example 1: Dataset Types in the RETAIL Domain**  
 If you are a retailer interested in forecasting demand for items, you might create the following datasets in the RETAIL domain:  
 + Target time series is the required dataset of historical time\-series demand \(sales\) data for each item \(each product a retailer sells\)\. In the RETAIL domain, this dataset type requires that the dataset includes the `item_id`, `timestamp`, and the `demand` fields\. The `demand` field is the forecast target, and is typically the number of items sold by the retailer in a particular week or day\.
-+ Optionally, a dataset of the related time series type\. In the RETAIL domain, this type can include optional, but suggested, time\-series information such as `price`, `inventory_onhand`, `in_stock`, and `webpage_hits`\.
++ Optionally, a dataset of the related time series type\. In the RETAIL domain, this type can include optional, but suggested, time\-series information such as `price`, `inventory_onhand`, and `webpage_hits`\.
 + Optionally, a dataset of the item metadata type\. In the RETAIL domain, Amazon Forecast suggests providing metadata information related to the items that you provided in target time series, such as `brand`, `color`, `category`, and `genre`\.
 
 **Example Example 2: Dataset Types in the METRICS Domain**  

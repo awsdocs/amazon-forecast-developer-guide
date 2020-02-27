@@ -75,6 +75,3 @@ The following table shows compatible data recording frequencies for target time 
 | Weekly | Weekly | Weekly | Yes | 
 | N/A | Weekly | Weekly | Yes | 
 | Daily | Daily | Weekly | No | 
-
-## More Info<a name="related-time-series-see-also"></a>
-+ Step 2c: Creating a Related Dataset in [Amazon Forecast: predicting time\-series at scale](https://github.com/aws-samples/amazon-forecast-samples/blob/master/notebooks/6.Incorporating_Related_Time_Series_dataset_to_your_Predictor.ipynb) in the Amazon Forecast GitHub repository\.

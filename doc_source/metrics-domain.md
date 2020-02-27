@@ -29,7 +29,7 @@ In addition to the required fields, your training data can include other fields\
 The following field is required: 
 + `metric_name` \(string\)
 
-Although the following field is optional, Amazon Forecast suggests that you include it:
+The following field is optional and might be useful in improving forecast results:
 + `category` \(string\)
 
 In addition to the required and suggested optional fields, your training data can include other fields\. To include other fields in the dataset, provide the fields in a schema when you create the dataset\.

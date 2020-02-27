@@ -6,7 +6,7 @@ Each dataset group can have up to three datasets, one of each [dataset](#howitwo
 
 To create and manage Forecast datasets and dataset groups, you can use the Forecast console, AWS Command Line Interface \(AWS CLI\), or AWS SDK\.
 
-For example Forecast datasets, see the [Amazon Forecast Sample GitHub repository](https://github.com/aws-samples/amazon-forecast-samples/tree/master/data)\.
+For example Forecast datasets, see the [Amazon Forecast Sample GitHub repository](https://github.com/aws-samples/amazon-forecast-samples)\.
 
 **Topics**
 + [Datasets](#howitworks-dataset)

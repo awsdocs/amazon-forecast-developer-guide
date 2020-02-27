@@ -9,7 +9,7 @@ After creating a dataset, you import your training data into it and add the data
 
 To get a list of all your datasets, use the [ListDatasets](API_ListDatasets.md) operation\.
 
-For example Forecast datasets, see the [Amazon Forecast Sample GitHub repository](https://github.com/aws-samples/amazon-forecast-samples/tree/master/data)\.
+For example Forecast datasets, see the [Amazon Forecast Sample GitHub repository](https://github.com/aws-samples/amazon-forecast-samples)\.
 
 **Note**  
 The `Status` of a dataset must be `ACTIVE` before you can import training data\. Use the [DescribeDataset](API_DescribeDataset.md) operation to get the status\.
@@ -123,4 +123,4 @@ For more information about using this API in one of the language\-specific AWS S
 +  [AWS SDK for JavaScript](https://docs.aws.amazon.com/goto/AWSJavaScriptSDK/forecast-2018-06-26/CreateDataset) 
 +  [AWS SDK for PHP V3](https://docs.aws.amazon.com/goto/SdkForPHPV3/forecast-2018-06-26/CreateDataset) 
 +  [AWS SDK for Python](https://docs.aws.amazon.com/goto/boto3/forecast-2018-06-26/CreateDataset) 
-+  [AWS SDK for Ruby V2](https://docs.aws.amazon.com/goto/SdkForRubyV2/forecast-2018-06-26/CreateDataset) 
++  [AWS SDK for Ruby V3](https://docs.aws.amazon.com/goto/SdkForRubyV3/forecast-2018-06-26/CreateDataset) 

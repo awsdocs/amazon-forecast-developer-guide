@@ -25,8 +25,7 @@ A related time series dataset has the following restrictions:
   In the example related time series file below, the `timestamp` data for both socks and shoes must end on or after 2019\-07\-01 \(the last recorded timestamp\) *plus* the forecast horizon\. If data frequency in the target time series is daily and the forecast horizon is 10 days, daily data points must be provided in the related time series file until 2019\-07\-11\.
 + The Forecast dimensions provided in the related time series dataset must be either equal to or a subset of the dimensions designated in the target time series dataset\.
 
-**Important**  
-Forecast doesn't support aggregations or filling missing values for related time series datasets as it does for target time series datasets\.
+For information on handling missing values in a related time series dataset, see [Handling Missing Values](howitworks-missing-values.md)\.
 
 ## Example: Related Time Series File<a name="related-time-series-example"></a>
 
@@ -34,8 +33,6 @@ The following table shows a correctly configured related time series dataset fil
 + The last data point was recorded in the target time series dataset on 2019\-07\-01\.
 +  The forecast horizon is 10 days\. 
 + The forecast granularity is daily \(`D`\)\. 
-
-This means that the user had to include data points up until 2019\-07\-11\. 
 
 A "`…`" row indicates all of the data points in between the previous and succeeding rows\.
 

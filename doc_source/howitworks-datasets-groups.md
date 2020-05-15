@@ -13,6 +13,8 @@ For example Forecast datasets, see the [Amazon Forecast Sample GitHub repository
 + [Dataset Groups](#howitworks-datasetgroup)
 + [Resolving Conflicts in Data Collection Frequency](#howitworks-data-alignment)
 + [Using Related Time Series Datasets](related-time-series-datasets.md)
++ [Using Item Metadata Datasets](item-metadata-datasets.md)
++ [Handling Missing Values](howitworks-missing-values.md)
 + [Dataset Guidelines for Forecast](dataset-import-guidelines-troubleshooting.md)
 
 ## Datasets<a name="howitworks-dataset"></a>

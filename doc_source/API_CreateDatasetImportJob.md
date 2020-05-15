@@ -2,7 +2,7 @@
 
 Imports your training data to an Amazon Forecast dataset\. You provide the location of your training data in an Amazon Simple Storage Service \(Amazon S3\) bucket and the Amazon Resource Name \(ARN\) of the dataset that you want to import the data to\.
 
-You must specify a [DataSource](API_DataSource.md) object that includes an AWS Identity and Access Management \(IAM\) role that Amazon Forecast can assume to access the data\. For more information, see [Set Up Permissions for Amazon Forecast](aws-forecast-iam-roles.md)\.
+You must specify a [DataSource](API_DataSource.md) object that includes an AWS Identity and Access Management \(IAM\) role that Amazon Forecast can assume to access the data, as Amazon Forecast makes a copy of your data and processes it in an internal AWS system\. For more information, see [Set Up Permissions for Amazon Forecast](aws-forecast-iam-roles.md)\.
 
 The training data must be in CSV format\. The delimiter must be a comma \(,\)\.
 

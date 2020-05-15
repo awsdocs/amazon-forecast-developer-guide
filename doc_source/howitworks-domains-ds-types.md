@@ -2,7 +2,7 @@
 
 To train a predictor, you create one or more datasets, add them to a dataset group, and provide the dataset group for training\.
 
-For each dataset that you create, you associate a dataset domain and a dataset type\. A *dataset domain* defines a forecasting use case\.
+For each dataset that you create, you associate a dataset domain and a dataset type\. A *dataset domain* specifies a pre\-defined dataset schema for a common use case, and does not impact model algorithms or hyperparameters\.
 
 Amazon Forecast supports the following dataset domains:
 + [RETAIL Domain](retail-domain.md) – For retail demand forecasting

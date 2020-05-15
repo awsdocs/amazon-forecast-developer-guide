@@ -34,7 +34,7 @@ You can specify multiple actions using wildcards \(\*\)\. For example, to specif
 
 
 
-To see a list of Forecast actions, see [Actions Defined by Amazon Forecast](https://docs.aws.amazon.com/IAM/latest/UserGuide/list_awskeymanagementservice.html#awskeymanagementservice-actions-as-permissions) in the *IAM User Guide*\.
+To see a list of Forecast actions, see [Actions Defined by Amazon Forecast](https://docs.aws.amazon.com/IAM/latest/UserGuide/list_awskeymanagementservice.html#amazonforecast-actions-as-permissions) in the *IAM User Guide*\.
 
 ### Resources<a name="security_iam_service-with-iam-id-based-policies-resources"></a>
 
@@ -68,7 +68,7 @@ Some Forecast actions, such as those for creating resources, cannot be performed
 "Resource": "*"
 ```
 
-To see a list of Forecast resource types and their ARNs, see [Resources Defined by Amazon Forecast](https://docs.aws.amazon.com/IAM/latest/UserGuide/list_awskeymanagementservice.html#awskeymanagementservice-resources-for-iam-policies) in the *IAM User Guide*\. To learn with which actions you can specify the ARN of each resource, see [Actions Defined by Amazon Forecast](https://docs.aws.amazon.com/IAM/latest/UserGuide/list_awskeymanagementservice.html#awskeymanagementservice-actions-as-permissions)\.
+To see a list of Forecast resource types and their ARNs, see [Resources Defined by Amazon Forecast](https://docs.aws.amazon.com/IAM/latest/UserGuide/list_awskeymanagementservice.html#amazonforecast-resources-for-iam-policies) in the *IAM User Guide*\. To learn with which actions you can specify the ARN of each resource, see [Actions Defined by Amazon Forecast](https://docs.aws.amazon.com/IAM/latest/UserGuide/list_awskeymanagementservice.html#amazonforecast-actions-as-permissions)\.
 
 ### Condition Keys<a name="security_iam_service-with-iam-id-based-policies-conditionkeys"></a>
 

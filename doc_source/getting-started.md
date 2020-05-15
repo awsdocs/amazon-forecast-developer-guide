@@ -58,3 +58,18 @@ Now, use the Amazon Forecast console or the AWS CLI to train a predictor, genera
 To avoid incurring unnecessary charges, delete the resources you created after you're done with the getting started exercise\. To delete the resources, use either the Amazon Forecast console or the `Delete` APIs from the SDKs or the AWS Command Line Interface \(AWS CLI\)\. For example, use the [DeleteDataset](API_DeleteDataset.md) API to delete a dataset\.
 
 To delete a resource, its status must be `ACTIVE`, `CREATE_FAILED`, or `UPDATE_FAILED`\. Check the status using the `Describe` APIs, for example, [DescribeDataset](API_DescribeDataset.md)\.
+
+Some resources must be deleted before others, as shown in the following table\. This process can take some time\.
+
+To delete the training data you uploaded, ` electricityusagedata.csv`, see [How Do I Delete Objects from an S3 Bucket?](https://docs.aws.amazon.com/AmazonS3/latest/user-guide/delete-objects.html)\.
+
+
+| Resource to Delete | Delete This First | Notes | 
+| --- | --- | --- | 
+| ForecastExportJob |  |  | 
+| Forecast |  | You can't delete a forecast while it is being exported\. After a forecast is deleted, you can no longer query the forecast\. | 
+| Predictor | All associated forecasts\. |  | 
+| DatasetImportJob |  | Can not be deleted\. | 
+| Dataset |  |  All `DatasetImportJob`s that target the dataset are also deleted\. You can't delete a `Dataset` that is used by a predictor\.  | 
+| DatasetSchema | All datasets that reference the schema\. |  | 
+| DatasetGroup | All associated predictorsAll associated forecasts\.All datasets in the dataset group\. |  You can't delete a `DatasetGroup` that contains a `Dataset` used by a predictor\.  | 

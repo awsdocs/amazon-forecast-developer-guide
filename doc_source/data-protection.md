@@ -15,11 +15,11 @@ For more information about data protection, see the [AWS Shared Responsibility M
 
 ## Encryption at Rest<a name="encryption-at-rest"></a>
 
-Use one of your own AWS Key Management Service \(AWS KMS\) keys to encrypt Forecast data in your Amazon S3 buckets\.
+Use one of your own AWS Key Management Service \(AWS KMS\) symmetric keys to encrypt Forecast data in your Amazon S3 buckets\.
 
 ## Encryption in Transit<a name="encryption-in-transit"></a>
 
-Amazon Forecast uses TLS 1\.2 with AWS certificates to encrypt data sent to other AWS services\.
+ Amazon Forecast copies data out of your account and processes it in an internal AWS system\. Amazon Forecast uses TLS 1\.2 with AWS certificates to encrypt data sent to other AWS services\.
 
 ## Key Management<a name="key-management"></a>
 

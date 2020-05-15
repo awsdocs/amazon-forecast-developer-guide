@@ -41,6 +41,7 @@ One of the following 2 letter country codes:
 + "CN" \- CHINA
 + "CZ" \- CZECH REPUBLIC
 + "DK" \- DENMARK
++ "EC" \- ECUADOR
 + "FI" \- FINLAND
 + "FR" \- FRANCE
 + "DE" \- GERMANY

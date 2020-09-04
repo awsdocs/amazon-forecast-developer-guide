@@ -13,7 +13,7 @@ In addition to listing the properties provided in the `CreateForecast` request, 
 
 ```
 {
-   "[ForecastArn](#forecast-DescribeForecast-request-ForecastArn)": "string"
+   "ForecastArn": "string"
 }
 ```
 
@@ -32,15 +32,15 @@ Required: Yes
 
 ```
 {
-   "[CreationTime](#forecast-DescribeForecast-response-CreationTime)": number,
-   "[DatasetGroupArn](#forecast-DescribeForecast-response-DatasetGroupArn)": "string",
-   "[ForecastArn](#forecast-DescribeForecast-response-ForecastArn)": "string",
-   "[ForecastName](#forecast-DescribeForecast-response-ForecastName)": "string",
-   "[ForecastTypes](#forecast-DescribeForecast-response-ForecastTypes)": [ "string" ],
-   "[LastModificationTime](#forecast-DescribeForecast-response-LastModificationTime)": number,
-   "[Message](#forecast-DescribeForecast-response-Message)": "string",
-   "[PredictorArn](#forecast-DescribeForecast-response-PredictorArn)": "string",
-   "[Status](#forecast-DescribeForecast-response-Status)": "string"
+   "CreationTime": number,
+   "DatasetGroupArn": "string",
+   "ForecastArn": "string",
+   "ForecastName": "string",
+   "ForecastTypes": [ "string" ],
+   "LastModificationTime": number,
+   "Message": "string",
+   "PredictorArn": "string",
+   "Status": "string"
 }
 ```
 

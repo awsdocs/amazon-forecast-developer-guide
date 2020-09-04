@@ -12,7 +12,7 @@ In addition to listing the properties provided by the user in the `CreateForecas
 
 ```
 {
-   "[ForecastExportJobArn](#forecast-DescribeForecastExportJob-request-ForecastExportJobArn)": "string"
+   "ForecastExportJobArn": "string"
 }
 ```
 
@@ -31,20 +31,20 @@ Required: Yes
 
 ```
 {
-   "[CreationTime](#forecast-DescribeForecastExportJob-response-CreationTime)": number,
-   "[Destination](#forecast-DescribeForecastExportJob-response-Destination)": { 
-      "[S3Config](API_DataDestination.md#forecast-Type-DataDestination-S3Config)": { 
-         "[KMSKeyArn](API_S3Config.md#forecast-Type-S3Config-KMSKeyArn)": "string",
-         "[Path](API_S3Config.md#forecast-Type-S3Config-Path)": "string",
-         "[RoleArn](API_S3Config.md#forecast-Type-S3Config-RoleArn)": "string"
+   "CreationTime": number,
+   "Destination": { 
+      "S3Config": { 
+         "KMSKeyArn": "string",
+         "Path": "string",
+         "RoleArn": "string"
       }
    },
-   "[ForecastArn](#forecast-DescribeForecastExportJob-response-ForecastArn)": "string",
-   "[ForecastExportJobArn](#forecast-DescribeForecastExportJob-response-ForecastExportJobArn)": "string",
-   "[ForecastExportJobName](#forecast-DescribeForecastExportJob-response-ForecastExportJobName)": "string",
-   "[LastModificationTime](#forecast-DescribeForecastExportJob-response-LastModificationTime)": number,
-   "[Message](#forecast-DescribeForecastExportJob-response-Message)": "string",
-   "[Status](#forecast-DescribeForecastExportJob-response-Status)": "string"
+   "ForecastArn": "string",
+   "ForecastExportJobArn": "string",
+   "ForecastExportJobName": "string",
+   "LastModificationTime": number,
+   "Message": "string",
+   "Status": "string"
 }
 ```
 

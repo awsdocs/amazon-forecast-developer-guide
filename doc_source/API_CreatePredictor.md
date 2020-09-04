@@ -31,72 +31,78 @@ Before you can use the predictor to create a forecast, the `Status` of the predi
 
 ```
 {
-   "[AlgorithmArn](#forecast-CreatePredictor-request-AlgorithmArn)": "string",
-   "[EncryptionConfig](#forecast-CreatePredictor-request-EncryptionConfig)": { 
-      "[KMSKeyArn](API_EncryptionConfig.md#forecast-Type-EncryptionConfig-KMSKeyArn)": "string",
-      "[RoleArn](API_EncryptionConfig.md#forecast-Type-EncryptionConfig-RoleArn)": "string"
+   "AlgorithmArn": "string",
+   "EncryptionConfig": { 
+      "KMSKeyArn": "string",
+      "RoleArn": "string"
    },
-   "[EvaluationParameters](#forecast-CreatePredictor-request-EvaluationParameters)": { 
-      "[BackTestWindowOffset](API_EvaluationParameters.md#forecast-Type-EvaluationParameters-BackTestWindowOffset)": number,
-      "[NumberOfBacktestWindows](API_EvaluationParameters.md#forecast-Type-EvaluationParameters-NumberOfBacktestWindows)": number
+   "EvaluationParameters": { 
+      "BackTestWindowOffset": number,
+      "NumberOfBacktestWindows": number
    },
-   "[FeaturizationConfig](#forecast-CreatePredictor-request-FeaturizationConfig)": { 
-      "[Featurizations](API_FeaturizationConfig.md#forecast-Type-FeaturizationConfig-Featurizations)": [ 
+   "FeaturizationConfig": { 
+      "Featurizations": [ 
          { 
-            "[AttributeName](API_Featurization.md#forecast-Type-Featurization-AttributeName)": "string",
-            "[FeaturizationPipeline](API_Featurization.md#forecast-Type-Featurization-FeaturizationPipeline)": [ 
+            "AttributeName": "string",
+            "FeaturizationPipeline": [ 
                { 
-                  "[FeaturizationMethodName](API_FeaturizationMethod.md#forecast-Type-FeaturizationMethod-FeaturizationMethodName)": "string",
-                  "[FeaturizationMethodParameters](API_FeaturizationMethod.md#forecast-Type-FeaturizationMethod-FeaturizationMethodParameters)": { 
+                  "FeaturizationMethodName": "string",
+                  "FeaturizationMethodParameters": { 
                      "string" : "string" 
                   }
                }
             ]
          }
       ],
-      "[ForecastDimensions](API_FeaturizationConfig.md#forecast-Type-FeaturizationConfig-ForecastDimensions)": [ "string" ],
-      "[ForecastFrequency](API_FeaturizationConfig.md#forecast-Type-FeaturizationConfig-ForecastFrequency)": "string"
+      "ForecastDimensions": [ "string" ],
+      "ForecastFrequency": "string"
    },
-   "[ForecastHorizon](#forecast-CreatePredictor-request-ForecastHorizon)": number,
-   "[HPOConfig](#forecast-CreatePredictor-request-HPOConfig)": { 
-      "[ParameterRanges](API_HyperParameterTuningJobConfig.md#forecast-Type-HyperParameterTuningJobConfig-ParameterRanges)": { 
-         "[CategoricalParameterRanges](API_ParameterRanges.md#forecast-Type-ParameterRanges-CategoricalParameterRanges)": [ 
+   "ForecastHorizon": number,
+   "HPOConfig": { 
+      "ParameterRanges": { 
+         "CategoricalParameterRanges": [ 
             { 
-               "[Name](API_CategoricalParameterRange.md#forecast-Type-CategoricalParameterRange-Name)": "string",
-               "[Values](API_CategoricalParameterRange.md#forecast-Type-CategoricalParameterRange-Values)": [ "string" ]
+               "Name": "string",
+               "Values": [ "string" ]
             }
          ],
-         "[ContinuousParameterRanges](API_ParameterRanges.md#forecast-Type-ParameterRanges-ContinuousParameterRanges)": [ 
+         "ContinuousParameterRanges": [ 
             { 
-               "[MaxValue](API_ContinuousParameterRange.md#forecast-Type-ContinuousParameterRange-MaxValue)": number,
-               "[MinValue](API_ContinuousParameterRange.md#forecast-Type-ContinuousParameterRange-MinValue)": number,
-               "[Name](API_ContinuousParameterRange.md#forecast-Type-ContinuousParameterRange-Name)": "string",
-               "[ScalingType](API_ContinuousParameterRange.md#forecast-Type-ContinuousParameterRange-ScalingType)": "string"
+               "MaxValue": number,
+               "MinValue": number,
+               "Name": "string",
+               "ScalingType": "string"
             }
          ],
-         "[IntegerParameterRanges](API_ParameterRanges.md#forecast-Type-ParameterRanges-IntegerParameterRanges)": [ 
+         "IntegerParameterRanges": [ 
             { 
-               "[MaxValue](API_IntegerParameterRange.md#forecast-Type-IntegerParameterRange-MaxValue)": number,
-               "[MinValue](API_IntegerParameterRange.md#forecast-Type-IntegerParameterRange-MinValue)": number,
-               "[Name](API_IntegerParameterRange.md#forecast-Type-IntegerParameterRange-Name)": "string",
-               "[ScalingType](API_IntegerParameterRange.md#forecast-Type-IntegerParameterRange-ScalingType)": "string"
+               "MaxValue": number,
+               "MinValue": number,
+               "Name": "string",
+               "ScalingType": "string"
             }
          ]
       }
    },
-   "[InputDataConfig](#forecast-CreatePredictor-request-InputDataConfig)": { 
-      "[DatasetGroupArn](API_InputDataConfig.md#forecast-Type-InputDataConfig-DatasetGroupArn)": "string",
-      "[SupplementaryFeatures](API_InputDataConfig.md#forecast-Type-InputDataConfig-SupplementaryFeatures)": [ 
+   "InputDataConfig": { 
+      "DatasetGroupArn": "string",
+      "SupplementaryFeatures": [ 
          { 
-            "[Name](API_SupplementaryFeature.md#forecast-Type-SupplementaryFeature-Name)": "string",
-            "[Value](API_SupplementaryFeature.md#forecast-Type-SupplementaryFeature-Value)": "string"
+            "Name": "string",
+            "Value": "string"
          }
       ]
    },
-   "[PerformAutoML](#forecast-CreatePredictor-request-PerformAutoML)": boolean,
-   "[PerformHPO](#forecast-CreatePredictor-request-PerformHPO)": boolean,
-   "[PredictorName](#forecast-CreatePredictor-request-PredictorName)": "string",
-   "[TrainingParameters](#forecast-CreatePredictor-request-TrainingParameters)": { 
+   "PerformAutoML": boolean,
+   "PerformHPO": boolean,
+   "PredictorName": "string",
+   "Tags": [ 
+      { 
+         "Key": "string",
+         "Value": "string"
+      }
+   ],
+   "TrainingParameters": { 
       "string" : "string" 
    }
 }
@@ -111,9 +117,8 @@ The Amazon Resource Name \(ARN\) of the algorithm to use for model training\. Re
 
 **Supported algorithms:**
 +  `arn:aws:forecast:::algorithm/ARIMA` 
++  `arn:aws:forecast:::algorithm/CNN-QR` 
 +  `arn:aws:forecast:::algorithm/Deep_AR_Plus` 
-
-  Supports hyperparameter optimization \(HPO\)
 +  `arn:aws:forecast:::algorithm/ETS` 
 +  `arn:aws:forecast:::algorithm/NPTS` 
 +  `arn:aws:forecast:::algorithm/Prophet` 
@@ -166,8 +171,9 @@ Required: No
 Whether to perform hyperparameter optimization \(HPO\)\. HPO finds optimal hyperparameter values for your training data\. The process of performing HPO is known as running a hyperparameter tuning job\.  
 The default value is `false`\. In this case, Amazon Forecast uses default hyperparameter values from the chosen algorithm\.  
 To override the default values, set `PerformHPO` to `true` and, optionally, supply the [HyperParameterTuningJobConfig](API_HyperParameterTuningJobConfig.md) object\. The tuning job specifies a metric to optimize, which hyperparameters participate in tuning, and the valid range for each tunable hyperparameter\. In this case, you are required to specify an algorithm and `PerformAutoML` must be false\.  
-The following algorithm supports HPO:  
+The following algorithms support HPO:  
 + DeepAR\+
++ CNN\-QR
 Type: Boolean  
 Required: No
 
@@ -178,9 +184,24 @@ Length Constraints: Minimum length of 1\. Maximum length of 63\.
 Pattern: `^[a-zA-Z][a-zA-Z0-9_]*`   
 Required: Yes
 
+ ** [Tags](#API_CreatePredictor_RequestSyntax) **   <a name="forecast-CreatePredictor-request-Tags"></a>
+The optional metadata that you apply to the predictor to help you categorize and organize them\. Each tag consists of a key and an optional value, both of which you define\.  
+The following basic restrictions apply to tags:  
++ Maximum number of tags per resource \- 50\.
++ For each resource, each tag key must be unique, and each tag key can have only one value\.
++ Maximum key length \- 128 Unicode characters in UTF\-8\.
++ Maximum value length \- 256 Unicode characters in UTF\-8\.
++ If your tagging schema is used across multiple services and resources, remember that other services may have restrictions on allowed characters\. Generally allowed characters are: letters, numbers, and spaces representable in UTF\-8, and the following characters: \+ \- = \. \_ : / @\.
++ Tag keys and values are case sensitive\.
++ Do not use `aws:`, `AWS:`, or any upper or lowercase combination of such as a prefix for keys as it is reserved for AWS use\. You cannot edit or delete tag keys with this prefix\. Values can have this prefix\. If a tag value has `aws` as its prefix but the key does not, then Forecast considers it to be a user tag and will count against the limit of 50 tags\. Tags with only the key prefix of `aws` do not count against your tags per resource limit\.
+Type: Array of [Tag](API_Tag.md) objects  
+Array Members: Minimum number of 0 items\. Maximum number of 200 items\.  
+Required: No
+
  ** [TrainingParameters](#API_CreatePredictor_RequestSyntax) **   <a name="forecast-CreatePredictor-request-TrainingParameters"></a>
 The hyperparameters to override for model training\. The hyperparameters that you can override are listed in the individual algorithms\. For the list of supported algorithms, see [Choosing an Amazon Forecast Algorithm](aws-forecast-choosing-recipes.md)\.  
 Type: String to string map  
+Map Entries: Minimum number of 0 items\. Maximum number of 100 items\.  
 Key Length Constraints: Maximum length of 256\.  
 Key Pattern: `^[a-zA-Z0-9\-\_\.\/\[\]\,\\]+$`   
 Value Length Constraints: Maximum length of 256\.  
@@ -191,7 +212,7 @@ Required: No
 
 ```
 {
-   "[PredictorArn](#forecast-CreatePredictor-response-PredictorArn)": "string"
+   "PredictorArn": "string"
 }
 ```
 

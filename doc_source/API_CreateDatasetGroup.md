@@ -7,15 +7,21 @@ After creating a dataset group and adding datasets, you use the dataset group wh
 To get a list of all your datasets groups, use the [ListDatasetGroups](API_ListDatasetGroups.md) operation\.
 
 **Note**  
-The `Status` of a dataset group must be `ACTIVE` before you can create use the dataset group to create a predictor\. To get the status, use the [DescribeDatasetGroup](API_DescribeDatasetGroup.md) operation\.
+The `Status` of a dataset group must be `ACTIVE` before you can use the dataset group to create a predictor\. To get the status, use the [DescribeDatasetGroup](API_DescribeDatasetGroup.md) operation\.
 
 ## Request Syntax<a name="API_CreateDatasetGroup_RequestSyntax"></a>
 
 ```
 {
-   "[DatasetArns](#forecast-CreateDatasetGroup-request-DatasetArns)": [ "string" ],
-   "[DatasetGroupName](#forecast-CreateDatasetGroup-request-DatasetGroupName)": "string",
-   "[Domain](#forecast-CreateDatasetGroup-request-Domain)": "string"
+   "DatasetArns": [ "string" ],
+   "DatasetGroupName": "string",
+   "Domain": "string",
+   "Tags": [ 
+      { 
+         "Key": "string",
+         "Value": "string"
+      }
+   ]
 }
 ```
 
@@ -44,11 +50,25 @@ Type: String
 Valid Values:` RETAIL | CUSTOM | INVENTORY_PLANNING | EC2_CAPACITY | WORK_FORCE | WEB_TRAFFIC | METRICS`   
 Required: Yes
 
+ ** [Tags](#API_CreateDatasetGroup_RequestSyntax) **   <a name="forecast-CreateDatasetGroup-request-Tags"></a>
+The optional metadata that you apply to the dataset group to help you categorize and organize them\. Each tag consists of a key and an optional value, both of which you define\.  
+The following basic restrictions apply to tags:  
++ Maximum number of tags per resource \- 50\.
++ For each resource, each tag key must be unique, and each tag key can have only one value\.
++ Maximum key length \- 128 Unicode characters in UTF\-8\.
++ Maximum value length \- 256 Unicode characters in UTF\-8\.
++ If your tagging schema is used across multiple services and resources, remember that other services may have restrictions on allowed characters\. Generally allowed characters are: letters, numbers, and spaces representable in UTF\-8, and the following characters: \+ \- = \. \_ : / @\.
++ Tag keys and values are case sensitive\.
++ Do not use `aws:`, `AWS:`, or any upper or lowercase combination of such as a prefix for keys as it is reserved for AWS use\. You cannot edit or delete tag keys with this prefix\. Values can have this prefix\. If a tag value has `aws` as its prefix but the key does not, then Forecast considers it to be a user tag and will count against the limit of 50 tags\. Tags with only the key prefix of `aws` do not count against your tags per resource limit\.
+Type: Array of [Tag](API_Tag.md) objects  
+Array Members: Minimum number of 0 items\. Maximum number of 200 items\.  
+Required: No
+
 ## Response Syntax<a name="API_CreateDatasetGroup_ResponseSyntax"></a>
 
 ```
 {
-   "[DatasetGroupArn](#forecast-CreateDatasetGroup-response-DatasetGroupArn)": "string"
+   "DatasetGroupArn": "string"
 }
 ```
 

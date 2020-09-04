@@ -6,7 +6,7 @@ Deletes a predictor created using the [CreatePredictor](API_CreatePredictor.md) 
 
 ```
 {
-   "[PredictorArn](#forecast-DeletePredictor-request-PredictorArn)": "string"
+   "PredictorArn": "string"
 }
 ```
 

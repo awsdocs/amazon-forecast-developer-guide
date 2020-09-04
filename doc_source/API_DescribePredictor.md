@@ -14,7 +14,7 @@ In addition to listing the properties provided in the `CreatePredictor` request,
 
 ```
 {
-   "[PredictorArn](#forecast-DescribePredictor-request-PredictorArn)": "string"
+   "PredictorArn": "string"
 }
 ```
 
@@ -33,94 +33,94 @@ Required: Yes
 
 ```
 {
-   "[AlgorithmArn](#forecast-DescribePredictor-response-AlgorithmArn)": "string",
-   "[AutoMLAlgorithmArns](#forecast-DescribePredictor-response-AutoMLAlgorithmArns)": [ "string" ],
-   "[CreationTime](#forecast-DescribePredictor-response-CreationTime)": number,
-   "[DatasetImportJobArns](#forecast-DescribePredictor-response-DatasetImportJobArns)": [ "string" ],
-   "[EncryptionConfig](#forecast-DescribePredictor-response-EncryptionConfig)": { 
-      "[KMSKeyArn](API_EncryptionConfig.md#forecast-Type-EncryptionConfig-KMSKeyArn)": "string",
-      "[RoleArn](API_EncryptionConfig.md#forecast-Type-EncryptionConfig-RoleArn)": "string"
+   "AlgorithmArn": "string",
+   "AutoMLAlgorithmArns": [ "string" ],
+   "CreationTime": number,
+   "DatasetImportJobArns": [ "string" ],
+   "EncryptionConfig": { 
+      "KMSKeyArn": "string",
+      "RoleArn": "string"
    },
-   "[EvaluationParameters](#forecast-DescribePredictor-response-EvaluationParameters)": { 
-      "[BackTestWindowOffset](API_EvaluationParameters.md#forecast-Type-EvaluationParameters-BackTestWindowOffset)": number,
-      "[NumberOfBacktestWindows](API_EvaluationParameters.md#forecast-Type-EvaluationParameters-NumberOfBacktestWindows)": number
+   "EvaluationParameters": { 
+      "BackTestWindowOffset": number,
+      "NumberOfBacktestWindows": number
    },
-   "[FeaturizationConfig](#forecast-DescribePredictor-response-FeaturizationConfig)": { 
-      "[Featurizations](API_FeaturizationConfig.md#forecast-Type-FeaturizationConfig-Featurizations)": [ 
+   "FeaturizationConfig": { 
+      "Featurizations": [ 
          { 
-            "[AttributeName](API_Featurization.md#forecast-Type-Featurization-AttributeName)": "string",
-            "[FeaturizationPipeline](API_Featurization.md#forecast-Type-Featurization-FeaturizationPipeline)": [ 
+            "AttributeName": "string",
+            "FeaturizationPipeline": [ 
                { 
-                  "[FeaturizationMethodName](API_FeaturizationMethod.md#forecast-Type-FeaturizationMethod-FeaturizationMethodName)": "string",
-                  "[FeaturizationMethodParameters](API_FeaturizationMethod.md#forecast-Type-FeaturizationMethod-FeaturizationMethodParameters)": { 
+                  "FeaturizationMethodName": "string",
+                  "FeaturizationMethodParameters": { 
                      "string" : "string" 
                   }
                }
             ]
          }
       ],
-      "[ForecastDimensions](API_FeaturizationConfig.md#forecast-Type-FeaturizationConfig-ForecastDimensions)": [ "string" ],
-      "[ForecastFrequency](API_FeaturizationConfig.md#forecast-Type-FeaturizationConfig-ForecastFrequency)": "string"
+      "ForecastDimensions": [ "string" ],
+      "ForecastFrequency": "string"
    },
-   "[ForecastHorizon](#forecast-DescribePredictor-response-ForecastHorizon)": number,
-   "[HPOConfig](#forecast-DescribePredictor-response-HPOConfig)": { 
-      "[ParameterRanges](API_HyperParameterTuningJobConfig.md#forecast-Type-HyperParameterTuningJobConfig-ParameterRanges)": { 
-         "[CategoricalParameterRanges](API_ParameterRanges.md#forecast-Type-ParameterRanges-CategoricalParameterRanges)": [ 
+   "ForecastHorizon": number,
+   "HPOConfig": { 
+      "ParameterRanges": { 
+         "CategoricalParameterRanges": [ 
             { 
-               "[Name](API_CategoricalParameterRange.md#forecast-Type-CategoricalParameterRange-Name)": "string",
-               "[Values](API_CategoricalParameterRange.md#forecast-Type-CategoricalParameterRange-Values)": [ "string" ]
+               "Name": "string",
+               "Values": [ "string" ]
             }
          ],
-         "[ContinuousParameterRanges](API_ParameterRanges.md#forecast-Type-ParameterRanges-ContinuousParameterRanges)": [ 
+         "ContinuousParameterRanges": [ 
             { 
-               "[MaxValue](API_ContinuousParameterRange.md#forecast-Type-ContinuousParameterRange-MaxValue)": number,
-               "[MinValue](API_ContinuousParameterRange.md#forecast-Type-ContinuousParameterRange-MinValue)": number,
-               "[Name](API_ContinuousParameterRange.md#forecast-Type-ContinuousParameterRange-Name)": "string",
-               "[ScalingType](API_ContinuousParameterRange.md#forecast-Type-ContinuousParameterRange-ScalingType)": "string"
+               "MaxValue": number,
+               "MinValue": number,
+               "Name": "string",
+               "ScalingType": "string"
             }
          ],
-         "[IntegerParameterRanges](API_ParameterRanges.md#forecast-Type-ParameterRanges-IntegerParameterRanges)": [ 
+         "IntegerParameterRanges": [ 
             { 
-               "[MaxValue](API_IntegerParameterRange.md#forecast-Type-IntegerParameterRange-MaxValue)": number,
-               "[MinValue](API_IntegerParameterRange.md#forecast-Type-IntegerParameterRange-MinValue)": number,
-               "[Name](API_IntegerParameterRange.md#forecast-Type-IntegerParameterRange-Name)": "string",
-               "[ScalingType](API_IntegerParameterRange.md#forecast-Type-IntegerParameterRange-ScalingType)": "string"
+               "MaxValue": number,
+               "MinValue": number,
+               "Name": "string",
+               "ScalingType": "string"
             }
          ]
       }
    },
-   "[InputDataConfig](#forecast-DescribePredictor-response-InputDataConfig)": { 
-      "[DatasetGroupArn](API_InputDataConfig.md#forecast-Type-InputDataConfig-DatasetGroupArn)": "string",
-      "[SupplementaryFeatures](API_InputDataConfig.md#forecast-Type-InputDataConfig-SupplementaryFeatures)": [ 
+   "InputDataConfig": { 
+      "DatasetGroupArn": "string",
+      "SupplementaryFeatures": [ 
          { 
-            "[Name](API_SupplementaryFeature.md#forecast-Type-SupplementaryFeature-Name)": "string",
-            "[Value](API_SupplementaryFeature.md#forecast-Type-SupplementaryFeature-Value)": "string"
+            "Name": "string",
+            "Value": "string"
          }
       ]
    },
-   "[LastModificationTime](#forecast-DescribePredictor-response-LastModificationTime)": number,
-   "[Message](#forecast-DescribePredictor-response-Message)": "string",
-   "[PerformAutoML](#forecast-DescribePredictor-response-PerformAutoML)": boolean,
-   "[PerformHPO](#forecast-DescribePredictor-response-PerformHPO)": boolean,
-   "[PredictorArn](#forecast-DescribePredictor-response-PredictorArn)": "string",
-   "[PredictorExecutionDetails](#forecast-DescribePredictor-response-PredictorExecutionDetails)": { 
-      "[PredictorExecutions](API_PredictorExecutionDetails.md#forecast-Type-PredictorExecutionDetails-PredictorExecutions)": [ 
+   "LastModificationTime": number,
+   "Message": "string",
+   "PerformAutoML": boolean,
+   "PerformHPO": boolean,
+   "PredictorArn": "string",
+   "PredictorExecutionDetails": { 
+      "PredictorExecutions": [ 
          { 
-            "[AlgorithmArn](API_PredictorExecution.md#forecast-Type-PredictorExecution-AlgorithmArn)": "string",
-            "[TestWindows](API_PredictorExecution.md#forecast-Type-PredictorExecution-TestWindows)": [ 
+            "AlgorithmArn": "string",
+            "TestWindows": [ 
                { 
-                  "[Message](API_TestWindowSummary.md#forecast-Type-TestWindowSummary-Message)": "string",
-                  "[Status](API_TestWindowSummary.md#forecast-Type-TestWindowSummary-Status)": "string",
-                  "[TestWindowEnd](API_TestWindowSummary.md#forecast-Type-TestWindowSummary-TestWindowEnd)": number,
-                  "[TestWindowStart](API_TestWindowSummary.md#forecast-Type-TestWindowSummary-TestWindowStart)": number
+                  "Message": "string",
+                  "Status": "string",
+                  "TestWindowEnd": number,
+                  "TestWindowStart": number
                }
             ]
          }
       ]
    },
-   "[PredictorName](#forecast-DescribePredictor-response-PredictorName)": "string",
-   "[Status](#forecast-DescribePredictor-response-Status)": "string",
-   "[TrainingParameters](#forecast-DescribePredictor-response-TrainingParameters)": { 
+   "PredictorName": "string",
+   "Status": "string",
+   "TrainingParameters": { 
       "string" : "string" 
    }
 }
@@ -221,8 +221,9 @@ Type: String
 Length Constraints: Maximum length of 256\.
 
  ** [TrainingParameters](#API_DescribePredictor_ResponseSyntax) **   <a name="forecast-DescribePredictor-response-TrainingParameters"></a>
-The default training parameters or overrides selected during model training\. If using the AutoML algorithm or if HPO is turned on while using the DeepAR\+ algorithms, the optimized values for the chosen hyperparameters are returned\. For more information, see [Choosing an Amazon Forecast Algorithm](aws-forecast-choosing-recipes.md)\.  
+The default training parameters or overrides selected during model training\. When running AutoML or choosing HPO with CNN\-QR or DeepAR\+, the optimized values for the chosen hyperparameters are returned\. For more information, see [Choosing an Amazon Forecast Algorithm](aws-forecast-choosing-recipes.md)\.  
 Type: String to string map  
+Map Entries: Minimum number of 0 items\. Maximum number of 100 items\.  
 Key Length Constraints: Maximum length of 256\.  
 Key Pattern: `^[a-zA-Z0-9\-\_\.\/\[\]\,\\]+$`   
 Value Length Constraints: Maximum length of 256\.  

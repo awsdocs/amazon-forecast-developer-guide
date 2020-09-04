@@ -8,7 +8,7 @@ You can't delete a forecast while it is being exported\. After a forecast is del
 
 ```
 {
-   "[ForecastArn](#forecast-DeleteForecast-request-ForecastArn)": "string"
+   "ForecastArn": "string"
 }
 ```
 

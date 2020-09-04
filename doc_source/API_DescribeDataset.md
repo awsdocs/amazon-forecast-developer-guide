@@ -11,7 +11,7 @@ In addition to listing the parameters specified in the `CreateDataset` request, 
 
 ```
 {
-   "[DatasetArn](#forecast-DescribeDataset-request-DatasetArn)": "string"
+   "DatasetArn": "string"
 }
 ```
 
@@ -30,26 +30,26 @@ Required: Yes
 
 ```
 {
-   "[CreationTime](#forecast-DescribeDataset-response-CreationTime)": number,
-   "[DataFrequency](#forecast-DescribeDataset-response-DataFrequency)": "string",
-   "[DatasetArn](#forecast-DescribeDataset-response-DatasetArn)": "string",
-   "[DatasetName](#forecast-DescribeDataset-response-DatasetName)": "string",
-   "[DatasetType](#forecast-DescribeDataset-response-DatasetType)": "string",
-   "[Domain](#forecast-DescribeDataset-response-Domain)": "string",
-   "[EncryptionConfig](#forecast-DescribeDataset-response-EncryptionConfig)": { 
-      "[KMSKeyArn](API_EncryptionConfig.md#forecast-Type-EncryptionConfig-KMSKeyArn)": "string",
-      "[RoleArn](API_EncryptionConfig.md#forecast-Type-EncryptionConfig-RoleArn)": "string"
+   "CreationTime": number,
+   "DataFrequency": "string",
+   "DatasetArn": "string",
+   "DatasetName": "string",
+   "DatasetType": "string",
+   "Domain": "string",
+   "EncryptionConfig": { 
+      "KMSKeyArn": "string",
+      "RoleArn": "string"
    },
-   "[LastModificationTime](#forecast-DescribeDataset-response-LastModificationTime)": number,
-   "[Schema](#forecast-DescribeDataset-response-Schema)": { 
-      "[Attributes](API_Schema.md#forecast-Type-Schema-Attributes)": [ 
+   "LastModificationTime": number,
+   "Schema": { 
+      "Attributes": [ 
          { 
-            "[AttributeName](API_SchemaAttribute.md#forecast-Type-SchemaAttribute-AttributeName)": "string",
-            "[AttributeType](API_SchemaAttribute.md#forecast-Type-SchemaAttribute-AttributeType)": "string"
+            "AttributeName": "string",
+            "AttributeType": "string"
          }
       ]
    },
-   "[Status](#forecast-DescribeDataset-response-Status)": "string"
+   "Status": "string"
 }
 ```
 

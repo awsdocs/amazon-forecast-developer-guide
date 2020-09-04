@@ -12,7 +12,7 @@ In addition to listing the parameters provided in the `CreateDatasetGroup` reque
 
 ```
 {
-   "[DatasetGroupArn](#forecast-DescribeDatasetGroup-request-DatasetGroupArn)": "string"
+   "DatasetGroupArn": "string"
 }
 ```
 
@@ -31,13 +31,13 @@ Required: Yes
 
 ```
 {
-   "[CreationTime](#forecast-DescribeDatasetGroup-response-CreationTime)": number,
-   "[DatasetArns](#forecast-DescribeDatasetGroup-response-DatasetArns)": [ "string" ],
-   "[DatasetGroupArn](#forecast-DescribeDatasetGroup-response-DatasetGroupArn)": "string",
-   "[DatasetGroupName](#forecast-DescribeDatasetGroup-response-DatasetGroupName)": "string",
-   "[Domain](#forecast-DescribeDatasetGroup-response-Domain)": "string",
-   "[LastModificationTime](#forecast-DescribeDatasetGroup-response-LastModificationTime)": number,
-   "[Status](#forecast-DescribeDatasetGroup-response-Status)": "string"
+   "CreationTime": number,
+   "DatasetArns": [ "string" ],
+   "DatasetGroupArn": "string",
+   "DatasetGroupName": "string",
+   "Domain": "string",
+   "LastModificationTime": number,
+   "Status": "string"
 }
 ```
 

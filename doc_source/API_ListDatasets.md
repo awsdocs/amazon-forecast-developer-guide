@@ -6,8 +6,8 @@ Returns a list of datasets created using the [CreateDataset](API_CreateDataset.m
 
 ```
 {
-   "[MaxResults](#forecast-ListDatasets-request-MaxResults)": number,
-   "[NextToken](#forecast-ListDatasets-request-NextToken)": "string"
+   "MaxResults": number,
+   "NextToken": "string"
 }
 ```
 
@@ -31,17 +31,17 @@ Required: No
 
 ```
 {
-   "[Datasets](#forecast-ListDatasets-response-Datasets)": [ 
+   "Datasets": [ 
       { 
-         "[CreationTime](API_DatasetSummary.md#forecast-Type-DatasetSummary-CreationTime)": number,
-         "[DatasetArn](API_DatasetSummary.md#forecast-Type-DatasetSummary-DatasetArn)": "string",
-         "[DatasetName](API_DatasetSummary.md#forecast-Type-DatasetSummary-DatasetName)": "string",
-         "[DatasetType](API_DatasetSummary.md#forecast-Type-DatasetSummary-DatasetType)": "string",
-         "[Domain](API_DatasetSummary.md#forecast-Type-DatasetSummary-Domain)": "string",
-         "[LastModificationTime](API_DatasetSummary.md#forecast-Type-DatasetSummary-LastModificationTime)": number
+         "CreationTime": number,
+         "DatasetArn": "string",
+         "DatasetName": "string",
+         "DatasetType": "string",
+         "Domain": "string",
+         "LastModificationTime": number
       }
    ],
-   "[NextToken](#forecast-ListDatasets-response-NextToken)": "string"
+   "NextToken": "string"
 }
 ```
 

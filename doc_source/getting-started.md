@@ -1,8 +1,8 @@
 # Getting Started<a name="getting-started"></a>
 
 To get started using Amazon Forecast, you do the following\. 
-+ Create an Amazon Forecast dataset and import training data\.
-+ Create an Amazon Forecast predictor\. The algorithm that you choose, trains a predictor using the datasets\. You specify both the algorithm and dataset when you create the predictor\.
++ Create an Forecast dataset and import training data\.
++ Create a Forecast predictor\. The algorithm that you choose, trains a predictor using the datasets\. You specify both the algorithm and dataset when you create the predictor\.
 + Generate a forecast\.
 
 In this exercise, you use a modified version of a publicly available electricity usage dataset to train predictors\. For more information, see [ElectricityLoadDiagrams20112014 Data Set](https://archive.ics.uci.edu/ml/datasets/ElectricityLoadDiagrams20112014)\. The following are sample rows from the dataset:
@@ -15,7 +15,7 @@ In this exercise, you use a modified version of a publicly available electricity
 
 For this exercise, you use the dataset to train a predictor, and then predict the hourly electricity usage by client\. 
 
-You can use either the Amazon Forecast console or the AWS Command Line Interface \(AWS CLI\) for this exercise\. Pay attention to the default regions of the Amazon Forecast console, the AWS CLI, and the Amazon Forecast SDKs, as Amazon Forecast resources are not shared across regions\.
+You can use either the Forecast console or the AWS Command Line Interface \(AWS CLI\) for this exercise\. Pay attention to the default regions of the Amazon Forecast console, the AWS CLI, and the Amazon Forecast SDKs, as Amazon Forecast resources are not shared across regions\.
 
 **Important**  
 Before you begin, make sure that you have an AWS account and have installed the AWS CLI\. For more information, see [Setting Up](setup.md)\. We also recommend that you review [How Amazon Forecast Works](how-it-works.md)\.

@@ -8,7 +8,7 @@ This operation deletes only the dataset group, not the datasets in the group\.
 
 ```
 {
-   "[DatasetGroupArn](#forecast-DeleteDatasetGroup-request-DatasetGroupArn)": "string"
+   "DatasetGroupArn": "string"
 }
 ```
 

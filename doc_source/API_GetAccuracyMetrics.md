@@ -13,7 +13,7 @@ Before you can get accuracy metrics, the `Status` of the predictor must be `ACTI
 
 ```
 {
-   "[PredictorArn](#forecast-GetAccuracyMetrics-request-PredictorArn)": "string"
+   "PredictorArn": "string"
 }
 ```
 
@@ -32,24 +32,24 @@ Required: Yes
 
 ```
 {
-   "[PredictorEvaluationResults](#forecast-GetAccuracyMetrics-response-PredictorEvaluationResults)": [ 
+   "PredictorEvaluationResults": [ 
       { 
-         "[AlgorithmArn](API_EvaluationResult.md#forecast-Type-EvaluationResult-AlgorithmArn)": "string",
-         "[TestWindows](API_EvaluationResult.md#forecast-Type-EvaluationResult-TestWindows)": [ 
+         "AlgorithmArn": "string",
+         "TestWindows": [ 
             { 
-               "[EvaluationType](API_WindowSummary.md#forecast-Type-WindowSummary-EvaluationType)": "string",
-               "[ItemCount](API_WindowSummary.md#forecast-Type-WindowSummary-ItemCount)": number,
-               "[Metrics](API_WindowSummary.md#forecast-Type-WindowSummary-Metrics)": { 
-                  "[RMSE](API_Metrics.md#forecast-Type-Metrics-RMSE)": number,
-                  "[WeightedQuantileLosses](API_Metrics.md#forecast-Type-Metrics-WeightedQuantileLosses)": [ 
+               "EvaluationType": "string",
+               "ItemCount": number,
+               "Metrics": { 
+                  "RMSE": number,
+                  "WeightedQuantileLosses": [ 
                      { 
-                        "[LossValue](API_WeightedQuantileLoss.md#forecast-Type-WeightedQuantileLoss-LossValue)": number,
-                        "[Quantile](API_WeightedQuantileLoss.md#forecast-Type-WeightedQuantileLoss-Quantile)": number
+                        "LossValue": number,
+                        "Quantile": number
                      }
                   ]
                },
-               "[TestWindowEnd](API_WindowSummary.md#forecast-Type-WindowSummary-TestWindowEnd)": number,
-               "[TestWindowStart](API_WindowSummary.md#forecast-Type-WindowSummary-TestWindowStart)": number
+               "TestWindowEnd": number,
+               "TestWindowStart": number
             }
          ]
       }

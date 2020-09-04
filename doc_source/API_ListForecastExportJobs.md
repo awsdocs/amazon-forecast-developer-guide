@@ -6,15 +6,15 @@ Returns a list of forecast export jobs created using the [CreateForecastExportJo
 
 ```
 {
-   "[Filters](#forecast-ListForecastExportJobs-request-Filters)": [ 
+   "Filters": [ 
       { 
-         "[Condition](API_Filter.md#forecast-Type-Filter-Condition)": "string",
-         "[Key](API_Filter.md#forecast-Type-Filter-Key)": "string",
-         "[Value](API_Filter.md#forecast-Type-Filter-Value)": "string"
+         "Condition": "string",
+         "Key": "string",
+         "Value": "string"
       }
    ],
-   "[MaxResults](#forecast-ListForecastExportJobs-request-MaxResults)": number,
-   "[NextToken](#forecast-ListForecastExportJobs-request-NextToken)": "string"
+   "MaxResults": number,
+   "NextToken": "string"
 }
 ```
 
@@ -49,24 +49,24 @@ Required: No
 
 ```
 {
-   "[ForecastExportJobs](#forecast-ListForecastExportJobs-response-ForecastExportJobs)": [ 
+   "ForecastExportJobs": [ 
       { 
-         "[CreationTime](API_ForecastExportJobSummary.md#forecast-Type-ForecastExportJobSummary-CreationTime)": number,
-         "[Destination](API_ForecastExportJobSummary.md#forecast-Type-ForecastExportJobSummary-Destination)": { 
-            "[S3Config](API_DataDestination.md#forecast-Type-DataDestination-S3Config)": { 
-               "[KMSKeyArn](API_S3Config.md#forecast-Type-S3Config-KMSKeyArn)": "string",
-               "[Path](API_S3Config.md#forecast-Type-S3Config-Path)": "string",
-               "[RoleArn](API_S3Config.md#forecast-Type-S3Config-RoleArn)": "string"
+         "CreationTime": number,
+         "Destination": { 
+            "S3Config": { 
+               "KMSKeyArn": "string",
+               "Path": "string",
+               "RoleArn": "string"
             }
          },
-         "[ForecastExportJobArn](API_ForecastExportJobSummary.md#forecast-Type-ForecastExportJobSummary-ForecastExportJobArn)": "string",
-         "[ForecastExportJobName](API_ForecastExportJobSummary.md#forecast-Type-ForecastExportJobSummary-ForecastExportJobName)": "string",
-         "[LastModificationTime](API_ForecastExportJobSummary.md#forecast-Type-ForecastExportJobSummary-LastModificationTime)": number,
-         "[Message](API_ForecastExportJobSummary.md#forecast-Type-ForecastExportJobSummary-Message)": "string",
-         "[Status](API_ForecastExportJobSummary.md#forecast-Type-ForecastExportJobSummary-Status)": "string"
+         "ForecastExportJobArn": "string",
+         "ForecastExportJobName": "string",
+         "LastModificationTime": number,
+         "Message": "string",
+         "Status": "string"
       }
    ],
-   "[NextToken](#forecast-ListForecastExportJobs-response-NextToken)": "string"
+   "NextToken": "string"
 }
 ```
 

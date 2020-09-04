@@ -6,7 +6,7 @@ Deletes a forecast export job created using the [CreateForecastExportJob](API_Cr
 
 ```
 {
-   "[ForecastExportJobArn](#forecast-DeleteForecastExportJob-request-ForecastExportJobArn)": "string"
+   "ForecastExportJobArn": "string"
 }
 ```
 

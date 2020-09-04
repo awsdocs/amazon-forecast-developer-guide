@@ -35,7 +35,7 @@ When you create a Forecast dataset, you choose a domain and a dataset type\. For
 Within each domain, Forecast users can specify the following types of datasets:
 + Target time series dataset \(required\) – Use this dataset type when your training data is a time series *and* it includes the field that you want to generate a forecast for\. This field is called the *target field*\.
 + Related time series dataset \(optional\) – Choose this dataset type when your training data is a time series, but it *doesn't* include the target field\. For instance, if you're forecasting item demand, a related time series dataset might have `price` as a field, but not `demand`\.
-+ Item metadata dataset \(optional\) – Choose this dataset type when your training data *isn't* time\-series data, but includes metadata information about the items in the target time series or related time series datasets\. For instance, if you're forecasting item demand, an item metadata dataset might `color` or `brand` as dimensions\. Forecast only considers the data provided by an item metadata dataset type when you use the [DeepAR\+](aws-forecast-recipe-deeparplus.md) algorithm\.
++ Item metadata dataset \(optional\) – Choose this dataset type when your training data *isn't* time\-series data, but includes metadata information about the items in the target time series or related time series datasets\. For instance, if you're forecasting item demand, an item metadata dataset might `color` or `brand` as dimensions\. Forecast only considers the data provided by an item metadata dataset type when you use the [CNN\-QR](aws-forecast-algo-cnnqr.md) or [DeepAR\+](aws-forecast-recipe-deeparplus.md) algorithm\.
 
 Depending on the information in your training data and what you want to forecast, you might create more than one dataset\. 
 
@@ -155,6 +155,8 @@ The following figure shows how Forecast transforms data to fit the weekly bounda
 ![\[Image NOT FOUND\]](http://docs.aws.amazon.com/forecast/latest/dg/images/data-alignment.png)
 
 ### Data Aggregation Guidelines<a name="howitworks-dataset-guidelines"></a>
+
+ When using the `FeaturizationMethod` API, set the aggreaggation method within `FeaturizationMethodParameters`\. The aggregation parameter accepts the following values: `sum`, `avg`, `first`, `min`, and `max`\. The default value is `sum`\.
 
 Forecast doesn't assume that your data is from any specific time zone\. However, it makes the following assumptions when aggregating time series data:
 + All data is from the same time zone\.

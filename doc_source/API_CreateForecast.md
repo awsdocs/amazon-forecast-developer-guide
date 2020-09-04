@@ -18,9 +18,15 @@ The `Status` of the forecast must be `ACTIVE` before you can query or export the
 
 ```
 {
-   "[ForecastName](#forecast-CreateForecast-request-ForecastName)": "string",
-   "[ForecastTypes](#forecast-CreateForecast-request-ForecastTypes)": [ "string" ],
-   "[PredictorArn](#forecast-CreateForecast-request-PredictorArn)": "string"
+   "ForecastName": "string",
+   "ForecastTypes": [ "string" ],
+   "PredictorArn": "string",
+   "Tags": [ 
+      { 
+         "Key": "string",
+         "Value": "string"
+      }
+   ]
 }
 ```
 
@@ -49,11 +55,25 @@ Length Constraints: Maximum length of 256\.
 Pattern: `^[a-zA-Z0-9\-\_\.\/\:]+$`   
 Required: Yes
 
+ ** [Tags](#API_CreateForecast_RequestSyntax) **   <a name="forecast-CreateForecast-request-Tags"></a>
+The optional metadata that you apply to the forecast to help you categorize and organize them\. Each tag consists of a key and an optional value, both of which you define\.  
+The following basic restrictions apply to tags:  
++ Maximum number of tags per resource \- 50\.
++ For each resource, each tag key must be unique, and each tag key can have only one value\.
++ Maximum key length \- 128 Unicode characters in UTF\-8\.
++ Maximum value length \- 256 Unicode characters in UTF\-8\.
++ If your tagging schema is used across multiple services and resources, remember that other services may have restrictions on allowed characters\. Generally allowed characters are: letters, numbers, and spaces representable in UTF\-8, and the following characters: \+ \- = \. \_ : / @\.
++ Tag keys and values are case sensitive\.
++ Do not use `aws:`, `AWS:`, or any upper or lowercase combination of such as a prefix for keys as it is reserved for AWS use\. You cannot edit or delete tag keys with this prefix\. Values can have this prefix\. If a tag value has `aws` as its prefix but the key does not, then Forecast considers it to be a user tag and will count against the limit of 50 tags\. Tags with only the key prefix of `aws` do not count against your tags per resource limit\.
+Type: Array of [Tag](API_Tag.md) objects  
+Array Members: Minimum number of 0 items\. Maximum number of 200 items\.  
+Required: No
+
 ## Response Syntax<a name="API_CreateForecast_ResponseSyntax"></a>
 
 ```
 {
-   "[ForecastArn](#forecast-CreateForecast-response-ForecastArn)": "string"
+   "ForecastArn": "string"
 }
 ```
 

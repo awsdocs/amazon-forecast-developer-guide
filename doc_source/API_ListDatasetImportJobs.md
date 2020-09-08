@@ -6,15 +6,15 @@ Returns a list of dataset import jobs created using the [CreateDatasetImportJob]
 
 ```
 {
-   "[Filters](#forecast-ListDatasetImportJobs-request-Filters)": [ 
+   "Filters": [ 
       { 
-         "[Condition](API_Filter.md#forecast-Type-Filter-Condition)": "string",
-         "[Key](API_Filter.md#forecast-Type-Filter-Key)": "string",
-         "[Value](API_Filter.md#forecast-Type-Filter-Value)": "string"
+         "Condition": "string",
+         "Key": "string",
+         "Value": "string"
       }
    ],
-   "[MaxResults](#forecast-ListDatasetImportJobs-request-MaxResults)": number,
-   "[NextToken](#forecast-ListDatasetImportJobs-request-NextToken)": "string"
+   "MaxResults": number,
+   "NextToken": "string"
 }
 ```
 
@@ -49,24 +49,24 @@ Required: No
 
 ```
 {
-   "[DatasetImportJobs](#forecast-ListDatasetImportJobs-response-DatasetImportJobs)": [ 
+   "DatasetImportJobs": [ 
       { 
-         "[CreationTime](API_DatasetImportJobSummary.md#forecast-Type-DatasetImportJobSummary-CreationTime)": number,
-         "[DatasetImportJobArn](API_DatasetImportJobSummary.md#forecast-Type-DatasetImportJobSummary-DatasetImportJobArn)": "string",
-         "[DatasetImportJobName](API_DatasetImportJobSummary.md#forecast-Type-DatasetImportJobSummary-DatasetImportJobName)": "string",
-         "[DataSource](API_DatasetImportJobSummary.md#forecast-Type-DatasetImportJobSummary-DataSource)": { 
-            "[S3Config](API_DataSource.md#forecast-Type-DataSource-S3Config)": { 
-               "[KMSKeyArn](API_S3Config.md#forecast-Type-S3Config-KMSKeyArn)": "string",
-               "[Path](API_S3Config.md#forecast-Type-S3Config-Path)": "string",
-               "[RoleArn](API_S3Config.md#forecast-Type-S3Config-RoleArn)": "string"
+         "CreationTime": number,
+         "DatasetImportJobArn": "string",
+         "DatasetImportJobName": "string",
+         "DataSource": { 
+            "S3Config": { 
+               "KMSKeyArn": "string",
+               "Path": "string",
+               "RoleArn": "string"
             }
          },
-         "[LastModificationTime](API_DatasetImportJobSummary.md#forecast-Type-DatasetImportJobSummary-LastModificationTime)": number,
-         "[Message](API_DatasetImportJobSummary.md#forecast-Type-DatasetImportJobSummary-Message)": "string",
-         "[Status](API_DatasetImportJobSummary.md#forecast-Type-DatasetImportJobSummary-Status)": "string"
+         "LastModificationTime": number,
+         "Message": "string",
+         "Status": "string"
       }
    ],
-   "[NextToken](#forecast-ListDatasetImportJobs-response-NextToken)": "string"
+   "NextToken": "string"
 }
 ```
 

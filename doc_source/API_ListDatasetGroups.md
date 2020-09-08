@@ -6,8 +6,8 @@ Returns a list of dataset groups created using the [CreateDatasetGroup](API_Crea
 
 ```
 {
-   "[MaxResults](#forecast-ListDatasetGroups-request-MaxResults)": number,
-   "[NextToken](#forecast-ListDatasetGroups-request-NextToken)": "string"
+   "MaxResults": number,
+   "NextToken": "string"
 }
 ```
 
@@ -31,15 +31,15 @@ Required: No
 
 ```
 {
-   "[DatasetGroups](#forecast-ListDatasetGroups-response-DatasetGroups)": [ 
+   "DatasetGroups": [ 
       { 
-         "[CreationTime](API_DatasetGroupSummary.md#forecast-Type-DatasetGroupSummary-CreationTime)": number,
-         "[DatasetGroupArn](API_DatasetGroupSummary.md#forecast-Type-DatasetGroupSummary-DatasetGroupArn)": "string",
-         "[DatasetGroupName](API_DatasetGroupSummary.md#forecast-Type-DatasetGroupSummary-DatasetGroupName)": "string",
-         "[LastModificationTime](API_DatasetGroupSummary.md#forecast-Type-DatasetGroupSummary-LastModificationTime)": number
+         "CreationTime": number,
+         "DatasetGroupArn": "string",
+         "DatasetGroupName": "string",
+         "LastModificationTime": number
       }
    ],
-   "[NextToken](#forecast-ListDatasetGroups-response-NextToken)": "string"
+   "NextToken": "string"
 }
 ```
 

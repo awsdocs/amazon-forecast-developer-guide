@@ -4,8 +4,6 @@ Before you use IAM to manage access to Amazon Forecast, you should understand wh
 
 **Topics**
 + [Forecast Identity\-Based Policies](#security_iam_service-with-iam-id-based-policies)
-+ [Forecast Resource\-Based Policies](#security_iam_service-with-iam-resource-based-policies)
-+ [Authorization Based on Forecast Tags](#security_iam_service-with-iam-tags)
 + [Forecast IAM Roles](#security_iam_service-with-iam-roles)
 
 ## Forecast Identity\-Based Policies<a name="security_iam_service-with-iam-id-based-policies"></a>
@@ -79,14 +77,6 @@ Forecast does not provide any service\-specific condition keys\.
 
 
 To view examples of Forecast identity\-based policies, see [Amazon Forecast Identity\-Based Policy Examples](security_iam_id-based-policy-examples.md)\.
-
-## Forecast Resource\-Based Policies<a name="security_iam_service-with-iam-resource-based-policies"></a>
-
-Forecast does not support resource\-based policies\.
-
-## Authorization Based on Forecast Tags<a name="security_iam_service-with-iam-tags"></a>
-
-Forecast does not support tagging resources or controlling access based on tags\.
 
 ## Forecast IAM Roles<a name="security_iam_service-with-iam-roles"></a>
 

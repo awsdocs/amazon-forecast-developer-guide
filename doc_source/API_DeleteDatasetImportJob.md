@@ -6,7 +6,7 @@ Deletes a dataset import job created using the [CreateDatasetImportJob](API_Crea
 
 ```
 {
-   "[DatasetImportJobArn](#forecast-DeleteDatasetImportJob-request-DatasetImportJobArn)": "string"
+   "DatasetImportJobArn": "string"
 }
 ```
 

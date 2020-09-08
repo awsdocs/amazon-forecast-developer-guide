@@ -16,16 +16,22 @@ To get a list of all your dataset import jobs, filtered by specified criteria, u
 
 ```
 {
-   "[DatasetArn](#forecast-CreateDatasetImportJob-request-DatasetArn)": "string",
-   "[DatasetImportJobName](#forecast-CreateDatasetImportJob-request-DatasetImportJobName)": "string",
-   "[DataSource](#forecast-CreateDatasetImportJob-request-DataSource)": { 
-      "[S3Config](API_DataSource.md#forecast-Type-DataSource-S3Config)": { 
-         "[KMSKeyArn](API_S3Config.md#forecast-Type-S3Config-KMSKeyArn)": "string",
-         "[Path](API_S3Config.md#forecast-Type-S3Config-Path)": "string",
-         "[RoleArn](API_S3Config.md#forecast-Type-S3Config-RoleArn)": "string"
+   "DatasetArn": "string",
+   "DatasetImportJobName": "string",
+   "DataSource": { 
+      "S3Config": { 
+         "KMSKeyArn": "string",
+         "Path": "string",
+         "RoleArn": "string"
       }
    },
-   "[TimestampFormat](#forecast-CreateDatasetImportJob-request-TimestampFormat)": "string"
+   "Tags": [ 
+      { 
+         "Key": "string",
+         "Value": "string"
+      }
+   ],
+   "TimestampFormat": "string"
 }
 ```
 
@@ -53,6 +59,20 @@ If encryption is used, `DataSource` must include an AWS Key Management Service \
 Type: [DataSource](API_DataSource.md) object  
 Required: Yes
 
+ ** [Tags](#API_CreateDatasetImportJob_RequestSyntax) **   <a name="forecast-CreateDatasetImportJob-request-Tags"></a>
+The optional metadata that you apply to the dataset import job to help you categorize and organize them\. Each tag consists of a key and an optional value, both of which you define\.  
+The following basic restrictions apply to tags:  
++ Maximum number of tags per resource \- 50\.
++ For each resource, each tag key must be unique, and each tag key can have only one value\.
++ Maximum key length \- 128 Unicode characters in UTF\-8\.
++ Maximum value length \- 256 Unicode characters in UTF\-8\.
++ If your tagging schema is used across multiple services and resources, remember that other services may have restrictions on allowed characters\. Generally allowed characters are: letters, numbers, and spaces representable in UTF\-8, and the following characters: \+ \- = \. \_ : / @\.
++ Tag keys and values are case sensitive\.
++ Do not use `aws:`, `AWS:`, or any upper or lowercase combination of such as a prefix for keys as it is reserved for AWS use\. You cannot edit or delete tag keys with this prefix\. Values can have this prefix\. If a tag value has `aws` as its prefix but the key does not, then Forecast considers it to be a user tag and will count against the limit of 50 tags\. Tags with only the key prefix of `aws` do not count against your tags per resource limit\.
+Type: Array of [Tag](API_Tag.md) objects  
+Array Members: Minimum number of 0 items\. Maximum number of 200 items\.  
+Required: No
+
  ** [TimestampFormat](#API_CreateDatasetImportJob_RequestSyntax) **   <a name="forecast-CreateDatasetImportJob-request-TimestampFormat"></a>
 The format of timestamps in the dataset\. The format that you specify depends on the `DataFrequency` specified when the dataset was created\. The following formats are supported  
 + "yyyy\-MM\-dd"
@@ -71,7 +91,7 @@ Required: No
 
 ```
 {
-   "[DatasetImportJobArn](#forecast-CreateDatasetImportJob-response-DatasetImportJobArn)": "string"
+   "DatasetImportJobArn": "string"
 }
 ```
 

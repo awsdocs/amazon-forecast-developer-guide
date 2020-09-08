@@ -7,7 +7,7 @@ To grant Amazon Forecast permission to use Amazon S3 on your behalf, you must ha
 To create the IAM role and policy and to attach the policy to the role, you can use the IAM console or the AWS Command Line Interface \(AWS CLI\)\.
 
 **Note**  
-Because Amazon Personalize does not communicate with AWS VPCs, Amazon Personalize will be unable to interact with Amazon S3 buckets that only allow VPC access\.
+Forecast does not communicate with AWS VPCs and is unable to support the S3 VPCE gateway\. Using S3 buckets that only allow VPC access will result in an `AccessDenied` error\.
 
 **Topics**
 + [Create an IAM Role for Amazon Forecast \(IAM Console\)](#aws-forecast-create-iam-role-with-console)

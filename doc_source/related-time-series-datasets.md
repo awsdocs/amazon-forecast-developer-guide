@@ -6,7 +6,27 @@ For example, in the demand forecasting domain, a target time series dataset woul
 
 A related time series dataset can contain up to 10 forecast dimensions \(the same ones in your target time series dataset\) and up to 13 related time\-series features\.
 
-You can use a related time series dataset only when training a predictor with the [DeepAR\+](aws-forecast-recipe-deeparplus.md) and [Prophet](aws-forecast-recipe-prophet.md) algorithms\. The [NPTS](aws-forecast-recipe-npts.md) algorithm and the R open\-source algorithms \([ARIMA](aws-forecast-recipe-arima.md) and [ETS](aws-forecast-recipe-ets.md)\) don't take data in a related time series dataset into consideration\.
+You can use a related time series dataset when training a predictor with the [CNN\-QR](aws-forecast-algo-cnnqr.md), [DeepAR\+](aws-forecast-recipe-deeparplus.md), and [Prophet](aws-forecast-recipe-prophet.md) algorithms\. [NPTS](aws-forecast-recipe-npts.md), [ARIMA](aws-forecast-recipe-arima.md), and [ETS](aws-forecast-recipe-ets.md) do not accept related time series data\.
+
+## Historical and Forward\-looking Related Time Series<a name="related-time-series-historical-futurelooking"></a>
+
+ Related time series come in two forms: 
++  **Historical time series**: time series *without* data points within the forecast horizon\. 
++  **Forward\-looking time series**: time series *with* data points within the forecast horizon\. 
+
+Historical related time series contain data points up to the forecast horizon, and do not contain any data points within the forecast horizon\. Forward\-looking related time series contain data points up to *and* within the forecast horizon\. A related time series that contains any values within the forecast horizon is treated as a forward\-looking time series\. 
+
+ The following table shows the types of related time series each Amazon Forecast algorithm accepts\. 
+
+
+|  | CNN\-QR | DeepAR\+ | Prophet | NPTS | ARIMA | ETS | 
+| --- | --- | --- | --- | --- | --- | --- | 
+|  Historical related time series  | ![\[Image NOT FOUND\]](http://docs.aws.amazon.com/forecast/latest/dg/images/icon-yes.png)  | ![\[Image NOT FOUND\]](http://docs.aws.amazon.com/forecast/latest/dg/images/icon-no.png)  | ![\[Image NOT FOUND\]](http://docs.aws.amazon.com/forecast/latest/dg/images/icon-no.png)  | ![\[Image NOT FOUND\]](http://docs.aws.amazon.com/forecast/latest/dg/images/icon-no.png)  | ![\[Image NOT FOUND\]](http://docs.aws.amazon.com/forecast/latest/dg/images/icon-no.png)  | ![\[Image NOT FOUND\]](http://docs.aws.amazon.com/forecast/latest/dg/images/icon-no.png)  | 
+|  Forward\-looking related time series  | ![\[Image NOT FOUND\]](http://docs.aws.amazon.com/forecast/latest/dg/images/icon-yes.png)  | ![\[Image NOT FOUND\]](http://docs.aws.amazon.com/forecast/latest/dg/images/icon-yes.png)  | ![\[Image NOT FOUND\]](http://docs.aws.amazon.com/forecast/latest/dg/images/icon-yes.png)  | ![\[Image NOT FOUND\]](http://docs.aws.amazon.com/forecast/latest/dg/images/icon-no.png)  | ![\[Image NOT FOUND\]](http://docs.aws.amazon.com/forecast/latest/dg/images/icon-no.png)  | ![\[Image NOT FOUND\]](http://docs.aws.amazon.com/forecast/latest/dg/images/icon-no.png)  | 
+
+ When using AutoML, you can provide both historical and foward\-looking related time series data, and Forecast will only use those time series where applicable\. 
+
+ If you provide *forward\-looking* related time series data, Forecast will use the related data with CNN\-QR, DeepAR\+, and Prophet, and will not use the related data with NPTS, ARIMA and ETS\. If provided *historical* related time series data, Forecast will use the related data with CNN\-QR, and will not use the related data with DeepAR\+, Prophet, NPTS, ARIMA, and ETS\. 
 
 ## Related Time Series Dataset Validation<a name="related-time-series-dataset-validation"></a>
 
@@ -14,20 +34,25 @@ A related time series dataset has the following restrictions:
 + It can't include the target value from the target time series\.
 + It must include `item_id` and `timestamp` dimensions, and at least one related feature \(such as `price`\)\.
 + Related time series feature data must be of the `int` or `float` datatypes\.
++ In order to use the entire target time series, all items from the target time series dataset must also be included in the related time series dataset\. If a related time series only contains a subset of items from the target time series, then the model creation and forecast generation will be limited to that specific subset of items\.
+
+   For example, if the target time series contains 1000 items and the related time series dataset only contains 100 items, then the model and forecasts will be based on only those 100 items\. 
 + The frequency at which data is recorded in the related time series dataset must match the interval at which you want to generate forecasts \(the forecasting *granularity*\)\.
 
   For example, if you want to generate forecasts at a weekly granularity, the frequency at which data is recorded in the related time series must also be weekly, even if the frequency at which data is recorded in the target time series is daily\.
 + The data for each item in the related time series dataset must start on or before the beginning `timestamp` of the corresponding `item_id` in the target time series dataset\.
 
   For example, if the target time series data for `socks` starts at 2019\-01\-01 and the target time series data for `shoes` starts at 2019\-02\-01, the related time series data for `socks` must begin on or before 2019\-01\-01 and the data for `shoes` must begin on or before 2019\-02\-01\.
-+ The last timestamp for every item in the related time series dataset must be on or after the last timestamp in the target time series *plus* the user\-designated forecast window \(called the *forecast horizon*\)\.
++ For forward\-looking related time series datasets, the last timestamp for every item must be on the last timestamp in the user\-designated forecast window \(called the *forecast horizon*\)\.
 
-  In the example related time series file below, the `timestamp` data for both socks and shoes must end on or after 2019\-07\-01 \(the last recorded timestamp\) *plus* the forecast horizon\. If data frequency in the target time series is daily and the forecast horizon is 10 days, daily data points must be provided in the related time series file until 2019\-07\-11\.
+  In the example related time series file below, the `timestamp` data for both socks and shoes must end on or after 2019\-07\-01 \(the last recorded timestamp\) *plus* the forecast horizon\. If data frequency in the target time series is daily and the forecast horizon is 10 days, daily data points must be provided in the forward\-looking related time series file until 2019\-07\-11\.
++ For historical related time series datasets, the last timestamp for every item must match the last timestamp in the target time series\.
+
+  In the example related time series file below, the `timestamp` data for both socks and shoes must end on 2019\-07\-01 \(the last recorded timestamp\)\.
 + The Forecast dimensions provided in the related time series dataset must be either equal to or a subset of the dimensions designated in the target time series dataset\.
++  Related time series cannot have missing values\. For information on missing values in a related time series dataset, see [Handling Missing Values](howitworks-missing-values.md)\. 
 
-For information on handling missing values in a related time series dataset, see [Handling Missing Values](howitworks-missing-values.md)\.
-
-## Example: Related Time Series File<a name="related-time-series-example"></a>
+## Example: Forward\-looking Related Time Series File<a name="related-time-series-example"></a>
 
 The following table shows a correctly configured related time series dataset file\. For this example, assume the following:
 + The last data point was recorded in the target time series dataset on 2019\-07\-01\.

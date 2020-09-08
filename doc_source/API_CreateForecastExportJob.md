@@ -2,7 +2,7 @@
 
 Exports a forecast created by the [CreateForecast](API_CreateForecast.md) operation to your Amazon Simple Storage Service \(Amazon S3\) bucket\. The forecast file name will match the following conventions:
 
-<ForecastExportJobName>\_<ExportTimestamp>\_<PageNumber>
+<ForecastExportJobName>\_<ExportTimestamp>\_<PartNumber>
 
 where the <ExportTimestamp> component is in Java SimpleDateFormat \(yyyy\-MM\-ddTHH\-mm\-ssZ\)\.
 
@@ -19,15 +19,21 @@ The `Status` of the forecast export job must be `ACTIVE` before you can access t
 
 ```
 {
-   "[Destination](#forecast-CreateForecastExportJob-request-Destination)": { 
-      "[S3Config](API_DataDestination.md#forecast-Type-DataDestination-S3Config)": { 
-         "[KMSKeyArn](API_S3Config.md#forecast-Type-S3Config-KMSKeyArn)": "string",
-         "[Path](API_S3Config.md#forecast-Type-S3Config-Path)": "string",
-         "[RoleArn](API_S3Config.md#forecast-Type-S3Config-RoleArn)": "string"
+   "Destination": { 
+      "S3Config": { 
+         "KMSKeyArn": "string",
+         "Path": "string",
+         "RoleArn": "string"
       }
    },
-   "[ForecastArn](#forecast-CreateForecastExportJob-request-ForecastArn)": "string",
-   "[ForecastExportJobName](#forecast-CreateForecastExportJob-request-ForecastExportJobName)": "string"
+   "ForecastArn": "string",
+   "ForecastExportJobName": "string",
+   "Tags": [ 
+      { 
+         "Key": "string",
+         "Value": "string"
+      }
+   ]
 }
 ```
 
@@ -55,11 +61,25 @@ Length Constraints: Minimum length of 1\. Maximum length of 63\.
 Pattern: `^[a-zA-Z][a-zA-Z0-9_]*`   
 Required: Yes
 
+ ** [Tags](#API_CreateForecastExportJob_RequestSyntax) **   <a name="forecast-CreateForecastExportJob-request-Tags"></a>
+The optional metadata that you apply to the forecast export job to help you categorize and organize them\. Each tag consists of a key and an optional value, both of which you define\.  
+The following basic restrictions apply to tags:  
++ Maximum number of tags per resource \- 50\.
++ For each resource, each tag key must be unique, and each tag key can have only one value\.
++ Maximum key length \- 128 Unicode characters in UTF\-8\.
++ Maximum value length \- 256 Unicode characters in UTF\-8\.
++ If your tagging schema is used across multiple services and resources, remember that other services may have restrictions on allowed characters\. Generally allowed characters are: letters, numbers, and spaces representable in UTF\-8, and the following characters: \+ \- = \. \_ : / @\.
++ Tag keys and values are case sensitive\.
++ Do not use `aws:`, `AWS:`, or any upper or lowercase combination of such as a prefix for keys as it is reserved for AWS use\. You cannot edit or delete tag keys with this prefix\. Values can have this prefix\. If a tag value has `aws` as its prefix but the key does not, then Forecast considers it to be a user tag and will count against the limit of 50 tags\. Tags with only the key prefix of `aws` do not count against your tags per resource limit\.
+Type: Array of [Tag](API_Tag.md) objects  
+Array Members: Minimum number of 0 items\. Maximum number of 200 items\.  
+Required: No
+
 ## Response Syntax<a name="API_CreateForecastExportJob_ResponseSyntax"></a>
 
 ```
 {
-   "[ForecastExportJobArn](#forecast-CreateForecastExportJob-response-ForecastExportJobArn)": "string"
+   "ForecastExportJobArn": "string"
 }
 ```
 

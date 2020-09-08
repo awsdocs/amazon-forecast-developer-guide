@@ -6,15 +6,15 @@ Returns a list of forecasts created using the [CreateForecast](API_CreateForecas
 
 ```
 {
-   "[Filters](#forecast-ListForecasts-request-Filters)": [ 
+   "Filters": [ 
       { 
-         "[Condition](API_Filter.md#forecast-Type-Filter-Condition)": "string",
-         "[Key](API_Filter.md#forecast-Type-Filter-Key)": "string",
-         "[Value](API_Filter.md#forecast-Type-Filter-Value)": "string"
+         "Condition": "string",
+         "Key": "string",
+         "Value": "string"
       }
    ],
-   "[MaxResults](#forecast-ListForecasts-request-MaxResults)": number,
-   "[NextToken](#forecast-ListForecasts-request-NextToken)": "string"
+   "MaxResults": number,
+   "NextToken": "string"
 }
 ```
 
@@ -49,19 +49,19 @@ Required: No
 
 ```
 {
-   "[Forecasts](#forecast-ListForecasts-response-Forecasts)": [ 
+   "Forecasts": [ 
       { 
-         "[CreationTime](API_ForecastSummary.md#forecast-Type-ForecastSummary-CreationTime)": number,
-         "[DatasetGroupArn](API_ForecastSummary.md#forecast-Type-ForecastSummary-DatasetGroupArn)": "string",
-         "[ForecastArn](API_ForecastSummary.md#forecast-Type-ForecastSummary-ForecastArn)": "string",
-         "[ForecastName](API_ForecastSummary.md#forecast-Type-ForecastSummary-ForecastName)": "string",
-         "[LastModificationTime](API_ForecastSummary.md#forecast-Type-ForecastSummary-LastModificationTime)": number,
-         "[Message](API_ForecastSummary.md#forecast-Type-ForecastSummary-Message)": "string",
-         "[PredictorArn](API_ForecastSummary.md#forecast-Type-ForecastSummary-PredictorArn)": "string",
-         "[Status](API_ForecastSummary.md#forecast-Type-ForecastSummary-Status)": "string"
+         "CreationTime": number,
+         "DatasetGroupArn": "string",
+         "ForecastArn": "string",
+         "ForecastName": "string",
+         "LastModificationTime": number,
+         "Message": "string",
+         "PredictorArn": "string",
+         "Status": "string"
       }
    ],
-   "[NextToken](#forecast-ListForecasts-response-NextToken)": "string"
+   "NextToken": "string"
 }
 ```
 

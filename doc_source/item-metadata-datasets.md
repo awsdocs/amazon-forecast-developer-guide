@@ -1,6 +1,6 @@
 # Using Item Metadata Datasets<a name="item-metadata-datasets"></a>
 
-An *item metadata dataset* contains categorical data that provides valuable context for the items in a target time\-series dataset when you train a predictor with the [DeepAR\+ algorithm](aws-forecast-recipe-deeparplus.md)\. Unlike related time\-series datasets, item metadata datasets provide information that is static\. That is, the data values remain constant over time, like an item's color or brand\. Item metadata datasets are optional additions to your dataset groups, and are taken into account only when you train a predictor with the [DeepAR\+ algorithm](aws-forecast-recipe-deeparplus.md)\. You can use an item metadata only if every item in your target time\-series dataset is present in the corresponding item metadata dataset\.
+An *item metadata dataset* contains categorical data that provides valuable context for the items in a target time\-series dataset when you train a predictor with the [CNN\-QR](aws-forecast-algo-cnnqr.md) or [DeepAR\+](aws-forecast-recipe-deeparplus.md) algorithms\. Unlike related time\-series datasets, item metadata datasets provide information that is static\. That is, the data values remain constant over time, like an item's color or brand\. Item metadata datasets are optional additions to your dataset groups, and are taken into account only when you train a predictor with [CNN\-QR](aws-forecast-algo-cnnqr.md) or [DeepAR\+](aws-forecast-recipe-deeparplus.md) \. You can use an item metadata only if every item in your target time\-series dataset is present in the corresponding item metadata dataset\.
 
 Item metadata might include the brand, color, model, category, place of origin, or other supplemental feature of a particular item\. For example, an item metadata dataset might provide context for some of the demand data found in a target time\-series dataset that represents the sales of black Amazon e\-readers with 32 GB of storage\. Because these characteristics don't change from day\-to\-day or hour\-to\-hour, they belong in an item metadata dataset\.
 
@@ -12,24 +12,24 @@ Each row in an item metadata dataset can contain up to 10 metadata fields, one o
 
 ## Example: Item Metadata File and Schema<a name="item-metadata-example"></a>
 
-The following table shows a section of a correctly configured item metadata dataset file that describes Amazon e\-readers\. For this example, assume that the header row represents the dataset's schema, and that each listed item is in a corresponding target time\-series dataset\. Notice that `waterproof`, a binary feature, is represented as 0 for no and 1 for yes\.
+The following table shows a section of a correctly configured item metadata dataset file that describes Amazon e\-readers\. For this example, assume that the header row represents the dataset's schema, and that each listed item is in a corresponding target time\-series dataset\.
 
 
 | `item_id` | `brand` | `model` | `color` | `waterproof` | 
 | --- | --- | --- | --- | --- | 
-| 1 | amazon | paperwhite | black | 1 | 
-| 2 | amazon | paperwhite | blue | 1 | 
-| 3 | amazon | base\_model | black | 0 | 
-| 4 | amazon | base\_model | white | 0 | 
+| 1 | amazon | paperwhite | black | yes | 
+| 2 | amazon | paperwhite | blue | yes | 
+| 3 | amazon | base\_model | black | no | 
+| 4 | amazon | base\_model | white | no | 
 | \.\.\. | 
 
 The following is the same information represented in CSV format\.
 
 ```
-1,amazon,paperwhite,black,1
-2,amazon,paperwhite,blue,1
-3,amazon,base_model,black,0
-4,amazon,base_model,white,0
+1,amazon,paperwhite,black,yes
+2,amazon,paperwhite,blue,yes
+3,amazon,base_model,black,no
+4,amazon,base_model,white,no
 ...
 ```
 
@@ -56,7 +56,7 @@ The following is the schema for this example dataset\.
         },
         {
            "AttributeName": "waterproof",
-           "AttributeType": "integer"
+           "AttributeType": "string"
         }
     ]
 }

@@ -30,6 +30,7 @@ The following data types are supported by Amazon Forecast Service:
 +  [SchemaAttribute](API_SchemaAttribute.md) 
 +  [Statistics](API_Statistics.md) 
 +  [SupplementaryFeature](API_SupplementaryFeature.md) 
++  [Tag](API_Tag.md) 
 +  [TestWindowSummary](API_TestWindowSummary.md) 
 +  [WeightedQuantileLoss](API_WeightedQuantileLoss.md) 
 +  [WindowSummary](API_WindowSummary.md) 

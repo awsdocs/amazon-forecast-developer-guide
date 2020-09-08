@@ -21,7 +21,7 @@ For example:
 ## Contents<a name="API_Featurization_Contents"></a>
 
  **AttributeName**   <a name="forecast-Type-Featurization-AttributeName"></a>
-The name of the schema attribute that specifies the data field to be featurized\. Only the `target` field of the `TARGET_TIME_SERIES` dataset type is supported\. For example, for the `RETAIL` domain, the target is `demand`, and for the `CUSTOM` domain, the target is `target_value`\.  
+The name of the schema attribute that specifies the data field to be featurized\. Amazon Forecast supports the target field of the `TARGET_TIME_SERIES` and the `RELATED_TIME_SERIES` datasets\. For example, for the `RETAIL` domain, the target is `demand`, and for the `CUSTOM` domain, the target is `target_value`\. For more information, see [Handling Missing Values](howitworks-missing-values.md)\.  
 Type: String  
 Length Constraints: Minimum length of 1\. Maximum length of 63\.  
 Pattern: `^[a-zA-Z][a-zA-Z0-9_]*`   

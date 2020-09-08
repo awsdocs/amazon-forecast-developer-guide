@@ -6,15 +6,15 @@ Returns a list of predictors created using the [CreatePredictor](API_CreatePredi
 
 ```
 {
-   "[Filters](#forecast-ListPredictors-request-Filters)": [ 
+   "Filters": [ 
       { 
-         "[Condition](API_Filter.md#forecast-Type-Filter-Condition)": "string",
-         "[Key](API_Filter.md#forecast-Type-Filter-Key)": "string",
-         "[Value](API_Filter.md#forecast-Type-Filter-Value)": "string"
+         "Condition": "string",
+         "Key": "string",
+         "Value": "string"
       }
    ],
-   "[MaxResults](#forecast-ListPredictors-request-MaxResults)": number,
-   "[NextToken](#forecast-ListPredictors-request-NextToken)": "string"
+   "MaxResults": number,
+   "NextToken": "string"
 }
 ```
 
@@ -49,16 +49,16 @@ Required: No
 
 ```
 {
-   "[NextToken](#forecast-ListPredictors-response-NextToken)": "string",
-   "[Predictors](#forecast-ListPredictors-response-Predictors)": [ 
+   "NextToken": "string",
+   "Predictors": [ 
       { 
-         "[CreationTime](API_PredictorSummary.md#forecast-Type-PredictorSummary-CreationTime)": number,
-         "[DatasetGroupArn](API_PredictorSummary.md#forecast-Type-PredictorSummary-DatasetGroupArn)": "string",
-         "[LastModificationTime](API_PredictorSummary.md#forecast-Type-PredictorSummary-LastModificationTime)": number,
-         "[Message](API_PredictorSummary.md#forecast-Type-PredictorSummary-Message)": "string",
-         "[PredictorArn](API_PredictorSummary.md#forecast-Type-PredictorSummary-PredictorArn)": "string",
-         "[PredictorName](API_PredictorSummary.md#forecast-Type-PredictorSummary-PredictorName)": "string",
-         "[Status](API_PredictorSummary.md#forecast-Type-PredictorSummary-Status)": "string"
+         "CreationTime": number,
+         "DatasetGroupArn": "string",
+         "LastModificationTime": number,
+         "Message": "string",
+         "PredictorArn": "string",
+         "PredictorName": "string",
+         "Status": "string"
       }
    ]
 }

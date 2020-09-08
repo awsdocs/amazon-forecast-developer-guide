@@ -14,7 +14,7 @@ In addition to listing the parameters provided in the `CreateDatasetImportJob` r
 
 ```
 {
-   "[DatasetImportJobArn](#forecast-DescribeDatasetImportJob-request-DatasetImportJobArn)": "string"
+   "DatasetImportJobArn": "string"
 }
 ```
 
@@ -33,34 +33,34 @@ Required: Yes
 
 ```
 {
-   "[CreationTime](#forecast-DescribeDatasetImportJob-response-CreationTime)": number,
-   "[DatasetArn](#forecast-DescribeDatasetImportJob-response-DatasetArn)": "string",
-   "[DatasetImportJobArn](#forecast-DescribeDatasetImportJob-response-DatasetImportJobArn)": "string",
-   "[DatasetImportJobName](#forecast-DescribeDatasetImportJob-response-DatasetImportJobName)": "string",
-   "[DataSize](#forecast-DescribeDatasetImportJob-response-DataSize)": number,
-   "[DataSource](#forecast-DescribeDatasetImportJob-response-DataSource)": { 
-      "[S3Config](API_DataSource.md#forecast-Type-DataSource-S3Config)": { 
-         "[KMSKeyArn](API_S3Config.md#forecast-Type-S3Config-KMSKeyArn)": "string",
-         "[Path](API_S3Config.md#forecast-Type-S3Config-Path)": "string",
-         "[RoleArn](API_S3Config.md#forecast-Type-S3Config-RoleArn)": "string"
+   "CreationTime": number,
+   "DatasetArn": "string",
+   "DatasetImportJobArn": "string",
+   "DatasetImportJobName": "string",
+   "DataSize": number,
+   "DataSource": { 
+      "S3Config": { 
+         "KMSKeyArn": "string",
+         "Path": "string",
+         "RoleArn": "string"
       }
    },
-   "[FieldStatistics](#forecast-DescribeDatasetImportJob-response-FieldStatistics)": { 
+   "FieldStatistics": { 
       "string" : { 
-         "[Avg](API_Statistics.md#forecast-Type-Statistics-Avg)": number,
-         "[Count](API_Statistics.md#forecast-Type-Statistics-Count)": number,
-         "[CountDistinct](API_Statistics.md#forecast-Type-Statistics-CountDistinct)": number,
-         "[CountNan](API_Statistics.md#forecast-Type-Statistics-CountNan)": number,
-         "[CountNull](API_Statistics.md#forecast-Type-Statistics-CountNull)": number,
-         "[Max](API_Statistics.md#forecast-Type-Statistics-Max)": "string",
-         "[Min](API_Statistics.md#forecast-Type-Statistics-Min)": "string",
-         "[Stddev](API_Statistics.md#forecast-Type-Statistics-Stddev)": number
+         "Avg": number,
+         "Count": number,
+         "CountDistinct": number,
+         "CountNan": number,
+         "CountNull": number,
+         "Max": "string",
+         "Min": "string",
+         "Stddev": number
       }
    },
-   "[LastModificationTime](#forecast-DescribeDatasetImportJob-response-LastModificationTime)": number,
-   "[Message](#forecast-DescribeDatasetImportJob-response-Message)": "string",
-   "[Status](#forecast-DescribeDatasetImportJob-response-Status)": "string",
-   "[TimestampFormat](#forecast-DescribeDatasetImportJob-response-TimestampFormat)": "string"
+   "LastModificationTime": number,
+   "Message": "string",
+   "Status": "string",
+   "TimestampFormat": "string"
 }
 ```
 

@@ -7,6 +7,7 @@ Defines the fields of a dataset\. You specify this object in the [CreateDataset]
  **Attributes**   <a name="forecast-Type-Schema-Attributes"></a>
 An array of attributes specifying the name and type of each field in a dataset\.  
 Type: Array of [SchemaAttribute](API_SchemaAttribute.md) objects  
+Array Members: Minimum number of 1 item\. Maximum number of 100 items\.  
 Required: No
 
 ## See Also<a name="API_Schema_SeeAlso"></a>

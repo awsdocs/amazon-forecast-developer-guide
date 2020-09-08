@@ -30,19 +30,21 @@ You can perform filling on both target time series and related time series datas
 
 **Filling Guidelines**  
 
-| Dataset type | Filling by default? | Supported filling methods | Default filling logic | Accepted filling logic\* | 
+| Dataset type | Filling by default? | Supported filling methods | Default filling logic | Accepted filling logic | 
 | --- | --- | --- | --- | --- | 
 | Target time series | Yes | Middle and back filling | 0 |  [\[See the AWS documentation website for more details\]](http://docs.aws.amazon.com/forecast/latest/dg/howitworks-missing-values.html)  | 
 | Related time series | No | Middle, back, and future filling | No default |  [\[See the AWS documentation website for more details\]](http://docs.aws.amazon.com/forecast/latest/dg/howitworks-missing-values.html)  | 
 
 **Important**  
-**\***For both target and related time series datasets, `mean`, `median`, `min`, and `max` are calculated based on a rolling window of the 64 most recent data entries before the missing values\.
+For both target and related time series datasets, `mean`, `median`, `min`, and `max` are calculated based on a rolling window of the 64 most recent data entries before the missing values\.
 
 ## Missing Value Syntax<a name="filling-syntax"></a>
 
-To perform missing value filling, you specify the types of filling to implement when you call the [CreatePredictor](API_CreatePredictor.md) operation\. Filling logic is specified in [FeaturizationMethod](API_FeaturizationMethod.md) objects\.
+To perform missing value filling, specify the types of filling to implement when you call the [CreatePredictor](API_CreatePredictor.md) operation\. Filling logic is specified in [FeaturizationMethod](API_FeaturizationMethod.md) objects\.
 
-The following excerpt demonstrates a correctly formatted `FeaturizationMethod` object for a target time series attribute and related time series attribute \(`target_value` and `price` respectively\)\. Notice that, in the related time series object, `backfill` is set to a `value` of `2.0`\.
+The following excerpt demonstrates a correctly formatted `FeaturizationMethod` object for a target time series attribute and related time series attribute \(`target_value` and `price` respectively\)\.
+
+ To set a filling method to a specific value, set the fill parameter to `value` and define the value in a corresponding `_value` parameter\. As shown below, backfilling for the related time series is set to a value of 2 with the following: `"backfill": "value"` and `"backfill_value":"2"`\. 
 
 ```
 [
@@ -53,7 +55,7 @@ The following excerpt demonstrates a correctly formatted `FeaturizationMethod` o
                 "FeaturizationMethodName": "filling",
                 "FeaturizationMethodParameters": {
                     "aggregation": "sum",
-                    "middlefill": "zero"
+                    "middlefill": "zero",
                     "backfill": "zero"
                 }
             }

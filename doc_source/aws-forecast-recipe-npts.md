@@ -26,8 +26,6 @@ To use this NPTS variant in Amazon Forecast, set the `use_seasonal_model` hyperp
 
 The seasonal NPTS variant is similar to NPTS except that instead of sampling from all of the observations, it uses only the observations from the past *seasons *\. By default, the season is determined by the granularity of the time series\. For example, for an hourly time series, to predict for hour *t*, this variant samples from the observations corresponding to the hour *t* on the previous days\. Similar to NPTS, observation at hour *t* on the previous day is given more weight than the observations at hour *t* on earlier days\. For more information about how to determine seasonality based on the granularity of the time series, see [Seasonal Features](#aws-forecast-recipe-npts-seasonal-features)\.
 
-If you provide time series features with the `feat_dynamic_real` hyperparameter, seasonality is determined by both the granularity and the `feat_dynamic_real` hyperparameter\. To use only the `feat_dynamic_real` hyperparameter to define seasonality, set the `use_default_time_features` hyperparameter to `False`\. The `feat_dynamic_real` hyperparameter is turned on in Amazon Forecast by passing in the related time\-series CSV file\.
-
 ### Climatological Forecaster<a name="aws-forecast-recipe-npts-variants-climatological"></a>
 
 The climatological forecaster variant samples all of the past observations with uniform probability\. 
@@ -58,8 +56,8 @@ To determine what corresponds to a season for the seasonal NPTS and seasonal cli
 ### Best Practices<a name="aws-forecast-recipe-npts-recommended-practices"></a>
 
 When using the Amazon Forecast NPTS algorithms, consider the following best practices for preparing the data and achieving optimal results:
-+ Because NPTS generates predictions for each time series individually, provide the entire time series when calling the model for prediction\. Also, accept the default value of the `context_length` hyperparameter\. This causes the algorithm to use the entire time series\. If you change the `context_length` \(because the training data is too long\), make sure it is large enough and covers multiple past seasons\. For example, for a daily time series, this value must be at least 365 days \(provided that you have that amount of data\)\. 
-+ If the data has seasonality patterns, the seasonal NPTS algorithm typically works better\. If external events, such as special holidays and promotions, have an effect on the time series, then provide those features in the `feat_dynamic_real` hyperparameter and use seasonal NPTS\. In this case, you must also provide the `feat_dynamic_real` hyperparameter for both training and prediction ranges by providing the related time\-series CSV file to Amazon Forecast\.
++ Because NPTS generates predictions for each time series individually, provide the entire time series when calling the model for prediction\. Also, accept the default value of the `context_length` hyperparameter\. This causes the algorithm to use the entire time series\. 
++  If you change the `context_length` \(because the training data is too long\), make sure it is large enough and covers multiple past seasons\. For example, for a daily time series, this value must be at least 365 days \(provided that you have that amount of data\)\. 
 
 ## NPTS Hyperparameters<a name="aws-forecast-recipe-npts-hyperparamters"></a>
 

@@ -9,8 +9,8 @@ The `Status` of the dataset group must be `ACTIVE` before you can use the datase
 
 ```
 {
-   "[DatasetArns](#forecast-UpdateDatasetGroup-request-DatasetArns)": [ "string" ],
-   "[DatasetGroupArn](#forecast-UpdateDatasetGroup-request-DatasetGroupArn)": "string"
+   "DatasetArns": [ "string" ],
+   "DatasetGroupArn": "string"
 }
 ```
 

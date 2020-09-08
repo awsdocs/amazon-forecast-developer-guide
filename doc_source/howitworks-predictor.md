@@ -17,7 +17,7 @@ To create a predictor, you provide the following:
 + A forecast horizon – The number of time\-steps to make\. The forecast horizon is also called the prediction length\.
 + Evaluation parameters – How to split a dataset into training and test datasets\.
 + One of the following:
-  + An algorithm – The algorithm is used to train a model and specifies default values for hyperparameter optimization \(only DeepAR\+\), evaluation parameters, and training parameters\. By specifying an algorithm, you also can provide overrides for these parameter values\.
+  + An algorithm – The algorithm is used to train a model and specifies default values for hyperparameter optimization \(only DeepAR\+ and CNN\-QR\), evaluation parameters, and training parameters\. By specifying an algorithm, you also can provide overrides for these parameter values\.
   + Perform AutoML – Amazon Forecast provides a set of predefined algorithms\. If you don't know which algorithm to choose, use the `PerformAutoML` option\. This option tells Amazon Forecast to evaluate all algorithms and choose the best algorithm based on your datasets\. With this option, model training can take longer, but you don't need to worry about choosing the right algorithm and parameters\. AutoML optimizes the average of the weighted P10, P50 and P90 quantile losses, and returns the algorithm with the lowest value\.
 
 For more information on algorithms, see [Choosing an Amazon Forecast Algorithm](aws-forecast-choosing-recipes.md)\.

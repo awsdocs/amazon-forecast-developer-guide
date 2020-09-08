@@ -2,16 +2,16 @@
 
 In a [CreatePredictor](API_CreatePredictor.md) operation, the specified algorithm trains a model using the specified dataset group\. You can optionally tell the operation to modify data fields prior to training a model\. These modifications are referred to as *featurization*\.
 
-You define featurization using the `FeaturizationConfig` object\. You specify an array of transformations, one for each field that you want to featurize\. You then include the `FeaturizationConfig` object in your `CreatePredictor` request\. Amazon Forecast applies the featurization to the `TARGET_TIME_SERIES` dataset before model training\.
+You define featurization using the `FeaturizationConfig` object\. You specify an array of transformations, one for each field that you want to featurize\. You then include the `FeaturizationConfig` object in your `CreatePredictor` request\. Amazon Forecast applies the featurization to the `TARGET_TIME_SERIES` and `RELATED_TIME_SERIES` datasets before model training\.
 
 You can create multiple featurization configurations\. For example, you might call the `CreatePredictor` operation twice by specifying different featurization configurations\.
 
 ## Contents<a name="API_FeaturizationConfig_Contents"></a>
 
  **Featurizations**   <a name="forecast-Type-FeaturizationConfig-Featurizations"></a>
-An array of featurization \(transformation\) information for the fields of a dataset\. Only a single featurization is supported\.  
+An array of featurization \(transformation\) information for the fields of a dataset\.  
 Type: Array of [Featurization](API_Featurization.md) objects  
-Array Members: Fixed number of 1 item\.  
+Array Members: Minimum number of 1 item\. Maximum number of 50 items\.  
 Required: No
 
  **ForecastDimensions**   <a name="forecast-Type-FeaturizationConfig-ForecastDimensions"></a>

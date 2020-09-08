@@ -9,7 +9,7 @@ Forecast does not automatically update any dataset groups that contain the delet
 
 ```
 {
-   "[DatasetArn](#forecast-DeleteDataset-request-DatasetArn)": "string"
+   "DatasetArn": "string"
 }
 ```
 

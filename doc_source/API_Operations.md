@@ -26,6 +26,9 @@ The following actions are supported by Amazon Forecast Service:
 +  [ListForecastExportJobs](API_ListForecastExportJobs.md) 
 +  [ListForecasts](API_ListForecasts.md) 
 +  [ListPredictors](API_ListPredictors.md) 
++  [ListTagsForResource](API_ListTagsForResource.md) 
++  [TagResource](API_TagResource.md) 
++  [UntagResource](API_UntagResource.md) 
 +  [UpdateDatasetGroup](API_UpdateDatasetGroup.md) 
 
 The following actions are supported by Amazon Forecast Query Service:

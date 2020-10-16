@@ -20,11 +20,11 @@ After training, Amazon Forecast calculates the root mean square error \(RMSE\) a
 
 The RMSE metric favors a model whose individual errors are of consistent magnitude because large variations in error increase the RMSE\. Because of the squared error, a few poorly predicted values in an otherwise good forecast can increase the RMSE\.
 
-**Prediction Quantiles and MAPE**
+**Prediction Quantiles and WAPE**
 
 *Prediction quantiles* \(intervals\) express the uncertainty in the forecasts\. By calculating prediction quantiles, the model shows how much uncertainty is associated with each forecast\. Without accompanying prediction quantiles, point forecasts have limited value\.
 
-Predicting forecasts at different quantiles is particularly useful when the costs of under and over predicting differ\. Amazon Forecast provides probabilistic predictions at three distinct quantiles—10%, 50%, and 90%—and calculates the associated loss \(error\) at each quantile\. The *weighted quantile loss* \(wQuantileLoss\) calculates how far off the forecast is from actual demand in either direction\. This is calculated as a percentage of demand on average in each quantile\. This metric helps capture the bias inherent in each quantile, which can't be captured by a calculation like MAPE \(Mean Absolute Percentage Error\), where the weights are equal\. As with MAPE and RMSE, lower wQuantileLoss errors indicate better overall forecast accuracy\.
+Predicting forecasts at different quantiles is particularly useful when the costs of under and over predicting differ\. Amazon Forecast provides probabilistic predictions at three distinct quantiles—10%, 50%, and 90%—and calculates the associated loss \(error\) at each quantile\. The *weighted quantile loss* \(wQuantileLoss\) calculates how far off the forecast is from actual demand in either direction\. This is calculated as a percentage of demand on average in each quantile\. This metric helps capture the bias inherent in each quantile, which can't be captured by a calculation like WAPE \(Weighted Absolute Percentage Error\), where the weights are equal\. As with WAPE and RMSE, lower wQuantileLoss errors indicate better overall forecast accuracy\.
 
 The weighted quantile loss is calculated as follows:
 
@@ -40,13 +40,13 @@ When the sum of the exact target over all items and all time is approximately ze
 
 For example, suppose that you're a retailer and you want to forecast product demand for winter gloves that sell well only during the fall and winter\. If you don't have a lot of storage space and the cost of invested capital is high, or if the price of being overstocked on winter gloves concerns you, you might use the P10 quantile to order a relatively low number of winter gloves\. You know that the P10 forecast overestimates the demand for your winter gloves only 10% of the time, so 90% of the time you'll be sold out of your winter gloves\.
 
-**wQuantileLoss\[0\.5\]**: For the P50 prediction, the true value is expected to be lower than the predicted value 50% of the time\. In most cases, the point forecasts that you generate internally or with other forecasting tools should match the P50 forecasts\. If τ = 0\.5, both weights are equal and the wQuantileLoss\[0\.5\] reduces to the commonly used Mean Absolute Percentage Error \(MAPE\):
+**wQuantileLoss\[0\.5\]**: For the P50 prediction, the true value is expected to be lower than the predicted value 50% of the time\. In most cases, the point forecasts that you generate internally or with other forecasting tools should match the P50 forecasts\. If τ = 0\.5, both weights are equal and the wQuantileLoss\[0\.5\] reduces to the commonly used Weighted Absolute Percentage Error \(WAPE\):
 
-![\[Image NOT FOUND\]](http://docs.aws.amazon.com/forecast/latest/dg/images/metrics-mape.png)
+![\[Image NOT FOUND\]](http://docs.aws.amazon.com/forecast/latest/dg/images/WAPE.png)
 
 where `ŷi,t = qi,t(0.5)`\.
 
-Forecast uses the scaling factor of 2 in the wQuantileLoss formula to cancel the 0\.5 factor to obtain the exact MAPE expression\.
+Forecast uses the scaling factor of 2 in the wQuantileLoss formula to cancel the 0\.5 factor to obtain the exact WAPE expression\.
 
 Continuing the winter gloves example, if you know that there'll be a moderate amount of demand for the gloves and aren't concerned about being overstocked, you might choose to use the P50 quantile to order gloves\.
 

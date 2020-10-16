@@ -2,35 +2,7 @@
 
 Describes a supplementary feature of a dataset group\. This object is part of the [InputDataConfig](API_InputDataConfig.md) object\.
 
-The only supported feature is a holiday calendar\. If you use the calendar, all data in the datasets should belong to the same country as the calendar\. For the holiday calendar data, see the [Jollyday](http://jollyday.sourceforge.net/data.html) website\.
-
-Holidays for India, Korea, and United Arab Emirates are not included in the Jollyday library, but are supported by Amazon Forecast\. Their holidays are:
-
- **"IN" \- INDIA** 
-+  `JANUARY 26 - REPUBLIC DAY` 
-+  `AUGUST 15 - INDEPENDENCE DAY` 
-+  `OCTOBER 2 - GANDHI'S BIRTHDAY` 
-
- **"KR" \- KOREA** 
-+  `JANUARY 1 - NEW YEAR` 
-+  `MARCH 1 - INDEPENDENCE MOVEMENT DAY` 
-+  `MAY 5 - CHILDREN'S DAY` 
-+  `JUNE 6 - MEMORIAL DAY` 
-+  `AUGUST 15 - LIBERATION DAY` 
-+  `OCTOBER 3 - NATIONAL FOUNDATION DAY` 
-+  `OCTOBER 9 - HANGEUL DAY` 
-+  `DECEMBER 25 - CHRISTMAS DAY` 
-
- **"AE" \- UNITED ARAB EMIRATES** 
-+  `JANUARY 1 - NEW YEAR` 
-+  `DECEMBER 1 - COMMEMORATION DAY` 
-+  `DECEMBER 2-3 - NATIONAL DAY` 
-+  `RAMADAN*` 
-+  `EID AL-FITR*` 
-+  `EID AL-ADHA*` 
-+  `ISLAMIC NEW YEAR*` 
-
-\*Islamic holidays are determined according to moon sighting\.
+The only supported feature is Holidays\. If you use the calendar, all data in the datasets should belong to the same country as the calendar\. For the holiday calendar data, see the [Jollyday](http://jollyday.sourceforge.net/data.html) website\.
 
 ## Contents<a name="API_SupplementaryFeature_Contents"></a>
 

@@ -1,6 +1,6 @@
 # GetAccuracyMetrics<a name="API_GetAccuracyMetrics"></a>
 
-Provides metrics on the accuracy of the models that were trained by the [CreatePredictor](API_CreatePredictor.md) operation\. Use metrics to see how well the model performed and to decide whether to use the predictor to generate a forecast\. For more information, see [Evaluating Predictor Accuracy](metrics.md)\.
+Provides metrics on the accuracy of the models that were trained by the [CreatePredictor](API_CreatePredictor.md) operation\. Use metrics to see how well the model performed and to decide whether to use the predictor to generate a forecast\. For more information, see [Predictor Metrics](https://docs.aws.amazon.com/forecast/latest/dg/metrics.html) 
 
 This operation generates metrics for each backtest window that was evaluated\. The number of backtest windows \(`NumberOfBacktestWindows`\) is specified using the [EvaluationParameters](API_EvaluationParameters.md) object, which is optionally included in the `CreatePredictor` request\. If `NumberOfBacktestWindows` isn't specified, the number defaults to one\.
 

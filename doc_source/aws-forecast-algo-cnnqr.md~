@@ -20,9 +20,9 @@
  If you are unsure of which algorithm to use, we recommend selecting AutoML, and Forecast will select CNN\-QR if it is the most accurate algorithm for your data\. To see if CNN\-QR was selected as the most accurate model, either use the [DescribePredictor](https://docs.aws.amazon.com/forecast/latest/dg/API_DescribePredictor.html) API or choose the predictor name in the console\. 
 
 Here are some key use cases for CNN\-QR: 
-+  **Forecast with large and complex datasets** \- CNN\-QR works best when trained with large and complex datasets\. The neural network can learn across many datasets, which is useful when you have related time series and item metadata\.
-+  **Forecast with historical related time series** \- CNN\-QR does not require related time series to contain data points within the forecast horizon\. This added flexibility allows you to include a broader range of related time series and item meta data, such as item price, events, web metrics, and product categories\. 
-+  **Forecast special cases** \- CNN\-QR can be used for cold\-start scenarios, where there is little or no existing historical data\. Item metadata and related time series can be used to generate cold\-start predictions\. By using different versions of your related time series data with your trained model, you can run What\-if analyses for different scenarios and counterfactuals\.
++  ** Forecast with large and complex datasets ** \- CNN\-QR works best when trained with large and complex datasets\. The neural network can learn across many datasets, which is useful when you have related time series and item metadata\.
++  ** Forecast with historical related time series ** \- CNN\-QR does not require related time series to contain data points within the forecast horizon\. This added flexibility allows you to include a broader range of related time series and item meta data, such as item price, events, web metrics, and product categories\. 
++  ** Forecast special cases ** \- CNN\-QR can be used for cold\-start scenarios, where there is little or no existing historical data\. Item metadata and related time series can be used to generate cold\-start predictions\. By using different versions of your related time series data with your trained model, you can run What\-if analyses for different scenarios and counterfactuals\.
 
 ## How CNN\-QR Works<a name="aws-forecast-algo-cnnqr-how-it-works"></a>
 

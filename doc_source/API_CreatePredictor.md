@@ -10,7 +10,7 @@ After training a model, the `CreatePredictor` operation also evaluates it\. To s
 
 Optionally, you can specify a featurization configuration to fill and aggregate the data fields in the `TARGET_TIME_SERIES` dataset to improve model training\. For more information, see [FeaturizationConfig](API_FeaturizationConfig.md)\.
 
-For RELATED\_TIME\_SERIES datasets, `CreatePredictor` verifies that the `DataFrequency` specified when the dataset was created matches the `ForecastFrequency`\. TARGET\_TIME\_SERIES datasets don't have this restriction\. Amazon Forecast also verifies the delimiter and timestamp format\. For more information, see [Datasets and Dataset Groups](howitworks-datasets-groups.md)\.
+For RELATED\_TIME\_SERIES datasets, `CreatePredictor` verifies that the `DataFrequency` specified when the dataset was created matches the `ForecastFrequency`\. TARGET\_TIME\_SERIES datasets don't have this restriction\. Amazon Forecast also verifies the delimiter and timestamp format\. For more information, see [Importing Datasets](howitworks-datasets-groups.md)\.
 
  **AutoML** 
 

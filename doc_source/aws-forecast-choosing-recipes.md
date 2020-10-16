@@ -49,8 +49,8 @@ An Amazon Forecast predictor uses an algorithm to train a model with your time s
  Use the following table to find the best option for your time series datasets\. 
 
 
-|  | CNN\-QR | DeepAR\+ | Prophet | NPTS | ARIMA | ETS | 
-| --- | --- | --- | --- | --- | --- | --- | 
+|  | Neural Networks | Flexible Local Algorithms | Baseline Algorithms |  | CNN\-QR | DeepAR\+ | Prophet | NPTS | ARIMA | ETS | 
+| --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | 
 | Computationally intensive training process | High | High | Medium | Low | Low | Low | 
 | Accepts historical related time series\* | ![\[Image NOT FOUND\]](http://docs.aws.amazon.com/forecast/latest/dg/images/icon-yes.png)  | ![\[Image NOT FOUND\]](http://docs.aws.amazon.com/forecast/latest/dg/images/icon-no.png)  | ![\[Image NOT FOUND\]](http://docs.aws.amazon.com/forecast/latest/dg/images/icon-no.png)  | ![\[Image NOT FOUND\]](http://docs.aws.amazon.com/forecast/latest/dg/images/icon-no.png)  | ![\[Image NOT FOUND\]](http://docs.aws.amazon.com/forecast/latest/dg/images/icon-no.png)  | ![\[Image NOT FOUND\]](http://docs.aws.amazon.com/forecast/latest/dg/images/icon-no.png)  | 
 | Accepts forward\-looking related time series\* | ![\[Image NOT FOUND\]](http://docs.aws.amazon.com/forecast/latest/dg/images/icon-yes.png)  | ![\[Image NOT FOUND\]](http://docs.aws.amazon.com/forecast/latest/dg/images/icon-yes.png)  | ![\[Image NOT FOUND\]](http://docs.aws.amazon.com/forecast/latest/dg/images/icon-yes.png)  | ![\[Image NOT FOUND\]](http://docs.aws.amazon.com/forecast/latest/dg/images/icon-no.png)  | ![\[Image NOT FOUND\]](http://docs.aws.amazon.com/forecast/latest/dg/images/icon-no.png)  | ![\[Image NOT FOUND\]](http://docs.aws.amazon.com/forecast/latest/dg/images/icon-no.png)  | 

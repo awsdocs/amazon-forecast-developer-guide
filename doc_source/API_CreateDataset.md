@@ -5,7 +5,7 @@ Creates an Amazon Forecast dataset\. The information about the dataset that you 
 +  * `Domain` * and * `DatasetType` * \- Each dataset has an associated dataset domain and a type within the domain\. Amazon Forecast provides a list of predefined domains and types within each domain\. For each unique dataset domain and type within the domain, Amazon Forecast requires your data to include a minimum set of predefined fields\.
 +  * `Schema` * \- A schema specifies the fields in the dataset, including the field name and data type\.
 
-After creating a dataset, you import your training data into it and add the dataset to a dataset group\. You use the dataset group to create a predictor\. For more information, see [Datasets and Dataset Groups](howitworks-datasets-groups.md)\.
+After creating a dataset, you import your training data into it and add the dataset to a dataset group\. You use the dataset group to create a predictor\. For more information, see [Importing Datasets](howitworks-datasets-groups.md)\.
 
 To get a list of all your datasets, use the [ListDatasets](API_ListDatasets.md) operation\.
 
@@ -69,7 +69,7 @@ Required: Yes
 
  ** [Domain](#API_CreateDataset_RequestSyntax) **   <a name="forecast-CreateDataset-request-Domain"></a>
 The domain associated with the dataset\. When you add a dataset to a dataset group, this value and the value specified for the `Domain` parameter of the [CreateDatasetGroup](API_CreateDatasetGroup.md) operation must match\.  
-The `Domain` and `DatasetType` that you choose determine the fields that must be present in the training data that you import to the dataset\. For example, if you choose the `RETAIL` domain and `TARGET_TIME_SERIES` as the `DatasetType`, Amazon Forecast requires `item_id`, `timestamp`, and `demand` fields to be present in your data\. For more information, see [Datasets and Dataset Groups](howitworks-datasets-groups.md)\.  
+The `Domain` and `DatasetType` that you choose determine the fields that must be present in the training data that you import to the dataset\. For example, if you choose the `RETAIL` domain and `TARGET_TIME_SERIES` as the `DatasetType`, Amazon Forecast requires `item_id`, `timestamp`, and `demand` fields to be present in your data\. For more information, see [Importing Datasets](howitworks-datasets-groups.md)\.  
 Type: String  
 Valid Values:` RETAIL | CUSTOM | INVENTORY_PLANNING | EC2_CAPACITY | WORK_FORCE | WEB_TRAFFIC | METRICS`   
 Required: Yes

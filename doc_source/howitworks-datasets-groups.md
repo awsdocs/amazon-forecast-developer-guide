@@ -1,4 +1,4 @@
-# Datasets and Dataset Groups<a name="howitworks-datasets-groups"></a>
+# Importing Datasets<a name="howitworks-datasets-groups"></a>
 
 *Datasets* contain the data used to train a [predictor](howitworks-predictor.md)\. You create one or more Amazon Forecast datasets and import your training data into them\. A *dataset group* is a collection of complimentary datasets that detail a set of changing parameters over a series of time\. After creating a dataset group, you use it to train a predictor\. 
 
@@ -14,6 +14,8 @@ For example Forecast datasets, see the [Amazon Forecast Sample GitHub repository
 + [Resolving Conflicts in Data Collection Frequency](#howitworks-data-alignment)
 + [Using Related Time Series Datasets](related-time-series-datasets.md)
 + [Using Item Metadata Datasets](item-metadata-datasets.md)
++ [Predefined Dataset Domains and Dataset Types](howitworks-domains-ds-types.md)
++ [Updating Data](updating-data.md)
 + [Handling Missing Values](howitworks-missing-values.md)
 + [Dataset Guidelines for Forecast](dataset-import-guidelines-troubleshooting.md)
 

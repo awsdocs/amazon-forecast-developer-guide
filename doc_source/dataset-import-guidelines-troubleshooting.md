@@ -22,12 +22,16 @@ Guideline: Make sure that your most recent dataset import contains all of the da
 The order of attributes specified in the schema definition must match the column order in the CSV file that you are importing\. For example, if you defined `timestamp` as the first attribute, then `timestamp` must also be the first column in the input CSV file\.   
 Guideline: Verify that the columns in the CSV file are in the same order as the schema attributes that you created\. 
 
+**Weather Index**  
+In order to apply the Weather Index, you must include a [geolocation attribute](weather.md#adding-geolocation) in your target time series and any related time series datasets\. You also need to specify [time zones](weather.md#specifying-timezones) for your target time series timestamps\.  
+Guideline: Ensure that your datasets include a geolocation attribute and that your timestamps have an assigned time zone\. For more information, refer to the Weather Index [Conditions and Restrictions\.](weather.md#weather-conditions-restrictions)
+
 **Dataset Header**  
 A dataset header in your input CSV file may cause a validation error\. We recommend omitting a header\.  
 Guideline: Delete the dataset header and try the import again\.
 
 **Dataset Status**  
-Before you can import training data with the [CreateDatasetImportJob](API_CreateDatasetImportJob.md) operation, the `Status`of the dataset must be `ACTIVE`\.   
+Before you can import training data with the [CreateDatasetImportJob](API_CreateDatasetImportJob.md) operation, the `Status` of the dataset must be `ACTIVE`\.   
 Guideline: Use the [DescribeDataset](API_DescribeDataset.md) operation to get the dataset's status\. If the creation or update of the dataset failed, check the formatting of your dataset file and attempt to create it again\.
 
 **File Format and Delimiter**  

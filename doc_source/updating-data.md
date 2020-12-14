@@ -10,4 +10,4 @@ As you collect new data, you may want to use it to generate new forecasts\. Fore
 
 1. Create a new forecast using the existing predictor\.
 
-1. Retreieve the forecast as usual\.
+1. Retrieve the forecast as usual\.

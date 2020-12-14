@@ -1,13 +1,16 @@
-# Predictors<a name="howitworks-predictor"></a>
+# Training Predictors<a name="howitworks-predictor"></a>
 
 A predictor is an Amazon Forecast trained model used for making forecasts based on time\-series data\. During training, Amazon Forecast generates accuracy metrics that you use to evaluate the predictor and decide whether to use the predictor to generate a forecast\.
 
 **Topics**
-+ [Creating Predictors](#howitworks-predictor-intro)
++ [Creating a Predictor](#howitworks-predictor-intro)
 + [Predictor Evaluation](#howitworks-predictor-metrics)
-+ [How It Works: Next Topic](#howitworks-solution-nexttopic)
++ [Choosing an Amazon Forecast Algorithm](aws-forecast-choosing-recipes.md)
++ [Weather Index](weather.md)
++ [Holidays Featurization](holidays.md)
++ [Evaluating Predictor Accuracy](metrics.md)
 
-## Creating Predictors<a name="howitworks-predictor-intro"></a>
+## Creating a Predictor<a name="howitworks-predictor-intro"></a>
 
 Amazon Forecast trains forecasting models called predictors\. To create a predictor, you use the [CreatePredictor](API_CreatePredictor.md) operation\.
 
@@ -37,7 +40,3 @@ The evaluation parameters consist of the `NumberOfBacktestWindows` and the `Back
 `BackTestWindowOffset` defines the point from the end of the dataset where the data is split for model training and testing \(evaluation\)\. The value is specified as the number of data points\. `BackTestWindowOffset` must be greater than or equal to the forecast horizon and less than half of the target time series dataset length\. This parameter can be used to mimic a past virtual forecast start date\.
 
 For more information, see [Evaluating Predictor Accuracy](metrics.md)\.
-
-## How It Works: Next Topic<a name="howitworks-solution-nexttopic"></a>
-
-[Forecasts](howitworks-forecast.md)

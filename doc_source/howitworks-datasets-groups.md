@@ -1,6 +1,6 @@
-# Datasets and Dataset Groups<a name="howitworks-datasets-groups"></a>
+# Importing Datasets<a name="howitworks-datasets-groups"></a>
 
-*Datasets* contain the data used to train a [predictor](howitworks-predictor.md)\. You create one or more Amazon Forecast datasets and import your training data into them\. A *dataset group* is a collection of complimentary datasets that detail a set of changing parameters over a series of time\. After creating a dataset group, you use it to train a predictor\. 
+*Datasets* contain the data used to train a [predictor](howitworks-predictor.md)\. You create one or more Amazon Forecast datasets and import your training data into them\. A *dataset group* is a collection of complementary datasets that detail a set of changing parameters over a series of time\. After creating a dataset group, you use it to train a predictor\. 
 
 Each dataset group can have up to three datasets, one of each [dataset](#howitworks-dataset-domainstypes) type: target time series, related time series, and item metadata\.
 
@@ -14,6 +14,8 @@ For example Forecast datasets, see the [Amazon Forecast Sample GitHub repository
 + [Resolving Conflicts in Data Collection Frequency](#howitworks-data-alignment)
 + [Using Related Time Series Datasets](related-time-series-datasets.md)
 + [Using Item Metadata Datasets](item-metadata-datasets.md)
++ [Predefined Dataset Domains and Dataset Types](howitworks-domains-ds-types.md)
++ [Updating Data](updating-data.md)
 + [Handling Missing Values](howitworks-missing-values.md)
 + [Dataset Guidelines for Forecast](dataset-import-guidelines-troubleshooting.md)
 
@@ -25,6 +27,7 @@ When creating a dataset, you provide information, such as the following:
 + The frequency/interval at which you recorded your data\. For example, you might aggregate and record retail item sales every week\. In the [Getting Started](getting-started.md) exercise, you use the average electricity used per hour\.
 + The prediction format \(the *domain*\) and dataset type \(within the domain\)\. A dataset domain specifies which type of forecast you'd like to perform, while a dataset type helps you organize your training data into Forecast\-friendly categories\.
 + The dataset *schema*\. A schema maps the column headers of your dataset\. For instance, when monitoring demand, you might have collected hourly data on the sales of an item at multiple stores\. In this case, your schema would define the order, from left to right, in which timestamp, location, and hourly sales appear in your training data file\. Schemas also define each column's data type, such as `string` or `integer`\.
++ Geolocation and time zone information\. The geolocation attribute is defined within the schema with the attribute type `geolocation`\. Time zone information is defined with the [ CreateDatasetImportJob](API_CreateDatasetImportJob.md) operation\. Both geolocation and time zone data must be included to enable the [Weather Index\.](weather.md)
 
 Each column in your Forecast dataset represents either a forecast *dimension* or *feature*\. Forecast dimensions describe the aspects of your data that do not change over time, such a `store` or `location`\. Forecast features include any parameters in your data that vary across time, such as `price` or `promotion`\. Some dimensions, like `timestamp` or `itemId`, are required in target time series and related time series datasets\.
 
@@ -68,6 +71,8 @@ The first three rows of this table contain the first available sales data for th
 ### Dataset Schema<a name="howitworks-dataset-schema"></a>
 
 Each dataset requires a schema, a user\-provided JSON mapping of the fields in your training data\. This is where you list both the required and optional dimensions and features that you want to include in your dataset\.
+
+If your dataset includes a geolocation attribute, define the attribute within the schema with the attribute type `geolocation`\. For more information, see [Adding Geolocation information](weather.md#adding-geolocation)\. In order to apply the [Weather Index](weather.md), you must include a geolocation attribute in your target time series and any related time series datasets\.
 
 Some domains have optional dimensions that we recommend including\. Optional dimensions are listed in the descriptions of each domain later in this guide\. For an example, see [RETAIL Domain](retail-domain.md)\. All optional dimensions take the data type `string`\.
 

@@ -1,48 +1,29 @@
 # SupplementaryFeature<a name="API_SupplementaryFeature"></a>
 
-Describes a supplementary feature of a dataset group\. This object is part of the [InputDataConfig](API_InputDataConfig.md) object\.
+Describes a supplementary feature of a dataset group\. This object is part of the [InputDataConfig](API_InputDataConfig.md) object\. Forecast supports the Weather Index and Holidays built\-in featurizations\.
 
-The only supported feature is a holiday calendar\. If you use the calendar, all data in the datasets should belong to the same country as the calendar\. For the holiday calendar data, see the [Jollyday](http://jollyday.sourceforge.net/data.html) website\.
+ **Weather Index** 
 
-Holidays for India, Korea, and United Arab Emirates are not included in the Jollyday library, but are supported by Amazon Forecast\. Their holidays are:
+The Amazon Forecast Weather Index is a built\-in featurization that incorporates historical and projected weather information into your model\. The Weather Index supplements your datasets with over two years of historical weather data and up to 14 days of projected weather data\. For more information, see [Amazon Forecast Weather Index](https://docs.aws.amazon.com/forecast/latest/dg/weather.html)\.
 
- **"IN" \- INDIA** 
-+  `JANUARY 26 - REPUBLIC DAY` 
-+  `AUGUST 15 - INDEPENDENCE DAY` 
-+  `OCTOBER 2 - GANDHI'S BIRTHDAY` 
+ **Holidays** 
 
- **"KR" \- KOREA** 
-+  `JANUARY 1 - NEW YEAR` 
-+  `MARCH 1 - INDEPENDENCE MOVEMENT DAY` 
-+  `MAY 5 - CHILDREN'S DAY` 
-+  `JUNE 6 - MEMORIAL DAY` 
-+  `AUGUST 15 - LIBERATION DAY` 
-+  `OCTOBER 3 - NATIONAL FOUNDATION DAY` 
-+  `OCTOBER 9 - HANGEUL DAY` 
-+  `DECEMBER 25 - CHRISTMAS DAY` 
-
- **"AE" \- UNITED ARAB EMIRATES** 
-+  `JANUARY 1 - NEW YEAR` 
-+  `DECEMBER 1 - COMMEMORATION DAY` 
-+  `DECEMBER 2-3 - NATIONAL DAY` 
-+  `RAMADAN*` 
-+  `EID AL-FITR*` 
-+  `EID AL-ADHA*` 
-+  `ISLAMIC NEW YEAR*` 
-
-\*Islamic holidays are determined according to moon sighting\.
+Holidays is a built\-in featurization that incorporates a feature\-engineered dataset of national holiday information into your model\. It provides native support for the holiday calendars of 66 countries\. To view the holiday calendars, refer to the [Jollyday](http://jollyday.sourceforge.net/data.html) library\. For more information, see [Holidays Featurization](https://docs.aws.amazon.com/forecast/latest/dg/holidays.html)\.
 
 ## Contents<a name="API_SupplementaryFeature_Contents"></a>
 
  **Name**   <a name="forecast-Type-SupplementaryFeature-Name"></a>
-The name of the feature\. This must be "holiday"\.  
+The name of the feature\. Valid values: `"holiday"` and `"weather"`\.  
 Type: String  
 Length Constraints: Minimum length of 1\. Maximum length of 63\.  
 Pattern: `^[a-zA-Z][a-zA-Z0-9_]*`   
 Required: Yes
 
  **Value**   <a name="forecast-Type-SupplementaryFeature-Value"></a>
-One of the following 2 letter country codes:  
+ **Weather Index**   
+To enable the Weather Index, set the value to `"true"`   
+ **Holidays**   
+To enable Holidays, specify a country with one of the following two\-letter country codes:  
 + "AL" \- ALBANIA
 + "AR" \- ARGENTINA
 + "AT" \- AUSTRIA

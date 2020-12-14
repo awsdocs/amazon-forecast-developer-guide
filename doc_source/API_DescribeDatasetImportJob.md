@@ -57,10 +57,13 @@ Required: Yes
          "Stddev": number
       }
    },
+   "GeolocationFormat": "string",
    "LastModificationTime": number,
    "Message": "string",
    "Status": "string",
-   "TimestampFormat": "string"
+   "TimestampFormat": "string",
+   "TimeZone": "string",
+   "UseGeolocationForTimeZone": boolean
 }
 ```
 
@@ -107,6 +110,12 @@ Type: String to [Statistics](API_Statistics.md) object map
 Key Length Constraints: Maximum length of 256\.  
 Key Pattern: `^[a-zA-Z0-9\_]+$` 
 
+ ** [GeolocationFormat](#API_DescribeDatasetImportJob_ResponseSyntax) **   <a name="forecast-DescribeDatasetImportJob-response-GeolocationFormat"></a>
+The format of the geolocation attribute\. Valid Values:`"LAT_LONG"` and `"CC_POSTALCODE"`\.  
+Type: String  
+Length Constraints: Maximum length of 256\.  
+Pattern: `^[a-zA-Z0-9_]+$` 
+
  ** [LastModificationTime](#API_DescribeDatasetImportJob_ResponseSyntax) **   <a name="forecast-DescribeDatasetImportJob-response-LastModificationTime"></a>
 The last time that the dataset was modified\. The time depends on the status of the job, as follows:  
 +  `CREATE_PENDING` \- The same time as `CreationTime`\.
@@ -137,6 +146,16 @@ The format of timestamps in the dataset\. The format that you specify depends on
 Type: String  
 Length Constraints: Maximum length of 256\.  
 Pattern: `^[a-zA-Z0-9\-\:\.\,\'\s]+$` 
+
+ ** [TimeZone](#API_DescribeDatasetImportJob_ResponseSyntax) **   <a name="forecast-DescribeDatasetImportJob-response-TimeZone"></a>
+The single time zone applied to every item in the dataset  
+Type: String  
+Length Constraints: Maximum length of 256\.  
+Pattern: `^[a-zA-Z0-9\/\+\-\_]+$` 
+
+ ** [UseGeolocationForTimeZone](#API_DescribeDatasetImportJob_ResponseSyntax) **   <a name="forecast-DescribeDatasetImportJob-response-UseGeolocationForTimeZone"></a>
+Whether `TimeZone` is automatically derived from the geolocation attribute\.  
+Type: Boolean
 
 ## Errors<a name="API_DescribeDatasetImportJob_Errors"></a>
 

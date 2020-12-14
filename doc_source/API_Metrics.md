@@ -4,8 +4,14 @@ Provides metrics that are used to evaluate the performance of a predictor\. This
 
 ## Contents<a name="API_Metrics_Contents"></a>
 
+ **ErrorMetrics**   <a name="forecast-Type-Metrics-ErrorMetrics"></a>
+ Provides detailed error metrics on forecast type, root\-mean square\-error \(RMSE\), and weighted average percentage error \(WAPE\)\.   
+Type: Array of [ErrorMetric](API_ErrorMetric.md) objects  
+Required: No
+
  **RMSE**   <a name="forecast-Type-Metrics-RMSE"></a>
-The root mean square error \(RMSE\)\.  
+ *This member has been deprecated\.*   
+The root\-mean\-square error \(RMSE\)\.  
 Type: Double  
 Required: No
 

@@ -2,19 +2,21 @@
 
 Creates an Amazon Forecast predictor\.
 
-In the request, you provide a dataset group and either specify an algorithm or let Amazon Forecast choose the algorithm for you using AutoML\. If you specify an algorithm, you also can override algorithm\-specific hyperparameters\.
+In the request, provide a dataset group and either specify an algorithm or let Amazon Forecast choose an algorithm for you using AutoML\. If you specify an algorithm, you also can override algorithm\-specific hyperparameters\.
 
-Amazon Forecast uses the chosen algorithm to train a model using the latest version of the datasets in the specified dataset group\. The result is called a predictor\. You then generate a forecast using the [CreateForecast](API_CreateForecast.md) operation\.
+Amazon Forecast uses the algorithm to train a predictor using the latest version of the datasets in the specified dataset group\. You can then generate a forecast using the [CreateForecast](API_CreateForecast.md) operation\.
 
-After training a model, the `CreatePredictor` operation also evaluates it\. To see the evaluation metrics, use the [GetAccuracyMetrics](API_GetAccuracyMetrics.md) operation\. Always review the evaluation metrics before deciding to use the predictor to generate a forecast\.
+ To see the evaluation metrics, use the [GetAccuracyMetrics](API_GetAccuracyMetrics.md) operation\. 
 
-Optionally, you can specify a featurization configuration to fill and aggregate the data fields in the `TARGET_TIME_SERIES` dataset to improve model training\. For more information, see [FeaturizationConfig](API_FeaturizationConfig.md)\.
+You can specify a featurization configuration to fill and aggregate the data fields in the `TARGET_TIME_SERIES` dataset to improve model training\. For more information, see [FeaturizationConfig](API_FeaturizationConfig.md)\.
 
-For RELATED\_TIME\_SERIES datasets, `CreatePredictor` verifies that the `DataFrequency` specified when the dataset was created matches the `ForecastFrequency`\. TARGET\_TIME\_SERIES datasets don't have this restriction\. Amazon Forecast also verifies the delimiter and timestamp format\. For more information, see [Datasets and Dataset Groups](howitworks-datasets-groups.md)\.
+For RELATED\_TIME\_SERIES datasets, `CreatePredictor` verifies that the `DataFrequency` specified when the dataset was created matches the `ForecastFrequency`\. TARGET\_TIME\_SERIES datasets don't have this restriction\. Amazon Forecast also verifies the delimiter and timestamp format\. For more information, see [Importing Datasets](howitworks-datasets-groups.md)\.
+
+By default, predictors are trained and evaluated at the 0\.1 \(P10\), 0\.5 \(P50\), and 0\.9 \(P90\) quantiles\. You can choose custom forecast types to train and evaluate your predictor by setting the `ForecastTypes`\. 
 
  **AutoML** 
 
-If you want Amazon Forecast to evaluate each algorithm and choose the one that minimizes the `objective function`, set `PerformAutoML` to `true`\. The `objective function` is defined as the mean of the weighted p10, p50, and p90 quantile losses\. For more information, see [EvaluationResult](API_EvaluationResult.md)\.
+If you want Amazon Forecast to evaluate each algorithm and choose the one that minimizes the `objective function`, set `PerformAutoML` to `true`\. The `objective function` is defined as the mean of the weighted losses over the forecast types\. By default, these are the p10, p50, and p90 quantile losses\. For more information, see [EvaluationResult](API_EvaluationResult.md)\.
 
 When AutoML is enabled, the following properties are disallowed:
 +  `AlgorithmArn` 
@@ -58,6 +60,7 @@ Before you can use the predictor to create a forecast, the `Status` of the predi
       "ForecastFrequency": "string"
    },
    "ForecastHorizon": number,
+   "ForecastTypes": [ "string" ],
    "HPOConfig": { 
       "ParameterRanges": { 
          "CategoricalParameterRanges": [ 
@@ -148,6 +151,14 @@ For example, if you configure a dataset for daily data collection \(using the `D
 The maximum forecast horizon is the lesser of 500 time\-steps or 1/3 of the TARGET\_TIME\_SERIES dataset length\.  
 Type: Integer  
 Required: Yes
+
+ ** [ForecastTypes](#API_CreatePredictor_RequestSyntax) **   <a name="forecast-CreatePredictor-request-ForecastTypes"></a>
+Specifies the forecast types used to train a predictor\. You can specify up to five forecast types\. Forecast types can be quantiles from 0\.01 to 0\.99, by increments of 0\.01 or higher\. You can also specify the mean forecast with `mean`\.   
+The default value is `["0.10", "0.50", "0.9"]`\.  
+Type: Array of strings  
+Array Members: Minimum number of 1 item\. Maximum number of 20 items\.  
+Pattern: `(^0?\.\d\d?$|^mean$)`   
+Required: No
 
  ** [HPOConfig](#API_CreatePredictor_RequestSyntax) **   <a name="forecast-CreatePredictor-request-HPOConfig"></a>
 Provides hyperparameter override values for the algorithm\. If you don't provide this parameter, Amazon Forecast uses default values\. The individual algorithms specify which hyperparameters support hyperparameter optimization \(HPO\)\. For more information, see [Choosing an Amazon Forecast Algorithm](aws-forecast-choosing-recipes.md)\.  

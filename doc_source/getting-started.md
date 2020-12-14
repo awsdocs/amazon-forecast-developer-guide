@@ -1,7 +1,7 @@
 # Getting Started<a name="getting-started"></a>
 
 To get started using Amazon Forecast, you do the following\. 
-+ Create an Forecast dataset and import training data\.
++ Create a Forecast dataset and import training data\.
 + Create a Forecast predictor\. The algorithm that you choose, trains a predictor using the datasets\. You specify both the algorithm and dataset when you create the predictor\.
 + Generate a forecast\.
 

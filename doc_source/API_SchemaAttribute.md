@@ -14,7 +14,7 @@ Required: No
  **AttributeType**   <a name="forecast-Type-SchemaAttribute-AttributeType"></a>
 The data type of the field\.  
 Type: String  
-Valid Values:` string | integer | float | timestamp`   
+Valid Values:` string | integer | float | timestamp | geolocation`   
 Required: No
 
 ## See Also<a name="API_SchemaAttribute_SeeAlso"></a>

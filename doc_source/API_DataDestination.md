@@ -1,6 +1,6 @@
 # DataDestination<a name="API_DataDestination"></a>
 
-The destination for an exported forecast, an AWS Identity and Access Management \(IAM\) role that allows Amazon Forecast to access the location and, optionally, an AWS Key Management Service \(KMS\) key\. This object is submitted in the [CreateForecastExportJob](API_CreateForecastExportJob.md) request\.
+The destination for an export job\. Provide an S3 path, an AWS Identity and Access Management \(IAM\) role that allows Amazon Forecast to access the location, and an AWS Key Management Service \(KMS\) key \(optional\)\. 
 
 ## Contents<a name="API_DataDestination_Contents"></a>
 

@@ -2,7 +2,7 @@
 
 A related time series dataset includes time\-series data that isn't included in a target time series dataset and might improve the accuracy of your predictor\.
 
-For example, in the demand forecasting domain, a target time series dataset would contain `timestamp` and `item_id` dimensions, while a complimentary related time series dataset also includes the following supplementary features: `item price`, `promotion`, and `weather`\.
+For example, in the demand forecasting domain, a target time series dataset would contain `timestamp` and `item_id` dimensions, while a complementary related time series dataset also includes the following supplementary features: `item price`, `promotion`, and `weather`\.
 
 A related time series dataset can contain up to 10 forecast dimensions \(the same ones in your target time series dataset\) and up to 13 related time\-series features\.
 
@@ -14,7 +14,12 @@ You can use a related time series dataset when training a predictor with the [CN
 +  **Historical time series**: time series *without* data points within the forecast horizon\. 
 +  **Forward\-looking time series**: time series *with* data points within the forecast horizon\. 
 
-Historical related time series contain data points up to the forecast horizon, and do not contain any data points within the forecast horizon\. Forward\-looking related time series contain data points up to *and* within the forecast horizon\. A related time series that contains any values within the forecast horizon is treated as a forward\-looking time series\. 
+Historical related time series contain data points up to the forecast horizon, and do not contain any data points within the forecast horizon\. Forward\-looking related time series contain data points up to *and* within the forecast horizon\. 
+
+![\[Image NOT FOUND\]](http://docs.aws.amazon.com/forecast/latest/dg/images/short-long-rts.png)
+
+**Note**  
+ A related time series that contains any values within the forecast horizon is treated as a forward\-looking time series\. 
 
  The following table shows the types of related time series each Amazon Forecast algorithm accepts\. 
 
@@ -24,7 +29,7 @@ Historical related time series contain data points up to the forecast horizon, a
 |  Historical related time series  | ![\[Image NOT FOUND\]](http://docs.aws.amazon.com/forecast/latest/dg/images/icon-yes.png)  | ![\[Image NOT FOUND\]](http://docs.aws.amazon.com/forecast/latest/dg/images/icon-no.png)  | ![\[Image NOT FOUND\]](http://docs.aws.amazon.com/forecast/latest/dg/images/icon-no.png)  | ![\[Image NOT FOUND\]](http://docs.aws.amazon.com/forecast/latest/dg/images/icon-no.png)  | ![\[Image NOT FOUND\]](http://docs.aws.amazon.com/forecast/latest/dg/images/icon-no.png)  | ![\[Image NOT FOUND\]](http://docs.aws.amazon.com/forecast/latest/dg/images/icon-no.png)  | 
 |  Forward\-looking related time series  | ![\[Image NOT FOUND\]](http://docs.aws.amazon.com/forecast/latest/dg/images/icon-yes.png)  | ![\[Image NOT FOUND\]](http://docs.aws.amazon.com/forecast/latest/dg/images/icon-yes.png)  | ![\[Image NOT FOUND\]](http://docs.aws.amazon.com/forecast/latest/dg/images/icon-yes.png)  | ![\[Image NOT FOUND\]](http://docs.aws.amazon.com/forecast/latest/dg/images/icon-no.png)  | ![\[Image NOT FOUND\]](http://docs.aws.amazon.com/forecast/latest/dg/images/icon-no.png)  | ![\[Image NOT FOUND\]](http://docs.aws.amazon.com/forecast/latest/dg/images/icon-no.png)  | 
 
- When using AutoML, you can provide both historical and foward\-looking related time series data, and Forecast will only use those time series where applicable\. 
+ When using AutoML, you can provide both historical and forward\-looking related time series data, and Forecast will only use those time series where applicable\. 
 
  If you provide *forward\-looking* related time series data, Forecast will use the related data with CNN\-QR, DeepAR\+, and Prophet, and will not use the related data with NPTS, ARIMA and ETS\. If provided *historical* related time series data, Forecast will use the related data with CNN\-QR, and will not use the related data with DeepAR\+, Prophet, NPTS, ARIMA, and ETS\. 
 

@@ -1,6 +1,6 @@
 # S3Config<a name="API_S3Config"></a>
 
-The path to the file\(s\) in an Amazon Simple Storage Service \(Amazon S3\) bucket, and an AWS Identity and Access Management \(IAM\) role that Amazon Forecast can assume to access the file\(s\)\. Optionally, includes an AWS Key Management Service \(KMS\) key\. This object is part of the [DataSource](API_DataSource.md) object that is submitted in the [CreateDatasetImportJob](API_CreateDatasetImportJob.md) request, and part of the [DataDestination](API_DataDestination.md) object that is submitted in the [CreateForecastExportJob](API_CreateForecastExportJob.md) request\.
+The path to the file\(s\) in an Amazon Simple Storage Service \(Amazon S3\) bucket, and an AWS Identity and Access Management \(IAM\) role that Amazon Forecast can assume to access the file\(s\)\. Optionally, includes an AWS Key Management Service \(KMS\) key\. This object is part of the [DataSource](API_DataSource.md) object that is submitted in the [CreateDatasetImportJob](API_CreateDatasetImportJob.md) request, and part of the [DataDestination](API_DataDestination.md) object\.
 
 ## Contents<a name="API_S3Config_Contents"></a>
 

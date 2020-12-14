@@ -8,7 +8,7 @@ where the <ExportTimestamp> component is in Java SimpleDateFormat \(yyyy\-MM\-dd
 
 You must specify a [DataDestination](API_DataDestination.md) object that includes an AWS Identity and Access Management \(IAM\) role that Amazon Forecast can assume to access the Amazon S3 bucket\. For more information, see [Set Up Permissions for Amazon Forecast](aws-forecast-iam-roles.md)\.
 
-For more information, see [Forecasts](howitworks-forecast.md)\.
+For more information, see [Generating Forecasts](howitworks-forecast.md)\.
 
 To get a list of all your forecast export jobs, use the [ListForecastExportJobs](API_ListForecastExportJobs.md) operation\.
 

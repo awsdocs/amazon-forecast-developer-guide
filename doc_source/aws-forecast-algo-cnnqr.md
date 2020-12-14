@@ -3,14 +3,13 @@
  Amazon Forecast CNN\-QR, Convolutional Neural Network \- Quantile Regression, is a proprietary machine learning algorithm for forecasting scalar \(one\-dimensional\) time series using causal convolutional neural networks \(CNNs\)\. This supervised learning algorithm trains one global model from a large collection of time series and uses a quantile decoder to make probabilistic predictions\.
 
 **Topics**
-+ [Getting Started](#aws-forecast-algo-cnnqr-getting-started)
++ [Getting Started with CNN\-QR](#aws-forecast-algo-cnnqr-getting-started)
 + [How CNN\-QR Works](#aws-forecast-algo-cnnqr-how-it-works)
-+ [Using Related Time Series](#aws-forecast-algo-cnnqr-using-rts)
-+ [Hyperparameters](#aws-forecast-algo-cnnqr-hyperparameters)
-+ [Hyperparameter Optimization \(HPO\)](#aws-forecast-algo-cnnqr-hpo)
++ [Using Related Data with CNN\-QR](#aws-forecast-algo-cnnqr-using-rts)
++ [CNN\-QR Hyperparameters](#aws-forecast-algo-cnnqr-hyperparameters)
 + [Tips and Best Practices](#aws-forecast-algo-cnnqr-tips)
 
-## Getting Started<a name="aws-forecast-algo-cnnqr-getting-started"></a>
+## Getting Started with CNN\-QR<a name="aws-forecast-algo-cnnqr-getting-started"></a>
 
  You can train a predictor with CNN\-QR in two ways: 
 
@@ -60,34 +59,25 @@ The figure below shows how this works for an element of a training dataset index
 
 CNN\-QR learns across the target time series, `zi,t`, and the related time series, `xi,1,t` and `xi,2,t`, to generate predictions in the forecast window, represented by the orange line\. 
 
-## Using Related Time Series<a name="aws-forecast-algo-cnnqr-using-rts"></a>
+## Using Related Data with CNN\-QR<a name="aws-forecast-algo-cnnqr-using-rts"></a>
 
- Related time series are datasets with complementary data relating to the target time series, like `item price`, `promotion`, and `events`\. 
+CNN\-QR is the only Forecast algorithm that does not require related time series datasets to extend into the forecast horizon\. This means that you do not need to fill or predict future values for related time series\. For more information on historical and forward\-looking related time series, see [Using Related Time Series Datasets\.](related-time-series-datasets.md) 
 
-Related time series come in two forms:
-+  **Historical related time series** \- time series *without* data points within the forecast horizon\. These related time series only have data points in the past\. 
-+  **Forward\-looking related time series** \- time series *with* data points within the forecast horizon\. These related time series contain both historical values *and* future values\. 
+You can also use item metadata datasets with CNN\-QR\. These are datasets with static information on the items in your target time series\. Item metadata is especially useful for cold\-start forecasting scenarios where there is little to no historical data\. For more information on item metadata, see [Item Metadata\.](item-metadata-datasets.md)
 
-**Note**  
-A related time series that contains *any* values within the forecast horizon is treated as a forward\-looking time series\. 
+## CNN\-QR Hyperparameters<a name="aws-forecast-algo-cnnqr-hyperparameters"></a>
 
-CNN\-QR is the only Forecast algorithm that uses information from both historical and forward\-looking related time\-series\. If you are looking to use historical related time series, manually select the CNN\-QR algorithm\. Running AutoML with historical related time series will cause DeepAR\+ and Prophet to fail\.
-
-For more information on how to use related time series with Forecast, see [Using Related Time Series Datasets\.](related-time-series-datasets.md) 
-
-## Hyperparameters<a name="aws-forecast-algo-cnnqr-hyperparameters"></a>
-
- Amazon Forecast optimizes CNN\-QR models on selected hyperparameters\. When you manually select CNN\-QR, you have the option to pass in training parameters for these hyperparameters\. The following table lists the hyperparameters you can use with the CNN\-QR algorithm\. 
+ Amazon Forecast optimizes CNN\-QR models on selected hyperparameters\. When manually selecting CNN\-QR, you have the option to pass in training parameters for these hyperparameters\. The following table lists the tunable hyperparameters of the CNN\-QR algorithm\. 
 
 
-| Parameter Name | Values | Description | HPO | 
-| --- | --- | --- | --- | 
-| context\_length | [\[See the AWS documentation website for more details\]](http://docs.aws.amazon.com/forecast/latest/dg/aws-forecast-algo-cnnqr.html)  | The number of time points that the model reads before making predictions\. Typically, CNN\-QR has larger values for `context_length` than DeepAR\+ because CNN\-QR does not use lags to look at further historical data\. If the value for `context_length` is outside of a predefined range, CNN\-QR will automatically set the default `context_length` to an appropriate value\.  | Yes | 
-| use\_related\_data | [\[See the AWS documentation website for more details\]](http://docs.aws.amazon.com/forecast/latest/dg/aws-forecast-algo-cnnqr.html) |  Determines which kinds of related time series data to include in the model\. Choose one of four options: [\[See the AWS documentation website for more details\]](http://docs.aws.amazon.com/forecast/latest/dg/aws-forecast-algo-cnnqr.html)  | Yes | 
-| use\_item\_metadata | [\[See the AWS documentation website for more details\]](http://docs.aws.amazon.com/forecast/latest/dg/aws-forecast-algo-cnnqr.html) |  Determines whether the model includes item metadata\. You can choose either `ALL` or `NONE`\.   | Yes | 
-| epochs |  [\[See the AWS documentation website for more details\]](http://docs.aws.amazon.com/forecast/latest/dg/aws-forecast-algo-cnnqr.html)  |  The maximum number of complete passes through the training data\. Smaller datasets require more epochs\.  For large values of `ForecastHorizon` and `context_length`, consider decreasing epochs to improve the training time\.   | No | 
+| Parameter Name | Values | Description | 
+| --- | --- | --- | 
+| context\_length |  [\[See the AWS documentation website for more details\]](http://docs.aws.amazon.com/forecast/latest/dg/aws-forecast-algo-cnnqr.html)  |  The number of time points that the model reads before making predictions\. Typically, CNN\-QR has larger values for `context_length` than DeepAR\+ because CNN\-QR does not use lags to look at further historical data\. If the value for `context_length` is outside of a predefined range, CNN\-QR will automatically set the default `context_length` to an appropriate value\.  | 
+| use\_related\_data |  [\[See the AWS documentation website for more details\]](http://docs.aws.amazon.com/forecast/latest/dg/aws-forecast-algo-cnnqr.html)  |  Determines which kinds of related time series data to include in the model\. Choose one of four options: [\[See the AWS documentation website for more details\]](http://docs.aws.amazon.com/forecast/latest/dg/aws-forecast-algo-cnnqr.html) `HISTORICAL` includes all historical related time series, and `FORWARD_LOOKING` includes all forward\-looking related time series\. You cannot choose a subset of `HISTORICAL` or `FORWARD_LOOKING` related time series\.   | 
+| use\_item\_metadata |  [\[See the AWS documentation website for more details\]](http://docs.aws.amazon.com/forecast/latest/dg/aws-forecast-algo-cnnqr.html)  |  Determines whether the model includes item metadata\.  Choose one of two options: [\[See the AWS documentation website for more details\]](http://docs.aws.amazon.com/forecast/latest/dg/aws-forecast-algo-cnnqr.html) `use_item_metadata` includes either all provided item metadata or none\. You cannot choose a subset of item metadata\.   | 
+| epochs |  [\[See the AWS documentation website for more details\]](http://docs.aws.amazon.com/forecast/latest/dg/aws-forecast-algo-cnnqr.html)  |  The maximum number of complete passes through the training data\. Smaller datasets require more epochs\.  For large values of `ForecastHorizon` and `context_length`, consider decreasing epochs to improve the training time\.   | 
 
-## Hyperparameter Optimization \(HPO\)<a name="aws-forecast-algo-cnnqr-hpo"></a>
+### Hyperparameter Optimization \(HPO\)<a name="aws-forecast-algo-cnnqr-hpo"></a>
 
 Hyperparameter optimization \(HPO\) is the task of selecting the optimal hyperparameter values for a specific learning objective\. With Forecast, you can automate this process in two ways: 
 
@@ -95,38 +85,17 @@ Hyperparameter optimization \(HPO\) is the task of selecting the optimal hyperpa
 
 1. Manually selecting CNN\-QR and setting `PerformHPO = TRUE`\.
 
- As shown in the table above, Amazon Forecast automatically optimizes three hyperparameters during HPO, and provides you with the final trained values\. These hyperparameters are `context_length`, `use_related_data`, and `use_item_meta_data`\. 
+Additional related time series and item metadata does not always improve the accuracy of your CNN\-QR model\. When you run AutoML or enable HPO, CNN\-QR tests the accuracy of your model with and without the provided related time series and item metadata, and selects the model with the highest accuracy\.
 
- Adding more related time series and item metadata does not always improve the accuracy of your CNN\-QR model\. When you run AutoML or enable HPO, CNN\-QR will test the accuracy of your model with and without the provided related time series and item metadata, and select the model with the highest accuracy\. 
-
-**Note**  
-If you set `PerformHPO = TRUE` during manual selection, you can only set the HPO config for the `context_length` hyperparameter\. If you choose AutoML, you cannot alter any aspect of the HPO configuration\.
-
-**context\_length**
-
-This hyperparameter controls how far into the past the network can see\. The HPO process automatically sets a value for `context_length` that maximizes model accuracy, while taking training time into account\. For information on HPO configuration, refer to the [IntergerParameterRange](https://docs.aws.amazon.com/forecast/latest/dg/API_IntegerParameterRange.html) API\. 
-
-**use\_related\_data**
+Amazon Forecast automatically optimizes the following three hyperparameters during HPO and provides you with the final trained values:
++ **context\_length** \- determines how far into the past the network can see\. The HPO process automatically sets a value for `context_length` that maximizes model accuracy, while taking training time into account\.
++ **use\_related\_data** \- determines which forms of related time series data to include in your model\. The HPO process automatically checks whether your related time series data improves the model, and selects the optimal setting\.
++ **use\_item\_metadata** \- determines whether to include item metadata in your model\. The HPO process automatically checks whether your item metadata improves the model, and chooses the optimal setting\.
 
 **Note**  
-`HISTORICAL` includes all historical related time series, and `FORWARD_LOOKING` includes all forward\-looking related time series\. They cannot include a subset of related time series\.
-
- This hyperparameter determines whether to include related time series data in your model\. The HPO process automatically checks whether your related time series data improves the model, and selects the optimal setting: 
-+ **ALL** – Includes all provided related time series\.
-+ **NONE** – Includes none of the provided related time series\.
-+ **HISTORICAL** – Includes only historical related time series, which DO NOT contain data points in the forecast horizon\.
-+ **FORWARD\_LOOKING** – Includes only forward\-looking related time series, which DO contain data points in the forecast horizon\.
-
 If `use_related_data` is set to `NONE` or `HISTORICAL` when the `Holiday` supplementary feature is selected, this means that including holiday data does not improve model accuracy\.
 
-**use\_item\_metadata**
-
-**Note**  
-`use_item_metadata` uses either all provided item metadata, or none\. It cannot select a subset of item metadata\. 
-
-This hyperparameter determines whether to include item metadata in your model\. The HPO process automatically checks whether your item metadata improves the model, and chooses the optimal setting:
-+ **ALL** – Includes all provided item metadata\.
-+ **NONE** – Excludes all provided item metadata\.
+You can set the HPO configuration for the `context_length` hyperparameter if you set `PerformHPO = TRUE` during manual selection\. However, you cannot alter any aspect of the HPO configuration if you choose AutoML\. For more information on HPO configuration, refer to the [IntergerParameterRange](https://docs.aws.amazon.com/forecast/latest/dg/API_IntegerParameterRange.html) API\. 
 
 ## Tips and Best Practices<a name="aws-forecast-algo-cnnqr-tips"></a>
 
@@ -138,6 +107,6 @@ This hyperparameter determines whether to include item metadata in your model\. 
 
  **CNN\-QR does not forecast at the mean quantile ** – When you set `ForecastTypes` to `mean` with the [ CreateForecast](https://docs.aws.amazon.com/forecast/latest/dg/API_CreateForecast.html) API, forecasts will instead be generated at the median quantile \(`0.5` or `P50`\)\. 
 
- **Cold start item forecasting** – A global model, such as CNN\-QR, learns across target time series, related time series, and item metadata , making it appropriate for cold start scenarios\. CNN\-QR can forecast demand for new items and SKUs that share similar characteristics to the other items with historical data\. Follow this [ example notebook](https://github.com/aws-samples/amazon-forecast-samples/tree/master/notebooks/advanced/Forecast with Cold Start Items) to get started\. 
+ **Cold start item forecasting** – A global model, such as CNN\-QR, learns across target time series, related time series, and item metadata , making it appropriate for cold start scenarios\. CNN\-QR can forecast demand for new items and SKUs that share similar characteristics to the other items with historical data\. Follow this [ example notebook](https://github.com/aws-samples/amazon-forecast-samples/blob/master/notebooks/advanced/Forecast%20with%20Cold%20Start%20Items/Forecast%20with%20Cold%20Start%20Items.ipynb) to get started\. 
 
  **What\-if analysis** – By using different versions of your historical and forward\-looking related time series data with your trained CNN\-QR model, you can create forecasts for different scenarios and counterfactuals\. For example, you can forecast demand for a product with and without a promotion\. Follow this [ example notebook](https://github.com/aws-samples/amazon-forecast-samples/blob/master/notebooks/advanced/WhatIf_Analysis/WhatIf_Analysis.ipynb) to get started\. 

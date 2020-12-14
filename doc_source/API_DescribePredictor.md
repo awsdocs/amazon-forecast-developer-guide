@@ -63,6 +63,7 @@ Required: Yes
       "ForecastFrequency": "string"
    },
    "ForecastHorizon": number,
+   "ForecastTypes": [ "string" ],
    "HPOConfig": { 
       "ParameterRanges": { 
          "CategoricalParameterRanges": [ 
@@ -169,6 +170,12 @@ Type: [FeaturizationConfig](API_FeaturizationConfig.md) object
  ** [ForecastHorizon](#API_DescribePredictor_ResponseSyntax) **   <a name="forecast-DescribePredictor-response-ForecastHorizon"></a>
 The number of time\-steps of the forecast\. The forecast horizon is also called the prediction length\.  
 Type: Integer
+
+ ** [ForecastTypes](#API_DescribePredictor_ResponseSyntax) **   <a name="forecast-DescribePredictor-response-ForecastTypes"></a>
+The forecast types used during predictor training\. Default value is `["0.1","0.5","0.9"]`   
+Type: Array of strings  
+Array Members: Minimum number of 1 item\. Maximum number of 20 items\.  
+Pattern: `(^0?\.\d\d?$|^mean$)` 
 
  ** [HPOConfig](#API_DescribePredictor_ResponseSyntax) **   <a name="forecast-DescribePredictor-response-HPOConfig"></a>
 The hyperparameter override values for the algorithm\.  

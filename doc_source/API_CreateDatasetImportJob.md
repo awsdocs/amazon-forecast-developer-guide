@@ -25,13 +25,16 @@ To get a list of all your dataset import jobs, filtered by specified criteria, u
          "RoleArn": "string"
       }
    },
+   "GeolocationFormat": "string",
    "Tags": [ 
       { 
          "Key": "string",
          "Value": "string"
       }
    ],
-   "TimestampFormat": "string"
+   "TimestampFormat": "string",
+   "TimeZone": "string",
+   "UseGeolocationForTimeZone": boolean
 }
 ```
 
@@ -59,6 +62,15 @@ If encryption is used, `DataSource` must include an AWS Key Management Service \
 Type: [DataSource](API_DataSource.md) object  
 Required: Yes
 
+ ** [GeolocationFormat](#API_CreateDatasetImportJob_RequestSyntax) **   <a name="forecast-CreateDatasetImportJob-request-GeolocationFormat"></a>
+The format of the geolocation attribute\. The geolocation attribute can be formatted in one of two ways:  
++  `LAT_LONG` \- the latitude and longitude in decimal format \(Example: 47\.61\_\-122\.33\)\.
++  `CC_POSTALCODE` \(US Only\) \- the country code \(US\), followed by the 5\-digit ZIP code \(Example: US\_98121\)\.
+Type: String  
+Length Constraints: Maximum length of 256\.  
+Pattern: `^[a-zA-Z0-9_]+$`   
+Required: No
+
  ** [Tags](#API_CreateDatasetImportJob_RequestSyntax) **   <a name="forecast-CreateDatasetImportJob-request-Tags"></a>
 The optional metadata that you apply to the dataset import job to help you categorize and organize them\. Each tag consists of a key and an optional value, both of which you define\.  
 The following basic restrictions apply to tags:  
@@ -85,6 +97,19 @@ If the format isn't specified, Amazon Forecast expects the format to be "yyyy\-M
 Type: String  
 Length Constraints: Maximum length of 256\.  
 Pattern: `^[a-zA-Z0-9\-\:\.\,\'\s]+$`   
+Required: No
+
+ ** [TimeZone](#API_CreateDatasetImportJob_RequestSyntax) **   <a name="forecast-CreateDatasetImportJob-request-TimeZone"></a>
+A single time zone for every item in your dataset\. This option is ideal for datasets with all timestamps within a single time zone, or if all timestamps are normalized to a single time zone\.   
+Refer to the [Joda\-Time API](http://joda-time.sourceforge.net/timezones.html) for a complete list of valid time zone names\.  
+Type: String  
+Length Constraints: Maximum length of 256\.  
+Pattern: `^[a-zA-Z0-9\/\+\-\_]+$`   
+Required: No
+
+ ** [UseGeolocationForTimeZone](#API_CreateDatasetImportJob_RequestSyntax) **   <a name="forecast-CreateDatasetImportJob-request-UseGeolocationForTimeZone"></a>
+Automatically derive time zone information from the geolocation attribute\. This option is ideal for datasets that contain timestamps in multiple time zones and those timestamps are expressed in local time\.  
+Type: Boolean  
 Required: No
 
 ## Response Syntax<a name="API_CreateDatasetImportJob_ResponseSyntax"></a>

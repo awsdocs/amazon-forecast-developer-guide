@@ -14,7 +14,7 @@ Required: Yes
  **SupplementaryFeatures**   <a name="forecast-Type-InputDataConfig-SupplementaryFeatures"></a>
 An array of supplementary features\. The only supported feature is a holiday calendar\.  
 Type: Array of [SupplementaryFeature](API_SupplementaryFeature.md) objects  
-Array Members: Fixed number of 1 item\.  
+Array Members: Minimum number of 1 item\. Maximum number of 2 items\.  
 Required: No
 
 ## See Also<a name="API_InputDataConfig_SeeAlso"></a>

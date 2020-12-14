@@ -2,7 +2,7 @@
 
 Creates a dataset group, which holds a collection of related datasets\. You can add datasets to the dataset group when you create the dataset group, or later by using the [UpdateDatasetGroup](API_UpdateDatasetGroup.md) operation\.
 
-After creating a dataset group and adding datasets, you use the dataset group when you create a predictor\. For more information, see [Datasets and Dataset Groups](howitworks-datasets-groups.md)\.
+After creating a dataset group and adding datasets, you use the dataset group when you create a predictor\. For more information, see [Importing Datasets](howitworks-datasets-groups.md)\.
 
 To get a list of all your datasets groups, use the [ListDatasetGroups](API_ListDatasetGroups.md) operation\.
 
@@ -45,7 +45,7 @@ Required: Yes
 
  ** [Domain](#API_CreateDatasetGroup_RequestSyntax) **   <a name="forecast-CreateDatasetGroup-request-Domain"></a>
 The domain associated with the dataset group\. When you add a dataset to a dataset group, this value and the value specified for the `Domain` parameter of the [CreateDataset](API_CreateDataset.md) operation must match\.  
-The `Domain` and `DatasetType` that you choose determine the fields that must be present in training data that you import to a dataset\. For example, if you choose the `RETAIL` domain and `TARGET_TIME_SERIES` as the `DatasetType`, Amazon Forecast requires that `item_id`, `timestamp`, and `demand` fields are present in your data\. For more information, see [Datasets and Dataset Groups](howitworks-datasets-groups.md)\.  
+The `Domain` and `DatasetType` that you choose determine the fields that must be present in training data that you import to a dataset\. For example, if you choose the `RETAIL` domain and `TARGET_TIME_SERIES` as the `DatasetType`, Amazon Forecast requires that `item_id`, `timestamp`, and `demand` fields are present in your data\. For more information, see [Importing Datasets](howitworks-datasets-groups.md)\.  
 Type: String  
 Valid Values:` RETAIL | CUSTOM | INVENTORY_PLANNING | EC2_CAPACITY | WORK_FORCE | WEB_TRAFFIC | METRICS`   
 Required: Yes

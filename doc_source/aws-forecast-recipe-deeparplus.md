@@ -2,6 +2,9 @@
 
 Amazon Forecast DeepAR\+ is a supervised learning algorithm for forecasting scalar \(one\-dimensional\) time series using recurrent neural networks \(RNNs\)\. Classical forecasting methods, such as autoregressive integrated moving average \(ARIMA\) or exponential smoothing \(ETS\), fit a single model to each individual time series, and then use that model to extrapolate the time series into the future\. In many applications, however, you have many similar time series across a set of cross\-sectional units\. These time\-series groupings demand different products, server loads, and requests for web pages\. In this case, it can be beneficial to train a single model jointly over all of the time series\. DeepAR\+ takes this approach\. When your dataset contains hundreds of feature time series, the DeepAR\+ algorithm outperforms the standard ARIMA and ETS methods\. You can also use the trained model for generating forecasts for new time series that are similar to the ones it has been trained on\.
 
+**Python notebooks**  
+For a step\-by\-step guide on using the DeepAR\+ algorithm, see [Getting Started with DeepAR\+](https://github.com/aws-samples/amazon-forecast-samples/blob/master/notebooks/advanced/Getting_started_with_DeepAR%2B/Getting_started_with_DeepAR%2B.ipynb)\.
+
 **Topics**
 + [How DeepAR\+ Works](#aws-forecast-recipe-deeparplus-how-it-works)
 + [DeepAR\+ Hyperparameters](#aws-forecast-recipe-deeparplus-hyperparameters)

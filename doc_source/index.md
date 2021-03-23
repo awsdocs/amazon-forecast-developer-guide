@@ -1,7 +1,7 @@
 # Amazon Forecast Developer Guide
 
 -----
-*****Copyright &copy; 2020 Amazon Web Services, Inc. and/or its affiliates. All rights reserved.*****
+*****Copyright &copy;  Amazon Web Services, Inc. and/or its affiliates. All rights reserved.*****
 
 -----
 Amazon's trademarks and trade dress may not be used in 
@@ -23,7 +23,7 @@ Amazon's trademarks and trade dress may not be used in
 + [Getting Started](getting-started.md)
    + [Getting Started (Console)](gs-console.md)
    + [Getting Started (AWS CLI)](gs-cli.md)
-   + [Getting Started (Python Notebook)](getting-started-python.md)
+   + [Getting Started (Python Notebooks)](getting-started-python.md)
 + [Importing Datasets](howitworks-datasets-groups.md)
    + [Using Related Time Series Datasets](related-time-series-datasets.md)
    + [Using Item Metadata Datasets](item-metadata-datasets.md)
@@ -50,6 +50,11 @@ Amazon's trademarks and trade dress may not be used in
    + [Holidays Featurization](holidays.md)
    + [Evaluating Predictor Accuracy](metrics.md)
 + [Generating Forecasts](howitworks-forecast.md)
++ [Stopping Resources](stop-resource.md)
++ [Tagging Amazon Forecast Resources](tagging-forecast-resources.md)
++ [Setting Up Job Status Notifications](notifications.md)
++ [Guidelines and Quotas](limits.md)
++ [Reserved Field Names](reserved-field-names.md)
 + [Security in Amazon Forecast](security.md)
    + [Data Protection in Amazon Forecast](data-protection.md)
    + [Identity and Access Management for Amazon Forecast](security-iam.md)
@@ -62,9 +67,6 @@ Amazon's trademarks and trade dress may not be used in
    + [Compliance Validation for Amazon Forecast](Forecast-compliance.md)
    + [Resilience in Amazon Forecast](disaster-recovery-resiliency.md)
    + [Infrastructure Security in Amazon Forecast](infrastructure-security.md)
-+ [Tagging Amazon Forecast Resources](tagging-forecast-resources.md)
-+ [Guidelines and Quotas](limits.md)
-+ [Reserved Field Names](reserved-field-names.md)
 + [API Reference](api-reference.md)
    + [Actions](API_Operations.md)
       + [Amazon Forecast Service](API_Operations_Amazon_Forecast_Service.md)
@@ -98,6 +100,7 @@ Amazon's trademarks and trade dress may not be used in
          + [ListPredictorBacktestExportJobs](API_ListPredictorBacktestExportJobs.md)
          + [ListPredictors](API_ListPredictors.md)
          + [ListTagsForResource](API_ListTagsForResource.md)
+         + [StopResource](API_StopResource.md)
          + [TagResource](API_TagResource.md)
          + [UntagResource](API_UntagResource.md)
          + [UpdateDatasetGroup](API_UpdateDatasetGroup.md)

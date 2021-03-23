@@ -10,6 +10,9 @@ Item metadata is especially useful in coldstart forecasting scenarios, in which 
 
 Each row in an item metadata dataset can contain up to 10 metadata fields, one of which must be an identification field to match the metadata to an item in the target time series\. As with all dataset types, the values of each field are designated by a dataset schema\.
 
+**Python notebooks**  
+For a step\-by\-step guide on using item metadata, see [Incorporating Item Metadata](https://github.com/aws-samples/amazon-forecast-samples/blob/master/notebooks/advanced/Incorporating_Item_Metadata_Dataset_to_your_Predictor/Incorporating_Item_Metadata_Dataset_to_your_Predictor.ipynb)\.
+
 ## Example: Item Metadata File and Schema<a name="item-metadata-example"></a>
 
 The following table shows a section of a correctly configured item metadata dataset file that describes Amazon e\-readers\. For this example, assume that the header row represents the dataset's schema, and that each listed item is in a corresponding target time\-series dataset\.

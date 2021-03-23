@@ -15,7 +15,12 @@ Type: [DataDestination](API_DataDestination.md) object
 Required: No
 
  **LastModificationTime**   <a name="forecast-Type-PredictorBacktestExportJobSummary-LastModificationTime"></a>
-When the last successful export job finished\.  
+The last time the resource was modified\. The timestamp depends on the status of the job:  
++  `CREATE_PENDING` \- The `CreationTime`\.
++  `CREATE_IN_PROGRESS` \- The current timestamp\.
++  `CREATE_STOPPING` \- The current timestamp\.
++  `CREATE_STOPPED` \- When the job stopped\.
++  `ACTIVE` or `CREATE_FAILED` \- When the job finished or failed\.
 Type: Timestamp  
 Required: No
 
@@ -41,12 +46,9 @@ Required: No
  **Status**   <a name="forecast-Type-PredictorBacktestExportJobSummary-Status"></a>
 The status of the predictor backtest export job\. States include:   
 +  `ACTIVE` 
-+  `CREATE_PENDING` 
-+  `CREATE_IN_PROGRESS` 
-+  `CREATE_FAILED` 
-+  `DELETE_PENDING` 
-+  `DELETE_IN_PROGRESS` 
-+  `DELETE_FAILED` 
++  `CREATE_PENDING`, `CREATE_IN_PROGRESS`, `CREATE_FAILED` 
++  `CREATE_STOPPING`, `CREATE_STOPPED` 
++  `DELETE_PENDING`, `DELETE_IN_PROGRESS`, `DELETE_FAILED` 
 Type: String  
 Length Constraints: Maximum length of 256\.  
 Required: No
@@ -56,5 +58,5 @@ Required: No
 For more information about using this API in one of the language\-specific AWS SDKs, see the following:
 +  [AWS SDK for C\+\+](https://docs.aws.amazon.com/goto/SdkForCpp/forecast-2018-06-26/PredictorBacktestExportJobSummary) 
 +  [AWS SDK for Go](https://docs.aws.amazon.com/goto/SdkForGoV1/forecast-2018-06-26/PredictorBacktestExportJobSummary) 
-+  [AWS SDK for Java](https://docs.aws.amazon.com/goto/SdkForJava/forecast-2018-06-26/PredictorBacktestExportJobSummary) 
++  [AWS SDK for Java V2](https://docs.aws.amazon.com/goto/SdkForJavaV2/forecast-2018-06-26/PredictorBacktestExportJobSummary) 
 +  [AWS SDK for Ruby V3](https://docs.aws.amazon.com/goto/SdkForRubyV3/forecast-2018-06-26/PredictorBacktestExportJobSummary) 

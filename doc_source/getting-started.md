@@ -24,7 +24,7 @@ Before you begin, make sure that you have an AWS account and have installed the 
 + [Prepare Input Data](#gs-upload-data-to-s3)
 + [Getting Started \(Console\)](gs-console.md)
 + [Getting Started \(AWS CLI\)](gs-cli.md)
-+ [Getting Started \(Python Notebook\)](getting-started-python.md)
++ [Getting Started \(Python Notebooks\)](getting-started-python.md)
 + [Clean Up Resources](#gs-cleanup)
 
 ## Prepare Input Data<a name="gs-upload-data-to-s3"></a>

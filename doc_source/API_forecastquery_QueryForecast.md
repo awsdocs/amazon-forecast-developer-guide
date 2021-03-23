@@ -32,6 +32,8 @@ The request accepts the following data in JSON format\.
  ** [EndDate](#API_forecastquery_QueryForecast_RequestSyntax) **   <a name="forecast-forecastquery_QueryForecast-request-EndDate"></a>
 The end date for the forecast\. Specify the date using this format: yyyy\-MM\-dd'T'HH:mm:ss \(ISO 8601 format\)\. For example, 2015\-01\-01T20:00:00\.   
 Type: String  
+Length Constraints: Minimum length of 5\. Maximum length of 200\.  
+Pattern: `^\d{4}-\d{2}-\d{2}[Tt]\d{2}:\d{2}[a-zA-Z0-9\:\+\-\[\]\.\/]*$`   
 Required: No
 
  ** [Filters](#API_forecastquery_QueryForecast_RequestSyntax) **   <a name="forecast-forecastquery_QueryForecast-request-Filters"></a>
@@ -43,6 +45,7 @@ Map Entries: Maximum number of 50 items\.
 Key Length Constraints: Maximum length of 256\.  
 Key Pattern: `^[a-zA-Z0-9\_\-]+$`   
 Value Length Constraints: Maximum length of 256\.  
+Value Pattern: `.+`   
 Required: Yes
 
  ** [ForecastArn](#API_forecastquery_QueryForecast_RequestSyntax) **   <a name="forecast-forecastquery_QueryForecast-request-ForecastArn"></a>
@@ -56,11 +59,14 @@ Required: Yes
 If the result of the previous request was truncated, the response includes a `NextToken`\. To retrieve the next set of results, use the token in the next request\. Tokens expire after 24 hours\.  
 Type: String  
 Length Constraints: Minimum length of 1\. Maximum length of 3000\.  
+Pattern: `.+`   
 Required: No
 
  ** [StartDate](#API_forecastquery_QueryForecast_RequestSyntax) **   <a name="forecast-forecastquery_QueryForecast-request-StartDate"></a>
 The start date for the forecast\. Specify the date using this format: yyyy\-MM\-dd'T'HH:mm:ss \(ISO 8601 format\)\. For example, 2015\-01\-01T08:00:00\.  
 Type: String  
+Length Constraints: Minimum length of 5\. Maximum length of 200\.  
+Pattern: `^\d{4}-\d{2}-\d{2}[Tt]\d{2}:\d{2}[a-zA-Z0-9\:\+\-\[\]\.\/]*$`   
 Required: No
 
 ## Response Syntax<a name="API_forecastquery_QueryForecast_ResponseSyntax"></a>
@@ -119,7 +125,7 @@ For more information about using this API in one of the language\-specific AWS S
 +  [AWS SDK for \.NET](https://docs.aws.amazon.com/goto/DotNetSDKV3/forecastquery-2018-06-26/QueryForecast) 
 +  [AWS SDK for C\+\+](https://docs.aws.amazon.com/goto/SdkForCpp/forecastquery-2018-06-26/QueryForecast) 
 +  [AWS SDK for Go](https://docs.aws.amazon.com/goto/SdkForGoV1/forecastquery-2018-06-26/QueryForecast) 
-+  [AWS SDK for Java](https://docs.aws.amazon.com/goto/SdkForJava/forecastquery-2018-06-26/QueryForecast) 
++  [AWS SDK for Java V2](https://docs.aws.amazon.com/goto/SdkForJavaV2/forecastquery-2018-06-26/QueryForecast) 
 +  [AWS SDK for JavaScript](https://docs.aws.amazon.com/goto/AWSJavaScriptSDK/forecastquery-2018-06-26/QueryForecast) 
 +  [AWS SDK for PHP V3](https://docs.aws.amazon.com/goto/SdkForPHPV3/forecastquery-2018-06-26/QueryForecast) 
 +  [AWS SDK for Python](https://docs.aws.amazon.com/goto/boto3/forecastquery-2018-06-26/QueryForecast) 

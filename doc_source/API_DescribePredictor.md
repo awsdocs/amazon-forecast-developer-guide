@@ -186,7 +186,12 @@ Describes the dataset group that contains the data to use to train the predictor
 Type: [InputDataConfig](API_InputDataConfig.md) object
 
  ** [LastModificationTime](#API_DescribePredictor_ResponseSyntax) **   <a name="forecast-DescribePredictor-response-LastModificationTime"></a>
-Initially, the same as `CreationTime` \(when the status is `CREATE_PENDING`\)\. This value is updated when training starts \(when the status changes to `CREATE_IN_PROGRESS`\), and when training has completed \(when the status changes to `ACTIVE`\) or fails \(when the status changes to `CREATE_FAILED`\)\.  
+The last time the resource was modified\. The timestamp depends on the status of the job:  
++  `CREATE_PENDING` \- The `CreationTime`\.
++  `CREATE_IN_PROGRESS` \- The current timestamp\.
++  `CREATE_STOPPING` \- The current timestamp\.
++  `CREATE_STOPPED` \- When the job stopped\.
++  `ACTIVE` or `CREATE_FAILED` \- When the job finished or failed\.
 Type: Timestamp
 
  ** [Message](#API_DescribePredictor_ResponseSyntax) **   <a name="forecast-DescribePredictor-response-Message"></a>
@@ -222,7 +227,7 @@ The status of the predictor\. States include:
 +  `ACTIVE` 
 +  `CREATE_PENDING`, `CREATE_IN_PROGRESS`, `CREATE_FAILED` 
 +  `DELETE_PENDING`, `DELETE_IN_PROGRESS`, `DELETE_FAILED` 
-+  `UPDATE_PENDING`, `UPDATE_IN_PROGRESS`, `UPDATE_FAILED` 
++  `CREATE_STOPPING`, `CREATE_STOPPED` 
 The `Status` of the predictor must be `ACTIVE` before you can use the predictor to create a forecast\.
 Type: String  
 Length Constraints: Maximum length of 256\.
@@ -253,7 +258,7 @@ For more information about using this API in one of the language\-specific AWS S
 +  [AWS SDK for \.NET](https://docs.aws.amazon.com/goto/DotNetSDKV3/forecast-2018-06-26/DescribePredictor) 
 +  [AWS SDK for C\+\+](https://docs.aws.amazon.com/goto/SdkForCpp/forecast-2018-06-26/DescribePredictor) 
 +  [AWS SDK for Go](https://docs.aws.amazon.com/goto/SdkForGoV1/forecast-2018-06-26/DescribePredictor) 
-+  [AWS SDK for Java](https://docs.aws.amazon.com/goto/SdkForJava/forecast-2018-06-26/DescribePredictor) 
++  [AWS SDK for Java V2](https://docs.aws.amazon.com/goto/SdkForJavaV2/forecast-2018-06-26/DescribePredictor) 
 +  [AWS SDK for JavaScript](https://docs.aws.amazon.com/goto/AWSJavaScriptSDK/forecast-2018-06-26/DescribePredictor) 
 +  [AWS SDK for PHP V3](https://docs.aws.amazon.com/goto/SdkForPHPV3/forecast-2018-06-26/DescribePredictor) 
 +  [AWS SDK for Python](https://docs.aws.amazon.com/goto/boto3/forecast-2018-06-26/DescribePredictor) 

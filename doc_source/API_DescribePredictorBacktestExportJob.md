@@ -63,7 +63,12 @@ The destination for an export job\. Provide an S3 path, an AWS Identity and Acce
 Type: [DataDestination](API_DataDestination.md) object
 
  ** [LastModificationTime](#API_DescribePredictorBacktestExportJob_ResponseSyntax) **   <a name="forecast-DescribePredictorBacktestExportJob-response-LastModificationTime"></a>
-When the last successful export job finished\.  
+The last time the resource was modified\. The timestamp depends on the status of the job:  
++  `CREATE_PENDING` \- The `CreationTime`\.
++  `CREATE_IN_PROGRESS` \- The current timestamp\.
++  `CREATE_STOPPING` \- The current timestamp\.
++  `CREATE_STOPPED` \- When the job stopped\.
++  `ACTIVE` or `CREATE_FAILED` \- When the job finished or failed\.
 Type: Timestamp
 
  ** [Message](#API_DescribePredictorBacktestExportJob_ResponseSyntax) **   <a name="forecast-DescribePredictorBacktestExportJob-response-Message"></a>
@@ -91,12 +96,9 @@ Pattern: `^[a-zA-Z][a-zA-Z0-9_]*`
  ** [Status](#API_DescribePredictorBacktestExportJob_ResponseSyntax) **   <a name="forecast-DescribePredictorBacktestExportJob-response-Status"></a>
 The status of the predictor backtest export job\. States include:   
 +  `ACTIVE` 
-+  `CREATE_PENDING` 
-+  `CREATE_IN_PROGRESS` 
-+  `CREATE_FAILED` 
-+  `DELETE_PENDING` 
-+  `DELETE_IN_PROGRESS` 
-+  `DELETE_FAILED` 
++  `CREATE_PENDING`, `CREATE_IN_PROGRESS`, `CREATE_FAILED` 
++  `CREATE_STOPPING`, `CREATE_STOPPED` 
++  `DELETE_PENDING`, `DELETE_IN_PROGRESS`, `DELETE_FAILED` 
 Type: String  
 Length Constraints: Maximum length of 256\.
 
@@ -117,7 +119,7 @@ For more information about using this API in one of the language\-specific AWS S
 +  [AWS SDK for \.NET](https://docs.aws.amazon.com/goto/DotNetSDKV3/forecast-2018-06-26/DescribePredictorBacktestExportJob) 
 +  [AWS SDK for C\+\+](https://docs.aws.amazon.com/goto/SdkForCpp/forecast-2018-06-26/DescribePredictorBacktestExportJob) 
 +  [AWS SDK for Go](https://docs.aws.amazon.com/goto/SdkForGoV1/forecast-2018-06-26/DescribePredictorBacktestExportJob) 
-+  [AWS SDK for Java](https://docs.aws.amazon.com/goto/SdkForJava/forecast-2018-06-26/DescribePredictorBacktestExportJob) 
++  [AWS SDK for Java V2](https://docs.aws.amazon.com/goto/SdkForJavaV2/forecast-2018-06-26/DescribePredictorBacktestExportJob) 
 +  [AWS SDK for JavaScript](https://docs.aws.amazon.com/goto/AWSJavaScriptSDK/forecast-2018-06-26/DescribePredictorBacktestExportJob) 
 +  [AWS SDK for PHP V3](https://docs.aws.amazon.com/goto/SdkForPHPV3/forecast-2018-06-26/DescribePredictorBacktestExportJob) 
 +  [AWS SDK for Python](https://docs.aws.amazon.com/goto/boto3/forecast-2018-06-26/DescribePredictorBacktestExportJob) 

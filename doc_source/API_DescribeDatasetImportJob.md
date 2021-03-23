@@ -117,9 +117,11 @@ Length Constraints: Maximum length of 256\.
 Pattern: `^[a-zA-Z0-9_]+$` 
 
  ** [LastModificationTime](#API_DescribeDatasetImportJob_ResponseSyntax) **   <a name="forecast-DescribeDatasetImportJob-response-LastModificationTime"></a>
-The last time that the dataset was modified\. The time depends on the status of the job, as follows:  
-+  `CREATE_PENDING` \- The same time as `CreationTime`\.
+The last time the resource was modified\. The timestamp depends on the status of the job:  
++  `CREATE_PENDING` \- The `CreationTime`\.
 +  `CREATE_IN_PROGRESS` \- The current timestamp\.
++  `CREATE_STOPPING` \- The current timestamp\.
++  `CREATE_STOPPED` \- When the job stopped\.
 +  `ACTIVE` or `CREATE_FAILED` \- When the job finished or failed\.
 Type: Timestamp
 
@@ -128,10 +130,11 @@ If an error occurred, an informational message about the error\.
 Type: String
 
  ** [Status](#API_DescribeDatasetImportJob_ResponseSyntax) **   <a name="forecast-DescribeDatasetImportJob-response-Status"></a>
-The status of the dataset import job\. The status is reflected in the status of the dataset\. For example, when the import job status is `CREATE_IN_PROGRESS`, the status of the dataset is `UPDATE_IN_PROGRESS`\. States include:  
+The status of the dataset import job\. States include:  
 +  `ACTIVE` 
 +  `CREATE_PENDING`, `CREATE_IN_PROGRESS`, `CREATE_FAILED` 
 +  `DELETE_PENDING`, `DELETE_IN_PROGRESS`, `DELETE_FAILED` 
++  `CREATE_STOPPING`, `CREATE_STOPPED` 
 Type: String  
 Length Constraints: Maximum length of 256\.
 
@@ -174,7 +177,7 @@ For more information about using this API in one of the language\-specific AWS S
 +  [AWS SDK for \.NET](https://docs.aws.amazon.com/goto/DotNetSDKV3/forecast-2018-06-26/DescribeDatasetImportJob) 
 +  [AWS SDK for C\+\+](https://docs.aws.amazon.com/goto/SdkForCpp/forecast-2018-06-26/DescribeDatasetImportJob) 
 +  [AWS SDK for Go](https://docs.aws.amazon.com/goto/SdkForGoV1/forecast-2018-06-26/DescribeDatasetImportJob) 
-+  [AWS SDK for Java](https://docs.aws.amazon.com/goto/SdkForJava/forecast-2018-06-26/DescribeDatasetImportJob) 
++  [AWS SDK for Java V2](https://docs.aws.amazon.com/goto/SdkForJavaV2/forecast-2018-06-26/DescribeDatasetImportJob) 
 +  [AWS SDK for JavaScript](https://docs.aws.amazon.com/goto/AWSJavaScriptSDK/forecast-2018-06-26/DescribeDatasetImportJob) 
 +  [AWS SDK for PHP V3](https://docs.aws.amazon.com/goto/SdkForPHPV3/forecast-2018-06-26/DescribeDatasetImportJob) 
 +  [AWS SDK for Python](https://docs.aws.amazon.com/goto/boto3/forecast-2018-06-26/DescribeDatasetImportJob) 

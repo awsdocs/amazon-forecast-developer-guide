@@ -22,40 +22,44 @@ Forecast has the following service quotas\.
 
 **Quotas Imposed by the [CreateDatasetImportJob](API_CreateDatasetImportJob.md) API**  
 
-| Resource | Default Limit | 
-| --- | --- | 
-| Maximum number of files in your Amazon S3 bucket | 10,000 | 
-| Maximum cumulative size of all files in your Amazon S3 bucket | 30 GB | 
-| Maximum number of datasets in a dataset group | 3 \(1 for each type\) | 
-| Maximum number of rows in a dataset | 1 billion | 
-| Maximum number of columns in a target time series dataset \(required columns \+ additional forecast dimensions\) | 13 \(3 \+ 10\) | 
-| Maximum number of columns in a related time series dataset \(required columns \+ additional forecast dimensions \+ related features\) | 25 \(2 \+ 10 \+ 13\) | 
-| Maximum number of columns in an item metadata dataset | 10 | 
+| Resource | Default Limit | Adjustable | 
+| --- | --- | --- | 
+| Maximum number of files in your Amazon S3 bucket | 10,000 |  No | 
+| Maximum cumulative size of all files in your Amazon S3 bucket | 30 GB |  Yes | 
+| Maximum number of datasets in a dataset group | 3 \(1 for each type\) |  No | 
+| Maximum number of rows in a dataset | 1 billion |  Yes | 
+|  Maximum number of columns in a target time series dataset \(required columns \+ additional forecast dimensions\)  | 13 \(3 \+ 10\) |  No | 
+|  Maximum number of columns in a related time series dataset \(required columns \+ additional forecast dimensions \+ related features\)  | 25 \(2 \+ 10 \+ 13\) |  No | 
+| Maximum number of columns in an item metadata dataset | 10 |  No | 
 
 
 **Quotas Imposed by the [CreatePredictor](API_CreatePredictor.md) API**  
 
-| Resource | Default Limit | 
-| --- | --- | 
-| Maximum NumberOfBacktestWindows \([EvaluationParameters](API_EvaluationParameters.md)\) | 5 | 
-| Maximum number of forecasts per predictor \(number of items X number of unique values across forecast dimensions in the target time series dataset\) | 1,000,000 across all target time series items and dimensions\. \(For instance, you can have 1,000,000 items, or 100 items in 10,000 locations, or 100 items in 100 warehouses in 100 cities\.\) If you exceed 100,000 items, Forecast supports yearly, monthly, weekly, and daily frequencies instead of more granular frequencies \(such as hourly\)\.  | 
-| Forecast horizon | The lesser of 500 data points or 1/3 of the target time series dataset length | 
+| Resource | Default Limit | Adjustable | 
+| --- | --- | --- | 
+| Maximum number of backtest windows \([EvaluationParameters](API_EvaluationParameters.md)\) | 5 |  No | 
+|  Maximum number of time series per predictor \(number of items X number of unique values across forecast dimensions in the target time series dataset\)  |  1,000,000 across all target time series items and dimensions\. \(For instance, you can have 1,000,000 items, or 100 items in 10,000 locations, or 100 items in 100 warehouses in 100 cities\.\) If you exceed 100,000 items, Forecast supports yearly, monthly, weekly, and daily frequencies instead of more granular frequencies \(such as hourly\)\.  |  Yes | 
+| Maximum forecast horizon | The lesser of 500 data points or 1/3 of the target time series dataset length |  No | 
 
 
 **General Resource Quotas**  
 
-| Resource | Default Limit | 
-| --- | --- | 
-| Maximum parallel running CreateDatasetImportJob tasks | 3 | 
-| Maximum parallel running CreatePredictor tasks | 3 | 
-| Maximum parallel running [CreateForecast](API_CreateForecast.md) tasks | 3 | 
-| Maximum number of dataset import jobs | 1000 | 
-| Maximum number of dataset groups | 500 | 
-| Maximum number of datasets | 1500 | 
-| Maximum number of predictors | 500 | 
-| Maximum number of forecasts |  10  | 
-| Maximum number of forecast export jobs | 1000 | 
-| Maximum number of parallel forecast export jobs | 3 | 
-| Maximum time for which a forecast can be queried on \(console or [QueryForecast](API_forecastquery_QueryForecast.md) API\) | 30 days | 
-| Maximum number of tags you can add to a resource | 50 | 
-| Maximum number of forecasts that can be queried using the [QueryForecast](API_forecastquery_QueryForecast.md) API |  10 concurrent forecasts, including 5 created with large datasets \(anything over 20GB or 100,000 items\)\. If you have more than 5 forecasts created with large datasets, `QueryForecast` can access only the 5 most recent large dataset forecasts\.  | 
+| Resource | Default Limit | Adjustable | 
+| --- | --- | --- | 
+| Maximum parallel running CreateDatasetImportJob tasks | 3 |  Yes | 
+| Maximum parallel running CreatePredictor tasks | 3 |  Yes | 
+| Maximum parallel running CreatePredictor tasks using AutoML | 3 |  Yes | 
+| Maximum parallel running CreatePredictorBacktestExportJob tasks | 3 |  Yes | 
+| Maximum parallel running CreateForecast tasks | 3 |  Yes | 
+| Maximum parallel running CreateForecastExportJob tasks | 3 |  Yes | 
+| Maximum parallel running StopResource tasks per resource type | 3 |  Yes | 
+| Maximum number of datasets | 1500 |  Yes | 
+| Maximum number of dataset groups | 500 |  Yes | 
+| Maximum number of dataset import jobs | 1000 |  Yes | 
+| Maximum number of predictors | 500 |  Yes | 
+| Maximum number of predictor backtest export jobs | 1000 |  Yes | 
+| Maximum number of forecasts |  10  |  Yes | 
+| Maximum number of forecast export jobs | 1000 |  Yes | 
+| Maximum time for which a forecast can be queried on console or [QueryForecast](API_forecastquery_QueryForecast.md) API | 30 days |  No | 
+| Maximum number of tags you can add to a resource | 50 |  No | 
+| Maximum parallel running QueryForecast API tasks |  10 forecasts, including 5 created with large datasets \(anything over 20GB or 100,000 items\)\. If you have more than 5 forecasts created with large datasets, `QueryForecast` can access only the 5 most recent large dataset forecasts\.  |  No | 

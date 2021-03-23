@@ -6,6 +6,9 @@ Forecast enables you to evaluate predictors using different forecast types, whic
 
 To produce accuracy metrics for predictors, Forecast uses *backtesting*, which is the process of testing a predictor against historical data and comparing forecasted values to actual values\.
 
+**Python notebooks**  
+For a step\-by\-step guide on evaluating predictor metrics, see [Computing Metrics Using Item\-level Backtests\.](https://github.com/aws-samples/amazon-forecast-samples/blob/master/notebooks/advanced/Item_Level_Accuracy/Item_Level_Accuracy_Using_Bike_Example.ipynb)\.
+
 **Topics**
 + [Choosing Forecast Types](#forecast-types)
 + [Backtesting](#backtesting)
@@ -167,7 +170,7 @@ During the **Create predictor backtest export** stage, set the **Export name**, 
 
  Amazon Forecast provides Root Mean Square Error \(RMSE\), Weighted Quantile Loss \(wQL\), and Weighted Absolute Percentage Error \(WAPE\) metrics to evaluate your predictors\. Along with metrics for the overall predictor, Forecast calculates metrics for each backtest window\.
 
-You can view accuracy metrics for your predictors using the Amazon Forecast Software Development Kit \(SDK\)  and the Amazon Forecast console\.
+You can view accuracy metrics for your predictors using the Amazon Forecast Software Development Kit \(SDK\) and the Amazon Forecast console\.
 
 ------
 #### [ Forecast SDK ]

@@ -31,6 +31,7 @@ The following actions are supported by Amazon Forecast Service:
 +  [ListPredictorBacktestExportJobs](API_ListPredictorBacktestExportJobs.md) 
 +  [ListPredictors](API_ListPredictors.md) 
 +  [ListTagsForResource](API_ListTagsForResource.md) 
++  [StopResource](API_StopResource.md) 
 +  [TagResource](API_TagResource.md) 
 +  [UntagResource](API_UntagResource.md) 
 +  [UpdateDatasetGroup](API_UpdateDatasetGroup.md) 

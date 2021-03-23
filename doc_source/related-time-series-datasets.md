@@ -8,6 +8,9 @@ A related time series dataset can contain up to 10 forecast dimensions \(the sam
 
 You can use a related time series dataset when training a predictor with the [CNN\-QR](aws-forecast-algo-cnnqr.md), [DeepAR\+](aws-forecast-recipe-deeparplus.md), and [Prophet](aws-forecast-recipe-prophet.md) algorithms\. [NPTS](aws-forecast-recipe-npts.md), [ARIMA](aws-forecast-recipe-arima.md), and [ETS](aws-forecast-recipe-ets.md) do not accept related time series data\.
 
+**Python notebooks**  
+For a step\-by\-step guide on using related time\-series datasets, see [Incorporating Related Time Series](https://github.com/aws-samples/amazon-forecast-samples/blob/master/notebooks/advanced/Incorporating_Related_Time_Series_dataset_to_your_Predictor/Incorporating_Related_Time_Series_dataset_to_your_Predictor.ipynb)\.
+
 ## Historical and Forward\-looking Related Time Series<a name="related-time-series-historical-futurelooking"></a>
 
  Related time series come in two forms: 

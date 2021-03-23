@@ -81,7 +81,12 @@ Length Constraints: Minimum length of 1\. Maximum length of 63\.
 Pattern: `^[a-zA-Z][a-zA-Z0-9_]*` 
 
  ** [LastModificationTime](#API_DescribeForecastExportJob_ResponseSyntax) **   <a name="forecast-DescribeForecastExportJob-response-LastModificationTime"></a>
-When the last successful export job finished\.  
+The last time the resource was modified\. The timestamp depends on the status of the job:  
++  `CREATE_PENDING` \- The `CreationTime`\.
++  `CREATE_IN_PROGRESS` \- The current timestamp\.
++  `CREATE_STOPPING` \- The current timestamp\.
++  `CREATE_STOPPED` \- When the job stopped\.
++  `ACTIVE` or `CREATE_FAILED` \- When the job finished or failed\.
 Type: Timestamp
 
  ** [Message](#API_DescribeForecastExportJob_ResponseSyntax) **   <a name="forecast-DescribeForecastExportJob-response-Message"></a>
@@ -92,6 +97,7 @@ Type: String
 The status of the forecast export job\. States include:  
 +  `ACTIVE` 
 +  `CREATE_PENDING`, `CREATE_IN_PROGRESS`, `CREATE_FAILED` 
++  `CREATE_STOPPING`, `CREATE_STOPPED` 
 +  `DELETE_PENDING`, `DELETE_IN_PROGRESS`, `DELETE_FAILED` 
 The `Status` of the forecast export job must be `ACTIVE` before you can access the forecast in your S3 bucket\.
 Type: String  
@@ -114,7 +120,7 @@ For more information about using this API in one of the language\-specific AWS S
 +  [AWS SDK for \.NET](https://docs.aws.amazon.com/goto/DotNetSDKV3/forecast-2018-06-26/DescribeForecastExportJob) 
 +  [AWS SDK for C\+\+](https://docs.aws.amazon.com/goto/SdkForCpp/forecast-2018-06-26/DescribeForecastExportJob) 
 +  [AWS SDK for Go](https://docs.aws.amazon.com/goto/SdkForGoV1/forecast-2018-06-26/DescribeForecastExportJob) 
-+  [AWS SDK for Java](https://docs.aws.amazon.com/goto/SdkForJava/forecast-2018-06-26/DescribeForecastExportJob) 
++  [AWS SDK for Java V2](https://docs.aws.amazon.com/goto/SdkForJavaV2/forecast-2018-06-26/DescribeForecastExportJob) 
 +  [AWS SDK for JavaScript](https://docs.aws.amazon.com/goto/AWSJavaScriptSDK/forecast-2018-06-26/DescribeForecastExportJob) 
 +  [AWS SDK for PHP V3](https://docs.aws.amazon.com/goto/SdkForPHPV3/forecast-2018-06-26/DescribeForecastExportJob) 
 +  [AWS SDK for Python](https://docs.aws.amazon.com/goto/boto3/forecast-2018-06-26/DescribeForecastExportJob) 

@@ -19,5 +19,5 @@ Required: No
 For more information about using this API in one of the language\-specific AWS SDKs, see the following:
 +  [AWS SDK for C\+\+](https://docs.aws.amazon.com/goto/SdkForCpp/forecastquery-2018-06-26/DataPoint) 
 +  [AWS SDK for Go](https://docs.aws.amazon.com/goto/SdkForGoV1/forecastquery-2018-06-26/DataPoint) 
-+  [AWS SDK for Java](https://docs.aws.amazon.com/goto/SdkForJava/forecastquery-2018-06-26/DataPoint) 
++  [AWS SDK for Java V2](https://docs.aws.amazon.com/goto/SdkForJavaV2/forecastquery-2018-06-26/DataPoint) 
 +  [AWS SDK for Ruby V3](https://docs.aws.amazon.com/goto/SdkForRubyV3/forecastquery-2018-06-26/DataPoint) 

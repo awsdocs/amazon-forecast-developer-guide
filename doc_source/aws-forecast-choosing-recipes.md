@@ -4,6 +4,9 @@ An Amazon Forecast predictor uses an algorithm to train a model with your time s
 
  If you are unsure of which algorithm to use to train your model, choose AutoML when creating a predictor and let Forecast select the optimal algorithm for your datasets\. Otherwise, you can manually select one of the built\-in algorithms\. 
 
+**Python notebooks**  
+For a step\-by\-step guide on using AutoML, see [Getting Started with AutoML](https://github.com/aws-samples/amazon-forecast-samples/blob/master/notebooks/advanced/Getting_started_with_AutoML/Getting_started_with_AutoML.ipynb)\.
+
 ## Built\-in Forecast Algorithms<a name="forecast-algos"></a>
 
  Amazon Forecast provides six built\-in algorithms for you to choose from\. These range from commonly used statistical algorithms like Autoregressive Integrated Moving Average \(ARIMA\), to complex neural network algorithms like CNN\-QR and DeepAR\+\. 

@@ -1,10 +1,12 @@
 # Document History for Amazon Forecast<a name="doc-history"></a>
 
 The following table describes important changes to the *Amazon Forecast Developer Guide*\. For notifications about documentation updates, you can subscribe to the RSS feed\.
-+ **Latest documentation update:** November 23, 2020
++ **Latest documentation update:** March 03, 2021
 
 | Change | Description | Date | 
 | --- |--- |--- |
+| [New Feature](#doc-history) | You can now have Amazon EventBridge or Amazon CloudWatch Events notify you with status updates for ongoing Amazon Forecast resource jobs\. For more information see [Setting Up Notifications](https://docs.aws.amazon.com/forecast/latest/dg/notifications.html)\. | March 15, 2021 | 
+| [New Feature](#doc-history) | Amazon Forecast now supports manually stopping the following resources: dataset import jobs, predictors, predictor backtest export jobs, forecasts, and forecast export jobs\. | March 3, 2021 | 
 | [New Feature](#doc-history) | Amazon Forecast now supports a built\-in featurization that automatically incorporates historical and projected weather information into a model\. For more information, see [Amazon Forecast Weather Index](https://docs.aws.amazon.com/forecast/latest/dg/weather.html)\. | December 8, 2020 | 
 | [New Feature](#doc-history) | Amazon Forecast now supports the ability to export backtest forecasts and accuracy metrics for predictors\. For more information, see [Evaluating Predictor Accuracy](https://docs.aws.amazon.com/forecast/latest/dg/metrics.html)\. | November 23, 2020 | 
 | [New Feature](#doc-history) | Amazon Forecast now supports the ability to specify predictor quantiles\. For more information, see [Evaluating Predictor Accuracy](https://docs.aws.amazon.com/forecast/latest/dg/metrics.html)\. | November 11, 2020 | 

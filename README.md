@@ -1,6 +1,8 @@
 ## AWS Forecast Documentation
 
-The open source version of the Amazon Forecast docs. You can submit feedback & requests for changes by submitting issues in this repo or by making proposed changes & submitting a pull request.
+The open source version of the Amazon Forecast docs. 
+
+You can submit feedback & requests for changes by submitting issues in this repo or by making proposed changes & submitting a pull request.
 
 ## License Summary
 

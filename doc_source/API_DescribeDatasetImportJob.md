@@ -45,13 +45,18 @@ Required: Yes
          "RoleArn": "string"
       }
    },
+   "EstimatedTimeRemainingInMinutes": number,
    "FieldStatistics": { 
       "string" : { 
          "Avg": number,
          "Count": number,
          "CountDistinct": number,
+         "CountDistinctLong": number,
+         "CountLong": number,
          "CountNan": number,
+         "CountNanLong": number,
          "CountNull": number,
+         "CountNullLong": number,
          "Max": "string",
          "Min": "string",
          "Stddev": number
@@ -103,6 +108,10 @@ Type: Double
 The location of the training data to import and an AWS Identity and Access Management \(IAM\) role that Amazon Forecast can assume to access the data\.  
 If encryption is used, `DataSource` includes an AWS Key Management Service \(KMS\) key\.  
 Type: [DataSource](API_DataSource.md) object
+
+ ** [EstimatedTimeRemainingInMinutes](#API_DescribeDatasetImportJob_ResponseSyntax) **   <a name="forecast-DescribeDatasetImportJob-response-EstimatedTimeRemainingInMinutes"></a>
+The estimated time remaining in minutes for the dataset import job to complete\.  
+Type: Long
 
  ** [FieldStatistics](#API_DescribeDatasetImportJob_ResponseSyntax) **   <a name="forecast-DescribeDatasetImportJob-response-FieldStatistics"></a>
 Statistical information about each field in the input data\.  

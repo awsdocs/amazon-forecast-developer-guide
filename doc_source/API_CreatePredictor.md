@@ -34,6 +34,7 @@ Before you can use the predictor to create a forecast, the `Status` of the predi
 ```
 {
    "AlgorithmArn": "string",
+   "AutoMLOverrideStrategy": "string",
    "EncryptionConfig": { 
       "KMSKeyArn": "string",
       "RoleArn": "string"
@@ -128,6 +129,13 @@ The Amazon Resource Name \(ARN\) of the algorithm to use for model training\. Re
 Type: String  
 Length Constraints: Maximum length of 256\.  
 Pattern: `^[a-zA-Z0-9\-\_\.\/\:]+$`   
+Required: No
+
+ ** [AutoMLOverrideStrategy](#API_CreatePredictor_RequestSyntax) **   <a name="forecast-CreatePredictor-request-AutoMLOverrideStrategy"></a>
+Used to overide the default AutoML strategy, which is to optimize predictor accuracy\. To apply an AutoML strategy that minimizes training time, use `LatencyOptimized`\.  
+This parameter is only valid for predictors trained using AutoML\.  
+Type: String  
+Valid Values:` LatencyOptimized`   
 Required: No
 
  ** [EncryptionConfig](#API_CreatePredictor_RequestSyntax) **   <a name="forecast-CreatePredictor-request-EncryptionConfig"></a>

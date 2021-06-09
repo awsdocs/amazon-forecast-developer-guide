@@ -1,7 +1,7 @@
 # Amazon Forecast Developer Guide
 
 -----
-*****Copyright &copy;  Amazon Web Services, Inc. and/or its affiliates. All rights reserved.*****
+*****Copyright &copy; Amazon Web Services, Inc. and/or its affiliates. All rights reserved.*****
 
 -----
 Amazon's trademarks and trade dress may not be used in 
@@ -24,6 +24,8 @@ Amazon's trademarks and trade dress may not be used in
    + [Getting Started (Console)](gs-console.md)
    + [Getting Started (AWS CLI)](gs-cli.md)
    + [Getting Started (Python Notebooks)](getting-started-python.md)
++ [Tutorials](tutorials.md)
+   + [Automating with AWS CloudFormation](tutorial-cloudformation.md)
 + [Importing Datasets](howitworks-datasets-groups.md)
    + [Using Related Time Series Datasets](related-time-series-datasets.md)
    + [Using Item Metadata Datasets](item-metadata-datasets.md)
@@ -39,6 +41,7 @@ Amazon's trademarks and trade dress may not be used in
    + [Handling Missing Values](howitworks-missing-values.md)
    + [Dataset Guidelines for Forecast](dataset-import-guidelines-troubleshooting.md)
 + [Training Predictors](howitworks-predictor.md)
+   + [Amazon Forecast AutoML](automl.md)
    + [Choosing an Amazon Forecast Algorithm](aws-forecast-choosing-recipes.md)
       + [Autoregressive Integrated Moving Average (ARIMA) Algorithm](aws-forecast-recipe-arima.md)
       + [CNN-QR Algorithm](aws-forecast-algo-cnnqr.md)
@@ -50,9 +53,11 @@ Amazon's trademarks and trade dress may not be used in
    + [Holidays Featurization](holidays.md)
    + [Evaluating Predictor Accuracy](metrics.md)
 + [Generating Forecasts](howitworks-forecast.md)
-+ [Stopping Resources](stop-resource.md)
-+ [Tagging Amazon Forecast Resources](tagging-forecast-resources.md)
-+ [Setting Up Job Status Notifications](notifications.md)
++ [Managing Resources](manage-resources.md)
+   + [Stopping Resources](stop-resource.md)
+   + [Deleting Resources](delete-resource.md)
+   + [Tagging Amazon Forecast Resources](tagging-forecast-resources.md)
+   + [Receiving Job Status Notifications](notifications.md)
 + [Guidelines and Quotas](limits.md)
 + [Reserved Field Names](reserved-field-names.md)
 + [Security in Amazon Forecast](security.md)
@@ -84,6 +89,7 @@ Amazon's trademarks and trade dress may not be used in
          + [DeleteForecastExportJob](API_DeleteForecastExportJob.md)
          + [DeletePredictor](API_DeletePredictor.md)
          + [DeletePredictorBacktestExportJob](API_DeletePredictorBacktestExportJob.md)
+         + [DeleteResourceTree](API_DeleteResourceTree.md)
          + [DescribeDataset](API_DescribeDataset.md)
          + [DescribeDatasetGroup](API_DescribeDatasetGroup.md)
          + [DescribeDatasetImportJob](API_DescribeDatasetImportJob.md)

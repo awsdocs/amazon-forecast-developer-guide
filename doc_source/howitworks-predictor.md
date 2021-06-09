@@ -5,6 +5,7 @@ A predictor is an Amazon Forecast trained model used for making forecasts based 
 **Topics**
 + [Creating a Predictor](#howitworks-predictor-intro)
 + [Predictor Evaluation](#howitworks-predictor-metrics)
++ [Amazon Forecast AutoML](automl.md)
 + [Choosing an Amazon Forecast Algorithm](aws-forecast-choosing-recipes.md)
 + [Weather Index](weather.md)
 + [Holidays Featurization](holidays.md)

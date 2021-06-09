@@ -34,6 +34,7 @@ Required: Yes
 {
    "CreationTime": number,
    "DatasetGroupArn": "string",
+   "EstimatedTimeRemainingInMinutes": number,
    "ForecastArn": "string",
    "ForecastName": "string",
    "ForecastTypes": [ "string" ],
@@ -59,6 +60,10 @@ The ARN of the dataset group that provided the data used to train the predictor\
 Type: String  
 Length Constraints: Maximum length of 256\.  
 Pattern: `^[a-zA-Z0-9\-\_\.\/\:]+$` 
+
+ ** [EstimatedTimeRemainingInMinutes](#API_DescribeForecast_ResponseSyntax) **   <a name="forecast-DescribeForecast-response-EstimatedTimeRemainingInMinutes"></a>
+The estimated time remaining in minutes for the forecast job to complete\.  
+Type: Long
 
  ** [ForecastArn](#API_DescribeForecast_ResponseSyntax) **   <a name="forecast-DescribeForecast-response-ForecastArn"></a>
 The forecast ARN as specified in the request\.  

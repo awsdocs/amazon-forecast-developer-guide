@@ -161,7 +161,7 @@ The following figure shows how Forecast transforms data to fit the weekly bounda
 
 ### Data Aggregation Guidelines<a name="howitworks-dataset-guidelines"></a>
 
- When using the `FeaturizationMethod` API, set the aggreaggation method within `FeaturizationMethodParameters`\. The aggregation parameter accepts the following values: `sum`, `avg`, `first`, `min`, and `max`\. The default value is `sum`\.
+ When using the `FeaturizationMethod` API, set the aggregation method within `FeaturizationMethodParameters`\. The aggregation parameter accepts the following values: `sum`, `avg`, `first`, `min`, and `max`\. The default value is `sum`\.
 
 Forecast doesn't assume that your data is from any specific time zone\. However, it makes the following assumptions when aggregating time series data:
 + All data is from the same time zone\.

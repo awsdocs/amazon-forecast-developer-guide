@@ -5,6 +5,7 @@ A *tag* is a label that you optionally define and associate with AWS resources, 
 + Datasets
 + Dataset import jobs
 + Predictors
++ Predictor export jobs
 + Forecasts
 + Forecast export jobs
 

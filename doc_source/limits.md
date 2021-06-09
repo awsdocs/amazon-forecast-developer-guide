@@ -17,17 +17,20 @@ For more information about Forecast compliance programs, see [AWS Compliance](ht
 
 ## Service Quotas<a name="limits-table"></a>
 
-Forecast has the following service quotas\.
+**Note**  
+To request an increase for adjustable quotas, use the [Service Quotas console](https://console.aws.amazon.com/servicequotas/) and follow the steps in the [Requesting a quota increase](https://docs.aws.amazon.com/servicequotas/latest/userguide/request-quota-increase.html) section of the *Service Quotas User Guide*\. 
+
+Forecast has the following service quotas\. 
 
 
 **Quotas Imposed by the [CreateDatasetImportJob](API_CreateDatasetImportJob.md) API**  
 
-| Resource | Default Limit | Adjustable | 
+| Resource | Default Quota | Adjustable | 
 | --- | --- | --- | 
 | Maximum number of files in your Amazon S3 bucket | 10,000 |  No | 
 | Maximum cumulative size of all files in your Amazon S3 bucket | 30 GB |  Yes | 
 | Maximum number of datasets in a dataset group | 3 \(1 for each type\) |  No | 
-| Maximum number of rows in a dataset | 1 billion |  Yes | 
+| Maximum number of rows in a dataset | 3 billion Note: the quota for the *ap\-south\-1* region is 1 billion\. |  Yes | 
 |  Maximum number of columns in a target time series dataset \(required columns \+ additional forecast dimensions\)  | 13 \(3 \+ 10\) |  No | 
 |  Maximum number of columns in a related time series dataset \(required columns \+ additional forecast dimensions \+ related features\)  | 25 \(2 \+ 10 \+ 13\) |  No | 
 | Maximum number of columns in an item metadata dataset | 10 |  No | 
@@ -35,16 +38,16 @@ Forecast has the following service quotas\.
 
 **Quotas Imposed by the [CreatePredictor](API_CreatePredictor.md) API**  
 
-| Resource | Default Limit | Adjustable | 
+| Resource | Default Quota | Adjustable | 
 | --- | --- | --- | 
 | Maximum number of backtest windows \([EvaluationParameters](API_EvaluationParameters.md)\) | 5 |  No | 
-|  Maximum number of time series per predictor \(number of items X number of unique values across forecast dimensions in the target time series dataset\)  |  1,000,000 across all target time series items and dimensions\. \(For instance, you can have 1,000,000 items, or 100 items in 10,000 locations, or 100 items in 100 warehouses in 100 cities\.\) If you exceed 100,000 items, Forecast supports yearly, monthly, weekly, and daily frequencies instead of more granular frequencies \(such as hourly\)\.  |  Yes | 
-| Maximum forecast horizon | The lesser of 500 data points or 1/3 of the target time series dataset length |  No | 
+|  Maximum number of time series per predictor \(number of items X number of unique values across forecast dimensions in the target time series dataset\)  |  5,000,000 across all target time series items and dimensions\.  Note: the quota for the *ap\-south\-1* region is 1,000,000 \.  If you exceed 100,000 items, Forecast supports yearly, monthly, weekly, and daily frequencies instead of more granular frequencies \(such as hourly\)\.  |  Yes | 
+| Maximum forecast horizon | CNN\-QR, DeepAR\+, AutoML: The lesser of 500 data points or 1/3 of the target time series dataset length ETS, NPTS, Prophet, ARIMA: The lesser of 500 data points or the length of the target time series dataset minus one\. |  No | 
 
 
 **General Resource Quotas**  
 
-| Resource | Default Limit | Adjustable | 
+| Resource | Default Quota | Adjustable | 
 | --- | --- | --- | 
 | Maximum parallel running CreateDatasetImportJob tasks | 3 |  Yes | 
 | Maximum parallel running CreatePredictor tasks | 3 |  Yes | 

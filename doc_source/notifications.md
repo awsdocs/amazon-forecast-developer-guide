@@ -1,4 +1,4 @@
-# Setting Up Job Status Notifications<a name="notifications"></a>
+# Receiving Job Status Notifications<a name="notifications"></a>
 
 You can have Amazon EventBridge or Amazon CloudWatch Events notify you with status updates for ongoing Amazon Forecast resource jobs, such as creating predictors or forecasts\. EventBridge and CloudWatch Events deliver a near real\-time stream of system events that describe changes in Amazon Web Services \(AWS\) resources\. For example, you can set up an event to notify you when a Forecast predictor finishes training\. 
 

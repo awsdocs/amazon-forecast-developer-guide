@@ -7,9 +7,13 @@
 + Forecast \(`CreateForecast`\)
 + Forecast export \(`CreateForecastExportJob`\)
 
-Stopping a resource ends its workflow but doesn't delete the resource\. You can still preview the resource parameters in the console and with the [`Describe`](API_Operations_Amazon_Forecast_Service.md) operation\. You can't resume a resource job after it has stopped\. When you stop a predictor or forecast job, you are billed for resources used up to the point when the job stopped\. 
+You can't resume a resource job after it has stopped\. 
 
-You can stop a resource job using the Forecast console or the Forecast Software Development Kit \(SDK\)\.
+Stopping a resource ends its workflow, but doesn't delete the resource\. You can still preview the resource parameters in the console and with the [`Describe`](API_Operations_Amazon_Forecast_Service.md) operation\. 
+
+When you stop a predictor or forecast job, you are billed for resources used up to the point when the job stopped\. 
+
+You can stop a resource job using the Forecast console or the AWS Software Development Kit \(SDK\)\.
 
 ------
 #### [ Console ]

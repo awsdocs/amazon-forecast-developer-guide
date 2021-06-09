@@ -23,7 +23,7 @@ Amazon Forecast uses forecast types to create predictions and evaluate predictor
 
 By default, Forecast uses the following values for the predictor forecast types: `0.1` \(P10\), `0.5` \(P50\), and `0.9` \(P90\)\. You can choose up to five custom forecast types, including `mean` and quantiles ranging from `0.01` \(P1\) to `0.99` \(P99\)\.
 
-Quantiles can provide an upper and lower bound for forecasts\. For example, using the forecast types `0.1` \(P10\) and `0.9` \(P90\) provides a range of values known as an 80% confidence interval\. The forecasted value at P10 is expected to be lower than the observed value 10% of the time, and the forecasted value at P90 is expected to be lower than the observed value 90% of the time\. By generating forecasts at p10 and P90, you can expect the true value to fall between those bounds 80% of the time\. This range of values is depicted by the shaded region between P10 and P90 in the figure below\.
+Quantiles can provide an upper and lower bound for forecasts\. For example, using the forecast types `0.1` \(P10\) and `0.9` \(P90\) provides a range of values known as an 80% confidence interval\. The observed value is expected to be lower than the P10 value 10% of the time, and the P90 value is expected to be higher than the observed value 90% of the time\. By generating forecasts at p10 and P90, you can expect the true value to fall between those bounds 80% of the time\. This range of values is depicted by the shaded region between P10 and P90 in the figure below\.
 
 ![\[Image NOT FOUND\]](http://docs.aws.amazon.com/forecast/latest/dg/images/quantiles-intervals.png)
 

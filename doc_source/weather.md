@@ -66,13 +66,13 @@ Using the [ `CreatePredictor`](API_CreatePredictor.md) operation, enable the Wea
 
 To use the Weather Index, you must include a geolocation attribute for each item in your target time series and related time series datasets\. The attribute is defined with the `geolocation` attribute type within the dataset schemas\.
 
-All geolocation values must be exclusively within either the US \(excluding Hawaii and Alaska\) or Europe region\. Your dataset cannot contain items in *both* the US and Europe\.
+All geolocation values in a dataset must be exclusively within a single region\. The regions are: US \(excluding Hawaii and Alaska\), Canada, South America, and Europe\.
 
 Specify the geolocation attribute in one of two formats:
-+ **Latitude & Longitude** \(US and Europe\) \- Specify the latitude and longitude in decimal format \(Example: 47\.61\_\-122\.33\)
++ **Latitude & Longitude** \(All regions\) \- Specify the latitude and longitude in decimal format \(Example: 47\.61\_\-122\.33\)
 + **Postal code** \(US only\) \- Specify the country code \(US\), followed by the 5\-digit ZIP code \(Example: US\_98121\)
 
-The Latitude & Longitude format supports both the US and Europe locations\. The Postal code format only supports US locations\.
+The Latitude & Longitude format is supportted for all regions\. The Postal code format is only supportted for the US region\.
 
 **Topics**
 + [Latitude & Longitude Bounds](#geolocation-bounds)
@@ -81,7 +81,7 @@ The Latitude & Longitude format supports both the US and Europe locations\. The 
 
 ### Latitude & Longitude Bounds<a name="geolocation-bounds"></a>
 
-The following are the latitudinal and longitudinal bounds for the US and Europe regions:
+The following are the latitudinal and longitudinal bounds for the US, Canada, South America, and Europe regions:
 
 ------
 #### [ US Region ]
@@ -91,11 +91,25 @@ The following are the latitudinal and longitudinal bounds for the US and Europe 
 ![\[Image NOT FOUND\]](http://docs.aws.amazon.com/forecast/latest/dg/images/weather-us-bounds.png)
 
 ------
+#### [ Canada Region ]
+
+**Bounds**: latitude \(41\.0, 75\.0\), longitude \(\-142\.0, \-52\.0\)\.
+
+![\[Image NOT FOUND\]](http://docs.aws.amazon.com/forecast/latest/dg/images/weather-can-bounds.PNG)
+
+------
 #### [ Europe Region ]
 
 **Bounds**: latitude \(34\.8, 71\.8\), longitude \(\-12\.6, 44\.8\)\.
 
 ![\[Image NOT FOUND\]](http://docs.aws.amazon.com/forecast/latest/dg/images/weather-euro-bounds.png)
+
+------
+#### [ South America Region ]
+
+**Bounds**: latitude \(\-56\.6, 14\.0\), longitude \(\-82\.4, \-33\.00\)\.
+
+![\[Image NOT FOUND\]](http://docs.aws.amazon.com/forecast/latest/dg/images/weather-sa-bounds.PNG)
 
 ------
 
@@ -153,7 +167,7 @@ You can also define your attributes in JSON format and select a location format 
 **To add a geolocation attribute to a time series dataset**
 
 Using the [ CreateDatasetImportJob](API_CreateDatasetImportJob.md) operation, set the value of `GeolocationFormat` to one of the following: 
-+ **Latitude & longitude** \(US and Europe\): `"LAT_LONG"`
++ **Latitude & longitude** \(All regions\): `"LAT_LONG"`
 + **Postal code** \(US Only\): `"CC_POSTALCODE"`
 
 For example, to specify the latitude & longitude format, include the following in `CreateDatasetImportJob` request:
@@ -213,7 +227,7 @@ Using the [ CreateDatasetImportJob](API_CreateDatasetImportJob.md) operation, se
 ### Manually Select a Single Time Zone<a name="timezones-manual"></a>
 
 **Note**  
-You can manually select a time zone outside of the *US region* and *Europe region*\. However, all geolocation values must still be within Europe or the US\.
+You can manually select a time zone outside of the *US region*, *Canada region*, *South America region*, and *Europe region*\. However, all geolocation values must still be within one of those regions\.
 
 This option is ideal for datasets with all timestamps within a single time zone, or if all timestamps are normalized to a single time zone\. Using this option applies the same time zone to every item in the dataset\.
 
@@ -226,47 +240,57 @@ The Weather Index accepts the following time zones:
 +  America/Chicago 
 +  America/New\_York 
 
+ **Canada region** 
++ America/Vancouver
++ America/Edmonton
++ America/Regina 
++ America/Winnipeg 
++ America/Toronto
++ America/Halifax
++ America/St\_Johns
+
  **Europe region** 
-+  Europe/London 
-+  Europe/Paris 
-+  Europe/Helsinki 
++ Europe/London 
++ Europe/Paris 
++ Europe/Helsinki 
+
+ **South America region** 
++ America/Buenos\_Aires
++ America/Noronha
++ America/Caracas 
 
  **Other** 
-+  Etc/GMT\+12 
-+  Pacific/Midway 
-+  Pacific/Honolulu 
-+  Pacific/Marquesas 
-+  America/Anchorage 
-+  America/Caracas 
-+  America/Puerto\_Rico 
-+  America/St\_Johns 
-+  America/Argentina/Buenos\_Aires 
-+  America/Noronha 
-+  Atlantic/Cape\_Verde 
-+  Africa/Nairobi 
-+  Asia/Tehran 
-+  Asia/Dubai 
-+  Asia/Kabul 
-+  Asia/Karachi 
-+  Asia/Kolkata 
-+  Asia/Kathmandu 
-+  Asia/Dhaka 
-+  Asia/Rangoon 
-+  Asia/Bangkok 
-+  Asia/Singapore 
-+  Australia/Eucla 
-+  Asia/Seoul 
-+  Australia/Adelaide 
-+  Australia/Melbourne 
-+  Australia/Lord\_Howe 
-+  Asia/Anadyr 
-+  Pacific/Norfolk 
-+  Pacific/Auckland 
-+  Pacific/Chatham 
-+  Pacific/Enderbury 
-+  Pacific/Kiritimati 
++ Etc/GMT\+12 
++ Pacific/Midway 
++ Pacific/Honolulu 
++ Pacific/Marquesas 
++ America/Anchorage 
++ America/Puerto\_Rico 
++ Atlantic/Cape\_Verde 
++ Africa/Nairobi 
++ Asia/Tehran 
++ Asia/Dubai 
++ Asia/Kabul 
++ Asia/Karachi 
++ Asia/Kolkata 
++ Asia/Kathmandu 
++ Asia/Dhaka 
++ Asia/Rangoon 
++ Asia/Bangkok 
++ Asia/Singapore 
++ Australia/Eucla 
++ Asia/Seoul 
++ Australia/Adelaide 
++ Australia/Melbourne 
++ Australia/Lord\_Howe 
++ Asia/Anadyr 
++ Pacific/Norfolk 
++ Pacific/Auckland 
++ Pacific/Chatham 
++ Pacific/Enderbury 
++ Pacific/Kiritimati 
 
-Select a time zone from the **Other** list if items in your dataset are located within either Europe or the US, but the timestamps are standardized to a time zone outside of that region\. 
+Select a time zone from the **Other** list if items in your dataset are located within either the Europe, Canada, South America, or US region, but your timestamps are standardized to a time zone outside of that region\. 
 
 For a complete list of valid time zone names, see [Joda\-Time library](http://joda-time.sourceforge.net/timezones.html)\.
 
@@ -317,11 +341,19 @@ The following conditions and restrictions apply when using the Weather Index:
   + `15 minutes` \- 500
   + `Hourly` \- 330
   + `Daily` \- 14
-+ **Time series length**: When training a model with the Weather Index, Forecast truncates all time series datasets with timestamps before July 2, 2018, which is the start date of the weather dataset featurizations\. With the Weather Index enabled, datapoints with timestamps before July 2, 2018 will not be used during predictor training\.
++ **Time series length**: When training a model with the Weather Index, Forecast truncates all time series datasets with timestamps before the start date of the Forecast weather dataset featurazation\. The Forecastweather dataset featurazation contains the following start dates:
+  + **US region**: July 2, 2018
+  + **Europe region**: July 2, 2018
+  + **Canada region**: July 2, 2019
+  + **South America region**: January 2, 2020
+
+  With the Weather Index enabled, datapoints with timestamps before the start date will not be used during predictor training\.
 + **Number of locations**: The target time series dataset cannot exceed 2000 unique locations\.
-+ **US or Europe locations**: All items in your datasets must be located within the US \(excluding Hawaii and Alaska\) or Europe\. The latitudinal and longitudinal bounds are:
++ **Region bounds**: All items in your datasets must be located within the US \(excluding Hawaii and Alaska\), Canada, South America, or Europe\. The latitudinal and longitudinal bounds are:
   + **US region**: latitude \(24\.6, 50\.0\), longitude \(\-126\.0, \-66\.4\)
+  + **Canada region**: latitude \(41\.0, 75\.0\), longitude \(\-142\.0, \-52\.0\)
   + **Europe region**: latitude \(34\.8, 71\.8\), longitude \(\-12\.6, 44\.8\)
+  + **South America region**: latitude \(\-56\.6, 14\.0\), longitude \(\-82\.4, \-33\.00\)
 + **Minimum time series length**: Due to additional data requirements when testing the Weather Index, the minimum length for a time series dataset is: 
 
   `3 × ForecastHorizon + (BacktestWindows + 1) × BacktestWindowOffset`

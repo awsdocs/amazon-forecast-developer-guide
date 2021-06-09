@@ -35,12 +35,14 @@ Required: Yes
 {
    "AlgorithmArn": "string",
    "AutoMLAlgorithmArns": [ "string" ],
+   "AutoMLOverrideStrategy": "string",
    "CreationTime": number,
    "DatasetImportJobArns": [ "string" ],
    "EncryptionConfig": { 
       "KMSKeyArn": "string",
       "RoleArn": "string"
    },
+   "EstimatedTimeRemainingInMinutes": number,
    "EvaluationParameters": { 
       "BackTestWindowOffset": number,
       "NumberOfBacktestWindows": number
@@ -145,6 +147,12 @@ Type: Array of strings
 Length Constraints: Maximum length of 256\.  
 Pattern: `^[a-zA-Z0-9\-\_\.\/\:]+$` 
 
+ ** [AutoMLOverrideStrategy](#API_DescribePredictor_ResponseSyntax) **   <a name="forecast-DescribePredictor-response-AutoMLOverrideStrategy"></a>
+The AutoML strategy used to train the predictor\. Unless `LatencyOptimized` is specified, the AutoML strategy optimizes predictor accuracy\.  
+This parameter is only valid for predictors trained using AutoML\.  
+Type: String  
+Valid Values:` LatencyOptimized` 
+
  ** [CreationTime](#API_DescribePredictor_ResponseSyntax) **   <a name="forecast-DescribePredictor-response-CreationTime"></a>
 When the model training task was created\.  
 Type: Timestamp
@@ -158,6 +166,10 @@ Pattern: `^[a-zA-Z0-9\-\_\.\/\:]+$`
  ** [EncryptionConfig](#API_DescribePredictor_ResponseSyntax) **   <a name="forecast-DescribePredictor-response-EncryptionConfig"></a>
 An AWS Key Management Service \(KMS\) key and the AWS Identity and Access Management \(IAM\) role that Amazon Forecast can assume to access the key\.  
 Type: [EncryptionConfig](API_EncryptionConfig.md) object
+
+ ** [EstimatedTimeRemainingInMinutes](#API_DescribePredictor_ResponseSyntax) **   <a name="forecast-DescribePredictor-response-EstimatedTimeRemainingInMinutes"></a>
+The estimated time remaining in minutes for the predictor training job to complete\.  
+Type: Long
 
  ** [EvaluationParameters](#API_DescribePredictor_ResponseSyntax) **   <a name="forecast-DescribePredictor-response-EvaluationParameters"></a>
 Used to override the default evaluation parameters of the specified algorithm\. Amazon Forecast evaluates a predictor by splitting a dataset into training data and testing data\. The evaluation parameters define how to perform the split and the number of iterations\.  

@@ -15,6 +15,7 @@ The following actions are supported by Amazon Forecast Service:
 +  [DeleteForecastExportJob](API_DeleteForecastExportJob.md) 
 +  [DeletePredictor](API_DeletePredictor.md) 
 +  [DeletePredictorBacktestExportJob](API_DeletePredictorBacktestExportJob.md) 
++  [DeleteResourceTree](API_DeleteResourceTree.md) 
 +  [DescribeDataset](API_DescribeDataset.md) 
 +  [DescribeDatasetGroup](API_DescribeDatasetGroup.md) 
 +  [DescribeDatasetImportJob](API_DescribeDatasetImportJob.md) 

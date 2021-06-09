@@ -32,6 +32,7 @@ Required: Yes
 
 ```
 {
+   "AutoMLOverrideStrategy": "string",
    "PredictorEvaluationResults": [ 
       { 
          "AlgorithmArn": "string",
@@ -69,6 +70,12 @@ Required: Yes
 If the action is successful, the service sends back an HTTP 200 response\.
 
 The following data is returned in JSON format by the service\.
+
+ ** [AutoMLOverrideStrategy](#API_GetAccuracyMetrics_ResponseSyntax) **   <a name="forecast-GetAccuracyMetrics-response-AutoMLOverrideStrategy"></a>
+The AutoML strategy used to train the predictor\. Unless `LatencyOptimized` is specified, the AutoML strategy optimizes predictor accuracy\.  
+This parameter is only valid for predictors trained using AutoML\.  
+Type: String  
+Valid Values:` LatencyOptimized` 
 
  ** [PredictorEvaluationResults](#API_GetAccuracyMetrics_ResponseSyntax) **   <a name="forecast-GetAccuracyMetrics-response-PredictorEvaluationResults"></a>
 An array of results from evaluating the predictor\.  

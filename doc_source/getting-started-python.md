@@ -5,7 +5,7 @@ For a complete list of tutorials using Python notebooks, see the Amazon Forecast
 
 To get started using Amazon Forecast APIs with Python notebooks, see the [Basic Tutorial](https://github.com/aws-samples/amazon-forecast-samples/tree/master/notebooks/basic/Tutorial)\. The tutorial guides you through the core steps of Forecast from start to finish:
 
-1. [Preparing data](https://github.com/aws-samples/amazon-forecast-samples/blob/master/notebooks/basic/Tutorial/1.Getting_Data_Ready.ipynb) \- Prepare a dataset, create a dataset group, define the schema, and import the dataset group\.
+1. [Preparing data](https://github.com/aws-samples/amazon-forecast-samples/blob/master/notebooks/basic/Tutorial/1.Importing_Your_Data.ipynb) \- Prepare a dataset, create a dataset group, define the schema, and import the dataset group\.
 
 1. [Training predictors](https://github.com/aws-samples/amazon-forecast-samples/blob/master/notebooks/basic/Tutorial/2.Building_Your_Predictor.ipynb) \- Create a predictor, evaluate error metrics, and generate forecasts\.
 

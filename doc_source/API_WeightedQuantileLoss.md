@@ -4,12 +4,12 @@ The weighted loss value for a quantile\. This object is part of the [Metrics](AP
 
 ## Contents<a name="API_WeightedQuantileLoss_Contents"></a>
 
- **LossValue**   <a name="forecast-Type-WeightedQuantileLoss-LossValue"></a>
+ ** LossValue **   <a name="forecast-Type-WeightedQuantileLoss-LossValue"></a>
 The difference between the predicted value and the actual value over the quantile, weighted \(normalized\) by dividing by the sum over all quantiles\.  
 Type: Double  
 Required: No
 
- **Quantile**   <a name="forecast-Type-WeightedQuantileLoss-Quantile"></a>
+ ** Quantile **   <a name="forecast-Type-WeightedQuantileLoss-Quantile"></a>
 The quantile\. Quantiles divide a probability distribution into regions of equal probability\. For example, if the distribution was divided into 5 regions of equal probability, the quantiles would be 0\.2, 0\.4, 0\.6, and 0\.8\.  
 Type: Double  
 Required: No

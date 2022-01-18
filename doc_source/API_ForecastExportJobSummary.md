@@ -4,31 +4,31 @@ Provides a summary of the forecast export job properties used in the [ListForeca
 
 ## Contents<a name="API_ForecastExportJobSummary_Contents"></a>
 
- **CreationTime**   <a name="forecast-Type-ForecastExportJobSummary-CreationTime"></a>
+ ** CreationTime **   <a name="forecast-Type-ForecastExportJobSummary-CreationTime"></a>
 When the forecast export job was created\.  
 Type: Timestamp  
 Required: No
 
- **Destination**   <a name="forecast-Type-ForecastExportJobSummary-Destination"></a>
+ ** Destination **   <a name="forecast-Type-ForecastExportJobSummary-Destination"></a>
 The path to the Amazon Simple Storage Service \(Amazon S3\) bucket where the forecast is exported\.  
 Type: [DataDestination](API_DataDestination.md) object  
 Required: No
 
- **ForecastExportJobArn**   <a name="forecast-Type-ForecastExportJobSummary-ForecastExportJobArn"></a>
+ ** ForecastExportJobArn **   <a name="forecast-Type-ForecastExportJobSummary-ForecastExportJobArn"></a>
 The Amazon Resource Name \(ARN\) of the forecast export job\.  
 Type: String  
 Length Constraints: Maximum length of 256\.  
 Pattern: `^[a-zA-Z0-9\-\_\.\/\:]+$`   
 Required: No
 
- **ForecastExportJobName**   <a name="forecast-Type-ForecastExportJobSummary-ForecastExportJobName"></a>
+ ** ForecastExportJobName **   <a name="forecast-Type-ForecastExportJobSummary-ForecastExportJobName"></a>
 The name of the forecast export job\.  
 Type: String  
 Length Constraints: Minimum length of 1\. Maximum length of 63\.  
 Pattern: `^[a-zA-Z][a-zA-Z0-9_]*`   
 Required: No
 
- **LastModificationTime**   <a name="forecast-Type-ForecastExportJobSummary-LastModificationTime"></a>
+ ** LastModificationTime **   <a name="forecast-Type-ForecastExportJobSummary-LastModificationTime"></a>
 The last time the resource was modified\. The timestamp depends on the status of the job:  
 +  `CREATE_PENDING` \- The `CreationTime`\.
 +  `CREATE_IN_PROGRESS` \- The current timestamp\.
@@ -38,12 +38,12 @@ The last time the resource was modified\. The timestamp depends on the status of
 Type: Timestamp  
 Required: No
 
- **Message**   <a name="forecast-Type-ForecastExportJobSummary-Message"></a>
+ ** Message **   <a name="forecast-Type-ForecastExportJobSummary-Message"></a>
 If an error occurred, an informational message about the error\.  
 Type: String  
 Required: No
 
- **Status**   <a name="forecast-Type-ForecastExportJobSummary-Status"></a>
+ ** Status **   <a name="forecast-Type-ForecastExportJobSummary-Status"></a>
 The status of the forecast export job\. States include:  
 +  `ACTIVE` 
 +  `CREATE_PENDING`, `CREATE_IN_PROGRESS`, `CREATE_FAILED` 

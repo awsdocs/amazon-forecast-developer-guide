@@ -4,14 +4,14 @@ An AWS Key Management Service \(KMS\) key and an AWS Identity and Access Managem
 
 ## Contents<a name="API_EncryptionConfig_Contents"></a>
 
- **KMSKeyArn**   <a name="forecast-Type-EncryptionConfig-KMSKeyArn"></a>
+ ** KMSKeyArn **   <a name="forecast-Type-EncryptionConfig-KMSKeyArn"></a>
 The Amazon Resource Name \(ARN\) of the KMS key\.  
 Type: String  
 Length Constraints: Maximum length of 256\.  
 Pattern: `arn:aws:kms:.*:key/.*`   
 Required: Yes
 
- **RoleArn**   <a name="forecast-Type-EncryptionConfig-RoleArn"></a>
+ ** RoleArn **   <a name="forecast-Type-EncryptionConfig-RoleArn"></a>
 The ARN of the IAM role that Amazon Forecast can assume to access the AWS KMS key\.  
 Passing a role across AWS accounts is not allowed\. If you pass a role that isn't in your account, you get an `InvalidInputException` error\.  
 Type: String  

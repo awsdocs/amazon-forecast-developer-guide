@@ -1,30 +1,30 @@
 # DatasetGroupSummary<a name="API_DatasetGroupSummary"></a>
 
-Provides a summary of the dataset group properties used in the [ListDatasetGroups](API_ListDatasetGroups.md) operation\. To get the complete set of properties, call the [DescribeDatasetGroup](API_DescribeDatasetGroup.md) operation, and provide the `DatasetGroupArn`\.
+Provides a summary of the dataset group properties used in the [ListDatasetGroups](https://docs.aws.amazon.com/forecast/latest/dg/API_ListDatasetGroups.html) operation\. To get the complete set of properties, call the [DescribeDatasetGroup](https://docs.aws.amazon.com/forecast/latest/dg/API_DescribeDatasetGroup.html) operation, and provide the `DatasetGroupArn`\.
 
 ## Contents<a name="API_DatasetGroupSummary_Contents"></a>
 
- **CreationTime**   <a name="forecast-Type-DatasetGroupSummary-CreationTime"></a>
+ ** CreationTime **   <a name="forecast-Type-DatasetGroupSummary-CreationTime"></a>
 When the dataset group was created\.  
 Type: Timestamp  
 Required: No
 
- **DatasetGroupArn**   <a name="forecast-Type-DatasetGroupSummary-DatasetGroupArn"></a>
+ ** DatasetGroupArn **   <a name="forecast-Type-DatasetGroupSummary-DatasetGroupArn"></a>
 The Amazon Resource Name \(ARN\) of the dataset group\.  
 Type: String  
 Length Constraints: Maximum length of 256\.  
 Pattern: `^[a-zA-Z0-9\-\_\.\/\:]+$`   
 Required: No
 
- **DatasetGroupName**   <a name="forecast-Type-DatasetGroupSummary-DatasetGroupName"></a>
+ ** DatasetGroupName **   <a name="forecast-Type-DatasetGroupSummary-DatasetGroupName"></a>
 The name of the dataset group\.  
 Type: String  
 Length Constraints: Minimum length of 1\. Maximum length of 63\.  
 Pattern: `^[a-zA-Z][a-zA-Z0-9_]*`   
 Required: No
 
- **LastModificationTime**   <a name="forecast-Type-DatasetGroupSummary-LastModificationTime"></a>
-When the dataset group was created or last updated from a call to the [UpdateDatasetGroup](API_UpdateDatasetGroup.md) operation\. While the dataset group is being updated, `LastModificationTime` is the current time of the `ListDatasetGroups` call\.  
+ ** LastModificationTime **   <a name="forecast-Type-DatasetGroupSummary-LastModificationTime"></a>
+When the dataset group was created or last updated from a call to the [UpdateDatasetGroup](https://docs.aws.amazon.com/forecast/latest/dg/API_UpdateDatasetGroup.html) operation\. While the dataset group is being updated, `LastModificationTime` is the current time of the `ListDatasetGroups` call\.  
 Type: Timestamp  
 Required: No
 

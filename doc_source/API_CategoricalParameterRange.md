@@ -4,14 +4,14 @@ Specifies a categorical hyperparameter and it's range of tunable values\. This o
 
 ## Contents<a name="API_CategoricalParameterRange_Contents"></a>
 
- **Name**   <a name="forecast-Type-CategoricalParameterRange-Name"></a>
+ ** Name **   <a name="forecast-Type-CategoricalParameterRange-Name"></a>
 The name of the categorical hyperparameter to tune\.  
 Type: String  
 Length Constraints: Minimum length of 1\. Maximum length of 63\.  
 Pattern: `^[a-zA-Z][a-zA-Z0-9_]*`   
 Required: Yes
 
- **Values**   <a name="forecast-Type-CategoricalParameterRange-Values"></a>
+ ** Values **   <a name="forecast-Type-CategoricalParameterRange-Values"></a>
 A list of the tunable categories for the hyperparameter\.  
 Type: Array of strings  
 Array Members: Minimum number of 1 item\. Maximum number of 20 items\.  

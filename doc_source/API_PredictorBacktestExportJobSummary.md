@@ -4,17 +4,17 @@ Provides a summary of the predictor backtest export job properties used in the [
 
 ## Contents<a name="API_PredictorBacktestExportJobSummary_Contents"></a>
 
- **CreationTime**   <a name="forecast-Type-PredictorBacktestExportJobSummary-CreationTime"></a>
+ ** CreationTime **   <a name="forecast-Type-PredictorBacktestExportJobSummary-CreationTime"></a>
 When the predictor backtest export job was created\.  
 Type: Timestamp  
 Required: No
 
- **Destination**   <a name="forecast-Type-PredictorBacktestExportJobSummary-Destination"></a>
+ ** Destination **   <a name="forecast-Type-PredictorBacktestExportJobSummary-Destination"></a>
 The destination for an export job\. Provide an S3 path, an AWS Identity and Access Management \(IAM\) role that allows Amazon Forecast to access the location, and an AWS Key Management Service \(KMS\) key \(optional\)\.   
 Type: [DataDestination](API_DataDestination.md) object  
 Required: No
 
- **LastModificationTime**   <a name="forecast-Type-PredictorBacktestExportJobSummary-LastModificationTime"></a>
+ ** LastModificationTime **   <a name="forecast-Type-PredictorBacktestExportJobSummary-LastModificationTime"></a>
 The last time the resource was modified\. The timestamp depends on the status of the job:  
 +  `CREATE_PENDING` \- The `CreationTime`\.
 +  `CREATE_IN_PROGRESS` \- The current timestamp\.
@@ -24,26 +24,26 @@ The last time the resource was modified\. The timestamp depends on the status of
 Type: Timestamp  
 Required: No
 
- **Message**   <a name="forecast-Type-PredictorBacktestExportJobSummary-Message"></a>
+ ** Message **   <a name="forecast-Type-PredictorBacktestExportJobSummary-Message"></a>
 Information about any errors that may have occurred during the backtest export\.  
 Type: String  
 Required: No
 
- **PredictorBacktestExportJobArn**   <a name="forecast-Type-PredictorBacktestExportJobSummary-PredictorBacktestExportJobArn"></a>
+ ** PredictorBacktestExportJobArn **   <a name="forecast-Type-PredictorBacktestExportJobSummary-PredictorBacktestExportJobArn"></a>
 The Amazon Resource Name \(ARN\) of the predictor backtest export job\.  
 Type: String  
 Length Constraints: Maximum length of 256\.  
 Pattern: `^[a-zA-Z0-9\-\_\.\/\:]+$`   
 Required: No
 
- **PredictorBacktestExportJobName**   <a name="forecast-Type-PredictorBacktestExportJobSummary-PredictorBacktestExportJobName"></a>
+ ** PredictorBacktestExportJobName **   <a name="forecast-Type-PredictorBacktestExportJobSummary-PredictorBacktestExportJobName"></a>
 The name of the predictor backtest export job\.  
 Type: String  
 Length Constraints: Minimum length of 1\. Maximum length of 63\.  
 Pattern: `^[a-zA-Z][a-zA-Z0-9_]*`   
 Required: No
 
- **Status**   <a name="forecast-Type-PredictorBacktestExportJobSummary-Status"></a>
+ ** Status **   <a name="forecast-Type-PredictorBacktestExportJobSummary-Status"></a>
 The status of the predictor backtest export job\. States include:   
 +  `ACTIVE` 
 +  `CREATE_PENDING`, `CREATE_IN_PROGRESS`, `CREATE_FAILED` 

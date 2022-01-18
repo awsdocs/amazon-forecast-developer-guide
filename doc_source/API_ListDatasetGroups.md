@@ -1,6 +1,6 @@
 # ListDatasetGroups<a name="API_ListDatasetGroups"></a>
 
-Returns a list of dataset groups created using the [CreateDatasetGroup](API_CreateDatasetGroup.md) operation\. For each dataset group, this operation returns a summary of its properties, including its Amazon Resource Name \(ARN\)\. You can retrieve the complete set of properties by using the dataset group ARN with the [DescribeDatasetGroup](API_DescribeDatasetGroup.md) operation\.
+Returns a list of dataset groups created using the [CreateDatasetGroup](https://docs.aws.amazon.com/forecast/latest/dg/API_CreateDatasetGroup.html) operation\. For each dataset group, this operation returns a summary of its properties, including its Amazon Resource Name \(ARN\)\. You can retrieve the complete set of properties by using the dataset group ARN with the [DescribeDatasetGroup](https://docs.aws.amazon.com/forecast/latest/dg/API_DescribeDatasetGroup.html) operation\.
 
 ## Request Syntax<a name="API_ListDatasetGroups_RequestSyntax"></a>
 
@@ -25,6 +25,7 @@ Required: No
 If the result of the previous request was truncated, the response includes a `NextToken`\. To retrieve the next set of results, use the token in the next request\. Tokens expire after 24 hours\.  
 Type: String  
 Length Constraints: Minimum length of 1\. Maximum length of 3000\.  
+Pattern: `.+`   
 Required: No
 
 ## Response Syntax<a name="API_ListDatasetGroups_ResponseSyntax"></a>
@@ -56,11 +57,12 @@ Type: Array of [DatasetGroupSummary](API_DatasetGroupSummary.md) objects
  ** [NextToken](#API_ListDatasetGroups_ResponseSyntax) **   <a name="forecast-ListDatasetGroups-response-NextToken"></a>
 If the response is truncated, Amazon Forecast returns this token\. To retrieve the next set of results, use the token in the next request\.  
 Type: String  
-Length Constraints: Minimum length of 1\. Maximum length of 3000\.
+Length Constraints: Minimum length of 1\. Maximum length of 3000\.  
+Pattern: `.+` 
 
 ## Errors<a name="API_ListDatasetGroups_Errors"></a>
 
- **InvalidNextTokenException**   
+ ** InvalidNextTokenException **   
 The token is not valid\. Tokens expire after 24 hours\.  
 HTTP Status Code: 400
 

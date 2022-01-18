@@ -1,13 +1,13 @@
 # CreateDatasetGroup<a name="API_CreateDatasetGroup"></a>
 
-Creates a dataset group, which holds a collection of related datasets\. You can add datasets to the dataset group when you create the dataset group, or later by using the [UpdateDatasetGroup](API_UpdateDatasetGroup.md) operation\.
+Creates a dataset group, which holds a collection of related datasets\. You can add datasets to the dataset group when you create the dataset group, or later by using the [UpdateDatasetGroup](https://docs.aws.amazon.com/forecast/latest/dg/API_UpdateDatasetGroup.html) operation\.
 
-After creating a dataset group and adding datasets, you use the dataset group when you create a predictor\. For more information, see [Importing Datasets](howitworks-datasets-groups.md)\.
+After creating a dataset group and adding datasets, you use the dataset group when you create a predictor\. For more information, see [Dataset groups](https://docs.aws.amazon.com/forecast/latest/dg/howitworks-datasets-groups.html)\.
 
-To get a list of all your datasets groups, use the [ListDatasetGroups](API_ListDatasetGroups.md) operation\.
+To get a list of all your datasets groups, use the [ListDatasetGroups](https://docs.aws.amazon.com/forecast/latest/dg/API_ListDatasetGroups.html) operation\.
 
 **Note**  
-The `Status` of a dataset group must be `ACTIVE` before you can use the dataset group to create a predictor\. To get the status, use the [DescribeDatasetGroup](API_DescribeDatasetGroup.md) operation\.
+The `Status` of a dataset group must be `ACTIVE` before you can use the dataset group to create a predictor\. To get the status, use the [DescribeDatasetGroup](https://docs.aws.amazon.com/forecast/latest/dg/API_DescribeDatasetGroup.html) operation\.
 
 ## Request Syntax<a name="API_CreateDatasetGroup_RequestSyntax"></a>
 
@@ -44,8 +44,8 @@ Pattern: `^[a-zA-Z][a-zA-Z0-9_]*`
 Required: Yes
 
  ** [Domain](#API_CreateDatasetGroup_RequestSyntax) **   <a name="forecast-CreateDatasetGroup-request-Domain"></a>
-The domain associated with the dataset group\. When you add a dataset to a dataset group, this value and the value specified for the `Domain` parameter of the [CreateDataset](API_CreateDataset.md) operation must match\.  
-The `Domain` and `DatasetType` that you choose determine the fields that must be present in training data that you import to a dataset\. For example, if you choose the `RETAIL` domain and `TARGET_TIME_SERIES` as the `DatasetType`, Amazon Forecast requires that `item_id`, `timestamp`, and `demand` fields are present in your data\. For more information, see [Importing Datasets](howitworks-datasets-groups.md)\.  
+The domain associated with the dataset group\. When you add a dataset to a dataset group, this value and the value specified for the `Domain` parameter of the [CreateDataset](https://docs.aws.amazon.com/forecast/latest/dg/API_CreateDataset.html) operation must match\.  
+The `Domain` and `DatasetType` that you choose determine the fields that must be present in training data that you import to a dataset\. For example, if you choose the `RETAIL` domain and `TARGET_TIME_SERIES` as the `DatasetType`, Amazon Forecast requires that `item_id`, `timestamp`, and `demand` fields are present in your data\. For more information, see [Dataset groups](https://docs.aws.amazon.com/forecast/latest/dg/howitworks-datasets-groups.html)\.  
 Type: String  
 Valid Values:` RETAIL | CUSTOM | INVENTORY_PLANNING | EC2_CAPACITY | WORK_FORCE | WEB_TRAFFIC | METRICS`   
 Required: Yes
@@ -86,23 +86,23 @@ Pattern: `^[a-zA-Z0-9\-\_\.\/\:]+$`
 
 ## Errors<a name="API_CreateDatasetGroup_Errors"></a>
 
- **InvalidInputException**   
+ ** InvalidInputException **   
 We can't process the request because it includes an invalid value or a value that exceeds the valid range\.  
 HTTP Status Code: 400
 
- **LimitExceededException**   
+ ** LimitExceededException **   
 The limit on the number of resources per account has been exceeded\.  
 HTTP Status Code: 400
 
- **ResourceAlreadyExistsException**   
+ ** ResourceAlreadyExistsException **   
 There is already a resource with this name\. Try again with a different name\.  
 HTTP Status Code: 400
 
- **ResourceInUseException**   
+ ** ResourceInUseException **   
 The specified resource is in use\.  
 HTTP Status Code: 400
 
- **ResourceNotFoundException**   
+ ** ResourceNotFoundException **   
 We can't find a resource with that Amazon Resource Name \(ARN\)\. Check the ARN and try again\.  
 HTTP Status Code: 400
 

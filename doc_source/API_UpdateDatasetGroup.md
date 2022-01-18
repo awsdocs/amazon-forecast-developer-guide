@@ -3,7 +3,7 @@
 Replaces the datasets in a dataset group with the specified datasets\.
 
 **Note**  
-The `Status` of the dataset group must be `ACTIVE` before you can use the dataset group to create a predictor\. Use the [DescribeDatasetGroup](API_DescribeDatasetGroup.md) operation to get the status\.
+The `Status` of the dataset group must be `ACTIVE` before you can use the dataset group to create a predictor\. Use the [DescribeDatasetGroup](https://docs.aws.amazon.com/forecast/latest/dg/API_DescribeDatasetGroup.html) operation to get the status\.
 
 ## Request Syntax<a name="API_UpdateDatasetGroup_RequestSyntax"></a>
 
@@ -38,15 +38,15 @@ If the action is successful, the service sends back an HTTP 200 response with an
 
 ## Errors<a name="API_UpdateDatasetGroup_Errors"></a>
 
- **InvalidInputException**   
+ ** InvalidInputException **   
 We can't process the request because it includes an invalid value or a value that exceeds the valid range\.  
 HTTP Status Code: 400
 
- **ResourceInUseException**   
+ ** ResourceInUseException **   
 The specified resource is in use\.  
 HTTP Status Code: 400
 
- **ResourceNotFoundException**   
+ ** ResourceNotFoundException **   
 We can't find a resource with that Amazon Resource Name \(ARN\)\. Check the ARN and try again\.  
 HTTP Status Code: 400
 

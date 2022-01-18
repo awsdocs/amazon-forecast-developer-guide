@@ -22,8 +22,6 @@ Deleting a resource tree deletes only Amazon Forecast resources\. It doesn't del
 
 Forecast resources have the following parent\-child resource hierarchies\.
 
-![\[Image NOT FOUND\]](http://docs.aws.amazon.com/forecast/latest/dg/images/resource-tree.jpg)
-
 For example, the resource tree of a *predictor* includes *predictor backtest jobs*, *forecasts*, and *forecast export jobs* as child resources\. The resource tree of a *forecast* includes only *forecast export jobs* as child resources\.
 
 The *dataset* resource tree includes *dataset import jobs* as a child resource\. Neither *datsets* or *dataset import jobs* are part of the *dataset group* resource tree\.
@@ -32,9 +30,10 @@ The *dataset* resource tree includes *dataset import jobs* as a child resource\.
 | Parent Resource | Child Resources | 
 | --- | --- | 
 | Dataset | Dataset import jobs | 
-| Dataset group | Predictors, predictor backtest export jobs, forecasts, forecast export jobs | 
-| Predictor | Predictor backtest export jobs, forecasts, forecast export jobs | 
-| Forecast |  Forecast export jobs  | 
+| Dataset group | Predictors, predictor backtest export jobs, predictor explainabilities, predictor explainability exports, forecasts, forecast export jobs, forecast explainabilities, forecast explainability exports | 
+| Predictor | Predictor backtest export jobs, predictor explainabilities, predictor explainability exports, forecasts, forecast export jobs, forecast explainabilities, forecast explainability exports | 
+| Forecast |  Forecast export jobs, forecast explainabilities, forecast explainability exports  | 
+| Explainability |  Explainability exports  | 
 
 If a resource doesn't have any child resources, you can delete it individually\. If a resource has child resources, you must delete the entire resource tree\. 
 
@@ -75,6 +74,7 @@ The operation that you use to delete a resource depends on its resource type\. S
 + [DeletePredictorBacktestExportJob](API_DeletePredictorBacktestExportJob.md)
 + [DeleteForecast](API_DeleteForecast.md)
 + [DeleteForecastExportJob](API_DeleteForecastExportJob.md)
++ [DeleteExplainability](API_DeleteExplainability.md)
 
 For example, to delete a predictor with the [DeletePredictor](API_DeletePredictor.md) operation, specify the value of `PredictorArn` to the ARN of the predictor that you want to delete\.
 

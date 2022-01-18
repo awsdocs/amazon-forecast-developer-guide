@@ -4,24 +4,24 @@ Specifies a continuous hyperparameter and it's range of tunable values\. This ob
 
 ## Contents<a name="API_ContinuousParameterRange_Contents"></a>
 
- **MaxValue**   <a name="forecast-Type-ContinuousParameterRange-MaxValue"></a>
+ ** MaxValue **   <a name="forecast-Type-ContinuousParameterRange-MaxValue"></a>
 The maximum tunable value of the hyperparameter\.  
 Type: Double  
 Required: Yes
 
- **MinValue**   <a name="forecast-Type-ContinuousParameterRange-MinValue"></a>
+ ** MinValue **   <a name="forecast-Type-ContinuousParameterRange-MinValue"></a>
 The minimum tunable value of the hyperparameter\.  
 Type: Double  
 Required: Yes
 
- **Name**   <a name="forecast-Type-ContinuousParameterRange-Name"></a>
+ ** Name **   <a name="forecast-Type-ContinuousParameterRange-Name"></a>
 The name of the hyperparameter to tune\.  
 Type: String  
 Length Constraints: Minimum length of 1\. Maximum length of 63\.  
 Pattern: `^[a-zA-Z][a-zA-Z0-9_]*`   
 Required: Yes
 
- **ScalingType**   <a name="forecast-Type-ContinuousParameterRange-ScalingType"></a>
+ ** ScalingType **   <a name="forecast-Type-ContinuousParameterRange-ScalingType"></a>
 The scale that hyperparameter tuning uses to search the hyperparameter range\. Valid values:    
 Auto  
 Amazon Forecast hyperparameter tuning chooses the best scale for the hyperparameter\.  

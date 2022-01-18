@@ -1,17 +1,17 @@
 # SchemaAttribute<a name="API_SchemaAttribute"></a>
 
-An attribute of a schema, which defines a dataset field\. A schema attribute is required for every field in a dataset\. The [Schema](API_Schema.md) object contains an array of `SchemaAttribute` objects\.
+An attribute of a schema, which defines a dataset field\. A schema attribute is required for every field in a dataset\. The [Schema](https://docs.aws.amazon.com/forecast/latest/dg/API_Schema.html) object contains an array of `SchemaAttribute` objects\.
 
 ## Contents<a name="API_SchemaAttribute_Contents"></a>
 
- **AttributeName**   <a name="forecast-Type-SchemaAttribute-AttributeName"></a>
+ ** AttributeName **   <a name="forecast-Type-SchemaAttribute-AttributeName"></a>
 The name of the dataset field\.  
 Type: String  
 Length Constraints: Minimum length of 1\. Maximum length of 63\.  
 Pattern: `^[a-zA-Z][a-zA-Z0-9_]*`   
 Required: No
 
- **AttributeType**   <a name="forecast-Type-SchemaAttribute-AttributeType"></a>
+ ** AttributeType **   <a name="forecast-Type-SchemaAttribute-AttributeType"></a>
 The data type of the field\.  
 Type: String  
 Valid Values:` string | integer | float | timestamp | geolocation`   

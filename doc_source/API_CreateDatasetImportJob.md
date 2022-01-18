@@ -2,7 +2,7 @@
 
 Imports your training data to an Amazon Forecast dataset\. You provide the location of your training data in an Amazon Simple Storage Service \(Amazon S3\) bucket and the Amazon Resource Name \(ARN\) of the dataset that you want to import the data to\.
 
-You must specify a [DataSource](API_DataSource.md) object that includes an AWS Identity and Access Management \(IAM\) role that Amazon Forecast can assume to access the data, as Amazon Forecast makes a copy of your data and processes it in an internal AWS system\. For more information, see [Set Up Permissions for Amazon Forecast](aws-forecast-iam-roles.md)\.
+You must specify a [DataSource](https://docs.aws.amazon.com/forecast/latest/dg/API_DataSource.html) object that includes an AWS Identity and Access Management \(IAM\) role that Amazon Forecast can assume to access the data, as Amazon Forecast makes a copy of your data and processes it in an internal AWS system\. For more information, see [Set up permissions](https://docs.aws.amazon.com/forecast/latest/dg/aws-forecast-iam-roles.html)\.
 
 The training data must be in CSV format\. The delimiter must be a comma \(,\)\.
 
@@ -10,7 +10,7 @@ You can specify the path to a specific CSV file, the S3 bucket, or to a folder i
 
 Because dataset imports are not aggregated, your most recent dataset import is the one that is used when training a predictor or generating a forecast\. Make sure that your most recent dataset import contains all of the data you want to model off of, and not just the new data collected since the previous import\.
 
-To get a list of all your dataset import jobs, filtered by specified criteria, use the [ListDatasetImportJobs](API_ListDatasetImportJobs.md) operation\.
+To get a list of all your dataset import jobs, filtered by specified criteria, use the [ListDatasetImportJobs](https://docs.aws.amazon.com/forecast/latest/dg/API_ListDatasetImportJobs.html) operation\.
 
 ## Request Syntax<a name="API_CreateDatasetImportJob_RequestSyntax"></a>
 
@@ -58,7 +58,7 @@ Required: Yes
 
  ** [DataSource](#API_CreateDatasetImportJob_RequestSyntax) **   <a name="forecast-CreateDatasetImportJob-request-DataSource"></a>
 The location of the training data to import and an AWS Identity and Access Management \(IAM\) role that Amazon Forecast can assume to access the data\. The training data must be stored in an Amazon S3 bucket\.  
-If encryption is used, `DataSource` must include an AWS Key Management Service \(KMS\) key and the IAM role must allow Amazon Forecast permission to access the key\. The KMS key and IAM role must match those specified in the `EncryptionConfig` parameter of the [CreateDataset](API_CreateDataset.md) operation\.  
+If encryption is used, `DataSource` must include an AWS Key Management Service \(KMS\) key and the IAM role must allow Amazon Forecast permission to access the key\. The KMS key and IAM role must match those specified in the `EncryptionConfig` parameter of the [CreateDataset](https://docs.aws.amazon.com/forecast/latest/dg/API_CreateDataset.html) operation\.  
 Type: [DataSource](API_DataSource.md) object  
 Required: Yes
 
@@ -134,23 +134,23 @@ Pattern: `^[a-zA-Z0-9\-\_\.\/\:]+$`
 
 ## Errors<a name="API_CreateDatasetImportJob_Errors"></a>
 
- **InvalidInputException**   
+ ** InvalidInputException **   
 We can't process the request because it includes an invalid value or a value that exceeds the valid range\.  
 HTTP Status Code: 400
 
- **LimitExceededException**   
+ ** LimitExceededException **   
 The limit on the number of resources per account has been exceeded\.  
 HTTP Status Code: 400
 
- **ResourceAlreadyExistsException**   
+ ** ResourceAlreadyExistsException **   
 There is already a resource with this name\. Try again with a different name\.  
 HTTP Status Code: 400
 
- **ResourceInUseException**   
+ ** ResourceInUseException **   
 The specified resource is in use\.  
 HTTP Status Code: 400
 
- **ResourceNotFoundException**   
+ ** ResourceNotFoundException **   
 We can't find a resource with that Amazon Resource Name \(ARN\)\. Check the ARN and try again\.  
 HTTP Status Code: 400
 

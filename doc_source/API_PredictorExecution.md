@@ -4,14 +4,14 @@ The algorithm used to perform a backtest and the status of those tests\.
 
 ## Contents<a name="API_PredictorExecution_Contents"></a>
 
- **AlgorithmArn**   <a name="forecast-Type-PredictorExecution-AlgorithmArn"></a>
+ ** AlgorithmArn **   <a name="forecast-Type-PredictorExecution-AlgorithmArn"></a>
 The ARN of the algorithm used to test the predictor\.  
 Type: String  
 Length Constraints: Maximum length of 256\.  
 Pattern: `^[a-zA-Z0-9\-\_\.\/\:]+$`   
 Required: No
 
- **TestWindows**   <a name="forecast-Type-PredictorExecution-TestWindows"></a>
+ ** TestWindows **   <a name="forecast-Type-PredictorExecution-TestWindows"></a>
 An array of test windows used to evaluate the algorithm\. The `NumberOfBacktestWindows` from the [EvaluationParameters](API_EvaluationParameters.md) object determines the number of windows in the array\.  
 Type: Array of [TestWindowSummary](API_TestWindowSummary.md) objects  
 Required: No

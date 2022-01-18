@@ -1,35 +1,35 @@
 # DatasetImportJobSummary<a name="API_DatasetImportJobSummary"></a>
 
-Provides a summary of the dataset import job properties used in the [ListDatasetImportJobs](API_ListDatasetImportJobs.md) operation\. To get the complete set of properties, call the [DescribeDatasetImportJob](API_DescribeDatasetImportJob.md) operation, and provide the `DatasetImportJobArn`\.
+Provides a summary of the dataset import job properties used in the [ListDatasetImportJobs](https://docs.aws.amazon.com/forecast/latest/dg/API_ListDatasetImportJobs.html) operation\. To get the complete set of properties, call the [DescribeDatasetImportJob](https://docs.aws.amazon.com/forecast/latest/dg/API_DescribeDatasetImportJob.html) operation, and provide the `DatasetImportJobArn`\.
 
 ## Contents<a name="API_DatasetImportJobSummary_Contents"></a>
 
- **CreationTime**   <a name="forecast-Type-DatasetImportJobSummary-CreationTime"></a>
+ ** CreationTime **   <a name="forecast-Type-DatasetImportJobSummary-CreationTime"></a>
 When the dataset import job was created\.  
 Type: Timestamp  
 Required: No
 
- **DatasetImportJobArn**   <a name="forecast-Type-DatasetImportJobSummary-DatasetImportJobArn"></a>
+ ** DatasetImportJobArn **   <a name="forecast-Type-DatasetImportJobSummary-DatasetImportJobArn"></a>
 The Amazon Resource Name \(ARN\) of the dataset import job\.  
 Type: String  
 Length Constraints: Maximum length of 256\.  
 Pattern: `^[a-zA-Z0-9\-\_\.\/\:]+$`   
 Required: No
 
- **DatasetImportJobName**   <a name="forecast-Type-DatasetImportJobSummary-DatasetImportJobName"></a>
+ ** DatasetImportJobName **   <a name="forecast-Type-DatasetImportJobSummary-DatasetImportJobName"></a>
 The name of the dataset import job\.  
 Type: String  
 Length Constraints: Minimum length of 1\. Maximum length of 63\.  
 Pattern: `^[a-zA-Z][a-zA-Z0-9_]*`   
 Required: No
 
- **DataSource**   <a name="forecast-Type-DatasetImportJobSummary-DataSource"></a>
+ ** DataSource **   <a name="forecast-Type-DatasetImportJobSummary-DataSource"></a>
 The location of the training data to import and an AWS Identity and Access Management \(IAM\) role that Amazon Forecast can assume to access the data\. The training data must be stored in an Amazon S3 bucket\.  
 If encryption is used, `DataSource` includes an AWS Key Management Service \(KMS\) key\.  
 Type: [DataSource](API_DataSource.md) object  
 Required: No
 
- **LastModificationTime**   <a name="forecast-Type-DatasetImportJobSummary-LastModificationTime"></a>
+ ** LastModificationTime **   <a name="forecast-Type-DatasetImportJobSummary-LastModificationTime"></a>
 The last time the resource was modified\. The timestamp depends on the status of the job:  
 +  `CREATE_PENDING` \- The `CreationTime`\.
 +  `CREATE_IN_PROGRESS` \- The current timestamp\.
@@ -39,12 +39,12 @@ The last time the resource was modified\. The timestamp depends on the status of
 Type: Timestamp  
 Required: No
 
- **Message**   <a name="forecast-Type-DatasetImportJobSummary-Message"></a>
+ ** Message **   <a name="forecast-Type-DatasetImportJobSummary-Message"></a>
 If an error occurred, an informational message about the error\.  
 Type: String  
 Required: No
 
- **Status**   <a name="forecast-Type-DatasetImportJobSummary-Status"></a>
+ ** Status **   <a name="forecast-Type-DatasetImportJobSummary-Status"></a>
 The status of the dataset import job\. States include:  
 +  `ACTIVE` 
 +  `CREATE_PENDING`, `CREATE_IN_PROGRESS`, `CREATE_FAILED` 

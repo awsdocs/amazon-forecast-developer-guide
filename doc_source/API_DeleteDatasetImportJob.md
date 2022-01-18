@@ -1,6 +1,6 @@
 # DeleteDatasetImportJob<a name="API_DeleteDatasetImportJob"></a>
 
-Deletes a dataset import job created using the [CreateDatasetImportJob](API_CreateDatasetImportJob.md) operation\. You can delete only dataset import jobs that have a status of `ACTIVE` or `CREATE_FAILED`\. To get the status, use the [DescribeDatasetImportJob](API_DescribeDatasetImportJob.md) operation\.
+Deletes a dataset import job created using the [CreateDatasetImportJob](https://docs.aws.amazon.com/forecast/latest/dg/API_CreateDatasetImportJob.html) operation\. You can delete only dataset import jobs that have a status of `ACTIVE` or `CREATE_FAILED`\. To get the status, use the [DescribeDatasetImportJob](https://docs.aws.amazon.com/forecast/latest/dg/API_DescribeDatasetImportJob.html) operation\.
 
 ## Request Syntax<a name="API_DeleteDatasetImportJob_RequestSyntax"></a>
 
@@ -27,15 +27,15 @@ If the action is successful, the service sends back an HTTP 200 response with an
 
 ## Errors<a name="API_DeleteDatasetImportJob_Errors"></a>
 
- **InvalidInputException**   
+ ** InvalidInputException **   
 We can't process the request because it includes an invalid value or a value that exceeds the valid range\.  
 HTTP Status Code: 400
 
- **ResourceInUseException**   
+ ** ResourceInUseException **   
 The specified resource is in use\.  
 HTTP Status Code: 400
 
- **ResourceNotFoundException**   
+ ** ResourceNotFoundException **   
 We can't find a resource with that Amazon Resource Name \(ARN\)\. Check the ARN and try again\.  
 HTTP Status Code: 400
 

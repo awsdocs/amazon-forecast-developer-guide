@@ -5,14 +5,14 @@ Creates an Amazon Forecast dataset\. The information about the dataset that you 
 +  * `Domain` * and * `DatasetType` * \- Each dataset has an associated dataset domain and a type within the domain\. Amazon Forecast provides a list of predefined domains and types within each domain\. For each unique dataset domain and type within the domain, Amazon Forecast requires your data to include a minimum set of predefined fields\.
 +  * `Schema` * \- A schema specifies the fields in the dataset, including the field name and data type\.
 
-After creating a dataset, you import your training data into it and add the dataset to a dataset group\. You use the dataset group to create a predictor\. For more information, see [Importing Datasets](howitworks-datasets-groups.md)\.
+After creating a dataset, you import your training data into it and add the dataset to a dataset group\. You use the dataset group to create a predictor\. For more information, see [Importing datasets](https://docs.aws.amazon.com/forecast/latest/dg/howitworks-datasets-groups.html)\.
 
-To get a list of all your datasets, use the [ListDatasets](API_ListDatasets.md) operation\.
+To get a list of all your datasets, use the [ListDatasets](https://docs.aws.amazon.com/forecast/latest/dg/API_ListDatasets.html) operation\.
 
 For example Forecast datasets, see the [Amazon Forecast Sample GitHub repository](https://github.com/aws-samples/amazon-forecast-samples)\.
 
 **Note**  
-The `Status` of a dataset must be `ACTIVE` before you can import training data\. Use the [DescribeDataset](API_DescribeDataset.md) operation to get the status\.
+The `Status` of a dataset must be `ACTIVE` before you can import training data\. Use the [DescribeDataset](https://docs.aws.amazon.com/forecast/latest/dg/API_DescribeDataset.html) operation to get the status\.
 
 ## Request Syntax<a name="API_CreateDataset_RequestSyntax"></a>
 
@@ -51,6 +51,7 @@ The request accepts the following data in JSON format\.
 The frequency of data collection\. This parameter is required for RELATED\_TIME\_SERIES datasets\.  
 Valid intervals are Y \(Year\), M \(Month\), W \(Week\), D \(Day\), H \(Hour\), 30min \(30 minutes\), 15min \(15 minutes\), 10min \(10 minutes\), 5min \(5 minutes\), and 1min \(1 minute\)\. For example, "D" indicates every day and "15min" indicates every 15 minutes\.  
 Type: String  
+Length Constraints: Minimum length of 1\. Maximum length of 5\.  
 Pattern: `^Y|M|W|D|H|30min|15min|10min|5min|1min$`   
 Required: No
 
@@ -68,8 +69,8 @@ Valid Values:` TARGET_TIME_SERIES | RELATED_TIME_SERIES | ITEM_METADATA`
 Required: Yes
 
  ** [Domain](#API_CreateDataset_RequestSyntax) **   <a name="forecast-CreateDataset-request-Domain"></a>
-The domain associated with the dataset\. When you add a dataset to a dataset group, this value and the value specified for the `Domain` parameter of the [CreateDatasetGroup](API_CreateDatasetGroup.md) operation must match\.  
-The `Domain` and `DatasetType` that you choose determine the fields that must be present in the training data that you import to the dataset\. For example, if you choose the `RETAIL` domain and `TARGET_TIME_SERIES` as the `DatasetType`, Amazon Forecast requires `item_id`, `timestamp`, and `demand` fields to be present in your data\. For more information, see [Importing Datasets](howitworks-datasets-groups.md)\.  
+The domain associated with the dataset\. When you add a dataset to a dataset group, this value and the value specified for the `Domain` parameter of the [CreateDatasetGroup](https://docs.aws.amazon.com/forecast/latest/dg/API_CreateDatasetGroup.html) operation must match\.  
+The `Domain` and `DatasetType` that you choose determine the fields that must be present in the training data that you import to the dataset\. For example, if you choose the `RETAIL` domain and `TARGET_TIME_SERIES` as the `DatasetType`, Amazon Forecast requires `item_id`, `timestamp`, and `demand` fields to be present in your data\. For more information, see [Importing datasets](https://docs.aws.amazon.com/forecast/latest/dg/howitworks-datasets-groups.html)\.  
 Type: String  
 Valid Values:` RETAIL | CUSTOM | INVENTORY_PLANNING | EC2_CAPACITY | WORK_FORCE | WEB_TRAFFIC | METRICS`   
 Required: Yes
@@ -80,7 +81,7 @@ Type: [EncryptionConfig](API_EncryptionConfig.md) object
 Required: No
 
  ** [Schema](#API_CreateDataset_RequestSyntax) **   <a name="forecast-CreateDataset-request-Schema"></a>
-The schema for the dataset\. The schema attributes and their order must match the fields in your data\. The dataset `Domain` and `DatasetType` that you choose determine the minimum required fields in your training data\. For information about the required fields for a specific dataset domain and type, see [Predefined Dataset Domains and Dataset Types](howitworks-domains-ds-types.md)\.  
+The schema for the dataset\. The schema attributes and their order must match the fields in your data\. The dataset `Domain` and `DatasetType` that you choose determine the minimum required fields in your training data\. For information about the required fields for a specific dataset domain and type, see [Dataset Domains and Dataset Types](https://docs.aws.amazon.com/forecast/latest/dg/howitworks-domains-ds-types.html)\.  
 Type: [Schema](API_Schema.md) object  
 Required: Yes
 
@@ -120,15 +121,15 @@ Pattern: `^[a-zA-Z0-9\-\_\.\/\:]+$`
 
 ## Errors<a name="API_CreateDataset_Errors"></a>
 
- **InvalidInputException**   
+ ** InvalidInputException **   
 We can't process the request because it includes an invalid value or a value that exceeds the valid range\.  
 HTTP Status Code: 400
 
- **LimitExceededException**   
+ ** LimitExceededException **   
 The limit on the number of resources per account has been exceeded\.  
 HTTP Status Code: 400
 
- **ResourceAlreadyExistsException**   
+ ** ResourceAlreadyExistsException **   
 There is already a resource with this name\. Try again with a different name\.  
 HTTP Status Code: 400
 

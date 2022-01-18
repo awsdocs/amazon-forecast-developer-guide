@@ -116,8 +116,9 @@ In this section, you can find example user policies that grant permissions for v
 
 **Topics**
 + [Example 1: Grant Account Administrator Permissions](#example-managed-policy-full-admin)
-+ [Example 2: Allow All Amazon Forecast Actions](#example-managed-policy-all-actions)
-+ [Example 3: Action\-based Policy: Amazon Forecast Read\-Only Access](#example-managed-policy-read-only-access)
++ [Example 2: Allow All Amazon Forecast and IAM PassRole Actions](#example-managed-policy-all-actions)
++ [Example 3: Allow All Amazon Forecast actions while limiting IAM PassRole Actions](#example-managed-policy-limit-passrole)
++ [Example 4: Action\-based Policy: Amazon Forecast Read\-Only Access](#example-managed-policy-read-only-access)
 
 ### Example 1: Grant Account Administrator Permissions<a name="example-managed-policy-full-admin"></a>
 
@@ -138,7 +139,7 @@ To grant the administrator user all of the permissions available for your accoun
 }
 ```
 
-### Example 2: Allow All Amazon Forecast Actions<a name="example-managed-policy-all-actions"></a>
+### Example 2: Allow All Amazon Forecast and IAM PassRole Actions<a name="example-managed-policy-all-actions"></a>
 
 You might choose to create a user who has permissions for all Amazon Forecast actions but not for any of your other services \(think of this user as a service\-specific administrator\)\. Attach the following permissions policy to this user: 
 
@@ -169,7 +170,38 @@ You might choose to create a user who has permissions for all Amazon Forecast ac
 }
 ```
 
-### Example 3: Action\-based Policy: Amazon Forecast Read\-Only Access<a name="example-managed-policy-read-only-access"></a>
+### Example 3: Allow All Amazon Forecast actions while limiting IAM PassRole Actions<a name="example-managed-policy-limit-passrole"></a>
+
+You might choose to create a user who has permissions for all Amazon Forecast actions while limiting their IAM PassRole actions\. Attach the following permissions policy to this user: 
+
+```
+{
+    "Version": "2012-10-17",
+    "Statement": [
+        {
+            "Effect": "Allow",
+            "Action": [
+                "forecast:*"
+            ],
+            "Resource": "*"
+        },
+        {
+            "Effect": "Allow",
+            "Action": [
+                "iam:PassRole"
+            ],
+            "Resource": "arn:aws:iam::EXAMPLE_ACCOUNT_ID_12349858:role/EXAMPLE_ROLE_TO_ALLOW_TO_PASS",
+            "Condition": {
+                "StringEquals": {
+                    "iam:PassedToService": "forecast.amazonaws.com"
+                }
+            }
+        }
+    ]
+}
+```
+
+### Example 4: Action\-based Policy: Amazon Forecast Read\-Only Access<a name="example-managed-policy-read-only-access"></a>
 
 The following policy grants permissions to Amazon Forecast actions that allow a user to list and describe resources:
 

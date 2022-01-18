@@ -4,20 +4,21 @@ The path to the file\(s\) in an Amazon Simple Storage Service \(Amazon S3\) buck
 
 ## Contents<a name="API_S3Config_Contents"></a>
 
- **KMSKeyArn**   <a name="forecast-Type-S3Config-KMSKeyArn"></a>
+ ** KMSKeyArn **   <a name="forecast-Type-S3Config-KMSKeyArn"></a>
 The Amazon Resource Name \(ARN\) of an AWS Key Management Service \(KMS\) key\.  
 Type: String  
 Length Constraints: Maximum length of 256\.  
 Pattern: `arn:aws:kms:.*:key/.*`   
 Required: No
 
- **Path**   <a name="forecast-Type-S3Config-Path"></a>
+ ** Path **   <a name="forecast-Type-S3Config-Path"></a>
 The path to an Amazon Simple Storage Service \(Amazon S3\) bucket or file\(s\) in an Amazon S3 bucket\.  
 Type: String  
+Length Constraints: Minimum length of 7\. Maximum length of 4096\.  
 Pattern: `^s3://[a-z0-9].+$`   
 Required: Yes
 
- **RoleArn**   <a name="forecast-Type-S3Config-RoleArn"></a>
+ ** RoleArn **   <a name="forecast-Type-S3Config-RoleArn"></a>
 The ARN of the AWS Identity and Access Management \(IAM\) role that Amazon Forecast can assume to access the Amazon S3 bucket or files\. If you provide a value for the `KMSKeyArn` key, the role must allow access to the key\.  
 Passing a role across AWS accounts is not allowed\. If you pass a role that isn't in your account, you get an `InvalidInputException` error\.  
 Type: String  

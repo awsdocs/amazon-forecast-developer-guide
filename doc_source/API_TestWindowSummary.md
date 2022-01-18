@@ -4,12 +4,12 @@ The status, start time, and end time of a backtest, as well as a failure reason 
 
 ## Contents<a name="API_TestWindowSummary_Contents"></a>
 
- **Message**   <a name="forecast-Type-TestWindowSummary-Message"></a>
+ ** Message **   <a name="forecast-Type-TestWindowSummary-Message"></a>
 If the test failed, the reason why it failed\.  
 Type: String  
 Required: No
 
- **Status**   <a name="forecast-Type-TestWindowSummary-Status"></a>
+ ** Status **   <a name="forecast-Type-TestWindowSummary-Status"></a>
 The status of the test\. Possible status values are:  
 +  `ACTIVE` 
 +  `CREATE_IN_PROGRESS` 
@@ -18,12 +18,12 @@ Type: String
 Length Constraints: Maximum length of 256\.  
 Required: No
 
- **TestWindowEnd**   <a name="forecast-Type-TestWindowSummary-TestWindowEnd"></a>
+ ** TestWindowEnd **   <a name="forecast-Type-TestWindowSummary-TestWindowEnd"></a>
 The time at which the test ended\.  
 Type: Timestamp  
 Required: No
 
- **TestWindowStart**   <a name="forecast-Type-TestWindowSummary-TestWindowStart"></a>
+ ** TestWindowStart **   <a name="forecast-Type-TestWindowSummary-TestWindowStart"></a>
 The time at which the test began\.  
 Type: Timestamp  
 Required: No

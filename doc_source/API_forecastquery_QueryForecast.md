@@ -98,23 +98,23 @@ Type: [Forecast](API_forecastquery_Forecast.md) object
 
 ## Errors<a name="API_forecastquery_QueryForecast_Errors"></a>
 
- **InvalidInputException**   
+ ** InvalidInputException **   
 The value is invalid or is too long\.  
 HTTP Status Code: 400
 
- **InvalidNextTokenException**   
+ ** InvalidNextTokenException **   
 The token is not valid\. Tokens expire after 24 hours\.  
 HTTP Status Code: 400
 
- **LimitExceededException**   
+ ** LimitExceededException **   
 The limit on the number of requests per second has been exceeded\.  
 HTTP Status Code: 400
 
- **ResourceInUseException**   
+ ** ResourceInUseException **   
 The specified resource is in use\.  
 HTTP Status Code: 400
 
- **ResourceNotFoundException**   
+ ** ResourceNotFoundException **   
 We can't find that resource\. Check the information that you've provided and try again\.  
 HTTP Status Code: 400
 

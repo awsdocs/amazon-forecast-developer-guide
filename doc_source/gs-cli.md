@@ -264,7 +264,7 @@ You must wait until the status is ACTIVE before creating a predictor with the da
 ## Step 2: Train a Predictor<a name="gs-create-predictor"></a>
 
 To create a predictor, you use the [CreatePredictor](API_CreatePredictor.md) operation and provide the following information\.
-+ An algorithm – Amazon Forecast uses the algorithm to train the predictor using the data in the dataset group\. For this exercise, you use an algorithm called `forecast_DEEP_AR_PLUS`, which is provided by Amazon Forecast\. For a list of algorithms that Amazon Forecast provides, see [Choosing an Amazon Forecast Algorithm](aws-forecast-choosing-recipes.md)\.
++ An algorithm – Amazon Forecast uses the algorithm to train the predictor using the data in the dataset group\. For this exercise, you use an algorithm called `forecast_DEEP_AR_PLUS`, which is provided by Amazon Forecast\. For a list of algorithms that Amazon Forecast provides, see [Amazon Forecast Algorithms](aws-forecast-choosing-recipes.md)\.
 **Note**  
 If you aren't sure which algorithm to use, you can set the `PerformAutoML` flag in the `CreatePredictor` operation to tell Amazon Forecast to run AutoML\. AutoML determines which algorithm to use for predictor training\.
 + A dataset group – You created the dataset group in the preceding step\.

@@ -33,6 +33,8 @@ Required: Yes
 ```
 {
    "AutoMLOverrideStrategy": "string",
+   "IsAutoPredictor": boolean,
+   "OptimizationMetric": "string",
    "PredictorEvaluationResults": [ 
       { 
          "AlgorithmArn": "string",
@@ -41,9 +43,12 @@ Required: Yes
                "EvaluationType": "string",
                "ItemCount": number,
                "Metrics": { 
+                  "AverageWeightedQuantileLoss": number,
                   "ErrorMetrics": [ 
                      { 
                         "ForecastType": "string",
+                        "MAPE": number,
+                        "MASE": number,
                         "RMSE": number,
                         "WAPE": number
                      }
@@ -72,10 +77,20 @@ If the action is successful, the service sends back an HTTP 200 response\.
 The following data is returned in JSON format by the service\.
 
  ** [AutoMLOverrideStrategy](#API_GetAccuracyMetrics_ResponseSyntax) **   <a name="forecast-GetAccuracyMetrics-response-AutoMLOverrideStrategy"></a>
+ The `LatencyOptimized` AutoML override strategy is only available in private beta\. Contact AWS Support or your account manager to learn more about access privileges\. 
 The AutoML strategy used to train the predictor\. Unless `LatencyOptimized` is specified, the AutoML strategy optimizes predictor accuracy\.  
 This parameter is only valid for predictors trained using AutoML\.  
 Type: String  
-Valid Values:` LatencyOptimized` 
+Valid Values:` LatencyOptimized | AccuracyOptimized` 
+
+ ** [IsAutoPredictor](#API_GetAccuracyMetrics_ResponseSyntax) **   <a name="forecast-GetAccuracyMetrics-response-IsAutoPredictor"></a>
+Whether the predictor was created with [CreateAutoPredictor](API_CreateAutoPredictor.md)\.  
+Type: Boolean
+
+ ** [OptimizationMetric](#API_GetAccuracyMetrics_ResponseSyntax) **   <a name="forecast-GetAccuracyMetrics-response-OptimizationMetric"></a>
+The accuracy metric used to optimize the predictor\.  
+Type: String  
+Valid Values:` WAPE | RMSE | AverageWeightedQuantileLoss | MASE | MAPE` 
 
  ** [PredictorEvaluationResults](#API_GetAccuracyMetrics_ResponseSyntax) **   <a name="forecast-GetAccuracyMetrics-response-PredictorEvaluationResults"></a>
 An array of results from evaluating the predictor\.  
@@ -83,15 +98,15 @@ Type: Array of [EvaluationResult](API_EvaluationResult.md) objects
 
 ## Errors<a name="API_GetAccuracyMetrics_Errors"></a>
 
- **InvalidInputException**   
+ ** InvalidInputException **   
 We can't process the request because it includes an invalid value or a value that exceeds the valid range\.  
 HTTP Status Code: 400
 
- **ResourceInUseException**   
+ ** ResourceInUseException **   
 The specified resource is in use\.  
 HTTP Status Code: 400
 
- **ResourceNotFoundException**   
+ ** ResourceNotFoundException **   
 We can't find a resource with that Amazon Resource Name \(ARN\)\. Check the ARN and try again\.  
 HTTP Status Code: 400
 

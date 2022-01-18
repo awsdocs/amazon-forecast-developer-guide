@@ -16,7 +16,7 @@ Deletes the specified tags from a resource\.
 The request accepts the following data in JSON format\.
 
  ** [ResourceArn](#API_UntagResource_RequestSyntax) **   <a name="forecast-UntagResource-request-ResourceArn"></a>
-The Amazon Resource Name \(ARN\) that identifies the resource for which to list the tags\. Currently, the supported resources are Forecast dataset groups, datasets, dataset import jobs, predictors, forecasts, and forecast exports\.  
+The Amazon Resource Name \(ARN\) that identifies the resource for which to list the tags\.   
 Type: String  
 Length Constraints: Maximum length of 256\.  
 Pattern: `^[a-zA-Z0-9\-\_\.\/\:]+$`   
@@ -36,11 +36,11 @@ If the action is successful, the service sends back an HTTP 200 response with an
 
 ## Errors<a name="API_UntagResource_Errors"></a>
 
- **InvalidInputException**   
+ ** InvalidInputException **   
 We can't process the request because it includes an invalid value or a value that exceeds the valid range\.  
 HTTP Status Code: 400
 
- **ResourceNotFoundException**   
+ ** ResourceNotFoundException **   
 We can't find a resource with that Amazon Resource Name \(ARN\)\. Check the ARN and try again\.  
 HTTP Status Code: 400
 

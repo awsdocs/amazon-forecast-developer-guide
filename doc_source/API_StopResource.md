@@ -10,6 +10,8 @@ This operation can be applied to the following resources \(and their correspondi
 + Forecast Job
 + Forecast Export Job
 + Predictor Backtest Export Job
++ Explainability Job
++ Explainability Export Job
 
 ## Request Syntax<a name="API_StopResource_RequestSyntax"></a>
 
@@ -24,7 +26,7 @@ This operation can be applied to the following resources \(and their correspondi
 The request accepts the following data in JSON format\.
 
  ** [ResourceArn](#API_StopResource_RequestSyntax) **   <a name="forecast-StopResource-request-ResourceArn"></a>
-The Amazon Resource Name \(ARN\) that identifies the resource to stop\. The supported ARNs are `DatasetImportJobArn`, `PredictorArn`, `PredictorBacktestExportJobArn`, `ForecastArn`, and `ForecastExportJobArn`\.   
+The Amazon Resource Name \(ARN\) that identifies the resource to stop\. The supported ARNs are `DatasetImportJobArn`, `PredictorArn`, `PredictorBacktestExportJobArn`, `ForecastArn`, `ForecastExportJobArn`, `ExplainabilityArn`, and `ExplainabilityExportArn`\.   
 Type: String  
 Length Constraints: Maximum length of 256\.  
 Pattern: `^[a-zA-Z0-9\-\_\.\/\:]+$`   
@@ -36,15 +38,15 @@ If the action is successful, the service sends back an HTTP 200 response with an
 
 ## Errors<a name="API_StopResource_Errors"></a>
 
- **InvalidInputException**   
+ ** InvalidInputException **   
 We can't process the request because it includes an invalid value or a value that exceeds the valid range\.  
 HTTP Status Code: 400
 
- **LimitExceededException**   
+ ** LimitExceededException **   
 The limit on the number of resources per account has been exceeded\.  
 HTTP Status Code: 400
 
- **ResourceNotFoundException**   
+ ** ResourceNotFoundException **   
 We can't find a resource with that Amazon Resource Name \(ARN\)\. Check the ARN and try again\.  
 HTTP Status Code: 400
 

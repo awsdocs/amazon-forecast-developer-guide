@@ -1,17 +1,20 @@
 # InputDataConfig<a name="API_InputDataConfig"></a>
 
+**Note**  
+This object belongs to the [CreatePredictor](API_CreatePredictor.md) operation\. If you created your predictor with [CreateAutoPredictor](API_CreateAutoPredictor.md), see [DataConfig](API_DataConfig.md)\.
+
 The data used to train a predictor\. The data includes a dataset group and any supplementary features\. You specify this object in the [CreatePredictor](API_CreatePredictor.md) request\.
 
 ## Contents<a name="API_InputDataConfig_Contents"></a>
 
- **DatasetGroupArn**   <a name="forecast-Type-InputDataConfig-DatasetGroupArn"></a>
+ ** DatasetGroupArn **   <a name="forecast-Type-InputDataConfig-DatasetGroupArn"></a>
 The Amazon Resource Name \(ARN\) of the dataset group\.  
 Type: String  
 Length Constraints: Maximum length of 256\.  
 Pattern: `^[a-zA-Z0-9\-\_\.\/\:]+$`   
 Required: Yes
 
- **SupplementaryFeatures**   <a name="forecast-Type-InputDataConfig-SupplementaryFeatures"></a>
+ ** SupplementaryFeatures **   <a name="forecast-Type-InputDataConfig-SupplementaryFeatures"></a>
 An array of supplementary features\. The only supported feature is a holiday calendar\.  
 Type: Array of [SupplementaryFeature](API_SupplementaryFeature.md) objects  
 Array Members: Minimum number of 1 item\. Maximum number of 2 items\.  

@@ -17,7 +17,7 @@ For a step\-by\-step guide on using the Weather Index, see [NY Taxi: Amazon Fore
 
 ## Enabling the Weather Index<a name="enabling-weather"></a>
 
-The Weather Index is enabled during the predictor training stage\. It can be applied when running AutoML or manually selecting the CNN\-QR, DeepAR\+, or Prophet algorithms\. When using the [ `CreatePredictor`](API_CreatePredictor.md) operation, the Weather Index is included in the [SupplementaryFeature](API_SupplementaryFeature.md) data type\.
+The Weather Index is enabled during the predictor training stage\.  When using the [`CreateAutoPredictor`](API_CreateAutoPredictor.md) operation, the Weather Index is included in the [AdditionalDataset](API_AdditionalDataset.md) data type\.
 
 Before enabling the Weather Index, you must include a geolocation attribute in your target time series and related timeseries datsets, and define the time zones for your timestamps\. For more information, see [Adding Geolocation Information](#adding-geolocation) and [Specifying Time Zones](#specifying-timezones)\.
 
@@ -38,23 +38,20 @@ You can enable the Weather Index using the Forecast console or the Forecast Soft
 
 1. Choose **Enable Weather Index**\.
 
-![\[Image NOT FOUND\]](http://docs.aws.amazon.com/forecast/latest/dg/images/enable-weather.PNG)
-
 ------
 #### [ SDK ]
 
 **To enable the Weather Index**
 
-Using the [ `CreatePredictor`](API_CreatePredictor.md) operation, enable the Weather Index by adding `"Name": "weather"` and `"Value": "true"` in the [SupplementaryFeature](API_SupplementaryFeature.md) data type\.
+Using the [`CreateAutoPredictor`](API_CreateAutoPredictor.md) operation, enable the Weather Index by adding `"Name": "weather"` and `"Value": "true"` in the [AdditionalDataset](API_AdditionalDataset.md) data type\.
 
 ```
-    "InputDataConfig": { 
+    "DataConfig": { 
         ...
-        "SupplementaryFeatures": [
+        "AdditionalDatasets": [
             ...                      
             {             
-                "Name": "weather",            
-                "Value": "true"         
+                "Name": "weather",       
             }      
             ]   
         },
@@ -66,7 +63,7 @@ Using the [ `CreatePredictor`](API_CreatePredictor.md) operation, enable the Wea
 
 To use the Weather Index, you must include a geolocation attribute for each item in your target time series and related time series datasets\. The attribute is defined with the `geolocation` attribute type within the dataset schemas\.
 
-All geolocation values in a dataset must be exclusively within a single region\. The regions are: US \(excluding Hawaii and Alaska\), Canada, South America, and Europe\.
+All geolocation values in a dataset must be exclusively within a single region\. The regions are: US \(excluding Hawaii and Alaska\), Canada, South America, Central America, Asia Pacific, Europe, and Africa & Middle East\.
 
 Specify the geolocation attribute in one of two formats:
 + **Latitude & Longitude** \(All regions\) \- Specify the latitude and longitude in decimal format \(Example: 47\.61\_\-122\.33\)
@@ -81,7 +78,7 @@ The Latitude & Longitude format is supportted for all regions\. The Postal code 
 
 ### Latitude & Longitude Bounds<a name="geolocation-bounds"></a>
 
-The following are the latitudinal and longitudinal bounds for the US, Canada, South America, and Europe regions:
+The following are the latitudinal and longitudinal bounds for the accepted regions:
 
 ------
 #### [ US Region ]
@@ -110,6 +107,27 @@ The following are the latitudinal and longitudinal bounds for the US, Canada, So
 **Bounds**: latitude \(\-56\.6, 14\.0\), longitude \(\-82\.4, \-33\.00\)\.
 
 ![\[Image NOT FOUND\]](http://docs.aws.amazon.com/forecast/latest/dg/images/weather-sa-bounds.PNG)
+
+------
+#### [ Asia Pacific Region ]
+
+**Bounds**: latitude \(\-47\.8, 55\.0\), longitude \(67\.0, 180\.60\)\.
+
+![\[Image NOT FOUND\]](http://docs.aws.amazon.com/forecast/latest/dg/images/weather-apac-bounds.png)
+
+------
+#### [ Central America Region ]
+
+**Bounds**: latitude \(6\.80, 33\.20\), longitude \(\-118\.80, \-58\.20\)\.
+
+![\[Image NOT FOUND\]](http://docs.aws.amazon.com/forecast/latest/dg/images/weather-ca-bounds.png)
+
+------
+#### [ Africa & Middle East Region ]
+
+**Bounds**: latitude \(\-35\.60, 43\.40\), longitude \(\-18\.80, \-58\.20\)\.
+
+![\[Image NOT FOUND\]](http://docs.aws.amazon.com/forecast/latest/dg/images/weather-africa-bounds.png)
 
 ------
 
@@ -227,7 +245,7 @@ Using the [ CreateDatasetImportJob](API_CreateDatasetImportJob.md) operation, se
 ### Manually Select a Single Time Zone<a name="timezones-manual"></a>
 
 **Note**  
-You can manually select a time zone outside of the *US region*, *Canada region*, *South America region*, and *Europe region*\. However, all geolocation values must still be within one of those regions\.
+You can manually select a time zone outside of the *US region*, *Canada region*, *South America region*, *Central America region*, *Asia Pacific region*, *Europe region*, and *Africa & Middle East region*\. However, all geolocation values must still be within one of those regions\.
 
 This option is ideal for datasets with all timestamps within a single time zone, or if all timestamps are normalized to a single time zone\. Using this option applies the same time zone to every item in the dataset\.
 
@@ -259,17 +277,7 @@ The Weather Index accepts the following time zones:
 + America/Noronha
 + America/Caracas 
 
- **Other** 
-+ Etc/GMT\+12 
-+ Pacific/Midway 
-+ Pacific/Honolulu 
-+ Pacific/Marquesas 
-+ America/Anchorage 
-+ America/Puerto\_Rico 
-+ Atlantic/Cape\_Verde 
-+ Africa/Nairobi 
-+ Asia/Tehran 
-+ Asia/Dubai 
+ **Asia Pacific region** 
 + Asia/Kabul 
 + Asia/Karachi 
 + Asia/Kolkata 
@@ -278,19 +286,34 @@ The Weather Index accepts the following time zones:
 + Asia/Rangoon 
 + Asia/Bangkok 
 + Asia/Singapore 
-+ Australia/Eucla 
 + Asia/Seoul 
 + Australia/Adelaide 
 + Australia/Melbourne 
 + Australia/Lord\_Howe 
-+ Asia/Anadyr 
++ Australia/Eucla 
 + Pacific/Norfolk 
 + Pacific/Auckland 
+
+ **Central America** 
++ America/Puerto\_Rico
+
+ **Africa & Middle East** 
++ Africa/Nairobi 
++ Asia/Tehran 
++ Asia/Dubai
+
+ **Other** 
++ Pacific/Midway 
++ Pacific/Honolulu 
++ Pacific/Marquesas 
++ America/Anchorage 
++ Atlantic/Cape\_Verde 
++ Asia/Anadyr 
 + Pacific/Chatham 
 + Pacific/Enderbury 
 + Pacific/Kiritimati 
 
-Select a time zone from the **Other** list if items in your dataset are located within either the Europe, Canada, South America, or US region, but your timestamps are standardized to a time zone outside of that region\. 
+Select a time zone from the **Other** list if items in your dataset are located within one of the accepted region, but your timestamps are standardized to a time zone outside of that region\. 
 
 For a complete list of valid time zone names, see [Joda\-Time library](http://joda-time.sourceforge.net/timezones.html)\.
 
@@ -332,7 +355,7 @@ For example, use the following to apply Los Angeles time \(Pacific Standard Time
 ## Conditions and Restrictions<a name="weather-conditions-restrictions"></a>
 
 The following conditions and restrictions apply when using the Weather Index:
-+ **Available algorithms**: The Weather Index can be enabled when you train a predictor with the CNN\-QR, DeepAR\+, and Prophet algorithms\. The Weather Index is not applied to ARIMA, ETS, and NPTS\.
++ **Available algorithms**: If using a legacy predictor, the Weather Index can be enabled when you train a predictor with the CNN\-QR, DeepAR\+, and Prophet algorithms\. The Weather Index is not applied to ARIMA, ETS, and NPTS\.
 + **Forecast frequency**: The valid forecast frequencies are `1 minute`, `5 minutes`, `10 minutes`, `15 minutes`, `30 minutes`, `Hourly`, and `Daily`\.
 + **Forecast horizon**: The forecast horizon cannot span further than 14 days into the future\. For forecast horizon limits for each forecast frequency, refer to the list below:
   + `1 minute` \- 500
@@ -346,14 +369,13 @@ The following conditions and restrictions apply when using the Weather Index:
   + **Europe region**: July 2, 2018
   + **Canada region**: July 2, 2019
   + **South America region**: January 2, 2020
+  + **Central America region**: September 2, 2020
+  + **Asia Pacific region**: May 2, 2020
+  + **Africa & Middle East region**: March 25, 20201
 
   With the Weather Index enabled, datapoints with timestamps before the start date will not be used during predictor training\.
 + **Number of locations**: The target time series dataset cannot exceed 2000 unique locations\.
-+ **Region bounds**: All items in your datasets must be located within the US \(excluding Hawaii and Alaska\), Canada, South America, or Europe\. The latitudinal and longitudinal bounds are:
-  + **US region**: latitude \(24\.6, 50\.0\), longitude \(\-126\.0, \-66\.4\)
-  + **Canada region**: latitude \(41\.0, 75\.0\), longitude \(\-142\.0, \-52\.0\)
-  + **Europe region**: latitude \(34\.8, 71\.8\), longitude \(\-12\.6, 44\.8\)
-  + **South America region**: latitude \(\-56\.6, 14\.0\), longitude \(\-82\.4, \-33\.00\)
++ **Region bounds**: All items in your datasets must be located within a single region\.
 + **Minimum time series length**: Due to additional data requirements when testing the Weather Index, the minimum length for a time series dataset is: 
 
   `3 × ForecastHorizon + (BacktestWindows + 1) × BacktestWindowOffset`

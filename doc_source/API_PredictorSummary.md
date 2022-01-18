@@ -4,19 +4,24 @@ Provides a summary of the predictor properties that are used in the [ListPredict
 
 ## Contents<a name="API_PredictorSummary_Contents"></a>
 
- **CreationTime**   <a name="forecast-Type-PredictorSummary-CreationTime"></a>
+ ** CreationTime **   <a name="forecast-Type-PredictorSummary-CreationTime"></a>
 When the model training task was created\.  
 Type: Timestamp  
 Required: No
 
- **DatasetGroupArn**   <a name="forecast-Type-PredictorSummary-DatasetGroupArn"></a>
+ ** DatasetGroupArn **   <a name="forecast-Type-PredictorSummary-DatasetGroupArn"></a>
 The Amazon Resource Name \(ARN\) of the dataset group that contains the data used to train the predictor\.  
 Type: String  
 Length Constraints: Maximum length of 256\.  
 Pattern: `^[a-zA-Z0-9\-\_\.\/\:]+$`   
 Required: No
 
- **LastModificationTime**   <a name="forecast-Type-PredictorSummary-LastModificationTime"></a>
+ ** IsAutoPredictor **   <a name="forecast-Type-PredictorSummary-IsAutoPredictor"></a>
+Whether AutoPredictor was used to create the predictor\.  
+Type: Boolean  
+Required: No
+
+ ** LastModificationTime **   <a name="forecast-Type-PredictorSummary-LastModificationTime"></a>
 The last time the resource was modified\. The timestamp depends on the status of the job:  
 +  `CREATE_PENDING` \- The `CreationTime`\.
 +  `CREATE_IN_PROGRESS` \- The current timestamp\.
@@ -26,26 +31,31 @@ The last time the resource was modified\. The timestamp depends on the status of
 Type: Timestamp  
 Required: No
 
- **Message**   <a name="forecast-Type-PredictorSummary-Message"></a>
+ ** Message **   <a name="forecast-Type-PredictorSummary-Message"></a>
 If an error occurred, an informational message about the error\.  
 Type: String  
 Required: No
 
- **PredictorArn**   <a name="forecast-Type-PredictorSummary-PredictorArn"></a>
+ ** PredictorArn **   <a name="forecast-Type-PredictorSummary-PredictorArn"></a>
 The ARN of the predictor\.  
 Type: String  
 Length Constraints: Maximum length of 256\.  
 Pattern: `^[a-zA-Z0-9\-\_\.\/\:]+$`   
 Required: No
 
- **PredictorName**   <a name="forecast-Type-PredictorSummary-PredictorName"></a>
+ ** PredictorName **   <a name="forecast-Type-PredictorSummary-PredictorName"></a>
 The name of the predictor\.  
 Type: String  
 Length Constraints: Minimum length of 1\. Maximum length of 63\.  
 Pattern: `^[a-zA-Z][a-zA-Z0-9_]*`   
 Required: No
 
- **Status**   <a name="forecast-Type-PredictorSummary-Status"></a>
+ ** ReferencePredictorSummary **   <a name="forecast-Type-PredictorSummary-ReferencePredictorSummary"></a>
+A summary of the reference predictor used if the predictor was retrained or upgraded\.  
+Type: [ReferencePredictorSummary](API_ReferencePredictorSummary.md) object  
+Required: No
+
+ ** Status **   <a name="forecast-Type-PredictorSummary-Status"></a>
 The status of the predictor\. States include:  
 +  `ACTIVE` 
 +  `CREATE_PENDING`, `CREATE_IN_PROGRESS`, `CREATE_FAILED` 

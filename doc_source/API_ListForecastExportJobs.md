@@ -43,6 +43,7 @@ Required: No
 If the result of the previous request was truncated, the response includes a `NextToken`\. To retrieve the next set of results, use the token in the next request\. Tokens expire after 24 hours\.  
 Type: String  
 Length Constraints: Minimum length of 1\. Maximum length of 3000\.  
+Pattern: `.+`   
 Required: No
 
 ## Response Syntax<a name="API_ListForecastExportJobs_ResponseSyntax"></a>
@@ -83,15 +84,16 @@ Type: Array of [ForecastExportJobSummary](API_ForecastExportJobSummary.md) objec
  ** [NextToken](#API_ListForecastExportJobs_ResponseSyntax) **   <a name="forecast-ListForecastExportJobs-response-NextToken"></a>
 If the response is truncated, Amazon Forecast returns this token\. To retrieve the next set of results, use the token in the next request\.  
 Type: String  
-Length Constraints: Minimum length of 1\. Maximum length of 3000\.
+Length Constraints: Minimum length of 1\. Maximum length of 3000\.  
+Pattern: `.+` 
 
 ## Errors<a name="API_ListForecastExportJobs_Errors"></a>
 
- **InvalidInputException**   
+ ** InvalidInputException **   
 We can't process the request because it includes an invalid value or a value that exceeds the valid range\.  
 HTTP Status Code: 400
 
- **InvalidNextTokenException**   
+ ** InvalidNextTokenException **   
 The token is not valid\. Tokens expire after 24 hours\.  
 HTTP Status Code: 400
 

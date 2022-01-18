@@ -4,33 +4,38 @@ Provides a summary of the forecast properties used in the [ListForecasts](API_Li
 
 ## Contents<a name="API_ForecastSummary_Contents"></a>
 
- **CreationTime**   <a name="forecast-Type-ForecastSummary-CreationTime"></a>
+ ** CreatedUsingAutoPredictor **   <a name="forecast-Type-ForecastSummary-CreatedUsingAutoPredictor"></a>
+Whether the Forecast was created from an AutoPredictor\.  
+Type: Boolean  
+Required: No
+
+ ** CreationTime **   <a name="forecast-Type-ForecastSummary-CreationTime"></a>
 When the forecast creation task was created\.  
 Type: Timestamp  
 Required: No
 
- **DatasetGroupArn**   <a name="forecast-Type-ForecastSummary-DatasetGroupArn"></a>
+ ** DatasetGroupArn **   <a name="forecast-Type-ForecastSummary-DatasetGroupArn"></a>
 The Amazon Resource Name \(ARN\) of the dataset group that provided the data used to train the predictor\.  
 Type: String  
 Length Constraints: Maximum length of 256\.  
 Pattern: `^[a-zA-Z0-9\_]+$`   
 Required: No
 
- **ForecastArn**   <a name="forecast-Type-ForecastSummary-ForecastArn"></a>
+ ** ForecastArn **   <a name="forecast-Type-ForecastSummary-ForecastArn"></a>
 The ARN of the forecast\.  
 Type: String  
 Length Constraints: Maximum length of 256\.  
 Pattern: `^[a-zA-Z0-9\-\_\.\/\:]+$`   
 Required: No
 
- **ForecastName**   <a name="forecast-Type-ForecastSummary-ForecastName"></a>
+ ** ForecastName **   <a name="forecast-Type-ForecastSummary-ForecastName"></a>
 The name of the forecast\.  
 Type: String  
 Length Constraints: Minimum length of 1\. Maximum length of 63\.  
 Pattern: `^[a-zA-Z][a-zA-Z0-9_]*`   
 Required: No
 
- **LastModificationTime**   <a name="forecast-Type-ForecastSummary-LastModificationTime"></a>
+ ** LastModificationTime **   <a name="forecast-Type-ForecastSummary-LastModificationTime"></a>
 The last time the resource was modified\. The timestamp depends on the status of the job:  
 +  `CREATE_PENDING` \- The `CreationTime`\.
 +  `CREATE_IN_PROGRESS` \- The current timestamp\.
@@ -40,19 +45,19 @@ The last time the resource was modified\. The timestamp depends on the status of
 Type: Timestamp  
 Required: No
 
- **Message**   <a name="forecast-Type-ForecastSummary-Message"></a>
+ ** Message **   <a name="forecast-Type-ForecastSummary-Message"></a>
 If an error occurred, an informational message about the error\.  
 Type: String  
 Required: No
 
- **PredictorArn**   <a name="forecast-Type-ForecastSummary-PredictorArn"></a>
+ ** PredictorArn **   <a name="forecast-Type-ForecastSummary-PredictorArn"></a>
 The ARN of the predictor used to generate the forecast\.  
 Type: String  
 Length Constraints: Maximum length of 256\.  
 Pattern: `^[a-zA-Z0-9\_]+$`   
 Required: No
 
- **Status**   <a name="forecast-Type-ForecastSummary-Status"></a>
+ ** Status **   <a name="forecast-Type-ForecastSummary-Status"></a>
 The status of the forecast\. States include:  
 +  `ACTIVE` 
 +  `CREATE_PENDING`, `CREATE_IN_PROGRESS`, `CREATE_FAILED` 

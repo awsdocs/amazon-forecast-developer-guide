@@ -67,7 +67,7 @@ This exercise assumes that you haven't created any dataset groups\. If you previ
 
 ## Step 2: Train a Predictor<a name="gs-console-create-predictor"></a>
 
-To create a predictor, which is a trained model, choose an algorithm and the number \(length times frequency\) of predictions to make\. You can choose a particular algorithm, or you can choose **AutoML** to have Amazon Forecast process your data and choose an algorithm to best suit your dataset group\. For information about algorithms, see [Choosing an Amazon Forecast Algorithm](aws-forecast-choosing-recipes.md)\.
+To create a predictor, which is a trained model, choose an algorithm and the number \(length times frequency\) of predictions to make\. You can choose a particular algorithm, or you can choose **AutoML** to have Amazon Forecast process your data and choose an algorithm to best suit your dataset group\. For information about algorithms, see [Amazon Forecast Algorithms](aws-forecast-choosing-recipes.md)\.
 
 **To train a predictor**
 
@@ -82,7 +82,7 @@ The `Status` of the **Target time series data** must be `Active`, which signifie
    + **Predictor name** – Enter a name for your predictor\.
    + **Forecast horizon** – Choose how far into the future to make predictions\. This number multiplied by the data entry frequency \(`hourly`\) that you specified in `Step 1: Import the Training Data` determines how far into the future to make predictions\. For this exercise, set the number to `36`, to provide predictions for 36 hours\.
    + **Forecast frequency** – Keep the default value of **1**\. From the drop\-down menu, choose **hour**\. This setting must be consistent with the input time series data\. The time interval in the sample electricity\-usage data is an hour\.
-   + **Algorithm selection** – Keep the default value **Manual**\. From the drop\-down menu, choose the **ETS** algorithm\. For more information about recipes, see [Choosing an Amazon Forecast Algorithm](aws-forecast-choosing-recipes.md)\.
+   + **Algorithm selection** – Keep the default value **Manual**\. From the drop\-down menu, choose the **ETS** algorithm\. For more information about recipes, see [Amazon Forecast Algorithms](aws-forecast-choosing-recipes.md)\.
 
    The remaining settings are optional, so leave the default values\. Your screen should look similar to the following:  
 ![\[Image NOT FOUND\]](http://docs.aws.amazon.com/forecast/latest/dg/images/gs-step2-predictor-details.png)

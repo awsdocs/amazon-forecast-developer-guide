@@ -1,5 +1,8 @@
 # DescribePredictor<a name="API_DescribePredictor"></a>
 
+**Note**  
+ This operation is only valid for legacy predictors created with CreatePredictor\. If you are not using a legacy predictor, use [DescribeAutoPredictor](API_DescribeAutoPredictor.md)\.
+
 Describes a predictor created using the [CreatePredictor](API_CreatePredictor.md) operation\.
 
 In addition to listing the properties provided in the `CreatePredictor` request, this operation lists the following properties:
@@ -101,8 +104,10 @@ Required: Yes
          }
       ]
    },
+   "IsAutoPredictor": boolean,
    "LastModificationTime": number,
    "Message": "string",
+   "OptimizationMetric": "string",
    "PerformAutoML": boolean,
    "PerformHPO": boolean,
    "PredictorArn": "string",
@@ -148,10 +153,11 @@ Length Constraints: Maximum length of 256\.
 Pattern: `^[a-zA-Z0-9\-\_\.\/\:]+$` 
 
  ** [AutoMLOverrideStrategy](#API_DescribePredictor_ResponseSyntax) **   <a name="forecast-DescribePredictor-response-AutoMLOverrideStrategy"></a>
+ The `LatencyOptimized` AutoML override strategy is only available in private beta\. Contact AWS Support or your account manager to learn more about access privileges\. 
 The AutoML strategy used to train the predictor\. Unless `LatencyOptimized` is specified, the AutoML strategy optimizes predictor accuracy\.  
 This parameter is only valid for predictors trained using AutoML\.  
 Type: String  
-Valid Values:` LatencyOptimized` 
+Valid Values:` LatencyOptimized | AccuracyOptimized` 
 
  ** [CreationTime](#API_DescribePredictor_ResponseSyntax) **   <a name="forecast-DescribePredictor-response-CreationTime"></a>
 When the model training task was created\.  
@@ -187,6 +193,7 @@ Type: Integer
 The forecast types used during predictor training\. Default value is `["0.1","0.5","0.9"]`   
 Type: Array of strings  
 Array Members: Minimum number of 1 item\. Maximum number of 20 items\.  
+Length Constraints: Minimum length of 2\. Maximum length of 4\.  
 Pattern: `(^0?\.\d\d?$|^mean$)` 
 
  ** [HPOConfig](#API_DescribePredictor_ResponseSyntax) **   <a name="forecast-DescribePredictor-response-HPOConfig"></a>
@@ -196,6 +203,10 @@ Type: [HyperParameterTuningJobConfig](API_HyperParameterTuningJobConfig.md) obje
  ** [InputDataConfig](#API_DescribePredictor_ResponseSyntax) **   <a name="forecast-DescribePredictor-response-InputDataConfig"></a>
 Describes the dataset group that contains the data to use to train the predictor\.  
 Type: [InputDataConfig](API_InputDataConfig.md) object
+
+ ** [IsAutoPredictor](#API_DescribePredictor_ResponseSyntax) **   <a name="forecast-DescribePredictor-response-IsAutoPredictor"></a>
+Whether the predictor was created with [CreateAutoPredictor](API_CreateAutoPredictor.md)\.  
+Type: Boolean
 
  ** [LastModificationTime](#API_DescribePredictor_ResponseSyntax) **   <a name="forecast-DescribePredictor-response-LastModificationTime"></a>
 The last time the resource was modified\. The timestamp depends on the status of the job:  
@@ -209,6 +220,11 @@ Type: Timestamp
  ** [Message](#API_DescribePredictor_ResponseSyntax) **   <a name="forecast-DescribePredictor-response-Message"></a>
 If an error occurred, an informational message about the error\.  
 Type: String
+
+ ** [OptimizationMetric](#API_DescribePredictor_ResponseSyntax) **   <a name="forecast-DescribePredictor-response-OptimizationMetric"></a>
+The accuracy metric used to optimize the predictor\.  
+Type: String  
+Valid Values:` WAPE | RMSE | AverageWeightedQuantileLoss | MASE | MAPE` 
 
  ** [PerformAutoML](#API_DescribePredictor_ResponseSyntax) **   <a name="forecast-DescribePredictor-response-PerformAutoML"></a>
 Whether the predictor is set to perform AutoML\.  
@@ -245,7 +261,7 @@ Type: String
 Length Constraints: Maximum length of 256\.
 
  ** [TrainingParameters](#API_DescribePredictor_ResponseSyntax) **   <a name="forecast-DescribePredictor-response-TrainingParameters"></a>
-The default training parameters or overrides selected during model training\. When running AutoML or choosing HPO with CNN\-QR or DeepAR\+, the optimized values for the chosen hyperparameters are returned\. For more information, see [Choosing an Amazon Forecast Algorithm](aws-forecast-choosing-recipes.md)\.  
+The default training parameters or overrides selected during model training\. When running AutoML or choosing HPO with CNN\-QR or DeepAR\+, the optimized values for the chosen hyperparameters are returned\. For more information, see [Amazon Forecast Algorithms](aws-forecast-choosing-recipes.md)\.  
 Type: String to string map  
 Map Entries: Minimum number of 0 items\. Maximum number of 100 items\.  
 Key Length Constraints: Maximum length of 256\.  
@@ -255,11 +271,11 @@ Value Pattern: `^[a-zA-Z0-9\-\_\.\/\[\]\,\"\\\s]+$`
 
 ## Errors<a name="API_DescribePredictor_Errors"></a>
 
- **InvalidInputException**   
+ ** InvalidInputException **   
 We can't process the request because it includes an invalid value or a value that exceeds the valid range\.  
 HTTP Status Code: 400
 
- **ResourceNotFoundException**   
+ ** ResourceNotFoundException **   
 We can't find a resource with that Amazon Resource Name \(ARN\)\. Check the ARN and try again\.  
 HTTP Status Code: 400
 

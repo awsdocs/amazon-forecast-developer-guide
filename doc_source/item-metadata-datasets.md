@@ -1,6 +1,6 @@
 # Using Item Metadata Datasets<a name="item-metadata-datasets"></a>
 
-An *item metadata dataset* contains categorical data that provides valuable context for the items in a target time\-series dataset when you train a predictor with the [CNN\-QR](aws-forecast-algo-cnnqr.md) or [DeepAR\+](aws-forecast-recipe-deeparplus.md) algorithms\. Unlike related time\-series datasets, item metadata datasets provide information that is static\. That is, the data values remain constant over time, like an item's color or brand\. Item metadata datasets are optional additions to your dataset groups, and are taken into account only when you train a predictor with [CNN\-QR](aws-forecast-algo-cnnqr.md) or [DeepAR\+](aws-forecast-recipe-deeparplus.md) \. You can use an item metadata only if every item in your target time\-series dataset is present in the corresponding item metadata dataset\.
+An *item metadata dataset* contains categorical data that provides valuable context for the items in a target time\-series dataset\. Unlike related time\-series datasets, item metadata datasets provide information that is static\. That is, the data values remain constant over time, like an item's color or brand\. Item metadata datasets are optional additions to your dataset groups\. You can use an item metadata only if every item in your target time\-series dataset is present in the corresponding item metadata dataset\.
 
 Item metadata might include the brand, color, model, category, place of origin, or other supplemental feature of a particular item\. For example, an item metadata dataset might provide context for some of the demand data found in a target time\-series dataset that represents the sales of black Amazon e\-readers with 32 GB of storage\. Because these characteristics don't change from day\-to\-day or hour\-to\-hour, they belong in an item metadata dataset\.
 
@@ -12,6 +12,11 @@ Each row in an item metadata dataset can contain up to 10 metadata fields, one o
 
 **Python notebooks**  
 For a step\-by\-step guide on using item metadata, see [Incorporating Item Metadata](https://github.com/aws-samples/amazon-forecast-samples/blob/master/notebooks/advanced/Incorporating_Item_Metadata_Dataset_to_your_Predictor/Incorporating_Item_Metadata_Dataset_to_your_Predictor.ipynb)\.
+
+**Topics**
++ [Example: Item Metadata File and Schema](#item-metadata-example)
++ [Legacy Predictors and Item Metadata](#item-metadata-legacy)
++ [See Also](#item-metadata-see-also)
 
 ## Example: Item Metadata File and Schema<a name="item-metadata-example"></a>
 
@@ -64,6 +69,13 @@ The following is the schema for this example dataset\.
     ]
 }
 ```
+
+## Legacy Predictors and Item Metadata<a name="item-metadata-legacy"></a>
+
+**Note**  
+To upgrade an existing predictor to AutoPredictor, see [Upgrading to AutoPredictor](howitworks-predictor.md#upgrading-autopredictor)
+
+When using a legacy predictor, you can use item metadata when training a predictor with the [CNN\-QR](aws-forecast-algo-cnnqr.md) or [DeepAR\+](aws-forecast-recipe-deeparplus.md) algorithms\. When using AutoML, you can provide Item metadata and Forecast will only use those time series where applicable
 
 ## See Also<a name="item-metadata-see-also"></a>
 

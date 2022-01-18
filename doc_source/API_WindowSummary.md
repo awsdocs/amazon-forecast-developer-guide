@@ -6,7 +6,7 @@ The `TestWindowStart` and `TestWindowEnd` parameters are determined by the `Back
 
 ## Contents<a name="API_WindowSummary_Contents"></a>
 
- **EvaluationType**   <a name="forecast-Type-WindowSummary-EvaluationType"></a>
+ ** EvaluationType **   <a name="forecast-Type-WindowSummary-EvaluationType"></a>
 The type of evaluation\.  
 +  `SUMMARY` \- The average metrics across all windows\.
 +  `COMPUTED` \- The metrics for the specified window\.
@@ -14,22 +14,22 @@ Type: String
 Valid Values:` SUMMARY | COMPUTED`   
 Required: No
 
- **ItemCount**   <a name="forecast-Type-WindowSummary-ItemCount"></a>
+ ** ItemCount **   <a name="forecast-Type-WindowSummary-ItemCount"></a>
 The number of data points within the window\.  
 Type: Integer  
 Required: No
 
- **Metrics**   <a name="forecast-Type-WindowSummary-Metrics"></a>
+ ** Metrics **   <a name="forecast-Type-WindowSummary-Metrics"></a>
 Provides metrics used to evaluate the performance of a predictor\.  
 Type: [Metrics](API_Metrics.md) object  
 Required: No
 
- **TestWindowEnd**   <a name="forecast-Type-WindowSummary-TestWindowEnd"></a>
+ ** TestWindowEnd **   <a name="forecast-Type-WindowSummary-TestWindowEnd"></a>
 The timestamp that defines the end of the window\.  
 Type: Timestamp  
 Required: No
 
- **TestWindowStart**   <a name="forecast-Type-WindowSummary-TestWindowStart"></a>
+ ** TestWindowStart **   <a name="forecast-Type-WindowSummary-TestWindowStart"></a>
 The timestamp that defines the start of the window\.  
 Type: Timestamp  
 Required: No

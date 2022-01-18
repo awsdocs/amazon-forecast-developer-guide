@@ -4,19 +4,19 @@ Specifies the categorical, continuous, and integer hyperparameters, and their ra
 
 ## Contents<a name="API_ParameterRanges_Contents"></a>
 
- **CategoricalParameterRanges**   <a name="forecast-Type-ParameterRanges-CategoricalParameterRanges"></a>
+ ** CategoricalParameterRanges **   <a name="forecast-Type-ParameterRanges-CategoricalParameterRanges"></a>
 Specifies the tunable range for each categorical hyperparameter\.  
 Type: Array of [CategoricalParameterRange](API_CategoricalParameterRange.md) objects  
 Array Members: Minimum number of 1 item\. Maximum number of 20 items\.  
 Required: No
 
- **ContinuousParameterRanges**   <a name="forecast-Type-ParameterRanges-ContinuousParameterRanges"></a>
+ ** ContinuousParameterRanges **   <a name="forecast-Type-ParameterRanges-ContinuousParameterRanges"></a>
 Specifies the tunable range for each continuous hyperparameter\.  
 Type: Array of [ContinuousParameterRange](API_ContinuousParameterRange.md) objects  
 Array Members: Minimum number of 1 item\. Maximum number of 20 items\.  
 Required: No
 
- **IntegerParameterRanges**   <a name="forecast-Type-ParameterRanges-IntegerParameterRanges"></a>
+ ** IntegerParameterRanges **   <a name="forecast-Type-ParameterRanges-IntegerParameterRanges"></a>
 Specifies the tunable range for each integer hyperparameter\.  
 Type: Array of [IntegerParameterRange](API_IntegerParameterRange.md) objects  
 Array Members: Minimum number of 1 item\. Maximum number of 20 items\.  

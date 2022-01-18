@@ -1,43 +1,207 @@
 # Training Predictors<a name="howitworks-predictor"></a>
 
-A predictor is an Amazon Forecast trained model used for making forecasts based on time\-series data\. During training, Amazon Forecast generates accuracy metrics that you use to evaluate the predictor and decide whether to use the predictor to generate a forecast\.
+A predictor is an Amazon Forecast model that is trained using your target time series, related time series, item metadata, and any additional datasets you include\. You can use predictors to generate forecasts based on your time\-series data\. 
+
+By default, Amazon Forecast creates predictors by applying the optimal combination of algorithms to each time series in your datasets\.
 
 **Topics**
-+ [Creating a Predictor](#howitworks-predictor-intro)
-+ [Predictor Evaluation](#howitworks-predictor-metrics)
-+ [Amazon Forecast AutoML](automl.md)
-+ [Choosing an Amazon Forecast Algorithm](aws-forecast-choosing-recipes.md)
++ [Creating a Predictor](#creating-predictors)
++ [Upgrading to AutoPredictor](#upgrading-autopredictor)
++ [Using additional datasets](#using-additional-datasets)
++ [Working with legacy predictors](#legacy-predictors)
++ [Evaluating Predictor Accuracy](metrics.md)
++ [Retraining Predictors](retrain-predictors.md)
 + [Weather Index](weather.md)
 + [Holidays Featurization](holidays.md)
-+ [Evaluating Predictor Accuracy](metrics.md)
++ [Predictor Explainability](predictor-explainability.md)
++ [Amazon Forecast Algorithms](aws-forecast-choosing-recipes.md)
 
-## Creating a Predictor<a name="howitworks-predictor-intro"></a>
+## Creating a Predictor<a name="creating-predictors"></a>
 
-Amazon Forecast trains forecasting models called predictors\. To create a predictor, you use the [CreatePredictor](API_CreatePredictor.md) operation\.
+Amazon Forecast requires the following inputs to train a predictor:
++ **Dataset group** – A dataset group that must include a target time series dataset\. The target time series dataset includes the target attribute \(`item_id`\) and timestamp attribute, as well as any dimensions\. Related time series and Item metadata is optional\. For more information, see [Importing Datasets](howitworks-datasets-groups.md)\.
++ **Forecast frequency** – The granularity of your forecasts \(hourly, daily, weekly, etc\)\.
++ **Forecast horizon** – The number of time steps being forecasted\.
 
-To create a predictor, you provide the following:
-+ A dataset group – Provides data for training the predictor\. For more information, see [Datasets](howitworks-datasets-groups.md#howitworks-dataset)\.
-+ A featurization configuration – Specifies the forecast frequency and provides information for transforming the data before model training\. Data is transformed to make it more compatible with the training algorithm\. 
-+ A forecast horizon – The number of time\-steps to make\. The forecast horizon is also called the prediction length\.
-+ Evaluation parameters – How to split a dataset into training and test datasets\.
-+ One of the following:
-  + An algorithm – The algorithm is used to train a model and specifies default values for hyperparameter optimization \(only DeepAR\+ and CNN\-QR\), evaluation parameters, and training parameters\. By specifying an algorithm, you also can provide overrides for these parameter values\.
-  + Perform AutoML – Amazon Forecast provides a set of predefined algorithms\. If you don't know which algorithm to choose, use the `PerformAutoML` option\. This option tells Amazon Forecast to evaluate all algorithms and choose the best algorithm based on your datasets\. With this option, model training can take longer, but you don't need to worry about choosing the right algorithm and parameters\. AutoML optimizes the average of the weighted P10, P50 and P90 quantile losses, and returns the algorithm with the lowest value\.
+You can also set values for the following optional inputs:
++ **Forecast dimensions** – Dimensions are optional attributes in your target time series dataset that can be used in combination with the target value \(`item_id`\) to create separate time series\.
++ **Forecast types** – The quantiles used to evaluate your predictor\.
++ **Optimization metric** – The accuracy metric used to optimize your predictor\.
++ **Additional datasets** – Built\-in Amazon Forecast datasets like the Weather Index and Holidays\.
 
-For more information on algorithms, see [Choosing an Amazon Forecast Algorithm](aws-forecast-choosing-recipes.md)\.
+You can create a predictor using the Software Development Kit \(SDK\) or the Amazon Forecast console\.
 
-## Predictor Evaluation<a name="howitworks-predictor-metrics"></a>
 
-After you create a predictor, you can evaluate the accuracy of the forecast it generates by running the [GetAccuracyMetrics](API_GetAccuracyMetrics.md) operation\.
 
-**Evaluation Parameters**
+------
+#### [ Console ]
 
-The evaluation parameters define how to split a dataset into training and test datasets for backtest window evaluations, as well as the number of backtest iterations to perform\. These parameters have default values that can be overridden in the [CreatePredictor](API_CreatePredictor.md) request\.
+**To create a predictor**
 
-The evaluation parameters consist of the `NumberOfBacktestWindows` and the `BackTestWindowOffset` parameters\.
+1. Sign in to the AWS Management Console and open the Amazon Forecast console at [https://console\.aws\.amazon\.com/forecast/](https://console.aws.amazon.com/forecast/)\.
 
-`NumberOfBacktestWindows` specifies the number of times to split the input data\. The range is 1 through 5\.
+1. From **Dataset groups**, choose your dataset group\.
 
-`BackTestWindowOffset` defines the point from the end of the dataset where the data is split for model training and testing \(evaluation\)\. The value is specified as the number of data points\. `BackTestWindowOffset` must be greater than or equal to the forecast horizon and less than half of the target time series dataset length\. This parameter can be used to mimic a past virtual forecast start date\.
+1. In the navigation pane, choose **Predictors**\.
 
-For more information, see [Evaluating Predictor Accuracy](metrics.md)\.
+1. Choose **Train new predictor**\.
+
+1. Provide values for the following mandatory fields:
+   +  **Name** \- a unique predictor name\.
+   + **Forecast frequency** \- the granularity of your forecasts\.
+   + **Forecast horizon** \- The number of time steps to forecast\.
+
+1. Choose **Start**\.
+
+For information on additional datasets, see [ Weather Index](weather.md) and [Holidays Featurization](holidays.md)\. To learn more about customizing forecast types and optimization metrics, see [Evaluating Predictor Accuracy](metrics.md)\.
+
+------
+#### [ SDK ]
+
+**To create a predictor**
+
+Using the [`CreateAutoPredictor`](API_CreateAutoPredictor.md) operation, define the following required parameters in the request below:
+
+```
+{
+  "PredictorName": "string",
+  "ForecastHorizon": 14,
+  "ForecastFrequency:": "D",
+  "DataConfig": {
+      "DatasetGroupArn": "..MyDSG",
+  },
+}
+```
+
+To learn more about customizing forecast types and optimization metrics, see [Evaluating Predictor Accuracy](metrics.md)\.
+
+```
+{
+  ...
+  "ForecastDimensions": [ "string" ],
+  "ForecastTypes": [ "string" ],
+  "OptimizationMetric": "string",
+}
+```
+
+The Weather Index and Holidays additional datasets are defined within the `DataConfig` datatype\. For information on additional datasets, see [ Weather Index](weather.md) and [Holidays Featurization](holidays.md)\.
+
+```
+{
+      ...
+      "AdditionalDatasets": [{ 
+            "Name": "Holiday",
+            "Configuration": {
+              "CountryCode": ["US"]
+            }
+           }, {
+             "Name": "Weather"
+       }],
+}
+```
+
+------
+
+## Upgrading to AutoPredictor<a name="upgrading-autopredictor"></a>
+
+**Python notebooks**  
+For a step\-by\-step guide on upgrading predictors to AutoPredictor, see [Upgrading a predictor to AutoPredictor](https://github.com/aws-samples/amazon-forecast-samples/blob/main/notebooks/basic/Upgrading_to_AutoPredictor/UpgradeToAutoPredictor.ipynb)\.
+
+Predictors created with AutoML or manual selection \(CreatePredictor\) can be upgraded to an AutoPredictor\. Upgrading an existing to AutoPredictor will transfer all the relevant predictor configuration settings\.
+
+After Upgrading to AutoPredictor, the original predictor will remain active and the upgraded predictor will have a separate Predictor ARN\. This enables you to compare accuracy metrics between the two predictors, and you can still generate forecasts with the original predictor\.
+
+You can upgrade a predictor using the Software Development Kit \(SDK\) or the Amazon Forecast console\.
+
+------
+#### [ Console ]
+
+**To upgrade a predictor**
+
+1. Sign in to the AWS Management Console and open the Amazon Forecast console at [https://console\.aws\.amazon\.com/forecast/](https://console.aws.amazon.com/forecast/)\.
+
+1. In the navigation pane, choose **Predictors**\.
+
+1. Choose the predictor to upgrade, and choose **Upgrade**\.
+
+1. Set a unique name for the upgraded predictor\.
+
+1. Choose **Upgrade to AutoPredictor**\.
+
+------
+#### [ SDK ]
+
+**To upgrade a predictor**
+
+Using the [`CreateAutoPredictor`](API_CreateAutoPredictor.md) operation, assign the predictor a unique name and set the value of `ReferencePredictorArn` to the predictor you wish to upgrade\.
+
+```
+{
+  "PredictorName": "UpgradedPredictor",
+  "ReferencePredictorArn": "arn:aws:forecast:us-west-2:938097332257:predictor/OriginalPredictor"
+}
+```
+
+When upgrading a predictor, assign values to only the `PredictorName` and `ReferencePredictorArn` parameters\.
+
+------
+
+## Using additional datasets<a name="using-additional-datasets"></a>
+
+Amazon Forecast can include the Weather Index and Holidays when creating your predictor\. The Weather Index incorporates meteorological information into your model and Holidays incorporates information regarding national holidays\.
+
+The Weather Index requires a ‘geolocation’ attribute in your target time series dataset and information regarding time zones for your timestamps\. For more information, see [ Weather Index](weather.md)\.
+
+Holidays includes holiday information on 66 countries\. For more information, see [Holidays Featurization](holidays.md)\.
+
+## Working with legacy predictors<a name="legacy-predictors"></a>
+
+**Note**  
+To upgrade an existing predictor to AutoPredictor, see [Upgrading to AutoPredictor](#upgrading-autopredictor)
+
+AutoPredictor is the default and preferred method to create a predictor with Amazon Forecast\. AutoPredictor creates predictors by applying the optimal combination of algorithms for each time series in your dataset\.
+
+Predictors created with AutoPredictor are generally more accurate than predictors created with AutoML or manual selection\. The Forecast Explainability and predictor retraining features are only available for predictors created with AutoPredictor\.
+
+Amazon Forecast can also create legacy predictors in the following ways:
+
+1. **AutoML** \- Forecast finds the best\-performing algorithm and applies it to your entire dataset\.
+
+1. **Manual selection** \- Manually choose a single algorithm that is applied to your entire dataset\.
+
+You can create a legacy predictor using the Software Development Kit \(SDK\) or the Amazon Forecast console\.
+
+------
+#### [ Console ]
+
+**To use AutoML**
+
+1. Sign in to the AWS Management Console and open the Amazon Forecast console at [https://console\.aws\.amazon\.com/forecast/](https://console.aws.amazon.com/forecast/)\.
+
+1. From **Dataset groups**, choose your dataset group\.
+
+1. In the navigation pane, choose **Predictors**\.
+
+1. Choose **Train new predictor**\.
+
+1. In the **Predictor configuration** section, unselect **Enable AutoPredictor**\.
+
+1. Expand the **Algorithm selection** drop\-down and choose **Automatic \(AutoML\)**\. 
+
+------
+#### [ SDK ]
+
+**To use AutoML**
+
+Using the [`CreatePredictor`](API_CreatePredictor.md) operation, set the value of `PerformAutoML` to `"true"`\.
+
+```
+{
+    ...
+    "PerformAutoML": "true",
+}
+```
+
+If you use AutoML, you cannot set a value for the following CreatePredictor parameters: `AlgorithmArn`, `HPOConfig`, `TrainingParameters`\.
+
+------

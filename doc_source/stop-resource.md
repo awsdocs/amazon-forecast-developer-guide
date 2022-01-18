@@ -2,7 +2,7 @@
 
  The Amazon Forecast `Stop Resource` \([`StopResource`](API_StopResource.md)\) operation stops a resource job that is in progress\. You can stop the following resource jobs: 
 + Dataset group import \(`CreateDatasetImportJob`\)
-+ Predictor training \(`CreatePredictor`\)
++ Predictor training \(`CreateAutoPredictor` and `CreatePredictor`\)
 + Predictor backtest export \(`CreatePredictorBacktestExportJob`\)
 + Forecast \(`CreateForecast`\)
 + Forecast export \(`CreateForecastExportJob`\)

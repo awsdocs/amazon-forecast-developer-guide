@@ -1,9 +1,9 @@
 # DeleteDataset<a name="API_DeleteDataset"></a>
 
-Deletes an Amazon Forecast dataset that was created using the [CreateDataset](API_CreateDataset.md) operation\. You can only delete datasets that have a status of `ACTIVE` or `CREATE_FAILED`\. To get the status use the [DescribeDataset](API_DescribeDataset.md) operation\.
+Deletes an Amazon Forecast dataset that was created using the [CreateDataset](https://docs.aws.amazon.com/forecast/latest/dg/API_CreateDataset.html) operation\. You can only delete datasets that have a status of `ACTIVE` or `CREATE_FAILED`\. To get the status use the [DescribeDataset](https://docs.aws.amazon.com/forecast/latest/dg/API_DescribeDataset.html) operation\.
 
 **Note**  
-Forecast does not automatically update any dataset groups that contain the deleted dataset\. In order to update the dataset group, use the [UpdateDatasetGroup](API_UpdateDatasetGroup.md) operation, omitting the deleted dataset's ARN\.
+Forecast does not automatically update any dataset groups that contain the deleted dataset\. In order to update the dataset group, use the [UpdateDatasetGroup](https://docs.aws.amazon.com/forecast/latest/dg/API_UpdateDatasetGroup.html) operation, omitting the deleted dataset's ARN\.
 
 ## Request Syntax<a name="API_DeleteDataset_RequestSyntax"></a>
 
@@ -30,15 +30,15 @@ If the action is successful, the service sends back an HTTP 200 response with an
 
 ## Errors<a name="API_DeleteDataset_Errors"></a>
 
- **InvalidInputException**   
+ ** InvalidInputException **   
 We can't process the request because it includes an invalid value or a value that exceeds the valid range\.  
 HTTP Status Code: 400
 
- **ResourceInUseException**   
+ ** ResourceInUseException **   
 The specified resource is in use\.  
 HTTP Status Code: 400
 
- **ResourceNotFoundException**   
+ ** ResourceNotFoundException **   
 We can't find a resource with that Amazon Resource Name \(ARN\)\. Check the ARN and try again\.  
 HTTP Status Code: 400
 

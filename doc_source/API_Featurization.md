@@ -1,5 +1,8 @@
 # Featurization<a name="API_Featurization"></a>
 
+**Note**  
+This object belongs to the [CreatePredictor](API_CreatePredictor.md) operation\. If you created your predictor with [CreateAutoPredictor](API_CreateAutoPredictor.md), see [AttributeConfig](API_AttributeConfig.md)\.
+
 Provides featurization \(transformation\) information for a dataset field\. This object is part of the [FeaturizationConfig](API_FeaturizationConfig.md) object\.
 
 For example:
@@ -20,14 +23,14 @@ For example:
 
 ## Contents<a name="API_Featurization_Contents"></a>
 
- **AttributeName**   <a name="forecast-Type-Featurization-AttributeName"></a>
+ ** AttributeName **   <a name="forecast-Type-Featurization-AttributeName"></a>
 The name of the schema attribute that specifies the data field to be featurized\. Amazon Forecast supports the target field of the `TARGET_TIME_SERIES` and the `RELATED_TIME_SERIES` datasets\. For example, for the `RETAIL` domain, the target is `demand`, and for the `CUSTOM` domain, the target is `target_value`\. For more information, see [Handling Missing Values](howitworks-missing-values.md)\.  
 Type: String  
 Length Constraints: Minimum length of 1\. Maximum length of 63\.  
 Pattern: `^[a-zA-Z][a-zA-Z0-9_]*`   
 Required: Yes
 
- **FeaturizationPipeline**   <a name="forecast-Type-Featurization-FeaturizationPipeline"></a>
+ ** FeaturizationPipeline **   <a name="forecast-Type-Featurization-FeaturizationPipeline"></a>
 An array of one `FeaturizationMethod` object that specifies the feature transformation method\.  
 Type: Array of [FeaturizationMethod](API_FeaturizationMethod.md) objects  
 Array Members: Fixed number of 1 item\.  

@@ -4,18 +4,23 @@ Provides metrics that are used to evaluate the performance of a predictor\. This
 
 ## Contents<a name="API_Metrics_Contents"></a>
 
- **ErrorMetrics**   <a name="forecast-Type-Metrics-ErrorMetrics"></a>
- Provides detailed error metrics on forecast type, root\-mean square\-error \(RMSE\), and weighted average percentage error \(WAPE\)\.   
+ ** AverageWeightedQuantileLoss **   <a name="forecast-Type-Metrics-AverageWeightedQuantileLoss"></a>
+The average value of all weighted quantile losses\.  
+Type: Double  
+Required: No
+
+ ** ErrorMetrics **   <a name="forecast-Type-Metrics-ErrorMetrics"></a>
+ Provides detailed error metrics for each forecast type\. Metrics include root\-mean square\-error \(RMSE\), mean absolute percentage error \(MAPE\), mean absolute scaled error \(MASE\), and weighted average percentage error \(WAPE\)\.   
 Type: Array of [ErrorMetric](API_ErrorMetric.md) objects  
 Required: No
 
- **RMSE**   <a name="forecast-Type-Metrics-RMSE"></a>
+ ** RMSE **   <a name="forecast-Type-Metrics-RMSE"></a>
  *This member has been deprecated\.*   
 The root\-mean\-square error \(RMSE\)\.  
 Type: Double  
 Required: No
 
- **WeightedQuantileLosses**   <a name="forecast-Type-Metrics-WeightedQuantileLosses"></a>
+ ** WeightedQuantileLosses **   <a name="forecast-Type-Metrics-WeightedQuantileLosses"></a>
 An array of weighted quantile losses\. Quantiles divide a probability distribution into regions of equal probability\. The distribution in this case is the loss function\.  
 Type: Array of [WeightedQuantileLoss](API_WeightedQuantileLoss.md) objects  
 Required: No

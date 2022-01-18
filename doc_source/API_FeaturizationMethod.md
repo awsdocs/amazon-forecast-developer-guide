@@ -14,13 +14,13 @@ The following is an example of how you specify a `FeaturizationMethod` object\.
 
 ## Contents<a name="API_FeaturizationMethod_Contents"></a>
 
- **FeaturizationMethodName**   <a name="forecast-Type-FeaturizationMethod-FeaturizationMethodName"></a>
+ ** FeaturizationMethodName **   <a name="forecast-Type-FeaturizationMethod-FeaturizationMethodName"></a>
 The name of the method\. The "filling" method is the only supported method\.  
 Type: String  
 Valid Values:` filling`   
 Required: Yes
 
- **FeaturizationMethodParameters**   <a name="forecast-Type-FeaturizationMethod-FeaturizationMethodParameters"></a>
+ ** FeaturizationMethodParameters **   <a name="forecast-Type-FeaturizationMethod-FeaturizationMethodParameters"></a>
 The method parameters \(key\-value pairs\), which are a map of override parameters\. Specify these parameters to override the default values\. Related Time Series attributes do not accept aggregation parameters\.  
 The following list shows the parameters and their valid values for the "filling" featurization method for a **Target Time Series** dataset\. Bold signifies the default value\.  
 +  `aggregation`: **sum**, `avg`, `first`, `min`, `max` 

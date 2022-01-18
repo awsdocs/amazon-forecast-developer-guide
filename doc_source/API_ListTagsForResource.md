@@ -15,7 +15,7 @@ Lists the tags for an Amazon Forecast resource\.
 The request accepts the following data in JSON format\.
 
  ** [ResourceArn](#API_ListTagsForResource_RequestSyntax) **   <a name="forecast-ListTagsForResource-request-ResourceArn"></a>
-The Amazon Resource Name \(ARN\) that identifies the resource for which to list the tags\. Currently, the supported resources are Forecast dataset groups, datasets, dataset import jobs, predictors, forecasts, and forecast export jobs\.  
+The Amazon Resource Name \(ARN\) that identifies the resource for which to list the tags\.   
 Type: String  
 Length Constraints: Maximum length of 256\.  
 Pattern: `^[a-zA-Z0-9\-\_\.\/\:]+$`   
@@ -47,11 +47,11 @@ Array Members: Minimum number of 0 items\. Maximum number of 200 items\.
 
 ## Errors<a name="API_ListTagsForResource_Errors"></a>
 
- **InvalidInputException**   
+ ** InvalidInputException **   
 We can't process the request because it includes an invalid value or a value that exceeds the valid range\.  
 HTTP Status Code: 400
 
- **ResourceNotFoundException**   
+ ** ResourceNotFoundException **   
 We can't find a resource with that Amazon Resource Name \(ARN\)\. Check the ARN and try again\.  
 HTTP Status Code: 400
 

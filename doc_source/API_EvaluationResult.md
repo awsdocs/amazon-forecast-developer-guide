@@ -4,14 +4,14 @@ The results of evaluating an algorithm\. Returned as part of the [GetAccuracyMet
 
 ## Contents<a name="API_EvaluationResult_Contents"></a>
 
- **AlgorithmArn**   <a name="forecast-Type-EvaluationResult-AlgorithmArn"></a>
+ ** AlgorithmArn **   <a name="forecast-Type-EvaluationResult-AlgorithmArn"></a>
 The Amazon Resource Name \(ARN\) of the algorithm that was evaluated\.  
 Type: String  
 Length Constraints: Maximum length of 256\.  
 Pattern: `^[a-zA-Z0-9\-\_\.\/\:]+$`   
 Required: No
 
- **TestWindows**   <a name="forecast-Type-EvaluationResult-TestWindows"></a>
+ ** TestWindows **   <a name="forecast-Type-EvaluationResult-TestWindows"></a>
 The array of test windows used for evaluating the algorithm\. The `NumberOfBacktestWindows` from the [EvaluationParameters](API_EvaluationParameters.md) object determines the number of windows in the array\.  
 Type: Array of [WindowSummary](API_WindowSummary.md) objects  
 Required: No

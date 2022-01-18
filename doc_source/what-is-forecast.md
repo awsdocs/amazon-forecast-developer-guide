@@ -29,10 +29,10 @@ Here are some common use cases for Amazon Forecast:
 Amazon Forecast automates much of the time\-series forecasting process, enabling you to focus on preparing your datasets and interpretting your predictions\. 
 
 Forecast provides the following features:
-+ **Automated machine learning** – AutoML enables you to automate complex machine learning tasks, such as algorithm selection, hyperparameter tuning, iterative modeling, and model assessment\.
-+ **State\-of\-the\-art algorithms** – Use machine learning algorithms that are based on the same technology used at Amazon\.com\. Forecast offers a wide range of training algorithms, from commonly used statistical methods to complex neural networks\.
++ **Automated machine learning** – Forecast automates complex machine learning tasks by finding the optimal combination of machine learning algorithms for your datasets\.
++ **State\-of\-the\-art algorithms** – Apply a combination of machine learning algorithms that are based on the same technology used at Amazon\.com\. Forecast offers a wide range of training algorithms, from commonly used statistical methods to complex neural networks\.
 + **Missing value support** – Forecast provides several filling methods to automatically handle missing values in your datasets\.
-+ **Built\-in featurizations** – Forecast can automatically incorporate built\-in featurized datasets to improve your model\. These datasets are already feature engineered and do not require additional configuration\.
++ **Additional built\-in datasets** – Forecast can automatically incorporate built\-in datasets to improve your model\. These datasets are already feature engineered and do not require additional configuration\.
 
 ## Pricing for Amazon Forecast<a name="whatis-pricing"></a>
 

@@ -4,24 +4,24 @@ Specifies an integer hyperparameter and it's range of tunable values\. This obje
 
 ## Contents<a name="API_IntegerParameterRange_Contents"></a>
 
- **MaxValue**   <a name="forecast-Type-IntegerParameterRange-MaxValue"></a>
+ ** MaxValue **   <a name="forecast-Type-IntegerParameterRange-MaxValue"></a>
 The maximum tunable value of the hyperparameter\.  
 Type: Integer  
 Required: Yes
 
- **MinValue**   <a name="forecast-Type-IntegerParameterRange-MinValue"></a>
+ ** MinValue **   <a name="forecast-Type-IntegerParameterRange-MinValue"></a>
 The minimum tunable value of the hyperparameter\.  
 Type: Integer  
 Required: Yes
 
- **Name**   <a name="forecast-Type-IntegerParameterRange-Name"></a>
+ ** Name **   <a name="forecast-Type-IntegerParameterRange-Name"></a>
 The name of the hyperparameter to tune\.  
 Type: String  
 Length Constraints: Minimum length of 1\. Maximum length of 63\.  
 Pattern: `^[a-zA-Z][a-zA-Z0-9_]*`   
 Required: Yes
 
- **ScalingType**   <a name="forecast-Type-IntegerParameterRange-ScalingType"></a>
+ ** ScalingType **   <a name="forecast-Type-IntegerParameterRange-ScalingType"></a>
 The scale that hyperparameter tuning uses to search the hyperparameter range\. Valid values:    
 Auto  
 Amazon Forecast hyperparameter tuning chooses the best scale for the hyperparameter\.  

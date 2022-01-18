@@ -1,5 +1,8 @@
 # CreatePredictor<a name="API_CreatePredictor"></a>
 
+**Note**  
+ This operation creates a legacy predictor that does not include all the predictor functionalities provided by Amazon Forecast\. To create a predictor that is compatible with all aspects of Forecast, use [CreateAutoPredictor](API_CreateAutoPredictor.md)\.
+
 Creates an Amazon Forecast predictor\.
 
 In the request, provide a dataset group and either specify an algorithm or let Amazon Forecast choose an algorithm for you using AutoML\. If you specify an algorithm, you also can override algorithm\-specific hyperparameters\.
@@ -97,6 +100,7 @@ Before you can use the predictor to create a forecast, the `Status` of the predi
          }
       ]
    },
+   "OptimizationMetric": "string",
    "PerformAutoML": boolean,
    "PerformHPO": boolean,
    "PredictorName": "string",
@@ -132,10 +136,11 @@ Pattern: `^[a-zA-Z0-9\-\_\.\/\:]+$`
 Required: No
 
  ** [AutoMLOverrideStrategy](#API_CreatePredictor_RequestSyntax) **   <a name="forecast-CreatePredictor-request-AutoMLOverrideStrategy"></a>
+ The `LatencyOptimized` AutoML override strategy is only available in private beta\. Contact AWS Support or your account manager to learn more about access privileges\. 
 Used to overide the default AutoML strategy, which is to optimize predictor accuracy\. To apply an AutoML strategy that minimizes training time, use `LatencyOptimized`\.  
 This parameter is only valid for predictors trained using AutoML\.  
 Type: String  
-Valid Values:` LatencyOptimized`   
+Valid Values:` LatencyOptimized | AccuracyOptimized`   
 Required: No
 
  ** [EncryptionConfig](#API_CreatePredictor_RequestSyntax) **   <a name="forecast-CreatePredictor-request-EncryptionConfig"></a>
@@ -165,11 +170,12 @@ Specifies the forecast types used to train a predictor\. You can specify up to f
 The default value is `["0.10", "0.50", "0.9"]`\.  
 Type: Array of strings  
 Array Members: Minimum number of 1 item\. Maximum number of 20 items\.  
+Length Constraints: Minimum length of 2\. Maximum length of 4\.  
 Pattern: `(^0?\.\d\d?$|^mean$)`   
 Required: No
 
  ** [HPOConfig](#API_CreatePredictor_RequestSyntax) **   <a name="forecast-CreatePredictor-request-HPOConfig"></a>
-Provides hyperparameter override values for the algorithm\. If you don't provide this parameter, Amazon Forecast uses default values\. The individual algorithms specify which hyperparameters support hyperparameter optimization \(HPO\)\. For more information, see [Choosing an Amazon Forecast Algorithm](aws-forecast-choosing-recipes.md)\.  
+Provides hyperparameter override values for the algorithm\. If you don't provide this parameter, Amazon Forecast uses default values\. The individual algorithms specify which hyperparameters support hyperparameter optimization \(HPO\)\. For more information, see [Amazon Forecast Algorithms](aws-forecast-choosing-recipes.md)\.  
 If you included the `HPOConfig` object, you must set `PerformHPO` to true\.  
 Type: [HyperParameterTuningJobConfig](API_HyperParameterTuningJobConfig.md) object  
 Required: No
@@ -178,6 +184,12 @@ Required: No
 Describes the dataset group that contains the data to use to train the predictor\.  
 Type: [InputDataConfig](API_InputDataConfig.md) object  
 Required: Yes
+
+ ** [OptimizationMetric](#API_CreatePredictor_RequestSyntax) **   <a name="forecast-CreatePredictor-request-OptimizationMetric"></a>
+The accuracy metric used to optimize the predictor\.  
+Type: String  
+Valid Values:` WAPE | RMSE | AverageWeightedQuantileLoss | MASE | MAPE`   
+Required: No
 
  ** [PerformAutoML](#API_CreatePredictor_RequestSyntax) **   <a name="forecast-CreatePredictor-request-PerformAutoML"></a>
 Whether to perform AutoML\. When Amazon Forecast performs AutoML, it evaluates the algorithms it provides and chooses the best algorithm and configuration for your training dataset\.  
@@ -218,7 +230,7 @@ Array Members: Minimum number of 0 items\. Maximum number of 200 items\.
 Required: No
 
  ** [TrainingParameters](#API_CreatePredictor_RequestSyntax) **   <a name="forecast-CreatePredictor-request-TrainingParameters"></a>
-The hyperparameters to override for model training\. The hyperparameters that you can override are listed in the individual algorithms\. For the list of supported algorithms, see [Choosing an Amazon Forecast Algorithm](aws-forecast-choosing-recipes.md)\.  
+The hyperparameters to override for model training\. The hyperparameters that you can override are listed in the individual algorithms\. For the list of supported algorithms, see [Amazon Forecast Algorithms](aws-forecast-choosing-recipes.md)\.  
 Type: String to string map  
 Map Entries: Minimum number of 0 items\. Maximum number of 100 items\.  
 Key Length Constraints: Maximum length of 256\.  
@@ -249,23 +261,23 @@ Pattern: `^[a-zA-Z0-9\-\_\.\/\:]+$`
 
 ## Errors<a name="API_CreatePredictor_Errors"></a>
 
- **InvalidInputException**   
+ ** InvalidInputException **   
 We can't process the request because it includes an invalid value or a value that exceeds the valid range\.  
 HTTP Status Code: 400
 
- **LimitExceededException**   
+ ** LimitExceededException **   
 The limit on the number of resources per account has been exceeded\.  
 HTTP Status Code: 400
 
- **ResourceAlreadyExistsException**   
+ ** ResourceAlreadyExistsException **   
 There is already a resource with this name\. Try again with a different name\.  
 HTTP Status Code: 400
 
- **ResourceInUseException**   
+ ** ResourceInUseException **   
 The specified resource is in use\.  
 HTTP Status Code: 400
 
- **ResourceNotFoundException**   
+ ** ResourceNotFoundException **   
 We can't find a resource with that Amazon Resource Name \(ARN\)\. Check the ARN and try again\.  
 HTTP Status Code: 400
 

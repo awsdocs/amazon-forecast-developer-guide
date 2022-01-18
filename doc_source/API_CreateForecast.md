@@ -45,6 +45,7 @@ Required: Yes
 The quantiles at which probabilistic forecasts are generated\. **You can currently specify up to 5 quantiles per forecast**\. Accepted values include `0.01 to 0.99` \(increments of \.01 only\) and `mean`\. The mean forecast is different from the median \(0\.50\) when the distribution is not symmetric \(for example, Beta and Negative Binomial\)\. The default value is `["0.1", "0.5", "0.9"]`\.  
 Type: Array of strings  
 Array Members: Minimum number of 1 item\. Maximum number of 20 items\.  
+Length Constraints: Minimum length of 2\. Maximum length of 4\.  
 Pattern: `(^0?\.\d\d?$|^mean$)`   
 Required: No
 
@@ -91,23 +92,23 @@ Pattern: `^[a-zA-Z0-9\-\_\.\/\:]+$`
 
 ## Errors<a name="API_CreateForecast_Errors"></a>
 
- **InvalidInputException**   
+ ** InvalidInputException **   
 We can't process the request because it includes an invalid value or a value that exceeds the valid range\.  
 HTTP Status Code: 400
 
- **LimitExceededException**   
+ ** LimitExceededException **   
 The limit on the number of resources per account has been exceeded\.  
 HTTP Status Code: 400
 
- **ResourceAlreadyExistsException**   
+ ** ResourceAlreadyExistsException **   
 There is already a resource with this name\. Try again with a different name\.  
 HTTP Status Code: 400
 
- **ResourceInUseException**   
+ ** ResourceInUseException **   
 The specified resource is in use\.  
 HTTP Status Code: 400
 
- **ResourceNotFoundException**   
+ ** ResourceNotFoundException **   
 We can't find a resource with that Amazon Resource Name \(ARN\)\. Check the ARN and try again\.  
 HTTP Status Code: 400
 

@@ -1,5 +1,8 @@
 # SupplementaryFeature<a name="API_SupplementaryFeature"></a>
 
+**Note**  
+This object belongs to the [CreatePredictor](API_CreatePredictor.md) operation\. If you created your predictor with [CreateAutoPredictor](API_CreateAutoPredictor.md), see [AdditionalDataset](API_AdditionalDataset.md)\.
+
 Describes a supplementary feature of a dataset group\. This object is part of the [InputDataConfig](API_InputDataConfig.md) object\. Forecast supports the Weather Index and Holidays built\-in featurizations\.
 
  **Weather Index** 
@@ -12,14 +15,14 @@ Holidays is a built\-in featurization that incorporates a feature\-engineered da
 
 ## Contents<a name="API_SupplementaryFeature_Contents"></a>
 
- **Name**   <a name="forecast-Type-SupplementaryFeature-Name"></a>
+ ** Name **   <a name="forecast-Type-SupplementaryFeature-Name"></a>
 The name of the feature\. Valid values: `"holiday"` and `"weather"`\.  
 Type: String  
 Length Constraints: Minimum length of 1\. Maximum length of 63\.  
 Pattern: `^[a-zA-Z][a-zA-Z0-9_]*`   
 Required: Yes
 
- **Value**   <a name="forecast-Type-SupplementaryFeature-Value"></a>
+ ** Value **   <a name="forecast-Type-SupplementaryFeature-Value"></a>
  **Weather Index**   
 To enable the Weather Index, set the value to `"true"`   
  **Holidays**   

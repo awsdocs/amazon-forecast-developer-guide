@@ -11,25 +11,27 @@
 
 ## Enabling the Holidays Featurization<a name="enabling-holidays"></a>
 
-The Holidays featurization is included in Amazon Forecast as a [Supplementary Feature](API_SupplementaryFeature.md), and is enabled before training a predictor\. After you choose a country, Holidays applies that country’s holiday calendar to every item in your dataset during training\.
+The Holidays featurization is included in Amazon Forecast as an [Additional Dataset](API_AdditionalDataset.md), and is enabled before training a predictor\. After you choose a country, Holidays applies that country’s holiday calendar to every item in your dataset during training\.
 
  You can enable Holidays using the Amazon Forecast console or the Forecast Software Development Kit \(SDK\)\.
 
 ------
 #### [ Forecast SDK ]
 
-Using the [ `CreatePredictor`](API_CreatePredictor.md) operation, enable Holidays by adding `"Name": "holiday`" and setting `"Value"` to a two\-letter country code\. See [Country Codes](#holidays-country-codes)\.
+Using the [`CreateAutoPredictor`](API_CreateAutoPredictor.md) operation, enable Holidays by adding `"Name": "holiday`" and setting `"Configuration"` to map `"CountryCode"` a two\-letter country code\. See [Country Codes](#holidays-country-codes)\.
 
 For example, to include the USA holiday calendar, use the following code\.
 
 ```
-      "InputDataConfig": {          
-        "SupplementaryFeatures": [          
+      "DataConfig": {          
+        "AdditionalDatasets": [          
             {             
                 "Name": "holiday",            
-                "Value": "US"         
-            }      
-            ]   
+                "Configuration": {
+                    "CountryCode" : ["US"]
+                }      
+            },      
+          ]   
         },
 ```
 
@@ -167,6 +169,6 @@ Eid al\-Adha\*
 
 Islamic New Year\*
 
-\*islamic Holidays Are Determined by Lunar Cycles\.
+\*Islamic Holidays are determined by lunar cycles\.
 
 ------

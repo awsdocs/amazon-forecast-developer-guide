@@ -12,6 +12,7 @@ Forecast does not communicate with AWS VPCs and is unable to support the S3 VPCE
 **Topics**
 + [Create an IAM Role for Amazon Forecast \(IAM Console\)](#aws-forecast-create-iam-role-with-console)
 + [Create an IAM for Amazon Forecast \(AWS CLI\)](#aws-forecast-create-iam-role-with-cli)
++ [Cross\-service confused deputy prevention](#aws-forecast-confused-deputy)
 
 ## Create an IAM Role for Amazon Forecast \(IAM Console\)<a name="aws-forecast-create-iam-role-with-console"></a>
 
@@ -84,9 +85,33 @@ You can use the AWS IAM console to do the following:
             "Principal": {
               "Service": "forecast.amazonaws.com"
             },
-            "Action": "sts:AssumeRole"
+            "Action": "sts:AssumeRole",
+            "Condition": {
+              "StringEquals": {
+                "aws:SourceAccount": "account-id"
+              },
+              "ArnLike": {
+                "aws:SourceArn": "arn:aws:forecast:region:account-id:*"
+              }
+            }
           }
         ]
+      }
+      ```
+
+   1. **\[OPTIONAL\]** When using a KMS key to enable encryption, attach the KMS key and ARN:
+
+      ```
+      {
+          "Version": "2012-10-17",
+          "Statement": [
+              {
+                  "Sid": "ForecastKMS",
+                  "Effect": "Allow",
+                  "Action": "kms:*",
+                  "Resource": "arn:aws:kms:region:account-id:key/KMS-key-id"
+              }
+          ]
       }
       ```
 
@@ -105,16 +130,25 @@ You can use the AWS CLI to do the following:
    aws iam create-role \
     --role-name ForecastRole \
     --assume-role-policy-document '{
-      "Version":"2012-10-17",
-      "Statement":[
-         {
-            "Effect":"Allow",
-            "Principal":{
-               "Service":"forecast.amazonaws.com"
-            },
-            "Action":"sts:AssumeRole"
+     "Version": "2012-10-17",
+     "Statement": [
+       {
+         "Sid": "",
+         "Effect": "Allow",
+         "Principal": {
+           "Service": "forecast.amazonaws.com"
+         },
+         "Action": "sts:AssumeRole",
+         "Condition": {
+           "StringEquals": {
+             "aws:SourceAccount": "account-id"
+           },
+           "ArnLike": {
+             "aws:SourceArn": "arn:aws:forecast:region:account-id:*"
+           }
          }
-      ]
+       }
+     ]
    }'
    ```
 
@@ -125,23 +159,32 @@ You can use the AWS CLI to do the following:
    ```
    {
        "Role": {
+           "Path": "/",
            "RoleName": "ForecastRole",
+           "RoleId": your-role-ID,
+           "Arn": "arn:aws:iam::your-acct-ID:role/ForecastRole",
+           "CreateDate": "creation-date",
            "AssumeRolePolicyDocument": {
                "Version": "2012-10-17",
                "Statement": [
                    {
-                       "Action": "sts:AssumeRole",
+                       "Sid": "",
+                       "Effect": "Allow",
                        "Principal": {
                            "Service": "forecast.amazonaws.com"
                        },
-                       "Effect": "Allow"
+                       "Action": "sts:AssumeRole",
+                       "Condition": {
+                           "StringEquals": {
+                               "aws:SourceAccount": "your-acct-ID"
+                           },
+                           "ArnLike": {
+                               "aws:SourceArn": "arn:aws:forecast:region:your-acct-ID:*"
+                           }
+                       }
                    }
                ]
-           },
-           "Arn": "arn:aws:iam::your-acct-ID:role/ForecastRole", 
-           "CreateDate": "2018-09-12T00:23:06Z",
-           "RoleId": "AROAITEGTQ3NN3FYHXNJU",
-           "Path": "/"
+           }
        }
    }
    ```
@@ -174,3 +217,52 @@ You can use the AWS CLI to do the following:
    ```
 
    
+
+1. **\[OPTIONAL\]** When using a KMS key to enable encryption, attach the KMS key and ARN:
+
+   ```
+   aws iam put-role-policy \
+     --role-name ForecastRole \
+     --policy-name ForecastBucketAccessPolicy \
+     --policy-document '{
+      "Version":"2012-10-17",
+      "Statement":[
+         {
+            "Effect":"Allow",
+            "Action":[
+               "s3:Get*",
+               "s3:List*",
+               "s3:PutObject"
+            ],
+            "Resource":[
+               "arn:aws:s3:::bucket-name", 
+               "arn:aws:s3:::bucket-name/*" 
+            ]
+         }
+      ]
+   }'aws iam put-role-policy \
+     --role-name ForecastRole \
+     --policy-name ForecastKMSAccessPolicy \
+     --policy-document ‘{
+      "Version":"2012-10-17",
+      "Statement":[
+         {
+            "Effect":"Allow",
+            "Action":[
+               "kms:*"
+            ],
+            "Resource":[
+            "arn:aws:kms:region:account-id:key/KMS-key-id"
+            ]
+         }
+      ]
+   }’
+   ```
+
+   
+
+## Cross\-service confused deputy prevention<a name="aws-forecast-confused-deputy"></a>
+
+The confused deputy problem is a security issue where an entity that doesn’t have permission to perform an action can coerce a more\-privileged entity to perform the action\. In AWS, cross\-service impersonation can result in the confused deputy problem\. Cross\-service impersonation can occur when one service \(the calling service\) calls another service \(the called service\)\. The calling service can be manipulated to use its permissions to act on another customer’s resources in a way it should not otherwise have permission to access\. To prevent this, AWS provides tools that help you protect your data for all services with service principals that have been given access to resources in your account\.
+
+We recommend using the `aws:SourceArn` and `aws:SourceAccount` global condition context keys in resource policies to limit the permissions that Identity and Access Management \(IAM\) gives Amazon Forecast access to your resources\. If you use both global condition context keys, the `aws:SourceAccount` value and the account in the `aws:SourceArn` value must use the same account id when used in the same policy statement\.

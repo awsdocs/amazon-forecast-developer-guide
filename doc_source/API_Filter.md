@@ -4,20 +4,20 @@ Describes a filter for choosing a subset of objects\. Each filter consists of a 
 
 ## Contents<a name="API_Filter_Contents"></a>
 
- **Condition**   <a name="forecast-Type-Filter-Condition"></a>
+ ** Condition **   <a name="forecast-Type-Filter-Condition"></a>
 The condition to apply\. To include the objects that match the statement, specify `IS`\. To exclude matching objects, specify `IS_NOT`\.  
 Type: String  
 Valid Values:` IS | IS_NOT`   
 Required: Yes
 
- **Key**   <a name="forecast-Type-Filter-Key"></a>
+ ** Key **   <a name="forecast-Type-Filter-Key"></a>
 The name of the parameter to filter on\.  
 Type: String  
 Length Constraints: Maximum length of 256\.  
 Pattern: `^[a-zA-Z0-9\_]+$`   
 Required: Yes
 
- **Value**   <a name="forecast-Type-Filter-Value"></a>
+ ** Value **   <a name="forecast-Type-Filter-Value"></a>
 The value to match\.  
 Type: String  
 Length Constraints: Maximum length of 256\.  

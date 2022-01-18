@@ -6,12 +6,20 @@ For example, in the demand forecasting domain, a target time series dataset woul
 
 A related time series dataset can contain up to 10 forecast dimensions \(the same ones in your target time series dataset\) and up to 13 related time\-series features\.
 
-You can use a related time series dataset when training a predictor with the [CNN\-QR](aws-forecast-algo-cnnqr.md), [DeepAR\+](aws-forecast-recipe-deeparplus.md), and [Prophet](aws-forecast-recipe-prophet.md) algorithms\. [NPTS](aws-forecast-recipe-npts.md), [ARIMA](aws-forecast-recipe-arima.md), and [ETS](aws-forecast-recipe-ets.md) do not accept related time series data\.
-
 **Python notebooks**  
 For a step\-by\-step guide on using related time\-series datasets, see [Incorporating Related Time Series](https://github.com/aws-samples/amazon-forecast-samples/blob/master/notebooks/advanced/Incorporating_Related_Time_Series_dataset_to_your_Predictor/Incorporating_Related_Time_Series_dataset_to_your_Predictor.ipynb)\.
 
+**Topics**
++ [Historical and Forward\-looking Related Time Series](#related-time-series-historical-futurelooking)
++ [Related Time Series Dataset Validation](#related-time-series-dataset-validation)
++ [Example: Forward\-looking Related Time Series File](#related-time-series-example)
++ [Example: Forecasting Granularity](#related-time-series-granularity)
++ [Legacy Predictors and Related Time Series](#related-time-series-legacy)
+
 ## Historical and Forward\-looking Related Time Series<a name="related-time-series-historical-futurelooking"></a>
+
+**Note**  
+ A related time series that contains any values within the forecast horizon is treated as a forward\-looking time series\. 
 
  Related time series come in two forms: 
 +  **Historical time series**: time series *without* data points within the forecast horizon\. 
@@ -20,21 +28,6 @@ For a step\-by\-step guide on using related time\-series datasets, see [Incorpor
 Historical related time series contain data points up to the forecast horizon, and do not contain any data points within the forecast horizon\. Forward\-looking related time series contain data points up to *and* within the forecast horizon\. 
 
 ![\[Image NOT FOUND\]](http://docs.aws.amazon.com/forecast/latest/dg/images/short-long-rts.png)
-
-**Note**  
- A related time series that contains any values within the forecast horizon is treated as a forward\-looking time series\. 
-
- The following table shows the types of related time series each Amazon Forecast algorithm accepts\. 
-
-
-|  | CNN\-QR | DeepAR\+ | Prophet | NPTS | ARIMA | ETS | 
-| --- | --- | --- | --- | --- | --- | --- | 
-|  Historical related time series  | ![\[Image NOT FOUND\]](http://docs.aws.amazon.com/forecast/latest/dg/images/icon-yes.png)  | ![\[Image NOT FOUND\]](http://docs.aws.amazon.com/forecast/latest/dg/images/icon-no.png)  | ![\[Image NOT FOUND\]](http://docs.aws.amazon.com/forecast/latest/dg/images/icon-no.png)  | ![\[Image NOT FOUND\]](http://docs.aws.amazon.com/forecast/latest/dg/images/icon-no.png)  | ![\[Image NOT FOUND\]](http://docs.aws.amazon.com/forecast/latest/dg/images/icon-no.png)  | ![\[Image NOT FOUND\]](http://docs.aws.amazon.com/forecast/latest/dg/images/icon-no.png)  | 
-|  Forward\-looking related time series  | ![\[Image NOT FOUND\]](http://docs.aws.amazon.com/forecast/latest/dg/images/icon-yes.png)  | ![\[Image NOT FOUND\]](http://docs.aws.amazon.com/forecast/latest/dg/images/icon-yes.png)  | ![\[Image NOT FOUND\]](http://docs.aws.amazon.com/forecast/latest/dg/images/icon-yes.png)  | ![\[Image NOT FOUND\]](http://docs.aws.amazon.com/forecast/latest/dg/images/icon-no.png)  | ![\[Image NOT FOUND\]](http://docs.aws.amazon.com/forecast/latest/dg/images/icon-no.png)  | ![\[Image NOT FOUND\]](http://docs.aws.amazon.com/forecast/latest/dg/images/icon-no.png)  | 
-
- When using AutoML, you can provide both historical and forward\-looking related time series data, and Forecast will only use those time series where applicable\. 
-
- If you provide *forward\-looking* related time series data, Forecast will use the related data with CNN\-QR, DeepAR\+, and Prophet, and will not use the related data with NPTS, ARIMA and ETS\. If provided *historical* related time series data, Forecast will use the related data with CNN\-QR, and will not use the related data with DeepAR\+, Prophet, NPTS, ARIMA, and ETS\. 
 
 ## Related Time Series Dataset Validation<a name="related-time-series-dataset-validation"></a>
 
@@ -105,3 +98,22 @@ The following table shows compatible data recording frequencies for target time 
 | Weekly | Weekly | Weekly | Yes | 
 | N/A | Weekly | Weekly | Yes | 
 | Daily | Daily | Weekly | No | 
+
+## Legacy Predictors and Related Time Series<a name="related-time-series-legacy"></a>
+
+**Note**  
+To upgrade an existing predictor to AutoPredictor, see [Upgrading to AutoPredictor](howitworks-predictor.md#upgrading-autopredictor)
+
+When using a legacy predictor, you can use a related time series dataset when training a predictor with the [CNN\-QR](aws-forecast-algo-cnnqr.md), [DeepAR\+](aws-forecast-recipe-deeparplus.md), and [Prophet](aws-forecast-recipe-prophet.md) algorithms\. [NPTS](aws-forecast-recipe-npts.md), [ARIMA](aws-forecast-recipe-arima.md), and [ETS](aws-forecast-recipe-ets.md) do not accept related time series data\.
+
+The following table shows the types of related time series each Amazon Forecast algorithm accepts\. 
+
+
+|  | CNN\-QR | DeepAR\+ | Prophet | NPTS | ARIMA | ETS | 
+| --- | --- | --- | --- | --- | --- | --- | 
+|  Historical related time series  | ![\[Image NOT FOUND\]](http://docs.aws.amazon.com/forecast/latest/dg/images/icon-yes.png)  | ![\[Image NOT FOUND\]](http://docs.aws.amazon.com/forecast/latest/dg/images/icon-no.png)  | ![\[Image NOT FOUND\]](http://docs.aws.amazon.com/forecast/latest/dg/images/icon-no.png)  | ![\[Image NOT FOUND\]](http://docs.aws.amazon.com/forecast/latest/dg/images/icon-no.png)  | ![\[Image NOT FOUND\]](http://docs.aws.amazon.com/forecast/latest/dg/images/icon-no.png)  | ![\[Image NOT FOUND\]](http://docs.aws.amazon.com/forecast/latest/dg/images/icon-no.png)  | 
+|  Forward\-looking related time series  | ![\[Image NOT FOUND\]](http://docs.aws.amazon.com/forecast/latest/dg/images/icon-yes.png)  | ![\[Image NOT FOUND\]](http://docs.aws.amazon.com/forecast/latest/dg/images/icon-yes.png)  | ![\[Image NOT FOUND\]](http://docs.aws.amazon.com/forecast/latest/dg/images/icon-yes.png)  | ![\[Image NOT FOUND\]](http://docs.aws.amazon.com/forecast/latest/dg/images/icon-no.png)  | ![\[Image NOT FOUND\]](http://docs.aws.amazon.com/forecast/latest/dg/images/icon-no.png)  | ![\[Image NOT FOUND\]](http://docs.aws.amazon.com/forecast/latest/dg/images/icon-no.png)  | 
+
+ When using AutoML, you can provide both historical and forward\-looking related time series data, and Forecast will only use those time series where applicable\. 
+
+ If you provide *forward\-looking* related time series data, Forecast will use the related data with CNN\-QR, DeepAR\+, and Prophet, and will not use the related data with NPTS, ARIMA and ETS\. If provided *historical* related time series data, Forecast will use the related data with CNN\-QR, and will not use the related data with DeepAR\+, Prophet, NPTS, ARIMA, and ETS\. 

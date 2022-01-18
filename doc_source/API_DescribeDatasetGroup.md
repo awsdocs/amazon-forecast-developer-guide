@@ -1,6 +1,6 @@
 # DescribeDatasetGroup<a name="API_DescribeDatasetGroup"></a>
 
-Describes a dataset group created using the [CreateDatasetGroup](API_CreateDatasetGroup.md) operation\.
+Describes a dataset group created using the [CreateDatasetGroup](https://docs.aws.amazon.com/forecast/latest/dg/API_CreateDatasetGroup.html) operation\.
 
 In addition to listing the parameters provided in the `CreateDatasetGroup` request, this operation includes the following properties:
 +  `DatasetArns` \- The datasets belonging to the group\.
@@ -75,7 +75,7 @@ Type: String
 Valid Values:` RETAIL | CUSTOM | INVENTORY_PLANNING | EC2_CAPACITY | WORK_FORCE | WEB_TRAFFIC | METRICS` 
 
  ** [LastModificationTime](#API_DescribeDatasetGroup_ResponseSyntax) **   <a name="forecast-DescribeDatasetGroup-response-LastModificationTime"></a>
-When the dataset group was created or last updated from a call to the [UpdateDatasetGroup](API_UpdateDatasetGroup.md) operation\. While the dataset group is being updated, `LastModificationTime` is the current time of the `DescribeDatasetGroup` call\.  
+When the dataset group was created or last updated from a call to the [UpdateDatasetGroup](https://docs.aws.amazon.com/forecast/latest/dg/API_UpdateDatasetGroup.html) operation\. While the dataset group is being updated, `LastModificationTime` is the current time of the `DescribeDatasetGroup` call\.  
 Type: Timestamp
 
  ** [Status](#API_DescribeDatasetGroup_ResponseSyntax) **   <a name="forecast-DescribeDatasetGroup-response-Status"></a>
@@ -84,18 +84,18 @@ The status of the dataset group\. States include:
 +  `CREATE_PENDING`, `CREATE_IN_PROGRESS`, `CREATE_FAILED` 
 +  `DELETE_PENDING`, `DELETE_IN_PROGRESS`, `DELETE_FAILED` 
 +  `UPDATE_PENDING`, `UPDATE_IN_PROGRESS`, `UPDATE_FAILED` 
-The `UPDATE` states apply when you call the [UpdateDatasetGroup](API_UpdateDatasetGroup.md) operation\.  
+The `UPDATE` states apply when you call the [UpdateDatasetGroup](https://docs.aws.amazon.com/forecast/latest/dg/API_UpdateDatasetGroup.html) operation\.  
 The `Status` of the dataset group must be `ACTIVE` before you can use the dataset group to create a predictor\.
 Type: String  
 Length Constraints: Maximum length of 256\.
 
 ## Errors<a name="API_DescribeDatasetGroup_Errors"></a>
 
- **InvalidInputException**   
+ ** InvalidInputException **   
 We can't process the request because it includes an invalid value or a value that exceeds the valid range\.  
 HTTP Status Code: 400
 
- **ResourceNotFoundException**   
+ ** ResourceNotFoundException **   
 We can't find a resource with that Amazon Resource Name \(ARN\)\. Check the ARN and try again\.  
 HTTP Status Code: 400
 

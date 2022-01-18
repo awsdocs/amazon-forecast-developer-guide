@@ -13,14 +13,14 @@ The following basic restrictions apply to tags:
 
 ## Contents<a name="API_Tag_Contents"></a>
 
- **Key**   <a name="forecast-Type-Tag-Key"></a>
+ ** Key **   <a name="forecast-Type-Tag-Key"></a>
 One part of a key\-value pair that makes up a tag\. A `key` is a general label that acts like a category for more specific tag values\.  
 Type: String  
 Length Constraints: Minimum length of 1\. Maximum length of 128\.  
 Pattern: `^([\p{L}\p{Z}\p{N}_.:/=+\-@]*)$`   
 Required: Yes
 
- **Value**   <a name="forecast-Type-Tag-Value"></a>
+ ** Value **   <a name="forecast-Type-Tag-Value"></a>
 The optional part of a key\-value pair that makes up a tag\. A `value` acts as a descriptor within a tag category \(key\)\.  
 Type: String  
 Length Constraints: Minimum length of 0\. Maximum length of 256\.  

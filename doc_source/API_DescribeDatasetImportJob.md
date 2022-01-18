@@ -1,6 +1,6 @@
 # DescribeDatasetImportJob<a name="API_DescribeDatasetImportJob"></a>
 
-Describes a dataset import job created using the [CreateDatasetImportJob](API_CreateDatasetImportJob.md) operation\.
+Describes a dataset import job created using the [CreateDatasetImportJob](https://docs.aws.amazon.com/forecast/latest/dg/API_CreateDatasetImportJob.html) operation\.
 
 In addition to listing the parameters provided in the `CreateDatasetImportJob` request, this operation includes the following properties:
 +  `CreationTime` 
@@ -171,11 +171,11 @@ Type: Boolean
 
 ## Errors<a name="API_DescribeDatasetImportJob_Errors"></a>
 
- **InvalidInputException**   
+ ** InvalidInputException **   
 We can't process the request because it includes an invalid value or a value that exceeds the valid range\.  
 HTTP Status Code: 400
 
- **ResourceNotFoundException**   
+ ** ResourceNotFoundException **   
 We can't find a resource with that Amazon Resource Name \(ARN\)\. Check the ARN and try again\.  
 HTTP Status Code: 400
 

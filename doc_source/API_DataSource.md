@@ -1,11 +1,11 @@
 # DataSource<a name="API_DataSource"></a>
 
-The source of your training data, an AWS Identity and Access Management \(IAM\) role that allows Amazon Forecast to access the data and, optionally, an AWS Key Management Service \(KMS\) key\. This object is submitted in the [CreateDatasetImportJob](API_CreateDatasetImportJob.md) request\.
+The source of your data, an AWS Identity and Access Management \(IAM\) role that allows Amazon Forecast to access the data and, optionally, an AWS Key Management Service \(KMS\) key\.
 
 ## Contents<a name="API_DataSource_Contents"></a>
 
- **S3Config**   <a name="forecast-Type-DataSource-S3Config"></a>
-The path to the training data stored in an Amazon Simple Storage Service \(Amazon S3\) bucket along with the credentials to access the data\.  
+ ** S3Config **   <a name="forecast-Type-DataSource-S3Config"></a>
+The path to the data stored in an Amazon Simple Storage Service \(Amazon S3\) bucket along with the credentials to access the data\.  
 Type: [S3Config](API_S3Config.md) object  
 Required: Yes
 

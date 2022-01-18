@@ -4,7 +4,7 @@ Provides information about a forecast\. Returned as part of the [QueryForecast](
 
 ## Contents<a name="API_forecastquery_Forecast_Contents"></a>
 
- **Predictions**   <a name="forecast-Type-forecastquery_Forecast-Predictions"></a>
+ ** Predictions **   <a name="forecast-Type-forecastquery_Forecast-Predictions"></a>
 The forecast\.  
 The *string* of the string\-to\-array map is one of the following values:  
 + p10

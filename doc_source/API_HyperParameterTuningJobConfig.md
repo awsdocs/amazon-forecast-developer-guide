@@ -8,7 +8,7 @@ In a *hyperparameter tuning job*, Amazon Forecast chooses the set of hyperparame
 
 ## Contents<a name="API_HyperParameterTuningJobConfig_Contents"></a>
 
- **ParameterRanges**   <a name="forecast-Type-HyperParameterTuningJobConfig-ParameterRanges"></a>
+ ** ParameterRanges **   <a name="forecast-Type-HyperParameterTuningJobConfig-ParameterRanges"></a>
 Specifies the ranges of valid values for the hyperparameters\.  
 Type: [ParameterRanges](API_ParameterRanges.md) object  
 Required: No

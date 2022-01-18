@@ -1,6 +1,6 @@
 # DescribeDataset<a name="API_DescribeDataset"></a>
 
-Describes an Amazon Forecast dataset created using the [CreateDataset](API_CreateDataset.md) operation\.
+Describes an Amazon Forecast dataset created using the [CreateDataset](https://docs.aws.amazon.com/forecast/latest/dg/API_CreateDataset.html) operation\.
 
 In addition to listing the parameters specified in the `CreateDataset` request, this operation includes the following dataset properties:
 +  `CreationTime` 
@@ -67,6 +67,7 @@ Type: Timestamp
 The frequency of data collection\.  
 Valid intervals are Y \(Year\), M \(Month\), W \(Week\), D \(Day\), H \(Hour\), 30min \(30 minutes\), 15min \(15 minutes\), 10min \(10 minutes\), 5min \(5 minutes\), and 1min \(1 minute\)\. For example, "M" indicates every month and "30min" indicates every 30 minutes\.  
 Type: String  
+Length Constraints: Minimum length of 1\. Maximum length of 5\.  
 Pattern: `^Y|M|W|D|H|30min|15min|10min|5min|1min$` 
 
  ** [DatasetArn](#API_DescribeDataset_ResponseSyntax) **   <a name="forecast-DescribeDataset-response-DatasetArn"></a>
@@ -96,7 +97,7 @@ The AWS Key Management Service \(KMS\) key and the AWS Identity and Access Manag
 Type: [EncryptionConfig](API_EncryptionConfig.md) object
 
  ** [LastModificationTime](#API_DescribeDataset_ResponseSyntax) **   <a name="forecast-DescribeDataset-response-LastModificationTime"></a>
-When you create a dataset, `LastModificationTime` is the same as `CreationTime`\. While data is being imported to the dataset, `LastModificationTime` is the current time of the `DescribeDataset` call\. After a [CreateDatasetImportJob](API_CreateDatasetImportJob.md) operation has finished, `LastModificationTime` is when the import job completed or failed\.  
+When you create a dataset, `LastModificationTime` is the same as `CreationTime`\. While data is being imported to the dataset, `LastModificationTime` is the current time of the `DescribeDataset` call\. After a [CreateDatasetImportJob](https://docs.aws.amazon.com/forecast/latest/dg/API_CreateDatasetImportJob.html) operation has finished, `LastModificationTime` is when the import job completed or failed\.  
 Type: Timestamp
 
  ** [Schema](#API_DescribeDataset_ResponseSyntax) **   <a name="forecast-DescribeDataset-response-Schema"></a>
@@ -109,18 +110,18 @@ The status of the dataset\. States include:
 +  `CREATE_PENDING`, `CREATE_IN_PROGRESS`, `CREATE_FAILED` 
 +  `DELETE_PENDING`, `DELETE_IN_PROGRESS`, `DELETE_FAILED` 
 +  `UPDATE_PENDING`, `UPDATE_IN_PROGRESS`, `UPDATE_FAILED` 
-The `UPDATE` states apply while data is imported to the dataset from a call to the [CreateDatasetImportJob](API_CreateDatasetImportJob.md) operation and reflect the status of the dataset import job\. For example, when the import job status is `CREATE_IN_PROGRESS`, the status of the dataset is `UPDATE_IN_PROGRESS`\.  
+The `UPDATE` states apply while data is imported to the dataset from a call to the [CreateDatasetImportJob](https://docs.aws.amazon.com/forecast/latest/dg/API_CreateDatasetImportJob.html) operation and reflect the status of the dataset import job\. For example, when the import job status is `CREATE_IN_PROGRESS`, the status of the dataset is `UPDATE_IN_PROGRESS`\.  
 The `Status` of the dataset must be `ACTIVE` before you can import training data\.
 Type: String  
 Length Constraints: Maximum length of 256\.
 
 ## Errors<a name="API_DescribeDataset_Errors"></a>
 
- **InvalidInputException**   
+ ** InvalidInputException **   
 We can't process the request because it includes an invalid value or a value that exceeds the valid range\.  
 HTTP Status Code: 400
 
- **ResourceNotFoundException**   
+ ** ResourceNotFoundException **   
 We can't find a resource with that Amazon Resource Name \(ARN\)\. Check the ARN and try again\.  
 HTTP Status Code: 400
 

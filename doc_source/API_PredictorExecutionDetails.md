@@ -4,7 +4,7 @@ Contains details on the backtests performed to evaluate the accuracy of the pred
 
 ## Contents<a name="API_PredictorExecutionDetails_Contents"></a>
 
- **PredictorExecutions**   <a name="forecast-Type-PredictorExecutionDetails-PredictorExecutions"></a>
+ ** PredictorExecutions **   <a name="forecast-Type-PredictorExecutionDetails-PredictorExecutions"></a>
 An array of the backtests performed to evaluate the accuracy of the predictor against a particular algorithm\. The `NumberOfBacktestWindows` from the [EvaluationParameters](API_EvaluationParameters.md) object determines the number of windows in the array\.  
 Type: Array of [PredictorExecution](API_PredictorExecution.md) objects  
 Array Members: Minimum number of 1 item\. Maximum number of 5 items\.  

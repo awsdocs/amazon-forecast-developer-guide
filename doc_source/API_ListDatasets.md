@@ -1,6 +1,6 @@
 # ListDatasets<a name="API_ListDatasets"></a>
 
-Returns a list of datasets created using the [CreateDataset](API_CreateDataset.md) operation\. For each dataset, a summary of its properties, including its Amazon Resource Name \(ARN\), is returned\. To retrieve the complete set of properties, use the ARN with the [DescribeDataset](API_DescribeDataset.md) operation\.
+Returns a list of datasets created using the [CreateDataset](https://docs.aws.amazon.com/forecast/latest/dg/API_CreateDataset.html) operation\. For each dataset, a summary of its properties, including its Amazon Resource Name \(ARN\), is returned\. To retrieve the complete set of properties, use the ARN with the [DescribeDataset](https://docs.aws.amazon.com/forecast/latest/dg/API_DescribeDataset.html) operation\.
 
 ## Request Syntax<a name="API_ListDatasets_RequestSyntax"></a>
 
@@ -25,6 +25,7 @@ Required: No
 If the result of the previous request was truncated, the response includes a `NextToken`\. To retrieve the next set of results, use the token in the next request\. Tokens expire after 24 hours\.  
 Type: String  
 Length Constraints: Minimum length of 1\. Maximum length of 3000\.  
+Pattern: `.+`   
 Required: No
 
 ## Response Syntax<a name="API_ListDatasets_ResponseSyntax"></a>
@@ -58,11 +59,12 @@ Type: Array of [DatasetSummary](API_DatasetSummary.md) objects
  ** [NextToken](#API_ListDatasets_ResponseSyntax) **   <a name="forecast-ListDatasets-response-NextToken"></a>
 If the response is truncated, Amazon Forecast returns this token\. To retrieve the next set of results, use the token in the next request\.  
 Type: String  
-Length Constraints: Minimum length of 1\. Maximum length of 3000\.
+Length Constraints: Minimum length of 1\. Maximum length of 3000\.  
+Pattern: `.+` 
 
 ## Errors<a name="API_ListDatasets_Errors"></a>
 
- **InvalidNextTokenException**   
+ ** InvalidNextTokenException **   
 The token is not valid\. Tokens expire after 24 hours\.  
 HTTP Status Code: 400
 

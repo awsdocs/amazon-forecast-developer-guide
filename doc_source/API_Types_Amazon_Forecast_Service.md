@@ -1,8 +1,11 @@
 # Amazon Forecast Service<a name="API_Types_Amazon_Forecast_Service"></a>
 
 The following data types are supported by Amazon Forecast Service:
++  [AdditionalDataset](API_AdditionalDataset.md) 
++  [AttributeConfig](API_AttributeConfig.md) 
 +  [CategoricalParameterRange](API_CategoricalParameterRange.md) 
 +  [ContinuousParameterRange](API_ContinuousParameterRange.md) 
++  [DataConfig](API_DataConfig.md) 
 +  [DataDestination](API_DataDestination.md) 
 +  [DatasetGroupSummary](API_DatasetGroupSummary.md) 
 +  [DatasetImportJobSummary](API_DatasetImportJobSummary.md) 
@@ -12,6 +15,10 @@ The following data types are supported by Amazon Forecast Service:
 +  [ErrorMetric](API_ErrorMetric.md) 
 +  [EvaluationParameters](API_EvaluationParameters.md) 
 +  [EvaluationResult](API_EvaluationResult.md) 
++  [ExplainabilityConfig](API_ExplainabilityConfig.md) 
++  [ExplainabilityExportSummary](API_ExplainabilityExportSummary.md) 
++  [ExplainabilityInfo](API_ExplainabilityInfo.md) 
++  [ExplainabilitySummary](API_ExplainabilitySummary.md) 
 +  [Featurization](API_Featurization.md) 
 +  [FeaturizationConfig](API_FeaturizationConfig.md) 
 +  [FeaturizationMethod](API_FeaturizationMethod.md) 
@@ -27,6 +34,7 @@ The following data types are supported by Amazon Forecast Service:
 +  [PredictorExecution](API_PredictorExecution.md) 
 +  [PredictorExecutionDetails](API_PredictorExecutionDetails.md) 
 +  [PredictorSummary](API_PredictorSummary.md) 
++  [ReferencePredictorSummary](API_ReferencePredictorSummary.md) 
 +  [S3Config](API_S3Config.md) 
 +  [Schema](API_Schema.md) 
 +  [SchemaAttribute](API_SchemaAttribute.md) 

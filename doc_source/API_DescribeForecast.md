@@ -81,6 +81,7 @@ Pattern: `^[a-zA-Z][a-zA-Z0-9_]*`
 The quantiles at which probabilistic forecasts were generated\.  
 Type: Array of strings  
 Array Members: Minimum number of 1 item\. Maximum number of 20 items\.  
+Length Constraints: Minimum length of 2\. Maximum length of 4\.  
 Pattern: `(^0?\.\d\d?$|^mean$)` 
 
  ** [LastModificationTime](#API_DescribeForecast_ResponseSyntax) **   <a name="forecast-DescribeForecast-response-LastModificationTime"></a>
@@ -115,11 +116,11 @@ Pattern: `^[a-zA-Z0-9\_]+$`
 
 ## Errors<a name="API_DescribeForecast_Errors"></a>
 
- **InvalidInputException**   
+ ** InvalidInputException **   
 We can't process the request because it includes an invalid value or a value that exceeds the valid range\.  
 HTTP Status Code: 400
 
- **ResourceNotFoundException**   
+ ** ResourceNotFoundException **   
 We can't find a resource with that Amazon Resource Name \(ARN\)\. Check the ARN and try again\.  
 HTTP Status Code: 400
 

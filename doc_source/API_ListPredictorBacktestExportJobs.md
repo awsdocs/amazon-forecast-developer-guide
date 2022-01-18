@@ -43,6 +43,7 @@ Required: No
 If the result of the previous request was truncated, the response includes a NextToken\. To retrieve the next set of results, use the token in the next request\. Tokens expire after 24 hours\.  
 Type: String  
 Length Constraints: Minimum length of 1\. Maximum length of 3000\.  
+Pattern: `.+`   
 Required: No
 
 ## Response Syntax<a name="API_ListPredictorBacktestExportJobs_ResponseSyntax"></a>
@@ -79,7 +80,8 @@ The following data is returned in JSON format by the service\.
  ** [NextToken](#API_ListPredictorBacktestExportJobs_ResponseSyntax) **   <a name="forecast-ListPredictorBacktestExportJobs-response-NextToken"></a>
 Returns this token if the response is truncated\. To retrieve the next set of results, use the token in the next request\.  
 Type: String  
-Length Constraints: Minimum length of 1\. Maximum length of 3000\.
+Length Constraints: Minimum length of 1\. Maximum length of 3000\.  
+Pattern: `.+` 
 
  ** [PredictorBacktestExportJobs](#API_ListPredictorBacktestExportJobs_ResponseSyntax) **   <a name="forecast-ListPredictorBacktestExportJobs-response-PredictorBacktestExportJobs"></a>
 An array of objects that summarize the properties of each predictor backtest export job\.  
@@ -87,11 +89,11 @@ Type: Array of [PredictorBacktestExportJobSummary](API_PredictorBacktestExportJo
 
 ## Errors<a name="API_ListPredictorBacktestExportJobs_Errors"></a>
 
- **InvalidInputException**   
+ ** InvalidInputException **   
 We can't process the request because it includes an invalid value or a value that exceeds the valid range\.  
 HTTP Status Code: 400
 
- **InvalidNextTokenException**   
+ ** InvalidNextTokenException **   
 The token is not valid\. Tokens expire after 24 hours\.  
 HTTP Status Code: 400
 

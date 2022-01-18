@@ -43,7 +43,7 @@ Regardless of whether you use the Amazon Forecast console or the AWS Command Lin
 
 1. Upload the data file to an S3 bucket\. 
 
-   For step\-by\-step instructions, see [Uploading Files and Folders by Using Drag and Drop](https://docs.aws.amazon.com/AmazonS3/latest/user-guide/upload-objects.html) in the *Amazon Simple Storage Service Console User Guide\.*
+   For step\-by\-step instructions, see [Uploading Files and Folders by Using Drag and Drop](https://docs.aws.amazon.com/AmazonS3/latest/user-guide/upload-objects.html) in the *Amazon Simple Storage Service User Guide\.*
 
 1. Create an IAM role\. 
 

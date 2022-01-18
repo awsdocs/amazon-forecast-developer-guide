@@ -4,12 +4,12 @@ The forecast value for a specific date\. Part of the [Forecast](API_forecastquer
 
 ## Contents<a name="API_forecastquery_DataPoint_Contents"></a>
 
- **Timestamp**   <a name="forecast-Type-forecastquery_DataPoint-Timestamp"></a>
+ ** Timestamp **   <a name="forecast-Type-forecastquery_DataPoint-Timestamp"></a>
 The timestamp of the specific forecast\.  
 Type: String  
 Required: No
 
- **Value**   <a name="forecast-Type-forecastquery_DataPoint-Value"></a>
+ ** Value **   <a name="forecast-Type-forecastquery_DataPoint-Value"></a>
 The forecast value\.  
 Type: Double  
 Required: No

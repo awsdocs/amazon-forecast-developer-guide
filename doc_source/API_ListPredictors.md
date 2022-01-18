@@ -1,6 +1,8 @@
 # ListPredictors<a name="API_ListPredictors"></a>
 
-Returns a list of predictors created using the [CreatePredictor](API_CreatePredictor.md) operation\. For each predictor, this operation returns a summary of its properties, including its Amazon Resource Name \(ARN\)\. You can retrieve the complete set of properties by using the ARN with the [DescribePredictor](API_DescribePredictor.md) operation\. You can filter the list using an array of [Filter](API_Filter.md) objects\.
+Returns a list of predictors created using the [CreateAutoPredictor](API_CreateAutoPredictor.md) or [CreatePredictor](API_CreatePredictor.md) operations\. For each predictor, this operation returns a summary of its properties, including its Amazon Resource Name \(ARN\)\. 
+
+You can retrieve the complete set of properties by using the ARN with the [DescribeAutoPredictor](API_DescribeAutoPredictor.md) and [DescribePredictor](API_DescribePredictor.md) operations\. You can filter the list using an array of [Filter](API_Filter.md) objects\.
 
 ## Request Syntax<a name="API_ListPredictors_RequestSyntax"></a>
 
@@ -43,6 +45,7 @@ Required: No
 If the result of the previous request was truncated, the response includes a `NextToken`\. To retrieve the next set of results, use the token in the next request\. Tokens expire after 24 hours\.  
 Type: String  
 Length Constraints: Minimum length of 1\. Maximum length of 3000\.  
+Pattern: `.+`   
 Required: No
 
 ## Response Syntax<a name="API_ListPredictors_ResponseSyntax"></a>
@@ -54,10 +57,15 @@ Required: No
       { 
          "CreationTime": number,
          "DatasetGroupArn": "string",
+         "IsAutoPredictor": boolean,
          "LastModificationTime": number,
          "Message": "string",
          "PredictorArn": "string",
          "PredictorName": "string",
+         "ReferencePredictorSummary": { 
+            "Arn": "string",
+            "State": "string"
+         },
          "Status": "string"
       }
    ]
@@ -73,7 +81,8 @@ The following data is returned in JSON format by the service\.
  ** [NextToken](#API_ListPredictors_ResponseSyntax) **   <a name="forecast-ListPredictors-response-NextToken"></a>
 If the response is truncated, Amazon Forecast returns this token\. To retrieve the next set of results, use the token in the next request\.  
 Type: String  
-Length Constraints: Minimum length of 1\. Maximum length of 3000\.
+Length Constraints: Minimum length of 1\. Maximum length of 3000\.  
+Pattern: `.+` 
 
  ** [Predictors](#API_ListPredictors_ResponseSyntax) **   <a name="forecast-ListPredictors-response-Predictors"></a>
 An array of objects that summarize each predictor's properties\.  
@@ -81,11 +90,11 @@ Type: Array of [PredictorSummary](API_PredictorSummary.md) objects
 
 ## Errors<a name="API_ListPredictors_Errors"></a>
 
- **InvalidInputException**   
+ ** InvalidInputException **   
 We can't process the request because it includes an invalid value or a value that exceeds the valid range\.  
 HTTP Status Code: 400
 
- **InvalidNextTokenException**   
+ ** InvalidNextTokenException **   
 The token is not valid\. Tokens expire after 24 hours\.  
 HTTP Status Code: 400
 

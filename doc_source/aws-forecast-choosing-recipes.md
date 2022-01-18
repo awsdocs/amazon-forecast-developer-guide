@@ -1,8 +1,8 @@
-# Choosing an Amazon Forecast Algorithm<a name="aws-forecast-choosing-recipes"></a>
+# Amazon Forecast Algorithms<a name="aws-forecast-choosing-recipes"></a>
 
 An Amazon Forecast predictor uses an algorithm to train a model with your time series datasets\. The trained model is then used to generate metrics and predictions\. 
 
- If you are unsure of which algorithm to use to train your model, choose AutoML when creating a predictor and let Forecast select the optimal algorithm for your datasets\. Otherwise, you can manually select one of the built\-in algorithms\. 
+ If you are unsure of which algorithm to use to train your model, choose AutoML when creating a predictor and let Forecast train the optimal model for your datasets\. Otherwise, you can manually select one of the Amazon Forecast algorithms\. 
 
 **Python notebooks**  
 For a step\-by\-step guide on using AutoML, see [Getting Started with AutoML](https://github.com/aws-samples/amazon-forecast-samples/blob/master/notebooks/advanced/Getting_started_with_AutoML/Getting_started_with_AutoML.ipynb)\.

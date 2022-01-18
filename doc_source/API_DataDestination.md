@@ -4,7 +4,7 @@ The destination for an export job\. Provide an S3 path, an AWS Identity and Acce
 
 ## Contents<a name="API_DataDestination_Contents"></a>
 
- **S3Config**   <a name="forecast-Type-DataDestination-S3Config"></a>
+ ** S3Config **   <a name="forecast-Type-DataDestination-S3Config"></a>
 The path to an Amazon Simple Storage Service \(Amazon S3\) bucket along with the credentials to access the bucket\.  
 Type: [S3Config](API_S3Config.md) object  
 Required: Yes

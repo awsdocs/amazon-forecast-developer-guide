@@ -4,18 +4,29 @@
 
 ## Contents<a name="API_ErrorMetric_Contents"></a>
 
- **ForecastType**   <a name="forecast-Type-ErrorMetric-ForecastType"></a>
- The Forecast type used to compute WAPE and RMSE\.   
+ ** ForecastType **   <a name="forecast-Type-ErrorMetric-ForecastType"></a>
+ The Forecast type used to compute WAPE, MAPE, MASE, and RMSE\.   
 Type: String  
+Length Constraints: Minimum length of 2\. Maximum length of 4\.  
 Pattern: `(^0?\.\d\d?$|^mean$)`   
 Required: No
 
- **RMSE**   <a name="forecast-Type-ErrorMetric-RMSE"></a>
+ ** MAPE **   <a name="forecast-Type-ErrorMetric-MAPE"></a>
+The Mean Absolute Percentage Error \(MAPE\)  
+Type: Double  
+Required: No
+
+ ** MASE **   <a name="forecast-Type-ErrorMetric-MASE"></a>
+The Mean Absolute Scaled Error \(MASE\)  
+Type: Double  
+Required: No
+
+ ** RMSE **   <a name="forecast-Type-ErrorMetric-RMSE"></a>
  The root\-mean\-square error \(RMSE\)\.   
 Type: Double  
 Required: No
 
- **WAPE**   <a name="forecast-Type-ErrorMetric-WAPE"></a>
+ ** WAPE **   <a name="forecast-Type-ErrorMetric-WAPE"></a>
  The weighted absolute percentage error \(WAPE\)\.   
 Type: Double  
 Required: No
